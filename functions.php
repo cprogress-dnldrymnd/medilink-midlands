@@ -91,3 +91,31 @@ function _author_name($post_author)
         return false; // Or handle the error as needed
     }
 }
+
+function _author_logo($post_author)
+{
+
+
+    if (!$post_author) {
+        return false; // No user ID, or not logged in.
+    }
+
+    // Check if Ultimate Member is active.
+    if (!function_exists('um_profile')) {
+        return false; // Ultimate Member not active.
+    }
+
+    $image_id = um_user('organisation_logo', $post_author); // Get the image ID from the field.
+
+    if (!$image_id) {
+        return false; // No image ID found.
+    }
+
+    $image_url = wp_get_attachment_url($image_id);
+
+    if (!$image_url) {
+        return false; // Image URL could not be retrieved.
+    }
+
+    return $image_url;
+}
