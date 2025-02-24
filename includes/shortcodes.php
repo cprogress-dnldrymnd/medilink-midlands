@@ -560,25 +560,42 @@ function offer_category()
 add_shortcode('offer_category', 'offer_category');
 
 
+function blog_category()
+{
+    $terms = get_terms(array(
+        'taxonomy' => 'category',
+        'hide_empty' => false,
+    ));
+    $select = '<option>Select Category</option>';
+    foreach ($terms as $term) {
+        $select .= '<option value="' . $term->term_id . '">';
+        //$select[$term->term_id] = $term->name;
+        $select .= $term->name;
+        $select .= '</option>';
+    }
+
+    return $select;
+}
+
 function template($atts)
 {
-	extract(
-		shortcode_atts(
-			array(
-				'template_id' => '',
-			),
-			$atts
-		)
-	);
+    extract(
+        shortcode_atts(
+            array(
+                'template_id' => '',
+            ),
+            $atts
+        )
+    );
 
-	$style = '<style type="text/css" data-type="vc_shortcodes-custom-css"> ' . get_post_meta($template_id, '_wpb_shortcodes_custom_css', true) . ' </style>';
+    $style = '<style type="text/css" data-type="vc_shortcodes-custom-css"> ' . get_post_meta($template_id, '_wpb_shortcodes_custom_css', true) . ' </style>';
 
-	$content_post = get_post($template_id);
-	$content = $content_post->post_content;
-	$content = apply_filters('the_content', $content);
-	$content = str_replace(']]>', ']]&gt;', $content);
+    $content_post = get_post($template_id);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
 
-	return $style . $content;
+    return $style . $content;
 }
 
 add_shortcode('template', 'template');
