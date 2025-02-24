@@ -387,6 +387,9 @@ function member_directory()
             <div class="col-lg-3">
                 <div class="member-directory-filters-holder">
                     <div class="filter-title">Member Profile Filter</div>
+                    <div class="member-directory-search">
+                        <input type="text" placeholder="Search...">
+                    </div>
                     <div class="member-directory-filters">
                         <?php foreach ($filters as $filter) {  ?>
                             <div class="member-directory-filter">
