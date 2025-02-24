@@ -198,6 +198,7 @@ function save_cf7_to_custom_post($contact_form)
         $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : ''; // Example
         $submit_blog_featured_image = isset($posted_data['submit_blog_featured_image']) ? $posted_data['submit_blog_featured_image'][0]  : false; // Example
         $submit_blog_user_id = isset($posted_data['submit_blog_user_id']) ? $posted_data['submit_blog_user_id'] : false; // Example
+        $submit_blog_category = isset($posted_data['submit_blog_category']) ? $posted_data['submit_blog_category'][0] : false; // Example
 
         $post_data = array();
 
@@ -215,6 +216,9 @@ function save_cf7_to_custom_post($contact_form)
             if ($submit_blog_featured_image) {
                 $featured_image = upload_file($submit_blog_featured_image, $post_id);
                 set_post_thumbnail($post_id, $featured_image);
+            }
+            if ($submit_blog_category) {
+                wp_set_post_terms($post_id, $submit_blog_category, 'category');
             }
         }
     }
