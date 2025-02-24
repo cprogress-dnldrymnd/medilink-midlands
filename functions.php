@@ -266,6 +266,25 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
 {
     ob_start();
 ?>
+    <div class="header-title-breadcrumb relative">
+        <div class="header-title-breadcrumb-overlay text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                        <h1><?= $heading ?></h1>
+
+                        <ol class="breadcrumb text-left">
+                            <li><a href="https://medilink.theprogressteam.com/">Home</a></li>
+                            <li class="active"><?= $heading ?></li>
+                        </ol>
+                        <div class="desc">
+                            <?= wpautop($desc) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php
     return ob_get_clean();
 }
