@@ -56,6 +56,9 @@ function memberplace_marketplace()
                             <div class="image-box">
                                 <img src="<?= _author_logo($post_author) ?>">
                             </div>
+                            <div class="post-author">
+                                <p><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></p>
+                            </div>
                             <div class="desc">
                                 <h3>
                                     <?php the_title() ?>

@@ -32,7 +32,7 @@
                     <div class="col-lg-4">
                         <div class="post-box">
                             <div class="top">
-
+                              
                                 <div class="desc">
                                     <h3>
                                         <?php the_title() ?>
