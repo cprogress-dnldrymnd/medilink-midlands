@@ -25,3 +25,12 @@ function change_mt_listing_slug( $args, $post_type ) {
     return $args;
 }
 add_filter( 'register_post_type_args', 'change_mt_listing_slug', 10, 2 );
+
+
+function change_mt_listing_category2_slug( $args, $taxonomy ) {
+    if ( 'mt-listing-category2' === $taxonomy ) {
+        $args['rewrite']['slug'] = 'resources-category';
+    }
+    return $args;
+}
+add_filter( 'register_taxonomy_args', 'change_mt_listing_category2_slug', 10, 2 );
