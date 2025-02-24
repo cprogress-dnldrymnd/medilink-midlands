@@ -163,16 +163,17 @@ function save_cf7_to_custom_post($contact_form)
         $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? $posted_data['submit_offer_supporting_resource'] : false; // Example
         $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false; // Example
         $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false; // Example
-
+        $user_id = isset($posted_data['user_id']) ? $posted_data['user_id'][0] : false; // Example
+        
         $post_data = array();
 
         $post_data['post_title'] = $post_title;
         if ($post_content) {
-            $post_data['post_content'] = get_current_user_id();
+            $post_data['post_content'] = $post_content;
         }
         $post_data['post_type'] = 'membersmarketplace';
         $post_data['post_status'] = 'pending';
-        $post_data['post_author'] = get_current_user_id();
+        $post_data['post_author'] = $user_id;
 
         $post_id = wp_insert_post($post_data);
 
