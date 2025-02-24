@@ -47,7 +47,7 @@ function memberplace_marketplace()
             <?php while (have_posts()) {
                 the_post() ?>
                 <?php
-                $post_author = get_the_author_ID();
+                $post_author = get_the_author_meta( 'ID' );
                 echo $post_author;
                 ?>
                 <div class="col-lg-4">
