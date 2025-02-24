@@ -164,7 +164,7 @@ function save_cf7_to_custom_post($contact_form)
         $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false; // Example
         $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false; // Example
         $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'][0] : false; // Example
-        
+
         $post_data = array();
 
         $post_data['post_title'] = $post_title;
@@ -259,4 +259,13 @@ function upload_file($file_url, $post_id = 0)
     wp_update_attachment_metadata($attachment_id, wp_generate_attachment_metadata($attachment_id, $movefile['file']));
 
     return $attachment_id;
+}
+
+
+function wikb_header_title_breadcrumbs_v2($heading, $desc)
+{
+    ob_start();
+?>
+<?php
+    return ob_get_clean();
 }
