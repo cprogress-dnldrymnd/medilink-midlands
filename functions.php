@@ -176,6 +176,10 @@ function save_cf7_to_custom_post($contact_form)
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
+
+            if ($submit_offer_category) {
+                wp_set_object_terms($post_id, 'membersmarketplace_category', $submit_offer_category);
+            }
         }
     }
 }
