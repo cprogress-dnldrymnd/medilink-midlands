@@ -178,6 +178,10 @@ function save_cf7_to_custom_post($contact_form)
 
         if ($post_id) {
 
+            if ($submit_offer_supporting_image) {
+                $featured_image = upload_file($submit_offer_supporting_image, $post_id);
+                set_post_thumbnail($post_id, $featured_image);
+            }
             if ($submit_offer_category) {
                 wp_set_post_terms($post_id, $submit_offer_category, 'membersmarketplace_category');
             }
@@ -186,3 +190,67 @@ function save_cf7_to_custom_post($contact_form)
 }
 
 add_action('wpcf7_mail_sent', 'save_cf7_to_custom_post'); // Use wpcf7_mail_sent instead of wpcf7_submit
+
+
+/**
+ * Uploads a file to the WordPress media library from a URL.
+ *
+ * @param string $file_url The URL of the file to upload.
+ * @param int    $post_id  Optional. The ID of the post to attach the media to.
+ * @return int|WP_Error The attachment ID on success, WP_Error on failure.
+ */
+function upload_file($file_url, $post_id = 0)
+{
+    require_once ABSPATH . 'wp-admin/includes/media.php';
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    // Download file to temp location.
+    $temp_file = download_url($file_url);
+
+    if (is_wp_error($temp_file)) {
+        return $temp_file; // Return WP_Error on failure.
+    }
+
+    // Array based on $_FILE format.
+    $file_array = array(
+        'name'     => basename($file_url),
+        'tmp_name' => $temp_file,
+    );
+
+    // Check for upload errors.
+    $upload_overrides = array(
+        'test_form' => false,
+        'test_size' => true,
+    );
+
+    $movefile = wp_handle_sideload($file_array, $upload_overrides);
+
+    if (isset($movefile['error'])) {
+        @unlink($file_array['tmp_name']); //remove the temp file
+        return new WP_Error('upload_error', $movefile['error']);
+    }
+
+    $attachment_id = wp_insert_attachment(
+        array(
+            'guid'           => $movefile['url'],
+            'post_mime_type' => $movefile['type'],
+            'post_title'     => preg_replace('/\.[^.]+$/', '', basename($movefile['file'])),
+            'post_content'   => '',
+            'post_status'    => 'inherit',
+        ),
+        $movefile['file'],
+        $post_id
+    );
+
+    if (is_wp_error($attachment_id)) {
+        @unlink($file_array['tmp_name']); //remove the temp file
+        return $attachment_id;
+    }
+
+    // Generate attachment metadata.
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+    wp_update_attachment_metadata($attachment_id, wp_generate_attachment_metadata($attachment_id, $movefile['file']));
+
+    return $attachment_id;
+}
