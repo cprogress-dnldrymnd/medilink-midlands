@@ -172,6 +172,7 @@ function save_cf7_to_custom_post($contact_form)
         }
         $post_data['post_type'] = 'membersmarketplace';
         $post_data['post_status'] = 'pending';
+        $post_data['post_author'] = get_current_user_id();
 
         $post_id = wp_insert_post($post_data);
 
