@@ -266,7 +266,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
 {
     ob_start();
 ?>
-    <div class="header-title-breadcrumb relative">
+    <div class="header-title-breadcrumb header-title-breadcrumb-custom relative">
         <div class="header-title-breadcrumb-overlay text-center">
             <div class="container">
                 <div class="row">
