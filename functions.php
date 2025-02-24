@@ -177,10 +177,15 @@ function save_cf7_to_custom_post($contact_form)
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
-
             if ($submit_offer_supporting_image) {
                 $featured_image = upload_file($submit_offer_supporting_image, $post_id);
                 set_post_thumbnail($post_id, $featured_image);
+            }
+            if ($submit_offer_supporting_resource) {
+                foreach ($submit_offer_supporting_resource as $key => $resource) {
+                    $resource_file = upload_file($resource, $post_id);
+                    carbon_set_post_meta($post_id, "submit_offer_supporting_resource[$key]/resource", $resource_file);
+                }
             }
             if ($submit_offer_category) {
                 wp_set_post_terms($post_id, $submit_offer_category, 'membersmarketplace_category');
