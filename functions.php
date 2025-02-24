@@ -16,3 +16,12 @@ function cv_register_custom_fields()
 }
 require_once('includes/shortcodes.php');
 require_once('includes/post-types.php');
+
+
+function change_mt_listing_slug( $args, $post_type ) {
+    if ( 'mt_listing' === $post_type ) {
+        $args['rewrite']['slug'] = 'resources';
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'change_mt_listing_slug', 10, 2 );
