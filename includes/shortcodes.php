@@ -576,6 +576,7 @@ function blog_category()
 
     return $select;
 }
+add_shortcode('blog_category', 'blog_category');
 
 function template($atts)
 {
