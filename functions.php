@@ -166,13 +166,14 @@ function save_cf7_to_custom_post($contact_form)
         $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? wp_kses_post($posted_data['submit_offer_supporting_resource']) : false; // Example
         $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? wp_kses_post($posted_data['submit_offer_supporting_image']) : false; // Example
         $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : false; // Example
+        $submit_offer_category = isset($posted_data['submit_offer_category']) ? wp_kses_post($posted_data['submit_offer_category']) : false; // Example
 
 
         $post_data = array();
 
         $post_data['post_title'] = $post_title;
         if ($post_content) {
-            $post_data['post_content'] = $post_content . $submit_offer_supporting_resource . $submit_offer_supporting_image;
+            $post_data['post_content'] = $post_content . '|' . $submit_offer_supporting_resource . '|' . $submit_offer_supporting_image . '|' . $submit_offer_category;
         }
         $post_data['post_type'] = 'membersmarketplace';
         $post_data['post_status'] = 'pending';
@@ -180,7 +181,6 @@ function save_cf7_to_custom_post($contact_form)
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
-            
         }
     }
 }
