@@ -128,9 +128,9 @@ function _author_name($post_author)
 function _author_logo($post_author)
 {
     $organisation = get_user_meta($post_author, 'organisation_logo', true);
-
+    $member_folder = "/wp-content/uploads/ultimatemember/$post_author/";
     if ($organisation) {
-        return $organisation;
+        return $member_folder . $organisation;
     } else {
         return false; // Or handle the absence of the meta value as needed
     }
