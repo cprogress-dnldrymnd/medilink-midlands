@@ -168,7 +168,7 @@ function save_cf7_to_custom_post($contact_form)
 
         $post_data['post_title'] = $post_title;
         if ($post_content) {
-            $post_data['post_content'] = $submit_offer_supporting_image;
+            $post_data['post_content'] = get_current_user_id();
         }
         $post_data['post_type'] = 'membersmarketplace';
         $post_data['post_status'] = 'pending';
