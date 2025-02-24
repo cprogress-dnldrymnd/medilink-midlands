@@ -21,7 +21,7 @@
     </div>
 </section>
 
-<section class="current-offers">
+<section class="current-offers training-materials-section">
     <div class="container">
         <h2>Training Materials</h2>
 
