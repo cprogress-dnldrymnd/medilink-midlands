@@ -1,19 +1,30 @@
 <?php get_header() ?>
+<?php
+$curent_term = get_queried_object();
+$current_id = $curent_term->term_id;
+$name = $curent_term->name;
+
+if (is_tax()) {
+    $title = 'MEDILINK MEMBERS MARKETPLACE' . $name;
+} else {
+    $title = 'MEDILINK MEMBERS MARKETPLACE';
+}
+?>
 <div class="header-title-breadcrumb header-title-breadcrumb-custom relative">
     <div class="header-title-breadcrumb-overlay text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                    <h1>MEDILINK MEMBERS MARKETPLACE</h1>
-					<p style="margin-bottom: 2rem">
-						Welcome to the Member Marketplace submission area.
-					</p>
+                    <h1><?= $title ?></h1>
+                    <p style="margin-bottom: 2rem">
+                        Welcome to the Member Marketplace submission area.
+                    </p>
                     <ol class="breadcrumb text-left">
                         <li><a href="https://medilink.theprogressteam.com/">Home</a></li>
                         <li>MEMBERS MARKETPLACE</li>
                     </ol>
-					
-				  <div class="modeltheme_button wow bounce animated" style="margin-top: 40px; visibility: visible;"><a href="#submit-offer" class="button-winona button-green btn btn-sm">Submit an offer</a></div>
+
+                    <div class="modeltheme_button wow bounce animated" style="margin-top: 40px; visibility: visible;"><a href="#submit-offer" class="button-winona button-green btn btn-sm">Submit an offer</a></div>
                 </div>
             </div>
         </div>
@@ -28,7 +39,7 @@ $featureds = get_posts(array(
 ?>
 <section class="latest-offers">
     <div class="container">
-      
+
         <h2>Latest Offers</h2>
         <div class="featured-offers">
             <div class="swiper swiper-featured-offers">
