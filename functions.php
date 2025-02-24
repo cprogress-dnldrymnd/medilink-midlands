@@ -47,8 +47,8 @@ function memberplace_marketplace()
             <?php while (have_posts()) {
                 the_post() ?>
                 <?php
-                $post_author = get_the_author_meta( 'ID' );
-                echo $post_author;
+                $post_author = get_the_author_meta('ID');
+                $offer_image = get_the_post_thumbnail_url(get_the_ID(), 'large');
                 ?>
                 <div class="col-lg-4">
                     <div class="post-box">
@@ -66,7 +66,7 @@ function memberplace_marketplace()
                         </div>
                         <div class="bottom">
                             <div class="modeltheme_button">
-                                <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($featured->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $featured->post_title ?>">Claim Offer</a>
+                                <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop(get_the_content()) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= get_the_title() ?>">Claim Offer</a>
                             </div>
                         </div>
                     </div>
