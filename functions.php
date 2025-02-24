@@ -138,3 +138,51 @@ function _author_logo($post_author)
         return false; // Or handle the absence of the meta value as needed
     }
 }
+
+
+/**
+ * Saves Contact Form 7 data to a custom post type based on the form ID.
+ *
+ * @param WPCF7_ContactForm $contact_form The Contact Form 7 object.
+ */
+function save_cf7_to_custom_post($contact_form)
+{
+    $form_id = $contact_form->id();
+    $submission = WPCF7_Submission::get_instance();
+
+    if (!$submission) {
+        return; // No submission data.
+    }
+
+    $posted_data = $submission->get_posted_data();
+
+
+    if ($form_id == 50054) {
+
+
+        // Sanitize and validate data (crucial!).
+        $post_title = isset($posted_data['submit_offer_title']) ? sanitize_text_field($posted_data['submit_offer_title']) : 'Contact Form Submission'; // Example
+        $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : ''; // Example
+        $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? wp_kses_post($posted_data['submit_offer_supporting_resource']) : false; // Example
+        $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? wp_kses_post($posted_data['submit_offer_supporting_image']) : false; // Example
+        $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : false; // Example
+
+
+        $post_data = array();
+
+        $post_data['post_title'] = $post_title;
+        if ($post_content) {
+            $post_data['post_content'] = $post_content . $submit_offer_supporting_resource . $submit_offer_supporting_image;
+        }
+        $post_data['post_type'] = 'membersmarketplace';
+        $post_data['post_status'] = 'pending';
+
+        $post_id = wp_insert_post($post_data);
+
+        if ($post_id) {
+            
+        }
+    }
+}
+
+add_action('wpcf7_mail_sent', 'save_cf7_to_custom_post'); // Use wpcf7_mail_sent instead of wpcf7_submit
