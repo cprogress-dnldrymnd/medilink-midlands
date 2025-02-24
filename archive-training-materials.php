@@ -9,7 +9,7 @@
                         <li><a href="https://medilink.theprogressteam.com/">Home</a></li>
                         <li>Events and Training Materials</li>
                     </ol>
-			
+
                 </div>
             </div>
         </div>
@@ -24,36 +24,36 @@
 <section class="current-offers">
     <div class="container">
         <h2>Training Materials</h2>
-  
+
         <div class="post-box-holder flex-row">
-        <div class="row">
-            <?php while (have_posts()) {
-                the_post() ?>
-                <div class="col-lg-4">
-                    <div class="post-box">
-                        <div class="top">
-                            
-                            <div class="desc">
-                                <h3>
-                                    <?php the_title() ?>
-                                </h3>
-                            </div>
-                            <?php if (get_the_excerpt()) { ?>
-                                <div class="offer-details">
-                                    <?= wpautop(get_the_excerpt()) ?>
+            <div class="row">
+                <?php while (have_posts()) {
+                    the_post() ?>
+                    <div class="col-lg-4">
+                        <div class="post-box">
+                            <div class="top">
+
+                                <div class="desc">
+                                    <h3>
+                                        <?php the_title() ?>
+                                    </h3>
                                 </div>
-                            <?php } ?>
-                        </div>
-                        <div class="bottom">
-                            <div class="modeltheme_button">
-                                <a href="<?php the_permalink() ?>" class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button">READ MORE</a>
+                                <?php if (get_the_excerpt()) { ?>
+                                    <div class="offer-details">
+                                        <?= wpautop(get_the_excerpt()) ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div class="bottom">
+                                <div class="modeltheme_button">
+                                    <a href="<?php the_permalink() ?>" class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
-    </div>
         <div class="modeltheme_button text-center view-all">
             <a href="#" class="button-winona button-green btn btn-sm">View All</a>
         </div>

@@ -41,11 +41,37 @@ add_filter('register_taxonomy_args', 'change_mt_listing_category2_slug', 10, 2);
 function memberplace_marketplace()
 {
     ob_start();
-    while (have_posts()) {
 ?>
-    ss
-    <?php
-    }
+    <div class="post-box-holder flex-row">
+        <div class="row">
+            <?php while (have_posts()) {
+                the_post() ?>
+                <div class="col-lg-4">
+                    <div class="post-box">
+                        <div class="top">
+
+                            <div class="desc">
+                                <h3>
+                                    <?php the_title() ?>
+                                </h3>
+                            </div>
+                            <?php if (get_the_excerpt()) { ?>
+                                <div class="offer-details">
+                                    <?= wpautop(get_the_excerpt()) ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <div class="bottom">
+                            <div class="modeltheme_button">
+                                <a href="<?php the_permalink() ?>" class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php
     return ob_get_clean();
 }
 
