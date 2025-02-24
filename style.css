@@ -12,7 +12,7 @@ Tags: fluid-layout, custom-header, custom-menu, featured-images, post-formats, s
 
 /* =Theme customization starts here
 ------------------------------------------------------- */
-/*:root {
+:root {
 	--accent-color: #FF8335;
 	--green-color: #34BFA3;
 	--red-color: #F86A6A;
@@ -1301,4 +1301,4 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 		margin: 0 !important;
 		text-align: center;
 	}
-}*/
+}
