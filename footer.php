@@ -17,7 +17,6 @@
     <div class="resources-footer">
         <div class="container">
             <?= do_shortcode('[template template_id=49489]') ?>
-            <?= do_shortcode('[resource_button]') ?>
         </div>
     </div>
 <?php } ?>
