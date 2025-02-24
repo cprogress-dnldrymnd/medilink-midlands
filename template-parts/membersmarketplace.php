@@ -5,7 +5,7 @@ $current_id = $curent_term->term_id;
 $name = $curent_term->name;
 
 if (is_tax()) {
-    $title = 'MEDILINK MEMBERS MARKETPLACE' . $name;
+    $title = 'MEDILINK MEMBERS MARKETPLACE - ' . $name;
 } else {
     $title = 'MEDILINK MEMBERS MARKETPLACE';
 }
@@ -37,62 +37,63 @@ $featureds = get_posts(array(
     'orderby' => 'rand'
 ));
 ?>
-<section class="latest-offers">
-    <div class="container">
+<?php if (!is_tax()) { ?>
+    <section class="latest-offers">
+        <div class="container">
 
-        <h2>Latest Offers</h2>
-        <div class="featured-offers">
-            <div class="swiper swiper-featured-offers">
-                <div class="swiper-wrapper">
-                    <?php foreach ($featureds as $featured) { ?>
-                        <?php
-                        $post_author = $featured->post_author;
-                        $offer_image = get_the_post_thumbnail_url($featured->ID, 'large');
-                        ?>
-                        <div class="swiper-slide">
-                            <div class="inner flex-row">
-                                <div class="row">
-                                    <div class="col-lg-7">
-                                        <div class="col-content">
-                                            <div class="image-box">
-                                                <img src="<?= _author_logo($featured->post_author) ?>">
-                                            </div>
-                                            <div class="post-title">
-                                                <h3><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></h3>
-                                            </div>
-                                            <div class="desc">
-                                                <p>
-                                                    <?= $featured->post_title ?>
-                                                </p>
-                                            </div>
-                                            <?php if ($featured->post_content) { ?>
-                                                <div class="offer-details">
-                                                    <?= wpautop($featured->post_content) ?>
+            <h2>Latest Offers</h2>
+            <div class="featured-offers">
+                <div class="swiper swiper-featured-offers">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($featureds as $featured) { ?>
+                            <?php
+                            $post_author = $featured->post_author;
+                            $offer_image = get_the_post_thumbnail_url($featured->ID, 'large');
+                            ?>
+                            <div class="swiper-slide">
+                                <div class="inner flex-row">
+                                    <div class="row">
+                                        <div class="col-lg-7">
+                                            <div class="col-content">
+                                                <div class="image-box">
+                                                    <img src="<?= _author_logo($featured->post_author) ?>">
                                                 </div>
-                                            <?php } ?>
-                                            <div class="modeltheme_button">
-                                                <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($featured->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $featured->post_title ?>">Claim Offer</a>
+                                                <div class="post-title">
+                                                    <h3><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></h3>
+                                                </div>
+                                                <div class="desc">
+                                                    <p>
+                                                        <?= $featured->post_title ?>
+                                                    </p>
+                                                </div>
+                                                <?php if ($featured->post_content) { ?>
+                                                    <div class="offer-details">
+                                                        <?= wpautop($featured->post_content) ?>
+                                                    </div>
+                                                <?php } ?>
+                                                <div class="modeltheme_button">
+                                                    <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($featured->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $featured->post_title ?>">Claim Offer</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <div class="featured-image">
+                                                <?= get_the_post_thumbnail($featured->ID, 'large') ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5">
-                                        <div class="featured-image">
-                                            <?= get_the_post_thumbnail($featured->ID, 'large') ?>
-                                        </div>
-                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
-                    <?php } ?>
-                </div>
-                <div class="swiper-pagination"></div>
+                        <?php } ?>
+                    </div>
+                    <div class="swiper-pagination"></div>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
+<?php } ?>
 <section class="current-offers">
     <div class="container">
         <h2>All Current Offers</h2>
