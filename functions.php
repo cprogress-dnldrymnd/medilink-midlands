@@ -163,7 +163,7 @@ function save_cf7_to_custom_post($contact_form)
         $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? $posted_data['submit_offer_supporting_resource'] : false; // Example
         $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false; // Example
         $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false; // Example
-        $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'][0] : false; // Example
+        $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'] : false; // Example
 
         $post_data = array();
 
@@ -190,6 +190,31 @@ function save_cf7_to_custom_post($contact_form)
             }
             if ($submit_offer_category) {
                 wp_set_post_terms($post_id, $submit_offer_category, 'membersmarketplace_category');
+            }
+        }
+    } else if ($form_id == 50282) {
+        // Sanitize and validate data (crucial!).
+        $post_title = isset($posted_data['submit_blog_title']) ? sanitize_text_field($posted_data['submit_blog_title']) : 'Contact Form Submission'; // Example
+        $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : ''; // Example
+        $submit_blog_featured_image = isset($posted_data['submit_blog_featured_image']) ? $posted_data['submit_blog_featured_image'][0]  : false; // Example
+        $submit_blog_user_id = isset($posted_data['submit_blog_user_id']) ? $posted_data['submit_blog_user_id'] : false; // Example
+
+        $post_data = array();
+
+        $post_data['post_title'] = $post_title;
+        if ($post_content) {
+            $post_data['post_content'] = $post_content;
+        }
+        $post_data['post_type'] = 'post';
+        $post_data['post_status'] = 'pending';
+        $post_data['post_author'] = $submit_blog_user_id;
+
+        $post_id = wp_insert_post($post_data);
+
+        if ($post_id) {
+            if ($submit_blog_featured_image) {
+                $featured_image = upload_file($submit_blog_featured_image, $post_id);
+                set_post_thumbnail($post_id, $featured_image);
             }
         }
     }
