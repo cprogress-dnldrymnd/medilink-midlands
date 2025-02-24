@@ -46,10 +46,13 @@ function memberplace_marketplace()
         <div class="row">
             <?php while (have_posts()) {
                 the_post() ?>
+                <?php
+                $post_author = get_the_author();
+                echo $post_author;
+                ?>
                 <div class="col-lg-4">
                     <div class="post-box">
                         <div class="top">
-
                             <div class="desc">
                                 <h3>
                                     <?php the_title() ?>
@@ -63,7 +66,7 @@ function memberplace_marketplace()
                         </div>
                         <div class="bottom">
                             <div class="modeltheme_button">
-                                <a href="<?php the_permalink() ?>" class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button">READ MORE</a>
+                                <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($featured->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $featured->post_title ?>">Claim Offer</a>
                             </div>
                         </div>
                     </div>
