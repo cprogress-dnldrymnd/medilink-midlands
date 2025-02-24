@@ -1181,6 +1181,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 .logo-heading img {
 	max-width: 100%;
 }
+.resources-footer {
+	padding-bottom: 50px;
+}
 @media (max-width: 991px) {
 	section.cta .cta-content {
 		padding: 30px;
@@ -1334,3 +1337,4 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 		text-align: center;
 	}
 }
+
