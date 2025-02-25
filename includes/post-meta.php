@@ -35,6 +35,8 @@ Container::make('theme_options', 'Packages')
 					Field::make('rich_text', 'package_core_benefits', __('core_benefits')),
 					Field::make('rich_text', 'package_additional_benefits', __('additional_benefits')),
 					Field::make('rich_text', 'package_discounts', __('discounts')),
+					Field::make('text', 'package_member_level', __('package_member_level')),
+					Field::make('price', 'package_price', __('package_price')),
 				)),
 		)
 	);
