@@ -324,7 +324,7 @@ function action_wp_body_class() {}
 add_filter('body_class', 'custom_class');
 function custom_class($classes)
 {
-    $header_title_style = get_option('header_title_style');
+    $header_title_style = get_post_meta(get_the_ID(), 'header_title_style', true);
 
     if ($header_title_style) {
         $classes[] = 'header-title-' . $header_title_style;
