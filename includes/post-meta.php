@@ -29,11 +29,12 @@ Container::make('theme_options', 'Packages')
 		array(
 			Field::make('complex', 'packages', __(''))
 				->add_fields(array(
-					Field::make('textarea', 'short_description', __('short_description')),
-					Field::make('textarea', 'core_benefits_title', __('core_benefits_title')),
-					Field::make('textarea', 'core_benefits', __('core_benefits')),
-					Field::make('textarea', 'additional_benefits', __('additional_benefits')),
-					Field::make('textarea', 'discounts', __('discounts')),
+					Field::make('textarea', 'package_name', __('package_name')),
+					Field::make('textarea', 'package_short_description', __('short_description')),
+					Field::make('textarea', 'package_core_benefits_title', __('core_benefits_title')),
+					Field::make('textarea', 'package_core_benefits', __('core_benefits')),
+					Field::make('textarea', 'package_additional_benefits', __('additional_benefits')),
+					Field::make('textarea', 'package_discounts', __('discounts')),
 				)),
 		)
 	);
