@@ -260,6 +260,7 @@ function join_us()
 
                                 </div>
                                 <div class="addition-benefits-inner">
+                                    <div class="div-title"><strong>Additional Benefits</strong></div>
                                     <div class="benefits checklist">
                                         <?= wpautop($additional_benefits) ?>
                                     </div>
