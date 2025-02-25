@@ -687,6 +687,7 @@ p:last-child {
 	--spacing: 32px;
 	font-size: 14px;
 	background-color: var(--white-color);
+	height: 100%;
 }
 .packages .inner .package-title {
 	color: var(--accent-color);
