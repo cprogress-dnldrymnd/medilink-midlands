@@ -37,6 +37,7 @@ Container::make('theme_options', 'Packages')
 					Field::make('rich_text', 'package_discounts', __('discounts')),
 					Field::make('text', 'package_member_level', __('package_member_level')),
 					Field::make('text', 'package_price', __('package_price')),
-				)),
+				))
+				->set_header_template('<%- package_name %>')
 		)
 	);
