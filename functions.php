@@ -324,10 +324,10 @@ function action_wp_body_class() {}
 add_filter('body_class', 'custom_class');
 function custom_class($classes)
 {
-    global $page_options;
+    $header_title_style = get_option('header_title_style');
 
-    if ($page_options) {
-        $classes[] = 'header-title-' . $page_options['header_title_style'];
+    if ($header_title_style) {
+        $classes[] = 'header-title-' . $header_title_style;
     }
     return $classes;
 }
