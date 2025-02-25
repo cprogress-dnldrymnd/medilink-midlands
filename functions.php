@@ -318,3 +318,16 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
 <?php
     return ob_get_clean();
 }
+
+function action_wp_body_class() {}
+
+add_filter('body_class', 'custom_class');
+function custom_class($classes)
+{
+    global $page_options;
+
+    if ($page_options) {
+        $classes[] = $page_options['header_title_style'];
+    }
+    return $classes;
+}
