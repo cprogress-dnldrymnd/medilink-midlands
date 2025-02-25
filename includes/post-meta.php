@@ -25,7 +25,6 @@ Container::make('post_meta', 'Resources')
 /*-----------------------------------------------------------------------------------*/
 
 Container::make('theme_options', 'Packages')
-	->set_priority('high')
 	->add_fields(
 		array(
 			Field::make('complex', 'packages', __(''))
