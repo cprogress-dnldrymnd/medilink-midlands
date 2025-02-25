@@ -152,7 +152,7 @@ function testimonials()
 }
 add_shortcode('testimonials', 'testimonials');
 
-function join_us()
+function join_us_old()
 {
     ob_start();
     $plans = get_posts(array(
@@ -170,6 +170,73 @@ function join_us()
                     $core_benefits_title = get_post_meta($plan->ID, 'core_benefits_title', true);
                     $additional_benefits = get_post_meta($plan->ID, 'additional_benefits', true);
                     $discounts = get_post_meta($plan->ID, 'discounts', true);
+                    ?>
+                    <div class="col-lg-2">
+                        <div class="inner">
+                            <div class="package-title">
+                                <h3><?= $plan->post_title ?></h3>
+                            </div>
+                            <div class="package-desc">
+                                <?= wpautop($short_description) ?>
+                            </div>
+                            <div class="package-price">
+                                <div class="price-inner">
+                                    <span class="currency">£</span><span class="price-val">275</span><span class="month">/month</span>
+                                </div>
+                            </div>
+                            <div class="benefits">
+                                <div class="benefits-inner">
+                                    <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
+                                    <div class="benefits checklist">
+                                        <?= wpautop($core_benefits) ?>
+                                    </div>
+
+                                </div>
+                                <div class="addition-benefits-inner">
+                                    <div class="div-title"><strong>Additional Benefits</strong></div>
+                                    <div class="benefits checklist">
+                                        <?= wpautop($core_benefits) ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="discounts">
+                                <div class="discounts-inner checklist">
+                                    <div class="div-title"><strong>Discounts</strong></div>
+                                    <?= wpautop($discounts) ?>
+                                </div>
+                            </div>
+
+                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
+
+function join_us()
+{
+    ob_start();
+
+    $plans = carbon_get_theme_option('packages');
+   
+?>
+    <div class="packages">
+        <div class="row row-flex">
+            <?php for ($x = 1; $x <= 6; $x++) { ?>
+                <?php foreach ($plans as $plan) { ?>
+                    <?php
+                    $package_name = $plan['package_name'];
+                    $short_description = $plan['package_short_description'];
+                    $core_benefits = $plan['package_core_benefits'];
+                    $core_benefits_title = $plan['package_core_benefits_title'];
+                    $additional_benefits = $plan['package_additional_benefits'];
+                    $discounts = $plan['package_discounts'];
+                    $package_member_level = $plan['package_member_level'];
+                    $package_price = $plan['package_price'];
                     ?>
                     <div class="col-lg-2">
                         <div class="inner">
