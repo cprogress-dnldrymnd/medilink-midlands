@@ -701,8 +701,8 @@ p:last-child {
 	padding-bottom: var(--spacing);
 }
 
-.packages .inner > *:not(:last-child),
-.packages .inner > div > *:not(:last-child) {
+.packages .inner .top > *:not(:last-child),
+.packages .inner .top > div > *:not(:last-child) {
 	margin-bottom: var(--spacing);
 }
 
@@ -1350,4 +1350,3 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 		text-align: center;
 	}
 }
-
