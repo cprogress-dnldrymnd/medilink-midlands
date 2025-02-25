@@ -34,7 +34,6 @@ Container::make('theme_options', 'Packages')
 					Field::make('textarea', 'core_benefits', __('core_benefits')),
 					Field::make('textarea', 'additional_benefits', __('additional_benefits')),
 					Field::make('textarea', 'discounts', __('discounts')),
-					Field::make('textarea', 'short_description', __('Short Description')),
 				)),
 		)
 	);
