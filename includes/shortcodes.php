@@ -222,7 +222,7 @@ function join_us()
     ob_start();
 
     $plans = carbon_get_theme_option('packages');
-   
+
 ?>
     <div class="packages">
         <div class="row row-flex">
@@ -241,14 +241,14 @@ function join_us()
                     <div class="col-lg-2">
                         <div class="inner">
                             <div class="package-title">
-                                <h3><?= $plan->post_title ?></h3>
+                                <h3><?= $package_name ?></h3>
                             </div>
                             <div class="package-desc">
                                 <?= wpautop($short_description) ?>
                             </div>
                             <div class="package-price">
                                 <div class="price-inner">
-                                    <span class="currency">£</span><span class="price-val">275</span><span class="month">/month</span>
+                                    <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
                                 </div>
                             </div>
                             <div class="benefits">
