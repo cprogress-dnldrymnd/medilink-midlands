@@ -226,74 +226,72 @@ function join_us()
 ?>
     <div class="packages">
         <div class="row row-flex">
-            <?php for ($x = 1; $x <= 6; $x++) { ?>
-                <?php foreach ($plans as $plan) { ?>
-                    <?php
-                    $package_name = $plan['package_name'];
-                    $short_description = $plan['package_short_description'];
-                    $core_benefits = $plan['package_core_benefits'];
-                    $core_benefits_title = $plan['package_core_benefits_title'];
-                    $additional_benefits = $plan['package_additional_benefits'];
-                    $discounts = $plan['package_discounts'];
-                    $package_member_level = $plan['package_member_level'];
-                    $package_price = $plan['package_price'];
-                    ?>
-                    <div class="col-lg-2">
-                        <div class="inner">
-                            <div class="package-title">
-                                <h3><?= $package_name ?></h3>
-                            </div>
-                            <div class="package-desc">
-                                <?= wpautop($short_description) ?>
-                            </div>
-                            <div class="package-price">
-                                <div class="price-inner">
-                                    <?php if ($package_price) { ?>
-                                        <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
-                                    <?php } else { ?>
-                                        <span class="price-val">No Fee</span>
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-                            <div class="benefits">
-                                <?php if ($core_benefits) { ?>
-                                    <div class="benefits-inner">
-                                        <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
-                                        <div class="benefits checklist">
-                                            <?= wpautop($core_benefits) ?>
-                                        </div>
-                                    </div>
+            <?php foreach ($plans as $plan) { ?>
+                <?php
+                $package_name = $plan['package_name'];
+                $short_description = $plan['package_short_description'];
+                $core_benefits = $plan['package_core_benefits'];
+                $core_benefits_title = $plan['package_core_benefits_title'];
+                $additional_benefits = $plan['package_additional_benefits'];
+                $discounts = $plan['package_discounts'];
+                $package_member_level = $plan['package_member_level'];
+                $package_price = $plan['package_price'];
+                ?>
+                <div class="col-lg-2">
+                    <div class="inner">
+                        <div class="package-title">
+                            <h3><?= $package_name ?></h3>
+                        </div>
+                        <div class="package-desc">
+                            <?= wpautop($short_description) ?>
+                        </div>
+                        <div class="package-price">
+                            <div class="price-inner">
+                                <?php if ($package_price) { ?>
+                                    <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
+                                <?php } else { ?>
+                                    <span class="price-val">No Fee</span>
                                 <?php } ?>
 
-                                <?php if ($additional_benefits) { ?>
-                                    <div class="addition-benefits-inner">
-                                        <div class="div-title"><strong>Additional Benefits</strong></div>
-                                        <div class="benefits checklist">
-                                            <?= wpautop($additional_benefits) ?>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="benefits">
+                            <?php if ($core_benefits) { ?>
+                                <div class="benefits-inner">
+                                    <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
+                                    <div class="benefits checklist">
+                                        <?= wpautop($core_benefits) ?>
                                     </div>
-                                <?php } ?>
-                            </div>
-                            <div class="discounts">
-                                <div class="discounts-inner checklist">
-                                    <div class="div-title"><strong>Discounts</strong></div>
-                                    <?= wpautop($discounts) ?>
-                                </div>
-                            </div>
-
-                            <?php if ($package_member_level) { ?>
-                                <div class="member-level">
-                                    <div class="div-title"><strong><?= $package_member_level ?></strong></div>
                                 </div>
                             <?php } ?>
 
-
-
-                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                            <?php if ($additional_benefits) { ?>
+                                <div class="addition-benefits-inner">
+                                    <div class="div-title"><strong>Additional Benefits</strong></div>
+                                    <div class="benefits checklist">
+                                        <?= wpautop($additional_benefits) ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
+                        <div class="discounts">
+                            <div class="discounts-inner checklist">
+                                <div class="div-title"><strong>Discounts</strong></div>
+                                <?= wpautop($discounts) ?>
+                            </div>
+                        </div>
+
+                        <?php if ($package_member_level) { ?>
+                            <div class="member-level">
+                                <div class="div-title"><strong><?= $package_member_level ?></strong></div>
+                            </div>
+                        <?php } ?>
+
+
+
+                        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
                     </div>
-                <?php } ?>
+                </div>
             <?php } ?>
         </div>
     </div>
