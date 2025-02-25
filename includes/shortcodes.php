@@ -282,6 +282,14 @@ function join_us()
                                 </div>
                             </div>
 
+                            <?php if ($package_member_level) { ?>
+                                <div class="member-level">
+                                    <div class="div-title"><strong><?= $package_member_level ?></strong></div>
+                                </div>
+                            <?php } ?>
+
+
+
                             <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
                         </div>
                     </div>
