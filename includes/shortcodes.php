@@ -248,23 +248,32 @@ function join_us()
                             </div>
                             <div class="package-price">
                                 <div class="price-inner">
-                                    <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
+                                    <?php if ($package_price) { ?>
+                                        <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
+                                    <?php } else { ?>
+                                        <span class="price-val">No Fee</span>
+                                    <?php } ?>
+
                                 </div>
                             </div>
                             <div class="benefits">
-                                <div class="benefits-inner">
-                                    <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
-                                    <div class="benefits checklist">
-                                        <?= wpautop($core_benefits) ?>
+                                <?php if ($core_benefits) { ?>
+                                    <div class="benefits-inner">
+                                        <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
+                                        <div class="benefits checklist">
+                                            <?= wpautop($core_benefits) ?>
+                                        </div>
                                     </div>
+                                <?php } ?>
 
-                                </div>
-                                <div class="addition-benefits-inner">
-                                    <div class="div-title"><strong>Additional Benefits</strong></div>
-                                    <div class="benefits checklist">
-                                        <?= wpautop($additional_benefits) ?>
+                                <?php if ($additional_benefits) { ?>
+                                    <div class="addition-benefits-inner">
+                                        <div class="div-title"><strong>Additional Benefits</strong></div>
+                                        <div class="benefits checklist">
+                                            <?= wpautop($additional_benefits) ?>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
                             <div class="discounts">
                                 <div class="discounts-inner checklist">
