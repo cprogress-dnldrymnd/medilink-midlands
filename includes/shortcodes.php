@@ -289,7 +289,7 @@ function join_us()
 
 
 
-                        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://medilink.theprogressteam.com/online-membersip-form/" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
                     </div>
                 </div>
             <?php } ?>
