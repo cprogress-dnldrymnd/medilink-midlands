@@ -289,8 +289,7 @@ function join_us()
 
 
 
-                        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="We need to create the packages on the 'Join Us' page and then have them link through to https://www.medilinkmidlands.com/online-membership-form/
-Just to confirm this form needs recreating on the new website?" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://www.medilinkmidlands.com/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
                     </div>
                 </div>
             <?php } ?>
