@@ -327,7 +327,7 @@ function custom_class($classes)
     global $page_options;
 
     if ($page_options) {
-        $classes[] = $page_options['header_title_style'];
+        $classes[] = '.header-title-' . $page_options['header_title_style'];
     }
     return $classes;
 }
