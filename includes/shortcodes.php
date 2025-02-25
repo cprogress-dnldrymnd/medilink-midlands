@@ -257,12 +257,16 @@ function join_us()
                                 </div>
                             </div>
                             <div class="benefits">
-                                <?php if ($core_benefits) { ?>
+                                <?php if ($core_benefits || $core_benefits_title) { ?>
                                     <div class="benefits-inner">
                                         <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
-                                        <div class="benefits checklist">
-                                            <?= wpautop($core_benefits) ?>
-                                        </div>
+                                        <?php if ($core_benefits) { ?>
+
+                                            <div class="benefits checklist">
+                                                <?= wpautop($core_benefits) ?>
+                                            </div>
+                                        <?php } ?>
+
                                     </div>
                                 <?php } ?>
 
