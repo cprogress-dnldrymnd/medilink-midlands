@@ -39,5 +39,6 @@ Container::make('theme_options', 'Packages')
 					Field::make('text', 'package_price', __('package_price')),
 				))
 				->set_header_template('<%- package_name %>')
+				->set_layout('tabbed-vertical')
 		)
 	);
