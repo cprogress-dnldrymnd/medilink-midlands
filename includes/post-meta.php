@@ -48,9 +48,10 @@ Container::make('theme_options', 'Packages')
 /* Membership Marketplace
 /*-----------------------------------------------------------------------------------*/
 
-Container::make('post_meta', 'Post Settings')
+Container::make('post_meta', 'Submitted By')
 	->where('post_type', '=', 'post')
 	->set_priority('high')
+	->set_context('side')
 	->add_fields(
 		array(
 			Field::make('text', 'submit_blog_full_name', __('Full Name')),
