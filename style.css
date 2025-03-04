@@ -137,7 +137,7 @@ blockquote {
 }
 @media (min-width: 1920px) {
 	.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
-		max-width: 60%;
+		max-width: 70%;
 	}
 }
 
