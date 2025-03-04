@@ -53,6 +53,6 @@ Container::make('post_meta', 'Post Settings')
 	->set_priority('high')
 	->add_fields(
 		array(
-			Field::make('text', 'Full Name', __('Full Name'))->set_attribute('readonly'),
+			Field::make('text', 'full_name', __('Full Name'))->set_attribute('readonly'),
 		)
 	);
