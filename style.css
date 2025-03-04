@@ -811,8 +811,6 @@ p:last-child {
 	margin-bottom: 20px;
 }
 
-
-
 .contact-tikidocs.contact-tikidocs input {
 	background-color: var(--white-color) !important;
 	border: 1px solid #f7f8fa !important;
@@ -1170,6 +1168,12 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 }
 .training-materials-section {
 	margin-bottom: 100px;
+}
+.knowledge-list2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: var(--white-color);
 }
 @media (max-width: 991px) {
 	section.cta .cta-content {
