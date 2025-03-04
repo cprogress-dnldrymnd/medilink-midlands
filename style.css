@@ -804,8 +804,9 @@ p:last-child {
 }
 
 .package-price  .month {
-	align-self: flex-end;
 	margin-bottom: 5px;
+	display: block;
+	margin-top: 5px;
 }
 .div-title.div-title.div-title {
 	margin-bottom: 20px;
