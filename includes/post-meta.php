@@ -42,3 +42,17 @@ Container::make('theme_options', 'Packages')
 				->set_layout('tabbed-vertical')
 		)
 	);
+
+
+	*-----------------------------------------------------------------------------------*/
+/* Membership Marketplace
+/*-----------------------------------------------------------------------------------*/
+
+Container::make('post_meta', 'Post Settings')
+	->where('post_type', '=', 'post')
+	->set_priority('high')
+	->add_fields(
+		array(
+			Field::make('text', 'Full Name', __('Full Name'))->set_attribute('readonly'),
+		)
+	);
