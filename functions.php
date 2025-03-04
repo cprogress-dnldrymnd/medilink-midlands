@@ -209,8 +209,10 @@ function save_cf7_to_custom_post($contact_form)
         }
         $post_data['post_type'] = 'post';
         $post_data['post_status'] = 'pending';
-        $post_data['post_author'] = $submit_blog_user_id;
 
+        if (is_user_logged_in()) {
+            $post_data['post_author'] = $submit_blog_user_id;
+        }
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
