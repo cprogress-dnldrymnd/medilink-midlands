@@ -53,9 +53,9 @@ Container::make('post_meta', 'Post Settings')
 	->set_priority('high')
 	->add_fields(
 		array(
-			Field::make('text', 'submit_blog_full_name', __('Full Name'))->set_attribute('readonly', 'true'),
-			Field::make('text', 'submit_blog_email_address', __('Email Address'))->set_attribute('readonly'),
-			Field::make('text', 'submit_blog_organisation', __('Organisation'))->set_attribute('readonly'),
-			Field::make('text', 'submit_blog_phone_number', __('Phone'))->set_attribute('readonly'),
+			Field::make('text', 'submit_blog_full_name', __('Full Name')),
+			Field::make('text', 'submit_blog_email_address', __('Email Address')),
+			Field::make('text', 'submit_blog_organisation', __('Organisation')),
+			Field::make('text', 'submit_blog_phone_number', __('Phone')),
 		)
 	);
