@@ -74,17 +74,17 @@
 </footer>
 </div>
 <?php
-if(is_user_logged_in()) {
-	$button = 'Upgrade';
+if (is_user_logged_in()) {
+    $button = 'Upgrade';
 } else {
-	$button = 'Join Us';
+    $button = 'Join Us';
 }
 ?>
 
 <script>
-	jQuery(document).ready(function () {
+    jQuery(document).ready(function() {
         jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
-		
+        jQuery('.select-2-trigger select').select2();
     });
 </script>
 
