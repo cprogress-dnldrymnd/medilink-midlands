@@ -362,7 +362,7 @@ function member_marketplace_form()
 add_shortcode('member_marketplace_form', 'member_marketplace_form');
 
 
-function submit_blog_form()
+function submit_blog_form_with_login()
 {
     ob_start();
 ?>
@@ -381,6 +381,21 @@ function submit_blog_form()
                     </div>
                 </div>
             <?php } ?>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
+
+
+function submit_blog_form()
+{
+    ob_start();
+?>
+    <div class="member-marketplace-form" id="member-marketplace-form">
+        <div class="container">
+            <h2>Submit a Blog</h2>
+            <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
         </div>
     </div>
 <?php
