@@ -120,6 +120,9 @@ blockquote {
 	margin-left: auto;
 	min-height: 497px;
 }
+.cd-upload-btn.cd-upload-btn.cd-upload-btn {
+	color: var(--green-color) !important;
+}
 @media (max-width: 1700px) {
 	.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
 		max-width: 1000px;
