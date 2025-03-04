@@ -1333,3 +1333,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 		text-align: center;
 	}
 }
+
+.contact-tikidocs.contact-tikidocs input[type="radio"] {
+	height: auto;
+}
