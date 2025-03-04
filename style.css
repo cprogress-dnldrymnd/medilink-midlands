@@ -792,6 +792,7 @@ p:last-child {
 .package-price .price-inner {
 	display: inline-flex;
 	align-items: flex-start;
+	margin-bottom: 0 !important;
 }
 .package-price .price-inner .currency {
 	font-weight: 600;
