@@ -181,7 +181,7 @@ function join_us_old()
                             </div>
                             <div class="package-price">
                                 <div class="price-inner">
-                                    <span class="currency">£</span><span class="price-val">275</span><span class="month">/month</span>
+                                    <span class="currency">£</span><span class="price-val">275</span><span class="month">/Annual Payment</span>
                                 </div>
                             </div>
                             <div class="benefits">
@@ -249,7 +249,7 @@ function join_us()
                             <div class="package-price">
                                 <div class="price-inner">
                                     <?php if ($package_price) { ?>
-                                        <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">/month</span>
+                                        <span class="currency">£</span><span class="price-val"><?= $package_price ?></span><span class="month">Annual Payment</span>
                                     <?php } else { ?>
                                         <span class="price-val">No Fee</span>
                                     <?php } ?>
