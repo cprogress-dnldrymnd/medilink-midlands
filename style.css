@@ -803,7 +803,7 @@ p:last-child {
 	font-weight: bold;
 }
 
-.package-price .price-inner .month {
+.package-price  .month {
 	align-self: flex-end;
 	margin-bottom: 5px;
 }
