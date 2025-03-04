@@ -84,7 +84,9 @@ if (is_user_logged_in()) {
 <script>
     jQuery(document).ready(function() {
         jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
-        jQuery('.select-2-trigger select').select2();
+        jQuery('.select-2-trigger select').select2({
+            maximumSelectionLength: 3 // Set your desired limit
+        });
     });
 </script>
 
