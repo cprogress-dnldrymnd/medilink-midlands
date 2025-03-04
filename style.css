@@ -1169,7 +1169,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 .training-materials-section {
 	margin-bottom: 100px;
 }
-.knowledge-list2 {
+.knowledge-list2.knowledge-list2 {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
