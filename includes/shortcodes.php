@@ -241,25 +241,27 @@ function join_us()
                 <div class="col-lg-2">
                     <div class="inner">
                         <div class="top">
-                            <div class="package-title">
-                                <h3><?= $package_name ?></h3>
-                            </div>
-                            <div class="package-desc">
-                                <?= wpautop($short_description) ?>
-                            </div>
-                            <div class="package-price">
-                                <div class="price-inner">
+                            <div class="package-main-details">
+                                <div class="package-title">
+                                    <h3><?= $package_name ?></h3>
+                                </div>
+                                <div class="package-desc">
+                                    <?= wpautop($short_description) ?>
+                                </div>
+                                <div class="package-price">
+                                    <div class="price-inner">
+                                        <?php if ($package_price) { ?>
+                                            <span class="currency">£</span><span class="price-val"><?= $package_price ?></span>
+                                        <?php } else { ?>
+                                            <span class="price-val">No Fee</span>
+                                        <?php } ?>
+
+                                    </div>
                                     <?php if ($package_price) { ?>
-                                        <span class="currency">£</span><span class="price-val"><?= $package_price ?></span>
-                                    <?php } else { ?>
-                                        <span class="price-val">No Fee</span>
+                                        <span class="month"> Annual Payment</span>
                                     <?php } ?>
 
                                 </div>
-                                <?php if ($package_price) { ?>
-                                    <span class="month"> Annual Payment</span>
-                                <?php } ?>
-
                             </div>
                             <div class="benefits">
                                 <?php if ($core_benefits || $core_benefits_title) { ?>
