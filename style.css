@@ -709,7 +709,7 @@ p:last-child {
 	margin-bottom: var(--spacing);
 }
 
-.package-main-details {
+.package-price-main-details-inner {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
