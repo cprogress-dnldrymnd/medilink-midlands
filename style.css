@@ -699,7 +699,9 @@ p:last-child {
 	color: var(--accent-color);
 	margin-bottom: 2rem;
 }
-
+.packages .inner .package-title h3 {
+	margin-top: 0;
+}
 .package-price {
 	border-bottom: 1px solid var(--gray-color);
 	padding-bottom: var(--spacing);
