@@ -691,9 +691,6 @@ p:last-child {
 	font-size: 14px;
 	background-color: var(--white-color);
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 .packages .inner .package-title {
 	color: var(--accent-color);
