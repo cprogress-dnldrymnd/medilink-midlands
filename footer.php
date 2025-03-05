@@ -85,7 +85,6 @@ if (is_user_logged_in()) {
     jQuery(document).ready(function() {
         jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
         jQuery('.select-2-trigger select').select2({
-            placeholder: "Please select sector(maximum of 3)",
             maximumSelectionLength: 3,
         });
 
