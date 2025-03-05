@@ -728,6 +728,9 @@ p:last-child {
 .packages .bottom {
 	display: none;
 }
+.packages .package-desc {
+	margin-bottom: var(--spacing);
+}
 .page-id-50014 {
 	background-color: #edeff4;
 }
