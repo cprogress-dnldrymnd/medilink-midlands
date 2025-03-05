@@ -275,28 +275,31 @@ function join_us()
                                                 <?= wpautop($core_benefits) ?>
                                             </div>
                                         <?php } ?>
-
                                     </div>
                                 <?php } ?>
 
-                                <?php if ($additional_benefits) { ?>
-                                    <div class="addition-benefits-inner">
-                                        <div class="div-title"><strong>Additional Benefits</strong></div>
-                                        <div class="benefits checklist">
-                                            <?= wpautop($additional_benefits) ?>
-                                        </div>
-                                    </div>
-                                <?php } ?>
+                                <div class="learn-more">
+                                    <a href="#">Learn More</a>
+                                </div>
+
                             </div>
+
+                        </div>
+                        <div class="bottom">
+                            <?php if ($additional_benefits) { ?>
+                                <div class="addition-benefits-inner">
+                                    <div class="div-title"><strong>Additional Benefits</strong></div>
+                                    <div class="benefits checklist">
+                                        <?= wpautop($additional_benefits) ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
                             <div class="discounts">
                                 <div class="discounts-inner checklist">
                                     <div class="div-title"><strong>Discounts</strong></div>
                                     <?= wpautop($discounts) ?>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="bottom">
                             <?php if ($package_member_level) { ?>
                                 <div class="member-level">
                                     <div class="div-title"><strong><?= $package_member_level ?></strong></div>
