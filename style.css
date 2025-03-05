@@ -737,7 +737,7 @@ p:last-child {
 	display: none;
 }
 .packages .package-desc {
-	margin-bottom: var(--spacing);
+	margin-bottom: var(--spacing) !important;
 }
 .page-id-50014 {
 	background-color: #edeff4;
