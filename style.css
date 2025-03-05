@@ -727,9 +727,11 @@ p:last-child {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	
+}
+.packages .inner:not(.package-active) .top {
 	flex-grow: 1;
 }
-
 .packages .inner:not(.package-active) .bottom {
 	display: none;
 }
@@ -737,7 +739,7 @@ p:last-child {
 	display: none;
 }
 .packages .package-desc {
-	margin-bottom: var(--spacing) !important;
+	margin-bottom: var(--spacing) !important
 }
 .page-id-50014 {
 	background-color: #edeff4;
