@@ -715,6 +715,15 @@ p:last-child {
 	justify-content: space-between;
 }
 
+.packages .learn-more a {
+	text-decoration: underline;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.packages .bottom {
+	display: none;
+}
 .page-id-50014 {
 	background-color: #edeff4;
 }
