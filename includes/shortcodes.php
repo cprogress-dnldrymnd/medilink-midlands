@@ -262,28 +262,28 @@ function join_us()
                                     <?php if ($package_price) { ?>
                                         <span class="month"> Annual Payment</span>
                                     <?php } ?>
+                                </div>
+                                <div class="benefits">
+                                    <?php if ($core_benefits || $core_benefits_title) { ?>
+                                        <div class="benefits-inner">
+                                            <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
+                                            <?php if ($core_benefits) { ?>
+
+                                                <div class="benefits checklist">
+                                                    <?= wpautop($core_benefits) ?>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    <?php } ?>
+
 
                                 </div>
                             </div>
-                            <div class="benefits">
-                                <?php if ($core_benefits || $core_benefits_title) { ?>
-                                    <div class="benefits-inner">
-                                        <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
-                                        <?php if ($core_benefits) { ?>
 
-                                            <div class="benefits checklist">
-                                                <?= wpautop($core_benefits) ?>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                <?php } ?>
 
-                                <div class="learn-more">
-                                    <a href="#">Learn More</a>
-                                </div>
-
+                            <div class="learn-more">
+                                <a href="#">Learn More</a>
                             </div>
-
                         </div>
                         <div class="bottom">
                             <?php if ($additional_benefits) { ?>
