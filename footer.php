@@ -87,7 +87,26 @@ if (is_user_logged_in()) {
         jQuery('.select-2-trigger select').select2({
             maximumSelectionLength: 3 // Set your desired limit
         });
+
+        if (jQuery('.package-main-details').length > 0) {
+            matchHeights('.package-main-details');
+        }
     });
+
+    function matchHeights(selector) {
+        var maxHeight = 0;
+
+        // Reset heights before calculating
+        $(selector).css('height', 'auto');
+
+        // Find the tallest element
+        $(selector).each(function() {
+            maxHeight = Math.max(maxHeight, $(this).outerHeight());
+        });
+
+        // Set all elements to the tallest height
+        $(selector).height(maxHeight);
+    }
 </script>
 
 <?php wp_footer(); ?>

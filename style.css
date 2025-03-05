@@ -710,7 +710,9 @@ p:last-child {
 }
 
 .package-main-details {
-	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .page-id-50014 {
@@ -811,7 +813,7 @@ p:last-child {
 	font-weight: bold;
 }
 
-.package-price  .month {
+.package-price .month {
 	margin-bottom: 5px;
 	display: block;
 	margin-top: 5px;
