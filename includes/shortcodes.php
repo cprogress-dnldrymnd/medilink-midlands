@@ -242,11 +242,13 @@ function join_us()
                     <div class="inner">
                         <div class="top">
                             <div class="package-main-details">
-                                <div class="package-title">
-                                    <h3><?= $package_name ?></h3>
-                                </div>
-                                <div class="package-desc">
-                                    <?= wpautop($short_description) ?>
+                                <div class="package-price-desc">
+                                    <div class="package-title">
+                                        <h3><?= $package_name ?></h3>
+                                    </div>
+                                    <div class="package-desc">
+                                        <?= wpautop($short_description) ?>
+                                    </div>
                                 </div>
                                 <div class="package-price">
                                     <div class="price-inner">
