@@ -727,10 +727,9 @@ p:last-child {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-}
-.packages .inner:not(.package-active) .top {
 	flex-grow: 1;
 }
+
 .packages .inner:not(.package-active) .bottom {
 	display: none;
 }
