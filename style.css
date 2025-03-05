@@ -697,6 +697,7 @@ p:last-child {
 }
 .packages .inner .package-title {
 	color: var(--accent-color);
+	margin-bottom: 2rem;
 }
 
 .package-price {
