@@ -725,7 +725,7 @@ p:last-child {
 	flex-direction: column;
 	justify-content: space-between;
 }
-.packages .bottom {
+.packages .inner:not(.package-active) .bottom {
 	display: none;
 }
 .packages .package-desc {
