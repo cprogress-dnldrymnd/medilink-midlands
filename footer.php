@@ -91,6 +91,11 @@ if (is_user_logged_in()) {
         if (jQuery('.package-price-main-details-inner').length > 0) {
             matchHeights('.package-price-main-details-inner');
         }
+
+        jQuery('.learn-more a').click(function(e) {
+            jQuery(this).parents('.inner').addClass('package-active');
+            e.preventDefault();
+        });
     });
 
     function matchHeights(selector) {
