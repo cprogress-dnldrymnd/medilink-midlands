@@ -728,6 +728,9 @@ p:last-child {
 .packages .inner:not(.package-active) .bottom {
 	display: none;
 }
+.package-active .learn-more{
+	display: none;
+}
 .packages .package-desc {
 	margin-bottom: var(--spacing);
 }
