@@ -101,7 +101,7 @@ if (is_user_logged_in()) {
 
         // Find the tallest element
         jQuery(selector).each(function() {
-            maxHeight = Math.max(maxHeight, $(this).outerHeight());
+            maxHeight = Math.max(maxHeight, jQuery(this).outerHeight());
         });
 
         // Set all elements to the tallest height
