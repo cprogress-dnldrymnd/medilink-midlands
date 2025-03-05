@@ -265,46 +265,51 @@ function join_us()
 
                                 </div>
                             </div>
-                            <div class="benefits">
-                                <?php if ($core_benefits || $core_benefits_title) { ?>
-                                    <div class="benefits-inner">
-                                        <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
-                                        <?php if ($core_benefits) { ?>
 
-                                            <div class="benefits checklist">
-                                                <?= wpautop($core_benefits) ?>
-                                            </div>
-                                        <?php } ?>
-
-                                    </div>
-                                <?php } ?>
-
-                                <?php if ($additional_benefits) { ?>
-                                    <div class="addition-benefits-inner">
-                                        <div class="div-title"><strong>Additional Benefits</strong></div>
-                                        <div class="benefits checklist">
-                                            <?= wpautop($additional_benefits) ?>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                            <div class="discounts">
-                                <div class="discounts-inner checklist">
-                                    <div class="div-title"><strong>Discounts</strong></div>
-                                    <?= wpautop($discounts) ?>
-                                </div>
-                            </div>
 
                         </div>
                         <div class="bottom">
-                            <?php if ($package_member_level) { ?>
-                                <div class="member-level">
-                                    <div class="div-title"><strong><?= $package_member_level ?></strong></div>
+                            <div class="bottom-top">
+                                <div class="benefits">
+                                    <?php if ($core_benefits || $core_benefits_title) { ?>
+                                        <div class="benefits-inner">
+                                            <div class="div-title"><strong><?= $core_benefits_title ?></strong></div>
+                                            <?php if ($core_benefits) { ?>
+
+                                                <div class="benefits checklist">
+                                                    <?= wpautop($core_benefits) ?>
+                                                </div>
+                                            <?php } ?>
+
+                                        </div>
+                                    <?php } ?>
+
+                                    <?php if ($additional_benefits) { ?>
+                                        <div class="addition-benefits-inner">
+                                            <div class="div-title"><strong>Additional Benefits</strong></div>
+                                            <div class="benefits checklist">
+                                                <?= wpautop($additional_benefits) ?>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
-                            <?php } ?>
+                                <div class="discounts">
+                                    <div class="discounts-inner checklist">
+                                        <div class="div-title"><strong>Discounts</strong></div>
+                                        <?= wpautop($discounts) ?>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="bottom-bottom">
+                                <?php if ($package_member_level) { ?>
+                                    <div class="member-level">
+                                        <div class="div-title"><strong><?= $package_member_level ?></strong></div>
+                                    </div>
+                                <?php } ?>
 
-                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://www.medilinkmidlands.com/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                                <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://www.medilinkmidlands.com/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
