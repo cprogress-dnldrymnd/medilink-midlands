@@ -88,8 +88,8 @@ if (is_user_logged_in()) {
             maximumSelectionLength: 3 // Set your desired limit
         });
 
-        if (jQuery('.package-main-details').length > 0) {
-            matchHeights('.package-main-details');
+        if (jQuery('.package-price-main-details-inner').length > 0) {
+            matchHeights('.package-price-main-details-inner');
         }
     });
 

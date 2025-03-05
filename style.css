@@ -717,10 +717,14 @@ p:last-child {
 
 .packages .learn-more a {
 	text-decoration: underline;
-    font-weight: bold !important;
-    font-size: 16px;
+	font-weight: bold !important;
+	font-size: 16px;
 }
-
+.packages .top {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 .packages .bottom {
 	display: none;
 }
