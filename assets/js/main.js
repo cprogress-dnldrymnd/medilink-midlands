@@ -35,7 +35,7 @@ function _ajax_filter(button, is_filter) {
 
     var checkedValues = jQuery("input[name='directory-filter[]']:checked")
         .map(function () {
-            return $(this).val();
+            return jQuery(this).val();
         })
         .get();
     console.log(checkedValues);
