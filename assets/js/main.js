@@ -45,7 +45,7 @@ function _ajax_filter(button, is_filter) {
                 button.text('No more posts').prop('disabled', true);
             } else {
                 jQuery('#results > .row').append(response);
-                ajax_post_loader_params.paged = ajax_post_loader_params.paged++;
+                ajax_post_loader_params.paged = ajax_post_loader_params.paged + 1;
                 button.text('Load More');
             }
         },
