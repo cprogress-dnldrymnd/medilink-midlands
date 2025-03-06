@@ -27,7 +27,7 @@ function ajax() {
 }
 
 function _ajax_filter(button, paged, is_filter) {
-    search_var = jQuery('input[name="search"]');
+    search_var = jQuery('input[name="search"]').val();
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
         type: 'POST',
