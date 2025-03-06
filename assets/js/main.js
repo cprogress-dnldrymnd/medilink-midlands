@@ -20,12 +20,12 @@ jQuery(document).ready(function () {
 
 function ajax() {
     jQuery('.load-more-directory').on('click', function (event) {
-        _ajax_filter(jQuery(this), false);
+        _ajax_filter(jQuery(this), 'false');
         event.preventDefault();
     });
 
     jQuery('.submit-directory-filter').on('click', function (event) {
-        _ajax_filter(jQuery(this), true);
+        _ajax_filter(jQuery(this), 'true');
         event.preventDefault();
     });
 }
@@ -49,7 +49,11 @@ function _ajax_filter(button, is_filter) {
             if (response === 'no_more_posts') {
                 button.text('No more posts').prop('disabled', true);
             } else {
-                jQuery('#results > .row').append(response);
+                if ($is_filter == 'true') {
+                    jQuery('#results').html($response);
+                } else {
+                    jQuery('#results > .row').append(response);
+                }
                 ajax_post_loader_params.paged = parseInt(ajax_post_loader_params.paged) + 1;
                 console.log(ajax_post_loader_params.paged);
                 button.text('Load More');

@@ -4,7 +4,7 @@ function ajax_post_loader_load_more()
     check_ajax_referer('ajax_post_loader_nonce', 'security');
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
-    $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : false;
+    $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
     $search_var = isset($_POST['search']) ? $_POST['search_var'] : false;
 
     $args = array(
@@ -21,12 +21,17 @@ function ajax_post_loader_load_more()
     }
     $query = new WP_Query($args);
     echo $is_filter;
+
     if ($query->have_posts()) {
+        if ($is_filter == 'true') {
+            echo '<div class="row row-flex">';
+        }
         while ($query->have_posts()) {
             $query->the_post();
             echo membership_listing();
         }
         wp_reset_postdata();
+        echo '</div>';
         wp_die();
     } else {
         wp_die('no_more_posts');
