@@ -1136,6 +1136,9 @@ p.copyright a,
 	position: sticky;
 	top: 40px;
 }
+.load-more-holder {
+	margin-top: 4rem;
+}
 
 .modeltheme-content.modeltheme-content#login-modal-content h3,
 .modeltheme-content.modeltheme-content#signup-modal-content h3 {
