@@ -34,7 +34,7 @@ function ajax_post_loader_load_more()
     }
     $query = new WP_Query($args);
 
-    var_dump($directory_filter);
+    var_dump($args);
 
     if ($query->have_posts()) {
         if ($is_filter == 'true') {
