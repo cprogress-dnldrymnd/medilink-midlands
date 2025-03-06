@@ -49,7 +49,7 @@ function _ajax_filter(button, is_filter) {
             if (response === 'no_more_posts') {
                 button.text('No more posts').prop('disabled', true);
             } else {
-                if ($is_filter == 'true') {
+                if (is_filter == 'true') {
                     jQuery('#results').html($response);
                 } else {
                     jQuery('#results > .row').append(response);
