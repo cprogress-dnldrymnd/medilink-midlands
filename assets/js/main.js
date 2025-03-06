@@ -38,7 +38,7 @@ function ajax() {
                     button.text('No more posts').prop('disabled', true);
                 } else {
                     jQuery('#results .row').append(response);
-                    paged++;
+                    response.appendTo('#results .row');
                     button.text('Load More');
                 }
             },
