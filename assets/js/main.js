@@ -54,7 +54,7 @@ function _ajax_filter(button, is_filter) {
                 } else {
                     jQuery('#results > .row').append(response);
                 }
-                if (is_filter == 'true') {
+                if (is_filter == 'false') {
                     ajax_post_loader_params.paged = parseInt(ajax_post_loader_params.paged) + 1;
                 }
                 button.text('Load More');
