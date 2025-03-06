@@ -33,7 +33,8 @@ function ajax_post_loader_load_more()
         while ($query->have_posts()) {
             $query->the_post();
             $first_letter = getFirstLetter(get_the_title());
-            update_post_meta(get_the_ID(), 'first_letter', $first_letter);
+
+            echo get_post_meta(get_the_ID(),'first_letter', true);
             echo membership_listing();
         }
         wp_reset_postdata();
