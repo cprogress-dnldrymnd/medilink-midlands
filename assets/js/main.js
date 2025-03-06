@@ -46,6 +46,7 @@ function _ajax_filter(button, is_filter) {
             } else {
                 jQuery('#results > .row').append(response);
                 ajax_post_loader_params.paged = ajax_post_loader_params.paged + 1;
+                console.log(ajax_post_loader_params.paged);
                 button.text('Load More');
             }
         },
