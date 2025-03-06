@@ -33,7 +33,7 @@ function ajax() {
 function _ajax_filter(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
 
-    var checkedValues = $("input[name='directory-filter[]']:checked")
+    var checkedValues = jQuery("input[name='directory-filter[]']:checked")
         .map(function () {
             return $(this).val();
         })
