@@ -1079,6 +1079,7 @@ p.copyright a,
 }
 .member-directory-filters-holder .member-directory-filters .member-directory-filter {
 	width: calc(33.3333333% - 13.33333333333333px);
+	cursor: pointer;
 }
 
 .member-directory-filters-holder .member-directory-filters .member-directory-filter input {
