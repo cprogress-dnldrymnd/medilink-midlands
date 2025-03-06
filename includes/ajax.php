@@ -54,7 +54,6 @@ function ajax_post_loader_load_more()
         while ($query->have_posts()) {
             $query->the_post();
 
-            echo get_post_meta(get_the_ID(), 'first_letter', true);
             echo membership_listing();
         }
         wp_reset_postdata();
