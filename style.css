@@ -1075,7 +1075,7 @@ p.copyright a,
 .member-directory-filters-holder .member-directory-filters {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 15px;
+	gap: 20px;
 }
 .member-directory-filters-holder .member-directory-filters .member-directory-filter {
 	width: 25%;
@@ -1106,11 +1106,14 @@ p.copyright a,
 	background-size: contain;
 	opacity: 0.2;
 }
-
+.member-directory-search {
+	margin-bottom: 1rem;
+}
 .member-directory-search input {
 	border: 1px solid lightgray;
 	padding: 5px;
 	border-radius: 5px;
+	width: 100%
 }
 
 .member-directory-filters-holder .member-directory-filters .member-directory-filter input:checked + span:before {
