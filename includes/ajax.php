@@ -19,7 +19,6 @@ function ajax_post_loader_load_more()
         'orderby' => 'title',
         'order' => 'ASC'
     );
-    first_letter
     if ($search_var) {
         $args['s'] = $search_var;
     }

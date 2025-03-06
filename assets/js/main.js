@@ -38,7 +38,7 @@ function _ajax_filter(button, is_filter) {
             return $(this).val();
         })
         .get();
-console.log(checkedValues);
+    console.log(checkedValues);
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
         type: 'POST',
