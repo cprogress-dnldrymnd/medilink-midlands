@@ -21,18 +21,18 @@ jQuery(document).ready(function () {
 function ajax() {
     var paged = 2; // Start from page 2
     jQuery('.load-more-directory').on('click', function (event) {
-        ajax_filter(jQuery(this));
+        ajax_filter(jQuery(this), false);
         event.preventDefault();
     });
 
 
     jQuery('.submit-directory-filter').click(function (e) {
-        ajax_filter(jQuery(this));
+        ajax_filter(jQuery(this), true);
         e.preventDefault();
     });
 }
 
-function ajax_filter(button) {
+function ajax_filter(button, is_filter) {
     directory_filter = jQuery('input[directory-filter[]]');
     search = jQuery('input[name="search"]');
     jQuery.ajax({
