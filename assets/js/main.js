@@ -33,7 +33,7 @@ function ajax() {
 function _ajax_filter(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
 
-
+    directory_filter = [];
     jQuery("input:checkbox[name='directory-filter[]']:checked").each(function () {
         directory_filter.push(jQuery(this).val());
     });
