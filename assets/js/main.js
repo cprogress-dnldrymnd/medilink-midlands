@@ -31,7 +31,7 @@ function ajax() {
 }
 
 function _ajax_filter(button, is_filter) {
-    search_var = jQuery('input[name="search"]').val();
+    search_var = jQuery('input[name="search_var"]').val();
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
         type: 'POST',
