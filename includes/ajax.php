@@ -7,7 +7,7 @@ function ajax_post_loader_load_more()
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
     $search_var = isset($_POST['search_var']) ? $_POST['search_var'] : false;
 
-    if ($is_filter) {
+    if ($is_filter == 'true') {
         $paged = 1;
     }
 
