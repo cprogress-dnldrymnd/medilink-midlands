@@ -19,7 +19,7 @@ function ajax_post_loader_load_more()
         'orderby' => 'title',
         'order' => 'ASC'
     );
-
+    first_letter
     if ($search_var) {
         $args['s'] = $search_var;
     }
@@ -32,7 +32,6 @@ function ajax_post_loader_load_more()
         }
         while ($query->have_posts()) {
             $query->the_post();
-            $first_letter = getFirstLetter(get_the_title());
 
             echo get_post_meta(get_the_ID(),'first_letter', true);
             echo membership_listing();
