@@ -81,7 +81,12 @@ if (is_user_logged_in()) {
 }
 ?>
 
+<script>
+    jQuery(document).ready(function() {
+        jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
 
+    });
+</script>
 
 <?php wp_footer(); ?>
 </body>

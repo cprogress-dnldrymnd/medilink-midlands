@@ -1,7 +1,6 @@
 jQuery(document).ready(function () {
     ajax();
 
-    jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
 
     jQuery('.select-2-trigger select').select2({
         maximumSelectionLength: 3,
