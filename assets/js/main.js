@@ -23,6 +23,11 @@ function ajax() {
         _ajax_filter(jQuery(this), false);
         event.preventDefault();
     });
+
+    jQuery('.submit-directory-filter').on('click', function (event) {
+        _ajax_filter(jQuery(this), true);
+        event.preventDefault();
+    });
 }
 
 function _ajax_filter(button, is_filter) {
@@ -34,6 +39,7 @@ function _ajax_filter(button, is_filter) {
             action: 'ajax_post_loader_load_more',
             paged: ajax_post_loader_params.paged,
             search_var: search_var,
+            is_filter: is_filter,
             security: ajax_post_loader_params.nonce,
         },
         beforeSend: function () {

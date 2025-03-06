@@ -4,8 +4,9 @@ function ajax_post_loader_load_more()
     check_ajax_referer('ajax_post_loader_nonce', 'security');
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $is_filter = isset($_POST['is_filter']) ? intval($_POST['is_filter']) : false;
     $search_var = isset($_POST['search']) ? intval($_POST['search_var']) : false;
-
+    
     $args = array(
         'post_status' => 'publish',
         'post_type' => 'wpsl_stores',
@@ -19,7 +20,7 @@ function ajax_post_loader_load_more()
         $args['s'] = $search_var;
     }
     $query = new WP_Query($args);
-
+echo $is_filter;
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
