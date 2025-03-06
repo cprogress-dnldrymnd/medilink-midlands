@@ -9,6 +9,7 @@ function wikb_child_scripts()
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js');
     wp_localize_script('main', 'ajax_post_loader_params', array(
         'ajax_url' => admin_url('admin-ajax.php'),
+        'paged' => 2,
         'nonce' => wp_create_nonce('ajax_post_loader_nonce'),
     ));
 }
