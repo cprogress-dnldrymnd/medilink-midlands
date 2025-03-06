@@ -14,7 +14,9 @@ function ajax_post_loader_load_more()
         'order' => 'ASC'
     );
 
- 
+    if ($search) {
+        $args['s'] = $search;
+    }
     $query = new WP_Query($args);
 
     if ($query->have_posts()) {
