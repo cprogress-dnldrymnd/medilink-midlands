@@ -46,7 +46,7 @@ function _ajax_filter(button, is_filter) {
             paged: ajax_post_loader_params.paged,
             search_var: search_var,
             is_filter: is_filter,
-            directory_filter: { directory_filter },
+            directory_filter: directory_filter,
             security: ajax_post_loader_params.nonce,
         },
         beforeSend: function () {
