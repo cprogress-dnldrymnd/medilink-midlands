@@ -502,46 +502,48 @@ function member_directory()
 ?>
 
     <div class="membership-directory">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="member-directory-filters-holder">
-                    <div class="filter-title">Member Profile Filter</div>
-                    <div class="member-directory-search">
-                        <input type="text" placeholder="Search...">
-                    </div>
-                    <div class="member-directory-filters">
-                        <?php foreach ($filters as $filter) {  ?>
-                            <div class="member-directory-filter">
-                                <label><input type="checkbox" name="directory-filter[]"><span><?= $filter ?></span></label>
+        <div id="results">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="member-directory-filters-holder">
+                        <div class="filter-title">Member Profile Filter</div>
+                        <div class="member-directory-search">
+                            <input type="text" placeholder="Search...">
+                        </div>
+                        <div class="member-directory-filters">
+                            <?php foreach ($filters as $filter) {  ?>
+                                <div class="member-directory-filter">
+                                    <label><input type="checkbox" name="directory-filter[]"><span><?= $filter ?></span></label>
+                                </div>
+                            <?php } ?>
+                        </div>
+                        <div class="member-directory-filter-submit">
+                            <div class="modeltheme_button view-all">
+                                <a href="#" target="_blank" class="button-winona button-green btn btn-sm">
+                                    Submit
+                                </a>
                             </div>
-                        <?php } ?>
-                    </div>
-                    <div class="member-directory-filter-submit">
-                        <div class="modeltheme_button view-all">
-                            <a href="#" target="_blank" class="button-winona button-green btn btn-sm">
-                                Submit
-                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="listings">
-                    <div class="row row-flex">
-                        <?php if ($the_query->have_posts()) { ?>
-                            <?php while ($the_query->have_posts()) { ?>
-                                <?php
-                                $the_query->the_post();
-                                echo membership_listing();
-                                ?>
+                <div class="col-lg-9">
+                    <div class="listings">
+                        <div class="row row-flex">
+                            <?php if ($the_query->have_posts()) { ?>
+                                <?php while ($the_query->have_posts()) { ?>
+                                    <?php
+                                    $the_query->the_post();
+                                    echo membership_listing();
+                                    ?>
+                                <?php } ?>
                             <?php } ?>
-                        <?php } ?>
-                    </div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
 
+        </div>
         <div class="modeltheme_button view-all">
             <a href="#" target="_blank" class="button-winona button-green btn btn-sm load-more-directory">
                 Load More
