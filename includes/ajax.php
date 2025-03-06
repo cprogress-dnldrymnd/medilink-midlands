@@ -23,6 +23,15 @@ function ajax_post_loader_load_more()
     if ($search_var) {
         $args['s'] = $search_var;
     }
+
+    if ($directory_filter) {
+        $args['meta_query'] = array(
+            array(
+                'key' => 'first_letter',
+                'value' => $directory_filter,
+            ),
+        );
+    }
     $query = new WP_Query($args);
 
     var_dump($directory_filter);
@@ -34,7 +43,7 @@ function ajax_post_loader_load_more()
         while ($query->have_posts()) {
             $query->the_post();
 
-            echo get_post_meta(get_the_ID(),'first_letter', true);
+            echo get_post_meta(get_the_ID(), 'first_letter', true);
             echo membership_listing();
         }
         wp_reset_postdata();
@@ -47,10 +56,11 @@ function ajax_post_loader_load_more()
 add_action('wp_ajax_nopriv_ajax_post_loader_load_more', 'ajax_post_loader_load_more');
 add_action('wp_ajax_ajax_post_loader_load_more', 'ajax_post_loader_load_more');
 
-function getFirstLetter($string) {
+function getFirstLetter($string)
+{
     if (empty($string)) {
-      return ""; // Return an empty string if the input is empty
+        return ""; // Return an empty string if the input is empty
     }
-  
+
     return $string[0]; // Access the first character using array-like notation
-  }
+}
