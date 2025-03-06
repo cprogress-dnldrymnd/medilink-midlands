@@ -32,7 +32,7 @@ function ajax_post_loader_load_more()
         }
         while ($query->have_posts()) {
             $query->the_post();
-            $first_letter = $getFirstLetter(get_the_title());
+            $first_letter = getFirstLetter(get_the_title());
             echo $first_letter;
             echo membership_listing();
         }
