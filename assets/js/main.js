@@ -20,48 +20,42 @@ jQuery(document).ready(function () {
 
 function ajax() {
     var paged = 2; // Start from page 2
-    jQuery('.load-more-directory').on('click', function (e) {
-        _ajax_filter(jQuery(this), paged, false);
-        e.preventDefault();
-    });
-
-    jQuery('.submit-directory-filter').on('click', function (e) {
-        _ajax_filter(jQuery(this), paged, true);
-        e.preventDefault();
-    });
-}
-
-function _ajax_filter(button, paged, is_filter) {
-    directory_filter = jQuery('input[name="directory-filter[]"]');
-    search_var = jQuery('input[name="search_var"]');
-    jQuery.ajax({
-        url: ajax_post_loader_params.ajax_url,
-        type: 'POST',
-        data: {
-            action: 'ajax_post_loader_load_more',
-            paged: paged,
-            directory_filter: directory_filter,
-            search_var: search_var,
-            security: ajax_post_loader_params.nonce,
-        },
-        beforeSend: function () {
-            button.text('Loading...');
-        },
-        success: function (response) {
-            if (response === 'no_more_posts') {
-                button.text('No more posts').prop('disabled', true);
-            } else {
-                jQuery('#results > .row').append(response);
-                paged++;
-                button.text('Load More');
+    jQuery('.load-more-directory').on('click', function (event) {
+        var button = jQuery(this);
+        directory_filter = jQuery('input[directory-filter[]]');
+        search = jQuery('input[name="search"]');
+        jQuery.ajax({
+            url: ajax_post_loader_params.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'ajax_post_loader_load_more',
+                paged: paged,
+                directory_filter: directory_filter,
+                search: search,
+                security: ajax_post_loader_params.nonce,
+            },
+            beforeSend: function () {
+                button.text('Loading...');
+            },
+            success: function (response) {
+                if (response === 'no_more_posts') {
+                    button.text('No more posts').prop('disabled', true);
+                } else {
+                    jQuery('#results > .row').append(response);
+                    paged++;
+                    button.text('Load More');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+                button.text('Error');
             }
-        },
-        error: function (error) {
-            console.log(error);
-            button.text('Error');
-        }
+        });
+        event.preventDefault();
     });
+    
 }
+
 function matchHeights(selector) {
     var maxHeight = 0;
     // Reset heights before calculating
