@@ -19,7 +19,6 @@ jQuery(document).ready(function () {
 
 
 function ajax() {
-    var paged = 2; // Start from page 2
     jQuery('.load-more-directory').on('click', function (event) {
         _ajax_filter(jQuery(this), false);
         event.preventDefault();
