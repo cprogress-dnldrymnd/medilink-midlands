@@ -508,7 +508,7 @@ function member_directory()
                 <div class="member-directory-filters-holder">
                     <div class="filter-title">Member Profile Filter</div>
                     <div class="member-directory-search">
-                        <input type="text" placeholder="Search..." name="search">
+                        <input type="text" placeholder="Search..." name="search_var">
                     </div>
                     <div class="member-directory-filters">
                         <?php foreach ($filters as $filter) {  ?>
