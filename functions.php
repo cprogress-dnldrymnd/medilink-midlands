@@ -5,7 +5,12 @@ function wikb_child_scripts()
 
     wp_enqueue_style('wikb-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('wikb-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
+
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js');
+    wp_localize_script('main', 'ajax_post_loader_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('ajax_post_loader_nonce'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'wikb_child_scripts');
 
@@ -17,6 +22,7 @@ function cv_register_custom_fields()
 }
 require_once('includes/shortcodes.php');
 require_once('includes/post-types.php');
+require_once('includes/ajax.php');
 require_once('redux-framework/redux-framework.php');
 
 
