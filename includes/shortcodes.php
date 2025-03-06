@@ -518,7 +518,7 @@ function member_directory()
                     </div>
                     <div class="member-directory-filter-submit">
                         <div class="modeltheme_button view-all">
-                            <a href="#" target="_blank" class="button-winona button-green btn btn-sm">
+                            <a href="#"  class="button-winona button-green btn btn-sm">
                                 Submit
                             </a>
                         </div>
@@ -542,7 +542,7 @@ function member_directory()
                     </div>
                 </div>
                 <div class="modeltheme_button view-all">
-                    <a href="#" target="_blank" class="button-winona button-green btn btn-sm load-more-directory">
+                    <a href="#" class="button-winona button-green btn btn-sm load-more-directory">
                         Load More
                     </a>
                 </div>

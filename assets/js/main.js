@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
 
 
 function ajax() {
-    jQuery('.load-more-directory').on('click', function () {
+    jQuery('.load-more-directory').on('click', function (event) {
         var button = jQuery(this);
         offset = jQuery('.post-item').count();
         jQuery.ajax({
@@ -47,6 +47,7 @@ function ajax() {
                 button.text('Error');
             }
         });
+        event.preventDefault();
     });
 }
 
