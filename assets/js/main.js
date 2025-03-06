@@ -20,13 +20,13 @@ jQuery(document).ready(function () {
 
 function ajax() {
     var paged = 2; // Start from page 2
-    jQuery('.load-more-directory').on('click', function (event) {
+    jQuery('.load-more-directory').on('click', function (e) {
         ajax_filter(jQuery(this), false);
-        event.preventDefault();
+        e.preventDefault();
     });
 
 
-    jQuery('.submit-directory-filter').click(function (e) {
+    jQuery('.submit-directory-filter a').click(function (e) {
         ajax_filter(jQuery(this), true);
         e.preventDefault();
     });
