@@ -33,11 +33,11 @@ function ajax() {
 function _ajax_filter(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
 
-    directory_filter = [];
-    jQuery("input:checkbox[name='directory-filter[]']:checked").each(function () {
-        directory_filter.push(jQuery(this).val());
-    });
-    console.log(directory_filter);
+    var directory_filter = jQuery("input[name='directory-filter[]']:checked")
+        .map(function () {
+            return jQuery(this).val();
+        })
+        .get();
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
         type: 'POST',
@@ -46,7 +46,7 @@ function _ajax_filter(button, is_filter) {
             paged: ajax_post_loader_params.paged,
             search_var: search_var,
             is_filter: is_filter,
-            directory_filter: directory_filter,
+            directory_filter: { directory_filter },
             security: ajax_post_loader_params.nonce,
         },
         beforeSend: function () {
