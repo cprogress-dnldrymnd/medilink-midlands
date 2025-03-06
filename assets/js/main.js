@@ -22,6 +22,7 @@ function ajax() {
     var paged = 2; // Start from page 2
     jQuery('.load-more-directory').on('click', function (event) {
         _ajax_filter(jQuery(this), paged, false);
+        event.preventDefault();
     });
 }
 
@@ -53,7 +54,6 @@ function _ajax_filter(button, page, is_filter) {
             button.text('Error');
         }
     });
-    event.preventDefault();
 }
 function matchHeights(selector) {
     var maxHeight = 0;
