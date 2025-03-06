@@ -1,7 +1,6 @@
 jQuery(document).ready(function () {
     ajax();
 
-
     jQuery('.select-2-trigger select').select2({
         maximumSelectionLength: 3,
     });
