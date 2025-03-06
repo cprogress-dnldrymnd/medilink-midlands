@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
 function ajax() {
     jQuery('.load-more-directory').on('click', function (event) {
         var button = jQuery(this);
-        offset = jQuery('.post-item').count();
+        offset = jQuery('.post-item').length;
         jQuery.ajax({
             url: ajax_post_loader_params.ajax_url,
             type: 'POST',
