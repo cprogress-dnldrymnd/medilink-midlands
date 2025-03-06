@@ -15,12 +15,7 @@ function ajax_post_loader_load_more()
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-?>
-            <div class="ajax-post">
-                <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                <?php the_excerpt(); ?>
-            </div>
-<?php
+            echo membership_listing();
         }
         wp_reset_postdata();
         wp_die();
