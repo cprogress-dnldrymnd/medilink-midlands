@@ -20,12 +20,12 @@ jQuery(document).ready(function () {
 
 function ajax() {
     jQuery('.load-more-directory').on('click', function (event) {
-        _ajax_filter(jQuery(this), false);
+        _ajax_filter(jQuery(this), 'no');
         event.preventDefault();
     });
 
     jQuery('.submit-directory-filter').on('click', function (event) {
-        _ajax_filter(jQuery(this), true);
+        _ajax_filter(jQuery(this), 'yes');
         event.preventDefault();
     });
 }
