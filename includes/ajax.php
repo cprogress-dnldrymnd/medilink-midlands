@@ -4,6 +4,7 @@ function ajax_post_loader_load_more()
     check_ajax_referer('ajax_post_loader_nonce', 'security');
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $search = isset($_POST['search']) ? intval($_POST['search']) : false;
 
     $args = array(
         'post_status' => 'publish',
