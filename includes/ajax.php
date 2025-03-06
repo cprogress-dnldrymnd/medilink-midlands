@@ -3,12 +3,12 @@ function ajax_post_loader_load_more()
 {
     check_ajax_referer('ajax_post_loader_nonce', 'security');
 
-    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $offset = isset($_POST['offset']) ? intval($_POST['offset']) : 1;
 
     $args = array(
         'post_type' => 'wpsl_stores',
         'posts_per_page' => 10,
-        'paged' => $paged,
+        'offset' => $offset,
     );
     $query = new WP_Query($args);
 
