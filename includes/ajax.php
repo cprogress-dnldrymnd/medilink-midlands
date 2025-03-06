@@ -5,7 +5,7 @@ function ajax_post_loader_load_more()
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
-    $search_var = isset($_POST['search']) ? $_POST['search_var'] : false;
+    $search_var = isset($_POST['search_var']) ? $_POST['search_var'] : false;
 
     $args = array(
         'post_status' => 'publish',
