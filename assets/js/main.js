@@ -53,7 +53,6 @@ function ajax() {
         });
         event.preventDefault();
     });
-    
 }
 
 function matchHeights(selector) {
