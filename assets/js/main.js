@@ -33,11 +33,7 @@ function ajax() {
 function _ajax_filter(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
 
-    var checkedValues = jQuery("input[name='directory-filter[]']:checked")
-        .map(function () {
-            return jQuery(this).val();
-        })
-        .get();
+    var checkedValues = jQuery("input[name='directory-filter[]']:checked").val();
     console.log(checkedValues);
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
