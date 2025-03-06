@@ -20,7 +20,6 @@ function ajax_post_loader_load_more()
         $args['s'] = $search_var;
     }
     $query = new WP_Query($args);
-    echo $is_filter;
 
     if ($query->have_posts()) {
         if ($is_filter == 'true') {
