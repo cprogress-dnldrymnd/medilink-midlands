@@ -5,8 +5,7 @@ function wikb_child_scripts()
 
     wp_enqueue_style('wikb-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
     wp_enqueue_script('wikb-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
-
-  
+    wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js');
 }
 add_action('wp_enqueue_scripts', 'wikb_child_scripts');
 
