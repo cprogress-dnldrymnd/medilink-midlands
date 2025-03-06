@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
 
 
 function ajax() {
-    var paged = 2; // Start from page 2
+    var paged;
     jQuery('.load-more-directory').on('click', function (event) {
         var button = jQuery(this);
         jQuery.ajax({
