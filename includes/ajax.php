@@ -7,6 +7,10 @@ function ajax_post_loader_load_more()
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
     $search_var = isset($_POST['search_var']) ? $_POST['search_var'] : false;
 
+    if ($is_filter) {
+        $paged = 1;
+    }
+
     $args = array(
         'post_status' => 'publish',
         'post_type' => 'wpsl_stores',
