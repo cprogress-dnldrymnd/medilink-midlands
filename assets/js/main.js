@@ -32,7 +32,6 @@ function ajax() {
 }
 
 function _ajax_filter(button, paged, is_filter) {
-    console.log('xxxx');
     directory_filter = jQuery('input[name="directory-filter[]"]');
     search_var = jQuery('input[name="search_var"]');
     jQuery.ajax({
