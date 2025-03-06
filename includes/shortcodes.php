@@ -517,7 +517,7 @@ function member_directory()
                     </div>
                     <div class="member-directory-filter-submit">
                         <div class="modeltheme_button view-all">
-                            <a href="http://3pinnovation.com/" target="_blank" class="button-winona button-green btn btn-sm">
+                            <a href="#" target="_blank" class="button-winona button-green btn btn-sm">
                                 Submit
                             </a>
                         </div>
