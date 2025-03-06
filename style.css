@@ -1119,6 +1119,7 @@ p.copyright a,
 
 .member-directory-filter-submit {
 	margin-top: 2rem;
+	text-align: right !important;
 }
 .member-directory-filter-submit a{
 	width: 100%;
