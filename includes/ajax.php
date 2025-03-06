@@ -25,6 +25,18 @@ function ajax_post_loader_load_more()
     }
 
     if ($directory_filter) {
+
+        if (in_array('1-9', $directory_filter)) {
+            $directory_filter[] = 1;
+            $directory_filter[] = 2;
+            $directory_filter[] = 3;
+            $directory_filter[] = 4;
+            $directory_filter[] = 5;
+            $directory_filter[] = 6;
+            $directory_filter[] = 7;
+            $directory_filter[] = 8;
+            $directory_filter[] = 9;
+        }
         $args['meta_query'] = array(
             array(
                 'key' => 'first_letter',
