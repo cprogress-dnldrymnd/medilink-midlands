@@ -541,6 +541,12 @@ function member_directory()
                 </div>
             </div>
         </div>
+
+        <div class="modeltheme_button view-all">
+            <a href="#" target="_blank" class="button-winona button-green btn btn-sm load-more-directory">
+                Load More
+            </a>
+        </div>
     </div>
 
 <?php

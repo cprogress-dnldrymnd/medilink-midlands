@@ -1,5 +1,8 @@
 jQuery(document).ready(function () {
+    ajax();
+    
     jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
+
     jQuery('.select-2-trigger select').select2({
         maximumSelectionLength: 3,
     });
@@ -13,6 +16,38 @@ jQuery(document).ready(function () {
         e.preventDefault();
     });
 });
+
+
+function ajax() {
+    jQuery('.load-more-directory').on('click', function () {
+        var button = jQuery(this);
+        jQuery.ajax({
+            url: ajax_post_loader_params.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'ajax_post_loader_load_more',
+                paged: paged,
+                security: ajax_post_loader_params.nonce,
+            },
+            beforeSend: function () {
+                button.text('Loading...');
+            },
+            success: function (response) {
+                if (response === 'no_more_posts') {
+                    button.text('No more posts').prop('disabled', true);
+                } else {
+                    jQuery('#ajax-post-container').append(response);
+                    paged++;
+                    button.text('Load More');
+                }
+            },
+            error: function (error) {
+                console.log(error);
+                button.text('Error');
+            }
+        });
+    });
+}
 
 function matchHeights(selector) {
     var maxHeight = 0;
