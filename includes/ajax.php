@@ -20,8 +20,8 @@ function ajax_post_loader_load_more()
         'orderby' => 'title',
         'order' => 'ASC'
     );
-    if ($directory_filter) {
-        $args['s'] = $directory_filter;
+    if ($search_var) {
+        $args['s'] = $search_var;
     }
     $query = new WP_Query($args);
 
