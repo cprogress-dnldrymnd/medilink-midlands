@@ -6,6 +6,7 @@ function ajax_post_loader_load_more()
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
 
     $args = array(
+        'post_status' => 'publish',
         'post_type' => 'wpsl_stores',
         'posts_per_page' => 10,
         'paged' => $paged,

@@ -492,6 +492,7 @@ function member_directory()
 {
     ob_start();
     $args = array(
+        'post_status' => 'publish',
         'post_type' => 'wpsl_stores',
         'numberposts' => 10,
         'orderby' => 'title',
@@ -518,7 +519,7 @@ function member_directory()
                     </div>
                     <div class="member-directory-filter-submit">
                         <div class="modeltheme_button view-all">
-                            <a href="#"  class="button-winona button-green btn btn-sm">
+                            <a href="#" class="button-winona button-green btn btn-sm">
                                 Submit
                             </a>
                         </div>
