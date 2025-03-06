@@ -26,7 +26,7 @@ function ajax() {
     });
 
 
-    jQuery('.submit-directory-filter a').click(function (e) {
+    jQuery('.submit-directory-filter').click(function (e) {
         ajax_filter(jQuery(this), paged, true);
         e.preventDefault();
     });
