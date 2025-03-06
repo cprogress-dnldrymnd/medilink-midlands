@@ -1,6 +1,6 @@
 jQuery(document).ready(function () {
     ajax();
-    
+
     jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
 
     jQuery('.select-2-trigger select').select2({
@@ -21,12 +21,13 @@ jQuery(document).ready(function () {
 function ajax() {
     jQuery('.load-more-directory').on('click', function () {
         var button = jQuery(this);
+        offset = jQuery('.post-item').count();
         jQuery.ajax({
             url: ajax_post_loader_params.ajax_url,
             type: 'POST',
             data: {
                 action: 'ajax_post_loader_load_more',
-                paged: paged,
+                offset: offset,
                 security: ajax_post_loader_params.nonce,
             },
             beforeSend: function () {

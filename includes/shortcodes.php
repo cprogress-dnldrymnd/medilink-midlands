@@ -571,7 +571,7 @@ function membership_listing()
         $is_patron = false;
     }
 ?>
-    <div class="col-lg-12">
+    <div class="col-lg-12 post-item">
         <div class="listing">
             <div class="top">
                 <div class="row row-flex logo-heading">
