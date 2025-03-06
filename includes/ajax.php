@@ -15,7 +15,7 @@ function ajax_post_loader_load_more()
     $args = array(
         'post_status' => 'publish',
         'post_type' => 'wpsl_stores',
-        'posts_per_page' => -1,
+        'posts_per_page' => 10,
         'paged' => $paged,
         'orderby' => 'title',
         'order' => 'ASC'
