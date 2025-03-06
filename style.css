@@ -1119,7 +1119,6 @@ p.copyright a,
 
 .member-directory-filter-submit {
 	margin-top: 2rem;
-	text-align: right !important;
 }
 .member-directory-filter-submit a{
 	width: 100%;
@@ -1139,6 +1138,7 @@ p.copyright a,
 }
 .load-more-holder {
 	margin-top: 4rem;
+	text-align: right !important;
 }
 
 .modeltheme-content.modeltheme-content#login-modal-content h3,
