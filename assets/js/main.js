@@ -27,14 +27,14 @@ function ajax() {
 }
 
 function _ajax_filter(button, paged, is_filter) {
-    search = jQuery('input[name="search"]');
+    search_var = jQuery('input[name="search"]');
     jQuery.ajax({
         url: ajax_post_loader_params.ajax_url,
         type: 'POST',
         data: {
             action: 'ajax_post_loader_load_more',
             paged: paged,
-            search: search,
+            search_var: search_var,
             security: ajax_post_loader_params.nonce,
         },
         beforeSend: function () {
