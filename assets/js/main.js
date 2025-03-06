@@ -22,16 +22,14 @@ function ajax() {
     var paged = 2; // Start from page 2
     jQuery('.load-more-directory').on('click', function (event) {
         var button = jQuery(this);
-        directory_filter = jQuery('input[name="directory-filter[]"]');
-        search = jQuery('input[name="search"]');
+       
         jQuery.ajax({
             url: ajax_post_loader_params.ajax_url,
             type: 'POST',
             data: {
                 action: 'ajax_post_loader_load_more',
                 paged: paged,
-                directory_filter: directory_filter,
-                search: search,
+               
                 security: ajax_post_loader_params.nonce,
             },
             beforeSend: function () {
