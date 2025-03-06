@@ -15,7 +15,7 @@ function ajax_post_loader_load_more()
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            echo membership_listing();
+            echo 'xx';
         }
         wp_reset_postdata();
         wp_die();
