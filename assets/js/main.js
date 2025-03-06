@@ -64,6 +64,8 @@ function _ajax_filter(button, is_filter) {
                 if (is_filter == 'false') {
                     ajax_post_loader_params.paged = parseInt(ajax_post_loader_params.paged) + 1;
                 }
+
+                console.log(ajax_post_loader_params.paged);
                 button.text('Load More');
             }
         },
