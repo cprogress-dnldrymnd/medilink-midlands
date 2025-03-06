@@ -513,7 +513,7 @@ function member_directory()
                     <div class="member-directory-filters">
                         <?php foreach ($filters as $filter) {  ?>
                             <div class="member-directory-filter">
-                                <label><input type="checkbox" name="directory-filter[]"><span><?= $filter ?></span></label>
+                                <label><input value="<?= $filter ?>" type="checkbox" name="directory-filter[]"><span><?= $filter ?></span></label>
                             </div>
                         <?php } ?>
                     </div>
