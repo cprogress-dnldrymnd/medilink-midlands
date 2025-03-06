@@ -9,6 +9,8 @@ function ajax_post_loader_load_more()
         'post_type' => 'wpsl_stores',
         'posts_per_page' => 10,
         'paged' => $paged,
+        'orderby' => 'title',
+        'order' => 'ASC'
     );
     $query = new WP_Query($args);
 
