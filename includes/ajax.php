@@ -6,6 +6,7 @@ function ajax_post_loader_load_more()
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
     $search_var = isset($_POST['search_var']) ? $_POST['search_var'] : false;
+    $directory_filter = isset($_POST['directory_filter']) ? $_POST['directory_filter'] : false;
 
     if ($is_filter == 'true') {
         $paged = 1;
@@ -19,11 +20,12 @@ function ajax_post_loader_load_more()
         'orderby' => 'title',
         'order' => 'ASC'
     );
-    if ($search_var) {
-        $args['s'] = $search_var;
+    if ($directory_filter) {
+        $args['s'] = $directory_filter;
     }
     $query = new WP_Query($args);
 
+    var_dump($directory_filter);
 
     if ($query->have_posts()) {
         if ($is_filter == 'true') {
