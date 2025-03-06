@@ -37,7 +37,7 @@ function ajax() {
                 if (response === 'no_more_posts') {
                     button.text('No more posts').prop('disabled', true);
                 } else {
-                    jQuery('#ajax-post-container').append(response);
+                    jQuery('#results .row').append(response);
                     paged++;
                     button.text('Load More');
                 }
