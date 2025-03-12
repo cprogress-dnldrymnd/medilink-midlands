@@ -3,11 +3,11 @@ function featured_articles()
 {
     ob_start();
     $posts = get_posts(array(
-        'post_type' => 'post',
+        'post_type'  => 'post',
         'numberpost' => 3,
-        'category' => 95
+        'category'   => 95
     ));
-?>
+    ?>
     <div class="title-subtile-holder wow bounce text_left" style="animation-name: bounce; margin-bottom: 35px">
         <h2 class="section-title light_title">Featured Articles</h2>
     </div>
@@ -65,8 +65,11 @@ function featured_articles()
 
                                     <div class="text-element content-element">
 
-                                        <p> <a class="more-link" href="<?= $permalink ?>">Read More <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                    <path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                        <p> <a class="more-link" href="<?= $permalink ?>">Read More <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                                    <path
+                                                        d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
                                                 </svg></a></p>
 
                                     </div>
@@ -84,10 +87,12 @@ function featured_articles()
         </div>
     </div>
     <?php if (!is_home()) { ?>
-        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://medilink.theprogressteam.com/latest-articles/" class="button-winona button-green btn btn-sm">VIEW ALL</a></div>
+        <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a
+                href="https://medilink.theprogressteam.com/latest-articles/" class="button-winona button-green btn btn-sm">VIEW
+                ALL</a></div>
 
     <?php } ?>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -98,10 +103,10 @@ function testimonials()
 {
     ob_start();
     $posts = get_posts(array(
-        'post_type' => 'testimonial',
+        'post_type'  => 'testimonial',
         'numberpost' => 10,
     ));
-?>
+    ?>
     <div class="testimonial-slider">
         <div class="testimonial-wrapper">
             <div class="swiper swiper-testimonial">
@@ -147,7 +152,7 @@ function testimonials()
             },
         });
     </script>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('testimonials', 'testimonials');
@@ -156,10 +161,10 @@ function join_us_old()
 {
     ob_start();
     $plans = get_posts(array(
-        'post_type' => 'umm_stripe',
+        'post_type'   => 'umm_stripe',
         'numberposts' => -1,
     ));
-?>
+    ?>
     <div class="packages">
         <div class="row row-flex">
             <?php for ($x = 1; $x <= 6; $x++) { ?>
@@ -207,14 +212,16 @@ function join_us_old()
                                 </div>
                             </div>
 
-                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px">
+                                <a href="#" class="button-winona button-green btn btn-sm">GET STARTED</a>
+                            </div>
                         </div>
                     </div>
                 <?php } ?>
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -224,7 +231,7 @@ function join_us()
 
     $plans = carbon_get_theme_option('packages');
 
-?>
+    ?>
     <div class="packages">
         <div class="row row-flex">
             <?php foreach ($plans as $plan) { ?>
@@ -255,7 +262,8 @@ function join_us()
                                         <div class="price-inner">
                                             <?php if ($package_price) { ?>
                                                 <span class="currency">£</span><span class="price-val"><?= $package_price ?></span>
-                                            <?php } else { ?>
+                                            <?php }
+                                            else { ?>
                                                 <span class="price-val">No Fee</span>
                                             <?php } ?>
 
@@ -309,14 +317,17 @@ function join_us()
                             <?php } ?>
 
 
-                            <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a href="https://www.medilinkmidlands.com/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a></div>
+                            <div class="text-center modeltheme_button wow bounce"
+                                style="animation-name: bounce; margin-top: 40px"><a
+                                    href="https://www.medilinkmidlands.com/online-membership-form/"
+                                    class="button-winona button-green btn btn-sm">GET STARTED</a></div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -325,7 +336,7 @@ add_shortcode('join_us', 'join_us');
 function member_marketplace_form()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form" id="member-marketplace-form">
         <div class="container">
 
@@ -343,18 +354,23 @@ function member_marketplace_form()
                     <?php } ?>
                 </p>
                 <p>
-                    If you are looking to submit an offer, please complete the submission form with all requested details below.
+                    If you are looking to submit an offer, please complete the submission form with all requested details
+                    below.
                 </p>
                 <p>
-                    Once submitted a member of the Membership Team will review your offer and you will receive confirmation of your offer within 3 working days. To prevent any delays, please complete the form with all required information.
+                    Once submitted a member of the Membership Team will review your offer and you will receive confirmation
+                    of your offer within 3 working days. To prevent any delays, please complete the form with all required
+                    information.
                 </p>
                 <p>
-                    Please note, members can have only list one offer on the Marketplace. If we receive more than one, only one will be listed.
+                    Please note, members can have only list one offer on the Marketplace. If we receive more than one, only
+                    one will be listed.
                 </p>
             </div>
             <?php if (is_user_logged_in()) { ?>
                 <?= do_shortcode('[contact-form-7 id="af104d5" title="Submit an Offer"]') ?>
-            <?php } else { ?>
+            <?php }
+            else { ?>
                 <div class="login-notice">
                     <div class="inner">
                         <p>
@@ -365,7 +381,7 @@ function member_marketplace_form()
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('member_marketplace_form', 'member_marketplace_form');
@@ -374,14 +390,15 @@ add_shortcode('member_marketplace_form', 'member_marketplace_form');
 function submit_blog_form_with_login()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form" id="member-marketplace-form">
         <div class="container">
             <h2>Submit a Blog</h2>
 
             <?php if (is_user_logged_in()) { ?>
                 <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
-            <?php } else { ?>
+            <?php }
+            else { ?>
                 <div class="login-notice">
                     <div class="inner">
                         <p>
@@ -392,7 +409,7 @@ function submit_blog_form_with_login()
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -400,14 +417,14 @@ function submit_blog_form_with_login()
 function submit_blog_form()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form" id="member-marketplace-form">
         <div class="container">
             <h2>Submit a Blog</h2>
             <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('submit_blog_form', 'submit_blog_form');
@@ -419,7 +436,7 @@ function user_field($atts)
     extract(
         shortcode_atts(
             array(
-                'key' => '',
+                'key'       => '',
                 'author_id' => 'current',
             ),
             $atts
@@ -428,19 +445,23 @@ function user_field($atts)
 
     if ($author_id == 'current') {
         $user_id = get_current_user_id();
-    } else {
+    }
+    else {
         $user_id = $author_id;
     }
     if ($key == 'user_email') {
         $user_info = get_userdata($user_id);
         return $user_info->user_email;
-    } else if ($key == 'first_and_last_name') {
+    }
+    else if ($key == 'first_and_last_name') {
         $first_name = get_user_meta($user_id, 'first_name', true);
         $last_name = get_user_meta($user_id, 'last_name', true);
         return $first_name . ' ' . $last_naclaim_offer_formme;
-    } else if ($key == 'user_id') {
+    }
+    else if ($key == 'user_id') {
         return $user_id;
-    } else {
+    }
+    else {
         return get_user_meta($user_id, $key, true);
     }
 }
@@ -449,7 +470,7 @@ add_shortcode('user_field', 'user_field');
 function claim_offer_form()
 {
     ob_start();
-?>
+    ?>
     <div class="claim-offer-form">
         <div class="row row-flex">
             <div class="col-lg-6">
@@ -469,7 +490,8 @@ function claim_offer_form()
                 <?php
                 if (is_user_logged_in()) {
                     echo do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]');
-                } else {
+                }
+                else {
                     echo '<div class="login-notice">
                         <div class="inner">
                             <p> Please login before you can claim an offer. </p>
@@ -480,7 +502,7 @@ function claim_offer_form()
             </div>
         </div>
     </div>
-<?php
+    <?php
 
     return ob_get_clean();
 }
@@ -493,14 +515,14 @@ function member_directory()
     ob_start();
     $args = array(
         'post_status' => 'publish',
-        'post_type' => 'wpsl_stores',
+        'post_type'   => 'wpsl_stores',
         'numberposts' => 10,
-        'orderby' => 'title',
-        'order' => 'ASC'
+        'orderby'     => 'title',
+        'order'       => 'ASC'
     );
     $the_query = new WP_Query($args);
     $filters = array("1-9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z");
-?>
+    ?>
 
     <div class="membership-directory">
         <div class="row">
@@ -511,9 +533,10 @@ function member_directory()
                         <input type="text" placeholder="Search..." name="search_var">
                     </div>
                     <div class="member-directory-filters">
-                        <?php foreach ($filters as $filter) {  ?>
+                        <?php foreach ($filters as $filter) { ?>
                             <div class="member-directory-filter">
-                                <label><input value="<?= $filter ?>" type="checkbox" name="directory-filter[]"><span><?= $filter ?></span></label>
+                                <label><input value="<?= $filter ?>" type="checkbox"
+                                        name="directory-filter[]"><span><?= $filter ?></span></label>
                             </div>
                         <?php } ?>
                     </div>
@@ -551,7 +574,7 @@ function member_directory()
         </div>
     </div>
 
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -568,11 +591,12 @@ function membership_listing()
     if (has_term(112, 'wpsl_store_category', get_the_ID())) {
         $class = 'col-lg-10';
         $is_patron = true;
-    } else {
+    }
+    else {
         $class = 'col-lg-12';
         $is_patron = false;
     }
-?>
+    ?>
     <div class="col-lg-12 post-item">
         <div class="listing">
             <div class="top">
@@ -594,8 +618,10 @@ function membership_listing()
                                 <?php if ($wpsl_phone) { ?>
                                     <li>
                                         <a href="tel:<?= $wpsl_phone ?>">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
                                             </svg>
                                             <?= $wpsl_phone ?>
                                         </a>
@@ -604,8 +630,10 @@ function membership_listing()
                                 <?php if ($wpsl_email) { ?>
                                     <li>
                                         <a href="mailto:<?= $wpsl_email ?>">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
                                             </svg>
                                             <?= $wpsl_email ?>
                                         </a>
@@ -615,8 +643,10 @@ function membership_listing()
                                 <?php if ($wpsl_url) { ?>
                                     <li>
                                         <a href="<?= $url ?>" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
-                                                <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-globe" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
                                             </svg>
                                             <?= getDomain($url) ?>
                                         </a>
@@ -637,7 +667,7 @@ function membership_listing()
 
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -692,7 +722,7 @@ function addHttpsToUrl($url)
 function offer_category()
 {
     $terms = get_terms(array(
-        'taxonomy' => 'membersmarketplace_category',
+        'taxonomy'   => 'membersmarketplace_category',
         'hide_empty' => false,
     ));
     $select = '<option>Select Category</option>';
@@ -711,7 +741,7 @@ add_shortcode('offer_category', 'offer_category');
 function blog_category()
 {
     $terms = get_terms(array(
-        'taxonomy' => 'category',
+        'taxonomy'   => 'category',
         'hide_empty' => false,
     ));
     $select = '<option>Select Category</option>';
@@ -748,3 +778,24 @@ function template($atts)
 }
 
 add_shortcode('template', 'template');
+
+
+function auto_renewal()
+{
+    ob_start();
+    ?>
+    <div class="auto-renewal-information">
+        <span class="text">Auto Renewal Information</span>
+        <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                <path
+                    d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
+            </svg>
+        </span>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('auto_renewal', 'auto_renewal');
