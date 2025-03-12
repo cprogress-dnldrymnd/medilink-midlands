@@ -36,6 +36,8 @@ function membership_form() {
     });
 
     $nav.insertBefore('.fieldset-cf7mls-wrapper');
+
+    jQuery('.cf7-nav > li:first-child').addClass('active');
 }
 
 
