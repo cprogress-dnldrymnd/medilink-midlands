@@ -1,19 +1,42 @@
 jQuery(document).ready(function () {
     ajax();
+    select__2();
+    membership_form();
+    package();
+    learn_more();
+});
 
-    jQuery('.select-2-trigger select').select2({
-        maximumSelectionLength: 3,
-    });
+function package() {
 
     if (jQuery('.package-price-main-details-inner').length > 0) {
         matchHeights('.package-price-main-details-inner');
     }
 
+}
+function learn_more() {
     jQuery('.learn-more a').click(function (e) {
         jQuery(this).parents('.inner').addClass('package-active');
         e.preventDefault();
     });
-});
+}
+function select__2() {
+    jQuery('.select-2-trigger select').select2({
+        maximumSelectionLength: 3,
+    });
+
+}
+
+
+function membership_form() {
+    $nav = jQuery('<ul class="cf7-nav"></ul>');
+    jQuery('.fieldset-cf7mls h4').each(function (index, element) {
+        $text = jQuery(this).text();
+        $text_html = jQuery('<li>' + $text + '</li>');
+        $text_html.appendTo($nav);
+    });
+
+    $nav.insertBefore('.fieldset-cf7mls-wrapper');
+}
 
 
 function ajax() {
