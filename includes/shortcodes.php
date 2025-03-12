@@ -784,7 +784,7 @@ function auto_renewal()
 {
     ob_start();
     ?>
-    <div class="auto-renewal-information">
+    <div class="auto-renewal-information wow-modal-id-2">
         <span class="text">Auto Renewal Information</span>
         <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle"
