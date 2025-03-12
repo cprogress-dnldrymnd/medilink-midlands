@@ -29,7 +29,7 @@ function select__2() {
 
 function membership_form() {
     $nav = jQuery('<ul class="cf7-nav"></ul>');
-    jQuery('.fieldset-cf7mls h4').each(function (index, element) {
+    jQuery('.fieldset-cf7mls .step-title').each(function (index, element) {
         $text = jQuery(this).text();
         $text_html = jQuery('<li>' + $text + '</li>');
         $text_html.appendTo($nav);
