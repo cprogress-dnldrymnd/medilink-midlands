@@ -45,7 +45,6 @@ function membership_form() {
 
     jQuery(document).on("click", ".cf7mls_next", function () {
 
-
         setTimeout(function () {
             $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
             jQuery('.cf7-nav li').removeClass('active');
