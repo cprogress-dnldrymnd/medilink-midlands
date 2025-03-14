@@ -1418,10 +1418,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                     background-color: var(--white-color);
                 }
                 &:first-child {
-                    &:not(.no-bg) {
-                        background-color: var(--accent-color);
-                        color: var(--white-color);
-                    }
                     &:not(.no-border) {
                         border-left: 1px var(--gray-color);
                     }
@@ -1482,6 +1478,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     text-align: left !important;
 }
 
+
 .page-id-50014 #primary .container {
     max-width: 1600px;
     width: 100%;
@@ -1500,6 +1497,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         }
     }
 }
+
 
 body {
     &.header-title-style-2 {

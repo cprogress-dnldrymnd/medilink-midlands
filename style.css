@@ -1306,10 +1306,6 @@ a {
       .join-us-v2 table tr td:not(.no-bg):not(.title-data),
       .join-us-v2 table tr th:not(.no-bg):not(.title-data) {
         background-color: var(--white-color); }
-      .join-us-v2 table tr td:first-child:not(.no-bg),
-      .join-us-v2 table tr th:first-child:not(.no-bg) {
-        background-color: var(--accent-color);
-        color: var(--white-color); }
       .join-us-v2 table tr td:first-child:not(.no-border),
       .join-us-v2 table tr th:first-child:not(.no-border) {
         border-left: 1px var(--gray-color); }
