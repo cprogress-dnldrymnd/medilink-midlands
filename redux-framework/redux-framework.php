@@ -70,7 +70,8 @@ if ( !function_exists( "redux_add_metaboxes" ) ):
                     'type' => 'select',
 					'options' => array(
 						'style-default' => 'Default',
-						'style-1' => 'Style 1'
+						'style-1' => 'Style 1',
+						'style-2' => 'Style 2'
 					)
                 ),
             ),
