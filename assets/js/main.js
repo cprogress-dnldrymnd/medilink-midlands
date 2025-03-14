@@ -75,15 +75,7 @@ function membership_form() {
     });
 
     jQuery('input[name="select-sector"] + .wpcf7-list-item-label').each(function (index, element) {
-        var input = jQuery(this).prev().parent().find('input[name="select-sectors"]:checked');
-        jQuery(this).click(function (e) {
-            if (input.length > 0) {
-                console.log('check');
-            } else {
-                console.log('not chec');
-            }
-
-        });
+       
     });
 
 }
