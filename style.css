@@ -1302,6 +1302,8 @@ a {
     .join-us-v2 > table > thead td,
     .join-us-v2 > table > thead th {
       background-color: #edeff5; }
+  .join-us-v2 > table > tbody > tr:last-child td:nth-child(2) {
+    border-radius: 0 0 0 20px; }
   .join-us-v2 > table > tbody > tr:last-child td:last-child {
     border-radius: 0 0 20px 0; }
   .join-us-v2 table {
