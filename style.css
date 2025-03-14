@@ -1319,7 +1319,8 @@ a {
 .join-us-v2 .title-data {
   text-align: center;
   font-weight: bold;
-  color: var(--accent-color); }
+  background-color: var(--accent-color);
+  color: var(--white-color); }
 .join-us-v2 .price .price-text {
   font-size: 25px;
   color: var(--green-color); }

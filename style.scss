@@ -1433,7 +1433,8 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     .title-data {
         text-align: center;
         font-weight: bold;
-        color: var(--accent-color);
+        background-color: var(--accent-color);
+        color: var(--white-color);
     }
     .price .price-text {
         font-size: 25px;
