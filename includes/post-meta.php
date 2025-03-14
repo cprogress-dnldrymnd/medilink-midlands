@@ -71,6 +71,7 @@ Container::make('post_meta', 'Packages Details')
 		array(
 			Field::make('select', 'membership_review', __('Membership Review'))
 				->set_options(array(
+					'' => 'None',
 					'Annual' => 'Annual',
 					'Per Quarter' => 'Per Quarter'
 				)),
