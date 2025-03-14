@@ -80,7 +80,7 @@ function membership_form() {
     });
 
     function displaySelected() {
-        let selected = document.querySelector('input[name="options"]:checked');
+        let selected = document.querySelector('input[name="sectors"]:checked');
         let displayArea = document.getElementById("selectedOption");
         if (selected) {
             displayArea.textContent = "Selected option: " + selected.value;
