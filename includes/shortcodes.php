@@ -815,7 +815,7 @@ function join_us_v2()
         'orderby' => 'term_id',
         'order' => 'ASC',
     ));
-    
+
 ?>
     <div class="join-us-v2">
         <table>
@@ -900,15 +900,17 @@ function join_us_v2()
 
 
                 <!-- membership review-->
-               
+
                 <tr>
                     <td>
                         Membership Review
                     </td>
                     <?php foreach ($packages as $package) { ?>
-                      
-                        <td class="tick <?= $class ?>">
-                            <span></span>
+                        <?php
+                        $membership_review = carbon_get_post_meta($package->ID, 'membership_review');
+                        ?>
+                        <td>
+                            <span><?= $membership_review ?></span>
                         </td>
                     <?php } ?>
                 </tr>
