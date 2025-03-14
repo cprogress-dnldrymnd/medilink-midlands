@@ -108,7 +108,7 @@
                                   </li>
                                 <?php } ?>
                                 <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1]') ?>">
-                                  <i class="icon-profile icons"></i> <?php echo esc_html__('Profile','wikb'); ?></a>
+                                  <i class="icon-user icons"></i> <?php echo esc_html__('Profile','wikb'); ?></a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li><a href="<?php echo esc_url(wp_logout_url( home_url() )); ?>">
