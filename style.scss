@@ -1387,6 +1387,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         > thead {
             position: sticky;
             top: 32px;
+            z-index: 9;
             td,th {
                 background-color: #edeff5;
             }

@@ -1286,7 +1286,8 @@ a {
 
 .join-us-v2 > table > thead {
   position: sticky;
-  top: 32px; }
+  top: 32px;
+  z-index: 9; }
   .join-us-v2 > table > thead td, .join-us-v2 > table > thead th {
     background-color: #edeff5; }
 .join-us-v2 table {
