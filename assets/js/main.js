@@ -75,20 +75,8 @@ function membership_form() {
             } else {
                 previouslySelected = this;
             }
-            displaySelected();
         });
     });
-
-    function displaySelected() {
-        let selected = document.querySelector('input[name="sectors"]:checked');
-        let displayArea = document.getElementById("selectedOption");
-        if (selected) {
-            displayArea.textContent = "Selected option: " + selected.value;
-        } else {
-            displayArea.textContent = "No option selected";
-        }
-    }
-    displaySelected();
 
 }
 
