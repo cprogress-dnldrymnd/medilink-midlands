@@ -123,6 +123,13 @@
                       <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
                     </li>
                   <?php } ?>
+                  <?php
+                  if (is_user_logged_in()) {
+                    $button = 'Upgrade';
+                  } else {
+                    $button = 'Join Us';
+                  }
+                  ?>
                   <li id="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
                 <?php } ?> <!--  switch  -->
             <?php } /* function exist */

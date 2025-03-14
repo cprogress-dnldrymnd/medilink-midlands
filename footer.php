@@ -73,13 +73,7 @@
 
 </footer>
 </div>
-<?php
-if (is_user_logged_in()) {
-    $button = 'Upgrade';
-} else {
-    $button = 'Join Us';
-}
-?>
+
 
 
 <?php wp_footer(); ?>
