@@ -822,6 +822,16 @@ function join_us_v2()
             </thead>
             <tbody>
                 <tr>
+                    <td>
+
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <th>
+                            <?= $package->post_excerpt ?>
+                        </th>
+                    <?php } ?>
+                </tr>
+                <tr>
                     <td colspan="<?= count($packages) + 1 ?>">
                         Benefits to support your innovation ideas and organisation
                     </td>
