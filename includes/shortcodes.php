@@ -797,6 +797,7 @@ function join_us_v2()
     ob_start();
     $packages = get_posts(array(
         'post_type' => 'packages',
+        'numberposts' => -1,
     ));
 ?>
     <div class="join-us-v2">
