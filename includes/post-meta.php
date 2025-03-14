@@ -80,6 +80,14 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('text', 'discount_events_marketing_services', __('Discount: Events and/or Marketing services')),
 			Field::make('text', 'discount_medtech_expo', __('Discount: MedTech Innovation Expo (MTI) exhibition space')),
 			Field::make('text', 'discount_internation_trade', __('Discount: Access to International Trade Shows discounts')),
+			Field::make('select', 'marketing_level', __('Marketing Level'))
+				->set_options(array(
+					'' => 'None',
+					'Level 1' => 'Level 1',
+					'Level 2' => 'Level 2',
+					'Level 3' => 'Level 3',
+					'Level 4' => 'Level 4',
+				)),
 
 		)
 	);
