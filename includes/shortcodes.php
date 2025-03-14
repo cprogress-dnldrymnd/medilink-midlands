@@ -832,7 +832,7 @@ function join_us_v2()
                     <?php } ?>
                 </tr>
                 <tr>
-                    <td class="title" colspan="<?= count($packages) + 1 ?>">
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                         Benefits to support your innovation ideas and organisation
                     </td>
                 </tr>
