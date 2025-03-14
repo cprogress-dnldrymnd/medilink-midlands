@@ -815,6 +815,7 @@ function join_us_v2()
         'orderby' => 'term_id',
         'order' => 'ASC',
     ));
+    
 ?>
     <div class="join-us-v2">
         <table>
@@ -875,7 +876,7 @@ function join_us_v2()
                     </td>
                 </tr>
 
-             
+
                 <?php foreach ($packages_members_only as $members_only) { ?>
                     <tr>
                         <td>
@@ -898,6 +899,20 @@ function join_us_v2()
                 <!-- end of memebers only-->
 
 
+                <!-- membership review-->
+               
+                <tr>
+                    <td>
+                        Membership Review
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                      
+                        <td class="tick <?= $class ?>">
+                            <span></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <!-- end of membership review-->
 
             </tbody>
         </table>

@@ -60,3 +60,20 @@ Container::make('post_meta', 'Submitted By')
 			Field::make('text', 'submit_blog_phone_number', __('Phone')),
 		)
 	);
+
+/*-----------------------------------------------------------------------------------*/
+/* Membership Marketplace
+/*-----------------------------------------------------------------------------------*/
+
+Container::make('post_meta', 'Packages Details')
+	->where('post_type', '=', 'packages')
+	->add_fields(
+		array(
+			Field::make('select', 'membership_review', __('Membership Review'))
+				->set_option(array(
+					'Annual' => 'Annual',
+					'Per Quarter' => 'Per Quarter'
+				)),
+
+		)
+	);
