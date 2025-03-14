@@ -83,7 +83,6 @@ function membership_form() {
                 console.log('not chec');
             }
 
-            e.preventDefault();
         });
     });
 
