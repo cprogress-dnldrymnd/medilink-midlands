@@ -801,7 +801,7 @@ function join_us_v2()
     ));
 ?>
     <div class="join-us-v2">
-        <table>
+        <table class="table">
             <thead>
                 <th>
 
