@@ -1023,6 +1023,59 @@ function join_us_v2()
                         <?php } ?>
                     </tr>
                 <?php } ?>
+
+                <tr>
+                    <td>
+                        Thought leadership article
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $marketing_thought_leadership_article = carbon_get_post_meta($package->ID, 'marketing_thought_leadership_article');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $marketing_thought_leadership_article ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                        Blog (1 per year)
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $marketing_blog = carbon_get_post_meta($package->ID, 'marketing_blog');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $marketing_blog ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                        Promotion of events
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $marketing_promotion = carbon_get_post_meta($package->ID, 'marketing_promotion');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $marketing_promotion ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                    Member Market place listing
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $marketing_memeber_marketplace = carbon_get_post_meta($package->ID, 'marketing_memeber_marketplace');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $marketing_memeber_marketplace ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
                 <!-- end of marketing-->
             </tbody>
         </table>
