@@ -803,7 +803,7 @@ function join_us_v2()
     <div class="join-us-v2">
         <table class="table">
             <thead>
-                <th>
+                <th style="width: 25%">
 
                 </th>
                 <?php foreach ($packages as $package) { ?>
