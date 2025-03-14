@@ -799,6 +799,12 @@ function join_us_v2()
         'post_type' => 'packages',
         'numberposts' => -1,
     ));
+    $packages_category = get_terms(array(
+        'taxonomy'   => 'packages_category',
+        'hide_empty' => false,
+        'parent' => 113
+    ));
+
 ?>
     <div class="join-us-v2">
         <table class="table">
@@ -818,6 +824,15 @@ function join_us_v2()
                         Benefits to support your innovation ideas and organisation
                     </td>
                 </tr>
+
+                <?php foreach ($packages_category as $category) { ?>
+                    <tr>
+                        <td>
+                            <?= $category->name ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+
             </tbody>
         </table>
     </div>
