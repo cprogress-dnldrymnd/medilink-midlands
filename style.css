@@ -1314,7 +1314,8 @@ a {
         border-left: 1px var(--gray-color); }
   .join-us-v2 .excerpt {
     font-size: 13px;
-    margin-top: 20px; }
+    margin-top: 20px;
+    font-weight: 400; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {
