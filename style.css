@@ -1348,7 +1348,7 @@ a {
   max-width: 1600px;
   width: 100%; }
 
-.page-id-50014 .header-title .text-left:after {
+.page-id-50014 .header-title-breadcrumb .text-left:after {
   display: block;
   content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore obcaecati id est provident saepe commodi, ab voluptatibus? Facere illo autem soluta magnam, architecto neque! Obcaecati sunt perspiciatis culpa soluta asperiores?";
   color: var(--gray-color);
