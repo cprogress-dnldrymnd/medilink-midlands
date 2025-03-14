@@ -830,14 +830,16 @@ function join_us_v2()
     <div class="join-us-v2">
         <table>
             <thead>
-                <th style="width: 20%">
+                <tr>
+                    <th style="width: 20%">
 
-                </th>
-                <?php foreach ($packages as $package) { ?>
-                    <th class="text-center" style="width: 13.33333333333333%">
-                        <?= $package->post_title ?>
                     </th>
-                <?php } ?>
+                    <?php foreach ($packages as $package) { ?>
+                        <th class="text-center" style="width: 13.33333333333333%">
+                            <?= $package->post_title ?>
+                        </th>
+                    <?php } ?>
+                </tr>
             </thead>
             <tbody>
                 <tr>
@@ -1065,7 +1067,7 @@ function join_us_v2()
                 </tr>
                 <tr>
                     <td>
-                    Member Market place listing
+                        Member Market place listing
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
@@ -1077,6 +1079,32 @@ function join_us_v2()
                     <?php } ?>
                 </tr>
                 <!-- end of marketing-->
+                <!-- Price-->
+                <tr>
+                    <th style="width: 20%">
+
+                    </th>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $price = carbon_get_post_meta($package->ID, 'price');
+                        ?>
+                        <th class="text-center" style="width: 13.33333333333333%">
+                            <?= $price ?>
+                        </th>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <th style="width: 20%">
+                        ALL VAT
+                    </th>
+                    <?php foreach ($packages as $package) { ?>
+                        <th class="text-center" style="width: 13.33333333333333%">
+                            <?= $package->post_title ?>
+                        </th>
+                    <?php } ?>
+                </tr>
+                <!-- end of Price-->
+
             </tbody>
         </table>
     </div>
