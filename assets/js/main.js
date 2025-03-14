@@ -43,7 +43,7 @@ function membership_form() {
 
 
 
-    jQuery(document).on("click", ".cf7mls_next", function () {
+    jQuery(document).on("click", ".action-button", function () {
 
         setTimeout(function () {
             $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
