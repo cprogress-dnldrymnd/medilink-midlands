@@ -826,9 +826,9 @@ function join_us_v2()
 
                     </td>
                     <?php foreach ($packages as $package) { ?>
-                        <th>
+                        <td>
                             <?= $package->post_excerpt ?>
-                        </th>
+                        </td>
                     <?php } ?>
                 </tr>
                 <tr>
