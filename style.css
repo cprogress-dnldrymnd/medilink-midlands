@@ -1290,6 +1290,8 @@ a {
   .join-us-v2 table tr th {
     padding: 10px;
     border-bottom: 1px solid var(--gray-color); }
+.join-us-v2 .excerpt {
+  font-size: 13px; }
 .join-us-v2 .tick {
   text-align: center; }
   .join-us-v2 .tick span {

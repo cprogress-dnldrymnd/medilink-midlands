@@ -826,7 +826,7 @@ function join_us_v2()
 
                     </td>
                     <?php foreach ($packages as $package) { ?>
-                        <td class="text-center">
+                        <td class="text-center excerpt">
                             <?= $package->post_excerpt ?>
                         </td>
                     <?php } ?>
