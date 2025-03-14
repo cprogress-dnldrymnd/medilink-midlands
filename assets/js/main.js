@@ -78,7 +78,7 @@ function membership_form() {
         var parent = jQuery(this).prev().parent();
         jQuery(this).click(function (e) {
 
-            var input = parent.find('input[name="select-sectors"]:checked');
+            var input = parent.find('input[name="select-sector"]:checked');
 
             if (input.length > 0) {
                 console.log('check');
