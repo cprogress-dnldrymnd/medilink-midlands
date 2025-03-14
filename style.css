@@ -1307,6 +1307,9 @@ a {
 .join-us-v2 .title-data {
   text-align: center;
   font-weight: bold; }
+.join-us-v2 .price {
+  font-size: 25px;
+  color: var(--green-color); }
 
 .text-left {
   text-align: left !important; }
