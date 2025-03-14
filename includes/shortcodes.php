@@ -839,7 +839,7 @@ function join_us_v2()
     <div class="join-us-v2">
         <table>
             <thead>
-                <tr>
+                <tr class="top-row">
                     <th style="width: 20%">
 
                     </th>
@@ -873,7 +873,7 @@ function join_us_v2()
                     <?php } ?>
                 </tr>
                 <!-- benefits-->
-                <tr>
+                <tr class="top-left-first">
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                         Benefits to support your innovation ideas and organisation
                     </td>

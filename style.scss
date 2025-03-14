@@ -1440,6 +1440,20 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         font-size: 25px;
         color: var(--green-color);
     }
+    .top-row {
+        th {
+            &:nth-child(2) {
+                border-radius: 20px 0 0 0;
+            }
+        }
+    }
+    .top-left-first {
+        td {
+            &:nth-child(1) {
+                border-radius: 20px 0 0 0;
+            }
+        }
+    }
 }
 
 .text-left {
