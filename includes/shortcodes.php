@@ -909,7 +909,7 @@ function join_us_v2()
                         <?php
                         $membership_review = carbon_get_post_meta($package->ID, 'membership_review');
                         ?>
-                        <td>
+                        <td class="text-center">
                             <span><?= $membership_review ?></span>
                         </td>
                     <?php } ?>
