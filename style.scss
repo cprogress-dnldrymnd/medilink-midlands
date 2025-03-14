@@ -1406,6 +1406,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         }
         > tbody {
             > tr:last-child {
+                td{
+                    border: none !important;
+                }
                 td:nth-child(2) {
                     border-radius: 0 0 0 20px;
                 }
@@ -1424,9 +1427,8 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 padding: 10px;
                 border-bottom: 1px solid #f3f3f3;
                 font-size: 14px;
-                &:not(:first-child) {
-                    background-color: var(--white-color);
-                }
+                background-color: var(--white-color);
+
                 &:first-child {
                     &:not(.no-border) {
                         border-left: 1px var(--gray-color);

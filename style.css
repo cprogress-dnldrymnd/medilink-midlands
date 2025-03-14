@@ -1302,6 +1302,8 @@ a {
     .join-us-v2 > table > thead td,
     .join-us-v2 > table > thead th {
       background-color: #edeff5; }
+  .join-us-v2 > table > tbody > tr:last-child td {
+    border: none !important; }
   .join-us-v2 > table > tbody > tr:last-child td:nth-child(2) {
     border-radius: 0 0 0 20px; }
   .join-us-v2 > table > tbody > tr:last-child td:last-child {
@@ -1312,10 +1314,8 @@ a {
     .join-us-v2 table tr th {
       padding: 10px;
       border-bottom: 1px solid #f3f3f3;
-      font-size: 14px; }
-      .join-us-v2 table tr td:not(:first-child),
-      .join-us-v2 table tr th:not(:first-child) {
-        background-color: var(--white-color); }
+      font-size: 14px;
+      background-color: var(--white-color); }
       .join-us-v2 table tr td:first-child:not(.no-border),
       .join-us-v2 table tr th:first-child:not(.no-border) {
         border-left: 1px var(--gray-color); }
