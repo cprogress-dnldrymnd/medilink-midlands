@@ -40,9 +40,9 @@ function membership_form() {
     jQuery('.cf7-nav > li:first-child').addClass('active');
 
 
-    jQuery('.cf7mls_next').click(function (e) { 
-        console.log('xxx');
-        e.preventDefault();
+
+    jQuery(document).on("click", ".cf7mls_next", function () {
+        alert("The button is clicked in Ajax content!!");
     });
 }
 
