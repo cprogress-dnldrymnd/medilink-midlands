@@ -1383,6 +1383,16 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 }
 
 .join-us-v2 {
+    &:before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 20px;
+        box-shadow: 0px 9px 27px #00000011;
+    }
     > table {
         > thead {
             position: sticky;
