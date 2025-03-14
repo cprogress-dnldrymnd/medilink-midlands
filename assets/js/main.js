@@ -21,6 +21,7 @@ function learn_more() {
 }
 function select__2() {
     jQuery('.select-2-trigger select').select2({
+        placeholder: "Other",
         maximumSelectionLength: 3,
     });
 
