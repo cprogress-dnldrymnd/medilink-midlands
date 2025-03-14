@@ -49,7 +49,7 @@ function membership_form() {
             $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
             jQuery('.cf7-nav li').removeClass('active');
             jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
-        }, 1500);
+        }, 2000);
 
 
     });
@@ -63,6 +63,33 @@ function membership_form() {
         }, 100);
 
     });
+
+    const radioButtons = document.querySelectorAll('input[name="options"]');
+    let previouslySelected = null;
+
+    radioButtons.forEach(radioButton => {
+        radioButton.addEventListener('click', function () {
+            if (this === previouslySelected) {
+                this.checked = false;
+                previouslySelected = null;
+            } else {
+                previouslySelected = this;
+            }
+            displaySelected();
+        });
+    });
+
+    function displaySelected() {
+        let selected = document.querySelector('input[name="options"]:checked');
+        let displayArea = document.getElementById("selectedOption");
+        if (selected) {
+            displayArea.textContent = "Selected option: " + selected.value;
+        } else {
+            displayArea.textContent = "No option selected";
+        }
+    }
+    displaySelected();
+
 }
 
 

@@ -1377,6 +1377,11 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     height: auto;
 }
 
+.admin-bar {
+    .join-us-v2 > table > thead {
+        top: 32px;
+    }
+}
 .join-us-v2 {
     position: relative;
     &:before {
@@ -1391,7 +1396,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     > table {
         > thead {
             position: sticky;
-            top: 32px;
+            top: 0;
             z-index: 9;
             td,
             th {
