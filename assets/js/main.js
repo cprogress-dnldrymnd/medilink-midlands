@@ -88,16 +88,6 @@ function membership_form() {
         });
     });
 
-    function displaySelected() {
-        let selected = document.querySelector('input[name="select-sectors"]:checked');
-        let displayArea = document.getElementById("selectedOption");
-        if (selected) {
-            displayArea.textContent = "Selected option: " + selected.value;
-        } else {
-            displayArea.textContent = "No option selected";
-        }
-    }
-    displaySelected();
 }
 
 
