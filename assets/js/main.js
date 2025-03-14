@@ -29,10 +29,12 @@ function select__2() {
 
 function membership_form() {
     $nav = jQuery('<ul class="cf7-nav"></ul>');
+    $key = 0;
     jQuery('.fieldset-cf7mls .step-title').each(function (index, element) {
         $text = jQuery(this).text();
-        $text_html = jQuery('<li>' + $text + '</li>');
+        $text_html = jQuery('<li key="' + $key + '">' + $text + '</li>');
         $text_html.appendTo($nav);
+        $key++;
     });
 
     $nav.insertBefore('.fieldset-cf7mls-wrapper');
@@ -42,7 +44,10 @@ function membership_form() {
 
 
     jQuery(document).on("click", ".cf7mls_next", function () {
-        alert("The button is clicked in Ajax content!!");
+        $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
+        jQuery('.cf7-nav li').removeClass('active');
+        jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
+        console.log($key);
     });
 }
 
