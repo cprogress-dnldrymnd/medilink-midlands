@@ -1386,7 +1386,8 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     table {
         border-collapse: collapse;
         tr {
-            td {
+            td,
+            th {
                 border-bottom: 1px solid var(--gray-color);
             }
         }

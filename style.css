@@ -1286,7 +1286,8 @@ a {
 
 .join-us-v2 table {
   border-collapse: collapse; }
-  .join-us-v2 table tr td {
+  .join-us-v2 table tr td,
+  .join-us-v2 table tr th {
     border-bottom: 1px solid var(--gray-color); }
 .join-us-v2 .tick span {
   display: inline-block;
