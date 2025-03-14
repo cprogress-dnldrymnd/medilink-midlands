@@ -1383,8 +1383,18 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 }
 
 .join-us-v2 {
+    > table {
+        > thead {
+            position: sticky;
+            top: 32px;
+            td {
+                background-color: #edeff5;
+            }
+        }
+    }
     table {
         border-collapse: collapse;
+
         tr {
             td,
             th {
@@ -1419,7 +1429,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         text-align: center;
         font-weight: bold;
     }
-    .price .price-text{
+    .price .price-text {
         font-size: 25px;
         color: var(--green-color);
     }

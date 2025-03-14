@@ -1284,6 +1284,11 @@ a {
 .contact-tikidocs.contact-tikidocs input[type="radio"] {
   height: auto; }
 
+.join-us-v2 > table > thead {
+  position: sticky;
+  top: 32px; }
+  .join-us-v2 > table > thead td {
+    background-color: #edeff5; }
 .join-us-v2 table {
   border-collapse: collapse; }
   .join-us-v2 table tr td,
