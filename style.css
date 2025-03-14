@@ -1293,7 +1293,6 @@ a {
     right: 0;
     top: 0;
     bottom: 0;
-    border-radius: 20px;
     box-shadow: 0px 9px 27px #00000011; }
   .join-us-v2 > table > thead {
     position: sticky;
@@ -1304,10 +1303,6 @@ a {
       background-color: #edeff5; }
   .join-us-v2 > table > tbody > tr:last-child td {
     border: none !important; }
-  .join-us-v2 > table > tbody > tr:last-child td:first-child {
-    border-radius: 0 0 0 20px; }
-  .join-us-v2 > table > tbody > tr:last-child td:last-child {
-    border-radius: 0 0 20px 0; }
   .join-us-v2 table {
     border-collapse: collapse; }
     .join-us-v2 table tr td,
@@ -1347,12 +1342,6 @@ a {
   .join-us-v2 .price .price-text {
     font-size: 25px;
     color: var(--green-color); }
-  .join-us-v2 .top-row th:nth-child(2) {
-    border-radius: 20px 0 0 0; }
-  .join-us-v2 .top-row th:last-child {
-    border-radius: 0 20px 0 0; }
-  .join-us-v2 .top-left-first td:nth-child(1) {
-    border-radius: 20px 0 0 0; }
   .join-us-v2 .no-border {
     border: none !important; }
 

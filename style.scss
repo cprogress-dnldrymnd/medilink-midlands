@@ -1391,7 +1391,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         right: 0;
         top: 0;
         bottom: 0;
-        border-radius: 20px;
         box-shadow: 0px 9px 27px #00000011;
     }
     > table {
@@ -1408,12 +1407,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
             > tr:last-child {
                 td {
                     border: none !important;
-                }
-                td:first-child {
-                    border-radius: 0 0 0 20px;
-                }
-                td:last-child {
-                    border-radius: 0 0 20px 0;
                 }
             }
         }
@@ -1475,21 +1468,10 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     }
     .top-row {
         th {
-            &:nth-child(2) {
-                border-radius: 20px 0 0 0;
-            }
-            &:last-child {
-                border-radius: 0 20px 0 0;
-            }
+          
         }
     }
-    .top-left-first {
-        td {
-            &:nth-child(1) {
-                border-radius: 20px 0 0 0;
-            }
-        }
-    }
+
     .no-border {
         border: none !important;
     }
