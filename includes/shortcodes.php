@@ -835,7 +835,7 @@ function join_us_v2()
                         <?php foreach ($packages as $package) { ?>
                             <?php
                             if (has_term($benefits->slug, $taxonomy, $package->ID)) {
-                                $class = 'active';
+                                $class = 'tick-active';
                             } else {
                                 $class = '';
                             }
