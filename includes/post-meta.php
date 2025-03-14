@@ -76,5 +76,10 @@ Container::make('post_meta', 'Packages Details')
 					'Per Quarter' => 'Per Quarter'
 				)),
 
+			Field::make('text', 'discount_mm_training_networking', __('Discount: MM training & networking')),
+			Field::make('text', 'discount_events_marketing_services', __('Discount: Events and/or Marketing services')),
+			Field::make('text', 'discount_medtech_expo', __('Discount: MedTech Innovation Expo (MTI) exhibition space')),
+			Field::make('text', 'discount_internation_trade', __('Discount: Access to International Trade Shows discounts')),
+
 		)
 	);
