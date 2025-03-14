@@ -816,6 +816,16 @@ function join_us_v2()
         'order' => 'ASC',
     ));
 
+    $packages_marketing = get_terms(array(
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'parent' => 134,
+        'orderby' => 'term_id',
+        'order' => 'ASC',
+    ));
+
+
+
 ?>
     <div class="join-us-v2">
         <table>
@@ -976,6 +986,25 @@ function join_us_v2()
                     <?php } ?>
                 </tr>
                 <!-- end of Discounts-->
+
+
+
+                <!-- marketing-->
+
+                <tr>
+                    <td>
+                        Marketing
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $marketing_level = carbon_get_post_meta($package->ID, 'marketing_level');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $marketing_level ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <!-- end of marketing-->
             </tbody>
         </table>
     </div>
