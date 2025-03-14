@@ -1446,6 +1446,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
             &:nth-child(2) {
                 border-radius: 20px 0 0 0;
             }
+            &:last-child {
+                border-radius: 0 20px 0 0;
+            }
         }
     }
     .top-left-first {

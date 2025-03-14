@@ -1327,6 +1327,8 @@ a {
   color: var(--green-color); }
 .join-us-v2 .top-row th:nth-child(2) {
   border-radius: 20px 0 0 0; }
+.join-us-v2 .top-row th:last-child {
+  border-radius: 0 20px 0 0; }
 .join-us-v2 .top-left-first td:nth-child(1) {
   border-radius: 20px 0 0 0; }
 .join-us-v2 .no-border {
