@@ -1289,7 +1289,8 @@ a {
   .join-us-v2 table tr td,
   .join-us-v2 table tr th {
     padding: 10px;
-    border-bottom: 1px solid var(--gray-color); }
+    border-bottom: 1px solid var(--gray-color);
+    font-size: 14px; }
 .join-us-v2 .excerpt {
   font-size: 13px; }
 .join-us-v2 .tick {
