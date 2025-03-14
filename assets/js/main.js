@@ -73,20 +73,9 @@ function membership_form() {
         }, 100);
 
     });
-
-    jQuery('input[name="select-sector"] + .wpcf7-list-item-label').each(function (index, element) {
-        var parent = jQuery(this).prev().parent();
-        jQuery(this).click(function (e) {
-            setTimeout(function () {
-                var input = parent.find('input[name="select-sector"]:checked');
-
-                if (input.length > 0) {
-                    console.log('check');
-                } else {
-                    console.log('not chec');
-                }
-            }, 100);
-        });
+    
+    jQuery('input[name="select-sector"]').click(function () {
+        jQuery('input[name="select-sector"]').not(this).prop('checked', false);
     });
 
 }
