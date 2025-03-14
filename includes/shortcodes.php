@@ -841,8 +841,8 @@ function join_us_v2()
                 </tr>
                 <!-- benefits-->
                 <tr>
-                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        Benefits to support your innovation ideas and organisation
+                    <td class="title-data">
+                        Enhanced Member only area access:
                     </td>
                 </tr>
 
