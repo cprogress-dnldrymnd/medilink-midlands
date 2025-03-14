@@ -64,7 +64,7 @@ function membership_form() {
 
     });
 
-    const radioButtons = document.querySelectorAll('input[name="options"]');
+    const radioButtons = document.querySelectorAll('input[name="sectors"]');
     let previouslySelected = null;
 
     radioButtons.forEach(radioButton => {
