@@ -38,6 +38,12 @@ function membership_form() {
     $nav.insertBefore('.fieldset-cf7mls-wrapper');
 
     jQuery('.cf7-nav > li:first-child').addClass('active');
+
+
+    jQuery('.cf7mls_next').click(function (e) { 
+        console.log('xxx');
+        e.preventDefault();
+    });
 }
 
 
