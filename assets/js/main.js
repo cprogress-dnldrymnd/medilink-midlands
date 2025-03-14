@@ -75,7 +75,7 @@ function membership_form() {
     });
 
     jQuery('input[name="select-sector[]"]').change(function () {
-        jQuery('input[name="select-sector"]').not(this).prop('checked', false);
+        jQuery('input[name="select-sector[]"]').not(this).prop('checked', false);
     });
     
 
