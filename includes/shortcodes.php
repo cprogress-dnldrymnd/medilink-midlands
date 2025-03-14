@@ -847,7 +847,7 @@ function join_us_v2()
                         <?php
                         $price = carbon_get_post_meta($package->ID, 'price');
                         ?>
-                        <th class="text-center" style="width: 13.33333333333333%; vertical-align: top">
+                        <th class="text-center" style="width: 13.33333333333333%">
                             <?= $package->post_title ?>
                             <div class="price">
                                 <div class="price-text">
@@ -859,17 +859,22 @@ function join_us_v2()
                                 <div class="text-center modeltheme_button wow bounce">
                                     <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
                                 </div>
-
-                                <div class="text-center excerpt">
-                                    <?= $package->post_excerpt ?>
-                                </div>
                             </div>
                         </th>
                     <?php } ?>
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td class="no-border no-bg">
 
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <td class="text-center excerpt no-border">
+                            <?= $package->post_excerpt ?>
+                        </td>
+                    <?php } ?>
+                </tr>
                 <!-- benefits-->
                 <tr class="top-left-first">
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
