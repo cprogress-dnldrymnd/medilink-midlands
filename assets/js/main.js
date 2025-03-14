@@ -74,17 +74,16 @@ function membership_form() {
 
     });
 
-    const radioButtons = document.querySelectorAll('input[name="select-sectors"]');
-    let previouslySelected = null;
-
-    radioButtons.forEach(radioButton => {
-        radioButton.addEventListener('click', function () {
-            if (this === previouslySelected) {
-                this.checked = false;
-                previouslySelected = null;
+    jQuery('input[name="select-sector"] + .wpcf7-list-item-label').each(function (index, element) {
+        var input = jQuery(this).prev();
+        jQuery(this).click(function (e) {
+            if (input.prop('checked')) {
+                console.log('check');
             } else {
-                previouslySelected = this;
+                console.log('not chec');
             }
+
+            e.preventDefault();
         });
     });
 
