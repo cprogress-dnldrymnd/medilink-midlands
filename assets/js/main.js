@@ -49,7 +49,7 @@ function membership_form() {
             $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
             jQuery('.cf7-nav li').removeClass('active');
             jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
-        }, 1000);
+        }, 1500);
 
 
     });
