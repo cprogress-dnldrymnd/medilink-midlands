@@ -1312,6 +1312,9 @@ a {
       .join-us-v2 table tr td:first-child:not(.no-border),
       .join-us-v2 table tr th:first-child:not(.no-border) {
         border-left: 1px var(--gray-color); }
+      .join-us-v2 table tr td.no-bg,
+      .join-us-v2 table tr th.no-bg {
+        background-color: transparent !important; }
   .join-us-v2 .excerpt {
     font-size: 13px;
     margin-top: 20px;
