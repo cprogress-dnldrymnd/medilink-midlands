@@ -795,12 +795,14 @@ add_shortcode('auto_renewal', 'auto_renewal');
 function join_us_v2()
 {
     ob_start();
+
+    $taxonomy = 'packages_benefits';
     $packages = get_posts(array(
         'post_type' => 'packages',
         'numberposts' => -1,
     ));
-    $packages_category = get_terms(array(
-        'taxonomy'   => 'packages_category',
+    $packages_benefits = get_terms(array(
+        'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent' => 113
     ));
@@ -825,11 +827,23 @@ function join_us_v2()
                     </td>
                 </tr>
 
-                <?php foreach ($packages_category as $category) { ?>
+                <?php foreach ($packages_benefits as $benefits) { ?>
                     <tr>
                         <td>
-                            <?= $category->name ?>
+                            <?= $benefits->name ?>
                         </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                $class = 'active';
+                            } else {
+                                $class = '';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+
+                            </td>
+                        <?php } ?>
                     </tr>
                 <?php } ?>
 
