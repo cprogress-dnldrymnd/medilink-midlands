@@ -1459,14 +1459,15 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
             }
         }
     }
-    .title-data {
+    .title-data,
+    .bg-orange {
         text-align: center;
         background-color: var(--accent-color);
         color: var(--white-color);
         border: none !important;
-        &:not(.bg-orange) {
-            font-weight: bold;
-        }
+    }
+    .title-data {
+        font-weight: bold;
     }
     .price .price-text {
         font-size: 25px;
