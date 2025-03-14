@@ -871,7 +871,7 @@ function join_us_v2()
 
                 <!-- memebers only-->
                 <tr>
-                    <td class="title-data text-left" colspan="<?= count($packages) + 1 ?>">
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                         Enhanced Member only area access:
                     </td>
                 </tr>
@@ -916,6 +916,66 @@ function join_us_v2()
                 </tr>
                 <!-- end of membership review-->
 
+                <!-- Discounts-->
+                <tr>
+                    <td class="title-data " colspan="<?= count($packages) + 1 ?>">
+                        Discounts
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        MM training & networking
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $discount_mm_training_networking = carbon_get_post_meta($package->ID, 'discount_mm_training_networking');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $discount_mm_training_networking ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                        Events and/or Marketing services
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $discount_events_marketing_services = carbon_get_post_meta($package->ID, 'discount_events_marketing_services');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $discount_events_marketing_services ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                        MedTech Innovation Expo (MTI) exhibition space
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $discount_medtech_expo = carbon_get_post_meta($package->ID, 'discount_medtech_expo');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $discount_medtech_expo ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td>
+                        Access to International Trade Shows discounts
+                    </td>
+                    <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $discount_internation_trade = carbon_get_post_meta($package->ID, 'discount_internation_trade');
+                        ?>
+                        <td class="text-center">
+                            <span><?= $discount_internation_trade ?></span>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <!-- end of Discounts-->
             </tbody>
         </table>
     </div>
