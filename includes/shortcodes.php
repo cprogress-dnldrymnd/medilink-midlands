@@ -809,7 +809,7 @@ function join_us_v2()
 
 ?>
     <div class="join-us-v2">
-        <table class="table">
+        <table>
             <thead>
                 <th style="width: 25%">
 
