@@ -863,7 +863,7 @@ function join_us_v2()
             </thead>
             <tbody>
                 <tr>
-                    <td>
+                    <td class="no-border">
 
                     </td>
                     <?php foreach ($packages as $package) { ?>
