@@ -804,7 +804,9 @@ function join_us_v2()
     $packages_benefits = get_terms(array(
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
-        'parent' => 113
+        'parent' => 113,
+        'orderby' => 'term_id',
+        'order' => 'DESC',
     ));
 
 ?>
