@@ -993,7 +993,7 @@ function join_us_v2()
 
                 <tr>
                     <td>
-                        Marketing
+                        <strong>Marketing</strong>
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
