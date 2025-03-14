@@ -1304,7 +1304,7 @@ a {
       background-color: #edeff5; }
   .join-us-v2 > table > tbody > tr:last-child td {
     border: none !important; }
-  .join-us-v2 > table > tbody > tr:last-child td:nth-child(2) {
+  .join-us-v2 > table > tbody > tr:last-child td:first-child {
     border-radius: 0 0 0 20px; }
   .join-us-v2 > table > tbody > tr:last-child td:last-child {
     border-radius: 0 0 20px 0; }

@@ -1409,7 +1409,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 td{
                     border: none !important;
                 }
-                td:nth-child(2) {
+                td:first-child {
                     border-radius: 0 0 0 20px;
                 }
                 td:last-child {
