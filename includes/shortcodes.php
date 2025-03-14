@@ -797,7 +797,7 @@ function cb_value($post_id, $name)
     if ($meta) {
         return $meta;
     } else {
-        return '-';
+        return '—';
     }
 }
 
@@ -961,7 +961,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $discount_mm_training_networking = carbon_get_post_meta($package->ID, 'discount_mm_training_networking');
+                        $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
                         ?>
                         <td class="text-center">
                             <span><?= $discount_mm_training_networking ?></span>
@@ -974,7 +974,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $discount_events_marketing_services = carbon_get_post_meta($package->ID, 'discount_events_marketing_services');
+                        $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
                         ?>
                         <td class="text-center">
                             <span><?= $discount_events_marketing_services ?></span>
@@ -987,7 +987,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $discount_medtech_expo = carbon_get_post_meta($package->ID, 'discount_medtech_expo');
+                        $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
                         ?>
                         <td class="text-center">
                             <span><?= $discount_medtech_expo ?></span>
@@ -1000,7 +1000,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $discount_internation_trade = carbon_get_post_meta($package->ID, 'discount_internation_trade');
+                        $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
                         ?>
                         <td class="text-center">
                             <span><?= $discount_internation_trade ?></span>
@@ -1019,7 +1019,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_level = carbon_get_post_meta($package->ID, 'marketing_level');
+                        $marketing_level = cb_value($package->ID, 'marketing_level');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_level ?></span>
@@ -1052,7 +1052,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_thought_leadership_article = carbon_get_post_meta($package->ID, 'marketing_thought_leadership_article');
+                        $marketing_thought_leadership_article = carbon_get_post_meta($package->ID, 'discount_internation_trade');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_thought_leadership_article ?></span>
