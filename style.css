@@ -1288,7 +1288,7 @@ a {
   border-collapse: collapse; }
   .join-us-v2 table tr td,
   .join-us-v2 table tr th {
-    padding: 5px;
+    padding: 10px;
     border-bottom: 1px solid var(--gray-color); }
 .join-us-v2 .tick {
   text-align: center; }
