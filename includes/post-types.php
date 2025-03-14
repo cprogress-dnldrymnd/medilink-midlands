@@ -236,3 +236,48 @@ function custom_templates_column($column, $post_id)
     }
 }
 
+
+$Packages = new newPostType();
+$Packages->key = 'packages';
+$Packages->name = 'Packages';
+$Packages->singular_name = 'Package';
+$Packages->icon = 'dashicons-format-aside';
+$Packages->supports = array('title', 'editor', 'revisions');
+$Packages->exclude_from_search = true;
+$Packages->publicly_queryable = true;
+$Packages->show_in_admin_bar = true;
+$Packages->has_archive = false;
+
+
+$Packages_Categories = new newTaxonomy();
+$Packages_Categories->taxonomy = 'packages_category';
+$Packages_Categories->post_type = 'packages';
+$Packages_Categories->args = array(
+    'label'        => 'Categories',
+    'labels' => array(
+        'name'                       => _x('Categories', 'Taxonomy General Name', 'text_domain'),
+        'singular_name'              => _x('Category', 'Taxonomy Singular Name', 'text_domain'),
+        'menu_name'                  => __('Category', 'text_domain'),
+        'all_items'                  => __('All Items', 'text_domain'),
+        'parent_item'                => __('Parent Item', 'text_domain'),
+        'parent_item_colon'          => __('Parent Item:', 'text_domain'),
+        'new_item_name'              => __('New Item Name', 'text_domain'),
+        'add_new_item'               => __('Add New Item', 'text_domain'),
+        'edit_item'                  => __('Edit Item', 'text_domain'),
+        'update_item'                => __('Update Item', 'text_domain'),
+        'view_item'                  => __('View Item', 'text_domain'),
+        'separate_items_with_commas' => __('Separate items with commas', 'text_domain'),
+        'add_or_remove_items'        => __('Add or remove items', 'text_domain'),
+        'choose_from_most_used'      => __('Choose from the most used', 'text_domain'),
+        'popular_items'              => __('Popular Items', 'text_domain'),
+        'search_items'               => __('Search Items', 'text_domain'),        'not_found'                  => __('Not Found', 'text_domain'),
+        'no_terms'                   => __('No items', 'text_domain'),
+        'items_list'                 => __('Items list', 'text_domain'),
+        'items_list_navigation'      => __('Items list navigation', 'text_domain'),
+    ),
+    'show_in_rest' => true,
+    'hierarchical' => true,
+    'query_var'    => false,
+    'has_archive'  => false,
+    'rewrite'      => false,
+);
