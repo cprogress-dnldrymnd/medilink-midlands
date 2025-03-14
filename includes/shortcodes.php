@@ -796,7 +796,7 @@ function join_us_v2()
 {
     ob_start();
 
-    $taxonomy = 'packages_benefits';
+    $taxonomy = 'packages_category';
     $packages = get_posts(array(
         'post_type' => 'packages',
         'numberposts' => -1,
