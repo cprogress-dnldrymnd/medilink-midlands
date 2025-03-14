@@ -1298,7 +1298,7 @@ a {
   .join-us-v2 table tr td,
   .join-us-v2 table tr th {
     padding: 10px;
-    border-bottom: 1px solid var(--gray-color);
+    border-bottom: 1px solid #f3f3f3;
     font-size: 14px; }
     .join-us-v2 table tr td:not(:first-child),
     .join-us-v2 table tr th:not(:first-child) {
