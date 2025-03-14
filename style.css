@@ -1313,7 +1313,8 @@ a {
       .join-us-v2 table tr th:first-child:not(.no-border) {
         border-left: 1px var(--gray-color); }
   .join-us-v2 .excerpt {
-    font-size: 13px; }
+    font-size: 13px;
+    margin-top: 20px; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {
