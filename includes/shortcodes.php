@@ -1082,6 +1082,17 @@ function join_us_v2()
                 <!-- Price-->
                 <tr>
                     <th style="width: 20%">
+                        <?php foreach ($packages as $package) { ?>
+                    <th class="text-center" style="width: 13.33333333333333%">
+                        <?= $package->post_title ?>
+                    </th>
+                <?php } ?>
+                </tr>
+                <tr>
+                    <th style="width: 20%">
+                        ALL VAT
+                    </th>
+
 
                     </th>
                     <?php foreach ($packages as $package) { ?>
@@ -1090,16 +1101,6 @@ function join_us_v2()
                         ?>
                         <th class="text-center" style="width: 13.33333333333333%">
                             <?= $price ?>
-                        </th>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <th style="width: 20%">
-                        ALL VAT
-                    </th>
-                    <?php foreach ($packages as $package) { ?>
-                        <th class="text-center" style="width: 13.33333333333333%">
-                            <?= $package->post_title ?>
                         </th>
                     <?php } ?>
                 </tr>
