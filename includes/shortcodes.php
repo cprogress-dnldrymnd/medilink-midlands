@@ -811,7 +811,7 @@ function join_us_v2()
     <div class="join-us-v2">
         <table>
             <thead>
-                <th style="width: 25%">
+                <th style="width: 20%">
 
                 </th>
                 <?php foreach ($packages as $package) { ?>
