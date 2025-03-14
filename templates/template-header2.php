@@ -90,7 +90,7 @@
 
                           <li class="menu-item mt-header-account">
 
-                            <div id="dropdown-user-profile" class="ddmenu">
+                            <div id="dropdown-user-profile" class="ddmenu dsdss">
                               <a class="profile">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                               </a>
