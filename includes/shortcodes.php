@@ -806,7 +806,7 @@ function join_us_v2()
         'hide_empty' => false,
         'parent' => 113,
         'orderby' => 'term_id',
-        'order' => 'DESC',
+        'order' => 'ASC',
     ));
 
 ?>
