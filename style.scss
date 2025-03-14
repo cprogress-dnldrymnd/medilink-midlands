@@ -1425,6 +1425,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                         border-left: 1px var(--gray-color);
                     }
                 }
+                &.no-bg {
+                    background-color: transparent !important;
+                }
             }
         }
     }
