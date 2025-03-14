@@ -846,14 +846,14 @@ function join_us_v2()
                     </td>
                 </tr>
 
-                <?php foreach ($packages_members_only as $members_only) { ?>
+                <?php foreach ($packages_benefits as $benefits) { ?>
                     <tr>
                         <td>
-                            <?= $members_only->name ?>
+                            <?= $benefits->name ?>
                         </td>
                         <?php foreach ($packages as $package) { ?>
                             <?php
-                            if (has_term($members_only->slug, $taxonomy, $package->ID)) {
+                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             } else {
                                 $class = '';
@@ -875,14 +875,15 @@ function join_us_v2()
                     </td>
                 </tr>
 
-                <?php foreach ($packages_benefits as $benefits) { ?>
+             
+                <?php foreach ($packages_members_only as $members_only) { ?>
                     <tr>
                         <td>
-                            <?= $benefits->name ?>
+                            <?= $members_only->name ?>
                         </td>
                         <?php foreach ($packages as $package) { ?>
                             <?php
-                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                            if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             } else {
                                 $class = '';
@@ -894,7 +895,6 @@ function join_us_v2()
                         <?php } ?>
                     </tr>
                 <?php } ?>
-
                 <!-- end of memebers only-->
 
 
