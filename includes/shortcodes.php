@@ -1004,6 +1004,25 @@ function join_us_v2()
                         </td>
                     <?php } ?>
                 </tr>
+                <?php foreach ($packages_marketing as $marketing) { ?>
+                    <tr>
+                        <td>
+                            <?= $marketing->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            if (has_term($marketing->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            } else {
+                                $class = '';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <span></span>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
                 <!-- end of marketing-->
             </tbody>
         </table>
