@@ -1427,7 +1427,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 padding: 10px;
                 border-bottom: 1px solid #f3f3f3;
                 font-size: 14px;
-                &:not(.no-bg) {
+                &:not(.no-bg):not(.title-data) {
                     background-color: var(--white-color);
                 }
                 &:first-child {
