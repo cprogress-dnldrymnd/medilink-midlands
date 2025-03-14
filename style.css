@@ -1314,8 +1314,10 @@ a {
     .join-us-v2 table tr th {
       padding: 10px;
       border-bottom: 1px solid #f3f3f3;
-      font-size: 14px;
-      background-color: var(--white-color); }
+      font-size: 14px; }
+      .join-us-v2 table tr td:not(.no-bg),
+      .join-us-v2 table tr th:not(.no-bg) {
+        background-color: var(--white-color); }
       .join-us-v2 table tr td:first-child:not(.no-border),
       .join-us-v2 table tr th:first-child:not(.no-border) {
         border-left: 1px var(--gray-color); }

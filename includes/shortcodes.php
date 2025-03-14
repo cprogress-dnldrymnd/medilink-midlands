@@ -840,7 +840,7 @@ function join_us_v2()
         <table>
             <thead>
                 <tr class="top-row">
-                    <th style="width: 20%" class="no-border">
+                    <th style="width: 20%" class="no-border no-bg">
 
                     </th>
                     <?php foreach ($packages as $package) { ?>
@@ -863,7 +863,7 @@ function join_us_v2()
             </thead>
             <tbody>
                 <tr>
-                    <td class="no-border">
+                    <td class="no-border no-bg">
 
                     </td>
                     <?php foreach ($packages as $package) { ?>
