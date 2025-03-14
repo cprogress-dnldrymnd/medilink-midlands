@@ -1385,7 +1385,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 .join-us-v2 {
     table {
         tr {
-            border-bottom: 1px solid;
+            td {
+                border-bottom: 1px solid var(--gray-color);
+            }
         }
     }
 }

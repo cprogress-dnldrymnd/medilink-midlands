@@ -1284,7 +1284,7 @@ a {
 .contact-tikidocs.contact-tikidocs input[type="radio"] {
   height: auto; }
 
-.join-us-v2 table tr {
-  border-bottom: 1px solid; }
+.join-us-v2 table tr td {
+  border-bottom: 1px solid var(--gray-color); }
 
 /*# sourceMappingURL=style.css.map */
