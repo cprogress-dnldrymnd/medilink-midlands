@@ -1014,14 +1014,14 @@ function join_us_v2()
                 <!-- marketing-->
 
                 <tr>
-                    <td>
+                    <td class="title-data">
                         <strong>Marketing</strong>
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center bg-orange">
                             <span><?= $marketing_level ?></span>
                         </td>
                     <?php } ?>

@@ -1406,7 +1406,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         }
         > tbody {
             > tr:last-child {
-                td{
+                td {
                     border: none !important;
                 }
                 td:first-child {
@@ -1461,10 +1461,12 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     }
     .title-data {
         text-align: center;
-        font-weight: bold;
         background-color: var(--accent-color);
         color: var(--white-color);
         border: none !important;
+        &:not(.bg-orange) {
+            font-weight: bold;
+        }
     }
     .price .price-text {
         font-size: 25px;
