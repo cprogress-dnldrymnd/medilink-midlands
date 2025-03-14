@@ -48,7 +48,7 @@ function membership_form() {
         setTimeout(function () {
             var intervalId = window.setInterval(function () {
                 check_steps();
-            }, 200);
+            }, 100);
         }, 2000);
 
 
