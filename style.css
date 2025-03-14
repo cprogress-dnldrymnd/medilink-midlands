@@ -1308,4 +1308,7 @@ a {
   text-align: center;
   font-weight: bold; }
 
+.text-left {
+  text-align: left !important; }
+
 /*# sourceMappingURL=style.css.map */
