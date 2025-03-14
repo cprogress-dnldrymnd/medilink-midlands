@@ -791,6 +791,15 @@ function auto_renewal()
 }
 add_shortcode('auto_renewal', 'auto_renewal');
 
+function cb_value($post_id, $name)
+{
+    $meta = carbon_get_post_meta($post_id, $name);
+    if ($meta) {
+        return $meta;
+    } else {
+        return '-';
+    }
+}
 
 function join_us_v2()
 {
@@ -930,7 +939,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $membership_review = carbon_get_post_meta($package->ID, 'membership_review');
+                        $membership_review = cb_value($package->ID, 'membership_review');
                         ?>
                         <td class="text-center">
                             <span><?= $membership_review ?></span>
