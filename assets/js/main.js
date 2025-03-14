@@ -46,13 +46,21 @@ function membership_form() {
     jQuery(document).on("click", ".cf7mls_next", function () {
 
         setTimeout(function () {
-            $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
-            jQuery('.cf7-nav li').removeClass('active');
-            jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
+            var intervalId = window.setInterval(function () {
+                if (jQuery('.action-button.sending').length == 0) {
+                    check_steps();
+                }
+            }, 200);
         }, 2000);
 
 
     });
+
+    function check_steps() {
+        $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
+        jQuery('.cf7-nav li').removeClass('active');
+        jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
+    }
 
 
     jQuery(document).on("click", ".cf7mls_back", function () {
