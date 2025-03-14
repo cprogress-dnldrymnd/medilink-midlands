@@ -123,6 +123,7 @@
                       <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
                     </li>
                   <?php } ?>
+                  <li id="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
                 <?php } ?> <!--  switch  -->
             <?php } /* function exist */
             } else {
