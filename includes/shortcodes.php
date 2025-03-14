@@ -808,10 +808,17 @@ function join_us_v2()
                 </th>
                 <?php foreach ($packages as $package) { ?>
                     <th>
-                        <?= $package->post_title?>
+                        <?= $package->post_title ?>
                     </th>
                 <?php } ?>
             </thead>
+            <tbody>
+                <tr>
+                    <td colspan="<?= count($packages) + 1 ?>">
+                        Benefits to support your innovation ideas and organisation
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 <?php
