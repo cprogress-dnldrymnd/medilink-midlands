@@ -851,7 +851,7 @@ function join_us_v2()
                             }
                             ?>
                             <td class="tick <?= $class ?>">
-
+                                <span></span>
                             </td>
                         <?php } ?>
                     </tr>
