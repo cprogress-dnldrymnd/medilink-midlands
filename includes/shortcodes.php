@@ -808,7 +808,13 @@ function join_us_v2()
         'orderby' => 'term_id',
         'order' => 'ASC',
     ));
-
+    $packages_members_only = get_terms(array(
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'parent' => 121,
+        'orderby' => 'term_id',
+        'order' => 'ASC',
+    ));
 ?>
     <div class="join-us-v2">
         <table>
@@ -833,6 +839,36 @@ function join_us_v2()
                         </td>
                     <?php } ?>
                 </tr>
+                <!-- benefits-->
+                <tr>
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                        Benefits to support your innovation ideas and organisation
+                    </td>
+                </tr>
+
+                <?php foreach ($packages_members_only as $members_only) { ?>
+                    <tr>
+                        <td>
+                            <?= $members_only->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            if (has_term($members_only->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            } else {
+                                $class = '';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <span></span>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
+                <!-- end of benefits-->
+
+                <!-- memebers only-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                         Benefits to support your innovation ideas and organisation
@@ -858,6 +894,10 @@ function join_us_v2()
                         <?php } ?>
                     </tr>
                 <?php } ?>
+
+                <!-- end of memebers only-->
+
+
 
             </tbody>
         </table>
