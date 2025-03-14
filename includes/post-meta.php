@@ -70,7 +70,7 @@ Container::make('post_meta', 'Packages Details')
 	->add_fields(
 		array(
 			Field::make('select', 'membership_review', __('Membership Review'))
-				->set_option(array(
+				->set_options(array(
 					'Annual' => 'Annual',
 					'Per Quarter' => 'Per Quarter'
 				)),
