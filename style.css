@@ -704,10 +704,6 @@ p:last-child {
   background-image: none !important;
   padding-bottom: 50px; }
 
-.page-id-50014 #primary .container {
-  max-width: 1600px;
-  width: 100%; }
-
 .checklist.checklist.checklist.checklist ul {
   padding: 0;
   margin: 0;
@@ -1347,5 +1343,16 @@ a {
 
 .text-left {
   text-align: left !important; }
+
+.page-id-50014 #primary .container {
+  max-width: 1600px;
+  width: 100%; }
+
+.page-id-50014 .header-title .text-left:after {
+  display: block;
+  content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore obcaecati id est provident saepe commodi, ab voluptatibus? Facere illo autem soluta magnam, architecto neque! Obcaecati sunt perspiciatis culpa soluta asperiores?";
+  color: var(--gray-color);
+  font-size: 15px;
+  font-weight: 400; }
 
 /*# sourceMappingURL=style.css.map */

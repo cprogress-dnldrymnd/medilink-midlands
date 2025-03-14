@@ -86,7 +86,7 @@ if (is_user_logged_in()) {
         jQuery('<li id="join-us-button" ><a href="/join-us/"><?= $button ?></a> </li>').appendTo('header .nav-menu');
 
     });
-</script>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore obcaecati id est provident saepe commodi, ab voluptatibus? Facere illo autem soluta magnam, architecto neque! Obcaecati sunt perspiciatis culpa soluta asperiores?</script>
 
 <?php wp_footer(); ?>
 </body>
