@@ -1339,7 +1339,7 @@ a {
   .join-us-v2 .title-data,
   .join-us-v2 .bg-orange {
     text-align: center;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color) !important;
     color: var(--white-color);
     border: none !important; }
   .join-us-v2 .title-data {
