@@ -1498,3 +1498,15 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         }
     }
 }
+
+
+body {
+    &.header-title-style-2 {
+        #primary {
+            padding-top: 0;
+            > .container {
+                margin-top: -144px;
+            }
+        }
+    }
+}

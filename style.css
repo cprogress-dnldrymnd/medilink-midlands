@@ -1362,4 +1362,9 @@ a {
   font-size: 15px;
   font-weight: 400; }
 
+body.header-title-style-2 #primary {
+  padding-top: 0; }
+  body.header-title-style-2 #primary > .container {
+    margin-top: -144px; }
+
 /*# sourceMappingURL=style.css.map */
