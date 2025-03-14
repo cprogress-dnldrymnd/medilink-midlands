@@ -47,9 +47,7 @@ function membership_form() {
 
         setTimeout(function () {
             var intervalId = window.setInterval(function () {
-                if (jQuery('.action-button.sending').length == 0) {
-                    check_steps();
-                }
+                check_steps();
             }, 200);
         }, 2000);
 
@@ -57,9 +55,13 @@ function membership_form() {
     });
 
     function check_steps() {
-        $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
-        jQuery('.cf7-nav li').removeClass('active');
-        jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
+        if (jQuery('.action-button.sending').length == 0) {
+            $key = jQuery('.cf7mls_current_fs').attr('data-cf7mls-order');
+            jQuery('.cf7-nav li').removeClass('active');
+            jQuery('.cf7-nav li[key="' + $key + '"]').addClass('active');
+        } else {
+            clearInterval(intervalId);
+        }
     }
 
 
