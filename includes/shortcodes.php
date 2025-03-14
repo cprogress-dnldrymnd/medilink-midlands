@@ -840,7 +840,7 @@ function join_us_v2()
         <table>
             <thead>
                 <tr class="top-row">
-                    <th style="width: 20%">
+                    <th style="width: 20%" class="no-border">
 
                     </th>
                     <?php foreach ($packages as $package) { ?>

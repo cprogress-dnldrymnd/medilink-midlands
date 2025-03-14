@@ -1435,6 +1435,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         font-weight: bold;
         background-color: var(--accent-color);
         color: var(--white-color);
+        border: none !important;
     }
     .price .price-text {
         font-size: 25px;
@@ -1453,6 +1454,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 border-radius: 20px 0 0 0;
             }
         }
+    }
+    .no-border {
+        border: none !important;
     }
 }
 
