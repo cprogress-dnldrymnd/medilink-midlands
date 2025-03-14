@@ -1388,7 +1388,8 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
             position: sticky;
             top: 32px;
             z-index: 9;
-            td,th {
+            td,
+            th {
                 background-color: #edeff5;
             }
         }
@@ -1402,6 +1403,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 padding: 10px;
                 border-bottom: 1px solid var(--gray-color);
                 font-size: 14px;
+                &:not(:first-child) {
+                    background-color: var(--white-color);
+                }
             }
         }
     }

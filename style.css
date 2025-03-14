@@ -1288,7 +1288,8 @@ a {
   position: sticky;
   top: 32px;
   z-index: 9; }
-  .join-us-v2 > table > thead td, .join-us-v2 > table > thead th {
+  .join-us-v2 > table > thead td,
+  .join-us-v2 > table > thead th {
     background-color: #edeff5; }
 .join-us-v2 table {
   border-collapse: collapse; }
@@ -1297,6 +1298,9 @@ a {
     padding: 10px;
     border-bottom: 1px solid var(--gray-color);
     font-size: 14px; }
+    .join-us-v2 table tr td:not(:first-child),
+    .join-us-v2 table tr th:not(:first-child) {
+      background-color: var(--white-color); }
 .join-us-v2 .excerpt {
   font-size: 13px; }
 .join-us-v2 .tick {
