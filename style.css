@@ -1297,6 +1297,7 @@ a {
   .join-us-v2 .tick span {
     display: inline-block;
     width: 25px;
+    height: 25px;
     background-size: contain;
     background-repeat: no-repeat; }
   .join-us-v2 .tick.tick-active span {
