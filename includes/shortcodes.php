@@ -1052,7 +1052,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_thought_leadership_article = carbon_get_post_meta($package->ID, 'discount_internation_trade');
+                        $marketing_thought_leadership_article = cb_value($package->ID, 'discount_internation_trade');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_thought_leadership_article ?></span>
@@ -1065,7 +1065,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_blog = carbon_get_post_meta($package->ID, 'marketing_blog');
+                        $marketing_blog = cb_value($package->ID, 'marketing_blog');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_blog ?></span>
@@ -1078,7 +1078,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_promotion = carbon_get_post_meta($package->ID, 'marketing_promotion');
+                        $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_promotion ?></span>
@@ -1091,7 +1091,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_memeber_marketplace = carbon_get_post_meta($package->ID, 'marketing_memeber_marketplace');
+                        $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
                         ?>
                         <td class="text-center">
                             <span><?= $marketing_memeber_marketplace ?></span>
