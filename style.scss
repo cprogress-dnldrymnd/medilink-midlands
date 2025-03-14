@@ -1413,6 +1413,11 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
                 &:not(:first-child) {
                     background-color: var(--white-color);
                 }
+                &:first-child {
+                    &:not(.no-border) {
+                        border-left: 1px var(--gray-color);
+                    }
+                }
             }
         }
     }

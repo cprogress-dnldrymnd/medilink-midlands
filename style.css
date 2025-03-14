@@ -1303,6 +1303,9 @@ a {
     .join-us-v2 table tr td:not(:first-child),
     .join-us-v2 table tr th:not(:first-child) {
       background-color: var(--white-color); }
+    .join-us-v2 table tr td:first-child:not(.no-border),
+    .join-us-v2 table tr th:first-child:not(.no-border) {
+      border-left: 1px var(--gray-color); }
 .join-us-v2 .excerpt {
   font-size: 13px; }
 .join-us-v2 .tick {
