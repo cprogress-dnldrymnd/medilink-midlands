@@ -90,7 +90,7 @@
 
                           <li class="menu-item mt-header-account">
 
-                            <div id="dropdown-user-profile" class="ddmenu dsdss">
+                            <div id="dropdown-user-profile" class="ddmenu">
                               <a class="profile">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                               </a>
@@ -107,6 +107,9 @@
                                     <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket','wikb'); ?></a>
                                   </li>
                                 <?php } ?>
+                                <li><a href="<?php echo do_shortcode('[um_author_profile_link]') ?>">
+                                  <i class="icon-profile icons"></i> <?php echo esc_html__('Profile','wikb'); ?></a>
+                                </li>
                                 <div class="dropdown-divider"></div>
                                 <li><a href="<?php echo esc_url(wp_logout_url( home_url() )); ?>">
                                   <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out','wikb'); ?></a>
