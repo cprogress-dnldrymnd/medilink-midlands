@@ -1287,7 +1287,7 @@ a {
 .join-us-v2 > table > thead {
   position: sticky;
   top: 32px; }
-  .join-us-v2 > table > thead td {
+  .join-us-v2 > table > thead td, .join-us-v2 > table > thead th {
     background-color: #edeff5; }
 .join-us-v2 table {
   border-collapse: collapse; }
