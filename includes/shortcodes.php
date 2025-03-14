@@ -841,7 +841,12 @@ function join_us_v2()
                         <th class="text-center" style="width: 13.33333333333333%">
                             <?= $package->post_title ?>
                             <div class="price">
-                                <?= $price ?>
+                                <div class="price-text">
+                                    <?= $price ?>
+                                </div>
+                                <div class="per">
+                                    Annually
+                                </div>
                             </div>
                         </th>
                     <?php } ?>
