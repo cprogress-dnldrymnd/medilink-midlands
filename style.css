@@ -1302,5 +1302,8 @@ a {
     opacity: 0.4; }
   .join-us-v2 .tick.tick-active span {
     opacity: 1; }
+.join-us-v2 .title {
+  text-align: center;
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */
