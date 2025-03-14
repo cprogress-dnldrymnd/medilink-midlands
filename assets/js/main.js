@@ -74,19 +74,7 @@ function membership_form() {
 
     });
 
-    const radioButtons = document.querySelectorAll('input[name="select-sectors"]');
-    let previouslySelected = null;
-
-    radioButtons.forEach(radioButton => {
-        radioButton.addEventListener('click', function () {
-            if (this === previouslySelected) {
-                this.checked = false;
-                previouslySelected = null;
-            } else {
-                previouslySelected = this;
-            }
-        });
-    });
+    
 
 }
 
