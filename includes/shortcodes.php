@@ -815,7 +815,7 @@ function join_us_v2()
 
                 </th>
                 <?php foreach ($packages as $package) { ?>
-                    <th style="width: 13.33333333333333%">
+                    <th class="text-center" style="width: 13.33333333333333%">
                         <?= $package->post_title ?>
                     </th>
                 <?php } ?>
@@ -826,7 +826,7 @@ function join_us_v2()
 
                     </td>
                     <?php foreach ($packages as $package) { ?>
-                        <td>
+                        <td class="text-center">
                             <?= $package->post_excerpt ?>
                         </td>
                     <?php } ?>
