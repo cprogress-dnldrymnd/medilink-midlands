@@ -1340,6 +1340,8 @@ a {
     color: var(--green-color); }
   .join-us-v2 .no-border {
     border: none !important; }
+  .join-us-v2 .modeltheme_button {
+    margin-top: 20px !important; }
 
 .text-left {
   text-align: left !important; }
