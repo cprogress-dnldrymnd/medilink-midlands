@@ -815,7 +815,7 @@ function join_us_v2()
 
                 </th>
                 <?php foreach ($packages as $package) { ?>
-                    <th stle="width: 13.33333333333333%">
+                    <th style="width: 13.33333333333333%">
                         <?= $package->post_title ?>
                     </th>
                 <?php } ?>
