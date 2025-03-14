@@ -835,8 +835,14 @@ function join_us_v2()
 
                     </th>
                     <?php foreach ($packages as $package) { ?>
+                        <?php
+                        $price = carbon_get_post_meta($package->ID, 'price');
+                        ?>
                         <th class="text-center" style="width: 13.33333333333333%">
                             <?= $package->post_title ?>
+                            <div class="price">
+                                <?= $price ?>
+                            </div>
                         </th>
                     <?php } ?>
                 </tr>
@@ -1079,32 +1085,7 @@ function join_us_v2()
                     <?php } ?>
                 </tr>
                 <!-- end of marketing-->
-                <!-- Price-->
-                <tr>
-                    <th style="width: 20%">
-                        <?php foreach ($packages as $package) { ?>
-                    <th class="text-center" style="width: 13.33333333333333%">
-                        <?= $package->post_title ?>
-                    </th>
-                <?php } ?>
-                </tr>
-                <tr>
-                    <th style="width: 20%">
-                        ALL VAT
-                    </th>
 
-
-                    </th>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $price = carbon_get_post_meta($package->ID, 'price');
-                        ?>
-                        <th class="text-center" style="width: 13.33333333333333%">
-                            <?= $price ?>
-                        </th>
-                    <?php } ?>
-                </tr>
-                <!-- end of Price-->
 
             </tbody>
         </table>
