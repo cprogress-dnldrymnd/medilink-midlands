@@ -982,7 +982,7 @@ function join_us_v2()
                 </tr>
                 <tr>
                     <td>
-                        medtech Innovation Expo (MTI) exhibition space
+                        Medtech Innovation Expo (MTI) exhibition space
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
