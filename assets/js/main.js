@@ -27,15 +27,11 @@ function select__2() {
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
         var selectedValues = jQuery(this).val();
-
         if (selectedValues) {
-            console.log("Selected values:", selectedValues);
-            
-
+            jQuery('input[name="more-sectors"]').val(selectedValues.join(", "));
+        } else {
+            jQuery('input[name="more-sectors"]').val('');
         }
-
-        console.log(selectedValues.join(", "));
-
     });
 
 }
