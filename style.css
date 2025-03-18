@@ -1320,8 +1320,7 @@ a {
     font-weight: 400;
     padding: 15px; }
   .join-us-v2 .package-title-th {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 !important;
     width: 13.33333333333333%;
     vertical-align: top;
     background-color: #efefef !important; }
