@@ -99,7 +99,7 @@ wp_body_open();
                                     <p class="um-notice err text-center"><?php echo esc_html__('Registration is currently disabled','wikb'); ?></p>
                                 <?php } ?>
                                 <p class="woocommerce-LostPassword lost_password">
-                                    <a href="<?php echo esc_url(wp_lostpassword_url()); ?>"><?php echo esc_html__('Lost your password?','wikb'); ?></a>
+                                    <a href="<?= get_the_permalink(50003) ?>"><?php echo esc_html__('Lost your password?','wikb'); ?></a>
                                 </p>
                             </div>
                             
