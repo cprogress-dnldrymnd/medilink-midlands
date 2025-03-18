@@ -1320,17 +1320,18 @@ a {
     font-weight: 400;
     padding: 15px; }
   .join-us-v2 .package-title-th {
-    padding-top: 20px;
     padding-left: 0;
     padding-right: 0;
     width: 13.33333333333333%;
     vertical-align: top;
-    background-color: #efefef; }
+    background-color: #efefef !important; }
     .join-us-v2 .package-title-th .package-title-holder,
     .join-us-v2 .package-title-th .price {
       padding-left: 10px;
       padding-right: 10px;
       background-color: var(--white-color); }
+    .join-us-v2 .package-title-th .package-title-holder {
+      padding-top: 20px; }
     .join-us-v2 .package-title-th .price {
       padding-bottom: 15px; }
   .join-us-v2 .tick {
