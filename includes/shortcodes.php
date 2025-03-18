@@ -797,7 +797,7 @@ function cb_value($post_id, $name)
     if ($meta) {
         return $meta;
     } else {
-        return '—';
+        return '';
     }
 }
 
@@ -944,7 +944,7 @@ function join_us_v2()
                         <?php
                         $membership_review = cb_value($package->ID, 'membership_review');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $membership_review ? '' : 'tick' ?>">
                             <span><?= $membership_review ?></span>
                         </td>
                     <?php } ?>
@@ -966,7 +966,7 @@ function join_us_v2()
                         <?php
                         $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $discount_mm_training_networking ? '' : 'tick' ?>">
                             <span><?= $discount_mm_training_networking ?></span>
                         </td>
                     <?php } ?>
