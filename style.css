@@ -1318,7 +1318,7 @@ a {
   .join-us-v2 .excerpt {
     font-size: 13px;
     font-weight: 400;
-    padding: 15px; }
+    padding: 25px 15px 15px; }
   .join-us-v2 .package-title-th {
     padding: 0 !important;
     width: 13.33333333333333%;
@@ -1332,7 +1332,7 @@ a {
     .join-us-v2 .package-title-th .package-title-holder {
       padding-top: 20px; }
     .join-us-v2 .package-title-th .price {
-      padding-bottom: 15px; }
+      padding-bottom: 25px; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {
