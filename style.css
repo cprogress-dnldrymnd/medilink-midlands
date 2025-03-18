@@ -1387,7 +1387,7 @@ body.header-title-style-2 #primary {
 .select-2-trigger + p {
   display: none !important; }
 
-.select2-search__field {
+.select2-search__field.select2-search__field.select2-search__field {
   font-family: 'Open Sans',sans-serif;
   font-weight: 400;
   font-size: 15px !important;
