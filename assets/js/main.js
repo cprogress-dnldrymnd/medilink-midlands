@@ -23,8 +23,8 @@ function select__2() {
     jQuery('.select-2-trigger select').select2({
         placeholder: "Other",
         maximumSelectionLength: 3,
-        enoughRoomBelow = true,
-        enoughRoomAbove = false,
+        enoughRoomBelow:true,
+        enoughRoomAbove: false,
     });
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
