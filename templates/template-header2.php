@@ -107,7 +107,7 @@
                                 <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
                             </li>
                           <?php } ?>
-                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1]') ?>">
+                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id='.get_current_user_id().']') ?>">
                               <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
                           </li>
                           <div class="dropdown-divider"></div>
