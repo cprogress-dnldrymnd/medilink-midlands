@@ -1387,4 +1387,17 @@ body.header-title-style-2 #primary {
 .select-2-trigger + p {
   display: none !important; }
 
+.select2-search__field {
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 400;
+  font-size: 15px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding-top: 3px !important; }
+
+.select2-selection.select2-selection {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+  background-position: calc(100% - 15px) center;
+  background-repeat: no-repeat; }
+
 /*# sourceMappingURL=style.css.map */
