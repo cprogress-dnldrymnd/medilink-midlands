@@ -848,7 +848,9 @@ function join_us_v2()
                         $price = carbon_get_post_meta($package->ID, 'price');
                         ?>
                         <th class="text-center package-title-th">
-                            <?= $package->post_title ?>
+                            <div class="package-title-holder">
+                                <?= $package->post_title ?>
+                            </div>
                             <div class="price">
                                 <div class="price-text">
                                     <?= $price ?>

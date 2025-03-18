@@ -1435,15 +1435,21 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     }
     .excerpt {
         font-size: 13px;
-        margin-top: 25px;
         font-weight: 400;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 15px;
+        background-color: #efefef;
+        margin-top: 15px;
     }
     .package-title-th {
         padding-top: 20px;
+        padding-left: 0;
+        padding-right: 0;
         width: 13.33333333333333%;
         vertical-align: top;
+        .package-title-holder,.price {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
     }
     .tick {
         text-align: center;
@@ -1490,7 +1496,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     text-align: left !important;
 }
 
-
 .page-id-50014 #primary .container {
     max-width: 1600px;
     width: 100%;
@@ -1509,7 +1514,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         }
     }
 }
-
 
 body {
     &.header-title-style-2 {
