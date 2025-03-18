@@ -979,7 +979,7 @@ function join_us_v2()
                         <?php
                         $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $discount_events_marketing_services ? '' : 'tick' ?>">
                             <span><?= $discount_events_marketing_services ?></span>
                         </td>
                     <?php } ?>
@@ -992,7 +992,7 @@ function join_us_v2()
                         <?php
                         $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $discount_medtech_expo ? '' : 'tick' ?>">
                             <span><?= $discount_medtech_expo ?></span>
                         </td>
                     <?php } ?>
@@ -1005,7 +1005,7 @@ function join_us_v2()
                         <?php
                         $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $discount_internation_trade ? '' : 'tick' ?>">
                             <span><?= $discount_internation_trade ?></span>
                         </td>
                     <?php } ?>
@@ -1057,7 +1057,7 @@ function join_us_v2()
                         <?php
                         $marketing_thought_leadership_article = cb_value($package->ID, 'discount_internation_trade');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $marketing_thought_leadership_article ? '' : 'tick' ?>">
                             <span><?= $marketing_thought_leadership_article ?></span>
                         </td>
                     <?php } ?>
@@ -1070,7 +1070,7 @@ function join_us_v2()
                         <?php
                         $marketing_blog = cb_value($package->ID, 'marketing_blog');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $marketing_blog ? '' : 'tick' ?>">
                             <span><?= $marketing_blog ?></span>
                         </td>
                     <?php } ?>
@@ -1083,7 +1083,7 @@ function join_us_v2()
                         <?php
                         $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $marketing_promotion ? '' : 'tick' ?>">
                             <span><?= $marketing_promotion ?></span>
                         </td>
                     <?php } ?>
@@ -1096,7 +1096,7 @@ function join_us_v2()
                         <?php
                         $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
                         ?>
-                        <td class="text-center">
+                        <td class="text-center <?= $marketing_memeber_marketplace ? '' : 'tick' ?>">
                             <span><?= $marketing_memeber_marketplace ?></span>
                         </td>
                     <?php } ?>
