@@ -1319,9 +1319,11 @@ a {
     font-size: 13px;
     margin-top: 20px;
     font-weight: 400;
-    padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: 1rem; }
   .join-us-v2 .package-title-th {
+    padding-top: 20px;
     width: 13.33333333333333%;
     vertical-align: top; }
   .join-us-v2 .tick {
