@@ -93,7 +93,7 @@ wp_body_open();
                                 </p>
                                 <?php if (  get_option('users_can_register')) { ?>
                                     <p class="btn-register-p">
-                                        <a class="btn btn-register" id="register-modal"><?php echo esc_html__('Register','wikb'); ?></a>
+                                        <a class="btn btn-register" href="<?= get_the_permalink(49499) ?>"><?php echo esc_html__('Register','wikb'); ?></a>
                                     </p>
                                 <?php } else { ?>
                                     <p class="um-notice err text-center"><?php echo esc_html__('Registration is currently disabled','wikb'); ?></p>
@@ -114,16 +114,7 @@ wp_body_open();
                     </div>
                 </div>
             </div>
-            <div class="modeltheme-content" id="signup-modal-content">
-                <h3 class="relative">
-                    <?php echo esc_html__('Personal Details','wikb'); ?>
-                </h3>
-                <div class="modal-content row">
-                    <div class="col-md-12">
-                        <?= do_shortcode('[ultimatemember form_id="49495"]') ?>
-                    </div>
-                </div>            
-            </div>
+        
         </div>
     <?php } ?>
     <div class="modeltheme-overlay"></div>
