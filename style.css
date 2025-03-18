@@ -1318,18 +1318,21 @@ a {
   .join-us-v2 .excerpt {
     font-size: 13px;
     font-weight: 400;
-    padding: 15px;
-    background-color: #efefef;
-    margin-top: 15px; }
+    padding: 15px; }
   .join-us-v2 .package-title-th {
     padding-top: 20px;
     padding-left: 0;
     padding-right: 0;
     width: 13.33333333333333%;
-    vertical-align: top; }
-    .join-us-v2 .package-title-th .package-title-holder, .join-us-v2 .package-title-th .price {
+    vertical-align: top;
+    background-color: #efefef; }
+    .join-us-v2 .package-title-th .package-title-holder,
+    .join-us-v2 .package-title-th .price {
       padding-left: 10px;
-      padding-right: 10px; }
+      padding-right: 10px;
+      background-color: var(--white-color); }
+    .join-us-v2 .package-title-th .price {
+      padding-bottom: 15px; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {

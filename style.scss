@@ -1437,8 +1437,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         font-size: 13px;
         font-weight: 400;
         padding: 15px;
-        background-color: #efefef;
-        margin-top: 15px;
     }
     .package-title-th {
         padding-top: 20px;
@@ -1446,9 +1444,15 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         padding-right: 0;
         width: 13.33333333333333%;
         vertical-align: top;
-        .package-title-holder,.price {
+        background-color: #efefef;
+        .package-title-holder,
+        .price {
             padding-left: 10px;
             padding-right: 10px;
+            background-color: var(--white-color);
+        }
+        .price {
+            padding-bottom: 15px;
         }
     }
     .tick {
