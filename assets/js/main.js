@@ -26,13 +26,11 @@ function select__2() {
     });
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
-        var selectedValues = $(this).val();
+        var selectedValues = jQuery(this).val();
 
         if (selectedValues) {
             console.log("Selected values:", selectedValues);
-            // Or do something else with the selected values:
-            // Example: Display them in a div
-            jQuery('#selectedValuesDisplay').text("Selected values: " + selectedValues.join(", "));
+            
 
         }
 
