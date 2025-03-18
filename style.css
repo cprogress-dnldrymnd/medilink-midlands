@@ -1321,6 +1321,9 @@ a {
     font-weight: 400;
     padding: 20px;
     margin-top: 1rem; }
+  .join-us-v2 .package-title {
+    width: 13.33333333333333%;
+    vertical-align: top; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {
