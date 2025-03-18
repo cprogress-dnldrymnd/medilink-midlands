@@ -120,44 +120,7 @@ wp_body_open();
                 </h3>
                 <div class="modal-content row">
                     <div class="col-md-12">
-                        <?php if ( class_exists( 'WooCommerce' ) ) { ?>
-                            <?php if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'yes' ) { ?>
-                                <div class="u-column2 col-2">
-                                    <form method="post" class="woocommerce-form woocommerce-form-register register">
-                                        <?php do_action( 'woocommerce_register_form_start' ); ?>
-                                        <?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
-                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" placeholder="<?php esc_attr_e( 'Username', 'wikb' ); ?>" />
-                                            </p>
-                                        <?php endif; ?>
-                                        <p class="form-row form-row-first">
-                                            <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" value="<?php if (!empty($_POST['billing_first_name'])) esc_attr_e($_POST['billing_first_name'], 'wikb'); ?>" placeholder="<?php esc_attr_e( 'First name', 'wikb' ); ?>" />
-                                        </p>
-                                        <p class="form-row form-row-last">
-                                            <input type="text" class="input-text" name="billing_last_name" id="billing_last_name" value="<?php if (!empty($_POST['billing_last_name'])) esc_attr_e($_POST['billing_last_name'], 'wikb'); ?>" placeholder="<?php esc_attr_e( 'Last name', 'wikb' ); ?>" />
-                                        </p>
-                                        <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                            <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" placeholder="<?php esc_attr_e( 'Email address', 'wikb' ); ?>" />
-                                        </p>
-                                        <?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
-                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                                <input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" placeholder="Password" />
-                                            </p>
-                                        <?php endif; ?>
-                                        <?php do_action( 'woocommerce_register_form' ); ?>
-                                        <p class="woocommerce-FormRow form-row">
-                                            <?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
-                                            <button type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'wikb' ); ?>"><?php esc_html_e( 'Register', 'wikb' ); ?></button>
-                                        </p>
-                                        <?php do_action( 'woocommerce_register_form_end' ); ?>
-                                    </form>
-                                    <div class="separator-modal"><?php echo esc_html__('OR','wikb'); ?></div>
-                                    <?php if (function_exists('yith_ywsl_constructor')) { ?>
-                                        <?php echo do_shortcode("[yith_wc_social_login]"); ?>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
+                        <?= do_shortcode('[ultimatemember form_id="49495"]') ?>
                     </div>
                 </div>            
             </div>
