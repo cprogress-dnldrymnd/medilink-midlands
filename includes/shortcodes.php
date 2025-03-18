@@ -860,21 +860,13 @@ function join_us_v2()
                                     <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
                                 </div>
                             </div>
+                            <?= $package->post_excerpt ?>
                         </th>
                     <?php } ?>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="no-border no-bg">
 
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <td class="text-center excerpt no-border">
-                            <?= $package->post_excerpt ?>
-                        </td>
-                    <?php } ?>
-                </tr>
                 <!-- benefits-->
                 <tr class="top-left-first">
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
