@@ -25,6 +25,21 @@ function select__2() {
         maximumSelectionLength: 3,
     });
 
+    jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
+        var selectedValues = $(this).val();
+
+        if (selectedValues) {
+            console.log("Selected values:", selectedValues);
+            // Or do something else with the selected values:
+            // Example: Display them in a div
+            jQuery('#selectedValuesDisplay').text("Selected values: " + selectedValues.join(", "));
+
+        }
+
+        console.log(selectedValues.join(", "));
+
+    });
+
 }
 
 
@@ -78,7 +93,7 @@ function membership_form() {
     jQuery('input[name="select-sector[]"]').change(function () {
         jQuery('input[name="select-sector[]"]').not(this).prop('checked', false);
     });
-    
+
 
 }
 
