@@ -1384,4 +1384,7 @@ body.header-title-style-2 #primary {
 .edit-link-page-post.edit-link-page-post {
   display: none !important; }
 
+.select-2-trigger + p {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */
