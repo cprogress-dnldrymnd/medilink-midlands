@@ -1381,4 +1381,7 @@ body.header-title-style-2 #primary {
   body.header-title-style-2 #primary > .container {
     margin-top: -144px; }
 
+.edit-link-page-post.edit-link-page-post {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */
