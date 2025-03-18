@@ -860,7 +860,9 @@ function join_us_v2()
                                     <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
                                 </div>
                             </div>
-                            <?= $package->post_excerpt ?>
+                            <div class="excerpt">
+                                <?= $package->post_excerpt ?>
+                            </div>
                         </th>
                     <?php } ?>
                 </tr>

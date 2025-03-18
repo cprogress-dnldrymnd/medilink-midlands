@@ -1318,7 +1318,9 @@ a {
   .join-us-v2 .excerpt {
     font-size: 13px;
     margin-top: 20px;
-    font-weight: 400; }
+    font-weight: 400;
+    padding: 20px;
+    margin-top: 1rem; }
   .join-us-v2 .tick {
     text-align: center; }
     .join-us-v2 .tick span {
