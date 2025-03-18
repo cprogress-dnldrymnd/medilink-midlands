@@ -1323,7 +1323,8 @@ a {
     padding: 0 !important;
     width: 13.33333333333333%;
     vertical-align: top;
-    background-color: #efefef !important; }
+    background-color: #efefef !important;
+    border: none !important; }
     .join-us-v2 .package-title-th .package-title-holder,
     .join-us-v2 .package-title-th .price {
       padding-left: 10px;
