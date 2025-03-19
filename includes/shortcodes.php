@@ -905,6 +905,11 @@ function join_us_v2()
                             ?>
                             <td class="tick <?= $class ?>">
                                 <span><?= $text ?></span>
+                                <?php
+
+                                var_dump($taxonomy_terms_custom_text_array);
+
+                                ?>
                             </td>
                         <?php } ?>
                     </tr>
