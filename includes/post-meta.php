@@ -86,14 +86,6 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('text', 'marketing_promotion', __('Marketing: Promotion of events')),
 			Field::make('text', 'marketing_memeber_marketplace', __('Marketing: Member Market place listing')),
 
-
-			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
-				->add_fields(array(
-					Field::make('text', 'term_slug', __('Term Slug')),
-					Field::make('text', 'custom_text', __('Custom Text')),
-				)),
-
-
 			Field::make('select', 'marketing_level', __('Marketing Level'))
 				->set_options(array(
 					'' => 'None',
@@ -102,6 +94,15 @@ Container::make('post_meta', 'Packages Details')
 					'Level 3' => 'Level 3',
 					'Level 4' => 'Level 4',
 				)),
+
+
+			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
+				->add_fields(array(
+					Field::make('text', 'term_slug', __('Term Slug')),
+					Field::make('text', 'custom_text', __('Custom Text')),
+				)),
+
+
 
 		)
 	);
