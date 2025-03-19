@@ -100,7 +100,8 @@ Container::make('post_meta', 'Packages Details')
 				->add_fields(array(
 					Field::make('text', 'term_slug', __('Term Slug')),
 					Field::make('text', 'custom_text', __('Custom Text')),
-				)),
+				))
+				->set_layout('tabbed-vertical')
 
 
 
