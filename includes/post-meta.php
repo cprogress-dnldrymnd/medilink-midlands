@@ -102,7 +102,7 @@ Container::make('post_meta', 'Packages Details')
 					Field::make('text', 'custom_text', __('Custom Text')),
 				))
 				->set_layout('tabbed-vertical')
-				->set_header_template('<%- term_slug %>')
+				->set_header_template('<%- term_slug %> : custom_text')
 
 
 
