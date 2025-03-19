@@ -1060,7 +1060,7 @@ function join_us_v2()
                 </tr>
                 <tr>
                     <td>
-                        Blog (1 per year)
+                        Blog
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
