@@ -899,11 +899,11 @@ function join_us_v2()
                                 $text = $taxonomy_terms_custom_text_array[$benefits->slug];
                                 $class = '';
                             } else {
-                                $text = '';
+                                $text = '<span></span>';
                             }
                             ?>
                             <td class="tick <?= $class ?>">
-                                <span><?= $text ?></span>
+                                <?= $text ?>
                             </td>
                         <?php } ?>
                     </tr>
