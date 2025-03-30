@@ -1400,4 +1400,10 @@ body.header-title-style-2 #primary {
   background-position: calc(100% - 15px) center;
   background-repeat: no-repeat; }
 
+.um-cover.um-cover {
+  display: none; }
+
+.um-profile .um-profile-body.main-default {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */

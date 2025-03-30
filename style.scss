@@ -1558,3 +1558,11 @@ body {
 .um-cover.um-cover {
     display: none;
 }
+
+.um-profile {
+    .um-profile-body {
+        &.main-default {
+            display: none !important;
+        }
+    }
+}
