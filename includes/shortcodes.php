@@ -1133,7 +1133,7 @@ function join_us_v2()
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
-                        $marketing_thought_leadership_article = cb_value($package->ID, 'discount_internation_trade');
+                        $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
                         ?>
                         <td class="text-center <?= $marketing_thought_leadership_article ? '' : 'tick' ?>">
                             <span><?= $marketing_thought_leadership_article ?></span>
