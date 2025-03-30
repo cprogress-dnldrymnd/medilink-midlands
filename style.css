@@ -1438,14 +1438,20 @@ body.header-title-style-2 #primary {
   .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px; }
+    margin-top: 50px;
+    flex-direction: row-reverse; }
     .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half {
       width: auto; }
-      .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half a {
+      .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half .um-button {
         font-size: 12px;
         text-transform: uppercase;
-        font-weight: 400;
-        min-width: 150px; }
+        font-weight: bold;
+        min-width: 150px;
+        background-color: var(--green-color); }
+        .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half .um-button.um-alt {
+          background-color: transparent;
+          border: 1px solid var(--gray-color);
+          color: var(--gray-color); }
     .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-clear {
       display: none; }
   .um-profile.um-profile.um-profile .um-form {

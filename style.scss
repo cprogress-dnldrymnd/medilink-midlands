@@ -1614,13 +1614,20 @@ body {
                 display: flex;
                 justify-content: space-between;
                 margin-top: 50px;
+                flex-direction: row-reverse;
                 .um-half {
                     width: auto;
-                    a {
+                    .um-button {
                         font-size: 12px;
                         text-transform: uppercase;
-                        font-weight: 400;
+                        font-weight: bold;
                         min-width: 150px;
+                        background-color: var(--green-color);
+                        &.um-alt {
+                            background-color: transparent;
+                            border: 1px solid var(--gray-color);
+                            color: var(--gray-color);
+                        }
                     }
                 }
                 .um-clear {
