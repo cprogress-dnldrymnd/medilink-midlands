@@ -1607,7 +1607,7 @@ body {
                 color: #747474 !important;
                 background-color: transparent;
                 border: 1px solid #747474 !important;
-                border: 18px;
+                border-radius: 18px;
                 font-weight: 400;
                 font-size: 14px;
                 margin: 0;
@@ -1616,11 +1616,18 @@ body {
     }
     .um-main-meta-v2 {
         text-align: center;
+        margin-top: 32px;
         .um-name {
             float: none;
             a {
                 font-size: 46px;
                 color: var(--text-color);
+                @media (max-width: 991px) {
+                    font-size: 36px;
+                }
+                @media (max-width: 767px) {
+                    font-size: 30px;
+                }
             }
         }
         .profile-meta-list-holder {
@@ -1640,7 +1647,7 @@ body {
                     font-size: 16px;
                     &:not(:last-child) {
                         &:after {
-                            content: '';
+                            content: "";
                             width: 3px;
                             height: 3px;
                             border-radius: 50%;
