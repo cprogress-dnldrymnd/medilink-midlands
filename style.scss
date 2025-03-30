@@ -1660,12 +1660,13 @@ body {
             .um-profile-photo {
                 a.um-profile-photo-img {
                     border: 5px solid var(--accent-color) !important;
+                    top: 0 !important;
                 }
             }
             .um-profile-meta {
                 display: none;
             }
-            @media (max-width: 575px) {
+            @media (max-width: 1199px) {
                 top: -55px;
             }
         }
@@ -1675,6 +1676,9 @@ body {
             padding: 230px 60px 60px;
             max-width: 100%;
             background-color: var(--white-color);
+            @media (max-width: 1199px) {
+                padding-top: 150px;
+            }
         }
         .um-profile-nav {
             position: absolute;
@@ -1703,8 +1707,8 @@ body {
                     }
                 }
             }
-            @media (max-width: 575px) {
-                padding-top: 100px;
+            @media (max-width: 1199px) {
+                top: 80px;
             }
         }
     }

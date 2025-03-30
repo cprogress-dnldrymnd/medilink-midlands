@@ -1474,10 +1474,11 @@ body.header-title-style-2 #primary {
       .um-profile.um-profile.um-profile .um-form .um-header .um-profile-edit {
         display: none; }
       .um-profile.um-profile.um-profile .um-form .um-header .um-profile-photo a.um-profile-photo-img {
-        border: 5px solid var(--accent-color) !important; }
+        border: 5px solid var(--accent-color) !important;
+        top: 0 !important; }
       .um-profile.um-profile.um-profile .um-form .um-header .um-profile-meta {
         display: none; }
-      @media (max-width: 575px) {
+      @media (max-width: 1199px) {
         .um-profile.um-profile.um-profile .um-form .um-header {
           top: -55px; } }
     .um-profile.um-profile.um-profile .um-form .um-profile-body {
@@ -1486,6 +1487,9 @@ body.header-title-style-2 #primary {
       padding: 230px 60px 60px;
       max-width: 100%;
       background-color: var(--white-color); }
+      @media (max-width: 1199px) {
+        .um-profile.um-profile.um-profile .um-form .um-profile-body {
+          padding-top: 150px; } }
     .um-profile.um-profile.um-profile .um-form .um-profile-nav {
       position: absolute;
       top: 150px;
@@ -1507,9 +1511,9 @@ body.header-title-style-2 #primary {
         background-color: var(--accent-color);
         color: var(--white-color) !important;
         border-color: var(--accent-color) !important; }
-      @media (max-width: 575px) {
+      @media (max-width: 1199px) {
         .um-profile.um-profile.um-profile .um-form .um-profile-nav {
-          padding-top: 100px; } }
+          top: 80px; } }
   .um-profile.um-profile.um-profile .um-main-meta-v2 {
     text-align: center; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
