@@ -1568,8 +1568,10 @@ body {
             transform: translateX(-50%);
             border: none;
             .um-profile-photo {
+                border: 5px solid var(--accent-color);
+                border-radius: 50%;
                 a.um-profile-photo-img {
-                    border: 5px solid var(--accent-color);
+                    border: none;
                 }
             }
             .um-profile-meta {
@@ -1603,7 +1605,7 @@ body {
                 border: 1px solid #747474;
                 border: 18px;
                 font-weight: 400;
-                font-size: 134px;
+                font-size: 14px;
                 margin: 0;
             }
         }
