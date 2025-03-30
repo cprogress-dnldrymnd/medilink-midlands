@@ -964,7 +964,7 @@ function join_us_v2()
                         <?php
                         $membership_review = cb_value($package->ID, 'membership_review');
                         $class = '';
-                        if ($membership_review && $membership_review != 'blank') {
+                        if ($membership_review != 'blank') {
                             $class = 'tick';
                         }
                         ?>
