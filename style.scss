@@ -1559,6 +1559,18 @@ body {
 }
 
 .um-profile.um-profile.um-profile {
+    &:not(.um-editing) {
+        .um-form {
+            .um-profile-body {
+                &.main-default {
+                    .um-profile-note,
+                    .um-row {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
     .um-form {
         position: relative;
         .um-header {
@@ -1581,12 +1593,6 @@ body {
             border-radius: 10px;
             padding: 200px 60px 60px;
             max-width: 100%;
-            &.main-default {
-                .um-profile-note,
-                .um-row {
-                    display: none !important;
-                }
-            }
         }
         .um-profile-nav {
             position: absolute;
@@ -1612,8 +1618,10 @@ body {
         text-align: center;
         .um-name {
             float: none;
-            font-size: 46px;
-            color: var(--text-color);
+            a {
+                font-size: 46px;
+                color: var(--text-color);
+            }
         }
     }
 }

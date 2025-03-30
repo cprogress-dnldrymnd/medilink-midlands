@@ -1403,6 +1403,9 @@ body.header-title-style-2 #primary {
 .um-cover.um-cover {
   display: none; }
 
+.um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-profile-note,
+.um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-row {
+  display: none !important; }
 .um-profile.um-profile.um-profile .um-form {
   position: relative; }
   .um-profile.um-profile.um-profile .um-form .um-header {
@@ -1420,9 +1423,6 @@ body.header-title-style-2 #primary {
     border-radius: 10px;
     padding: 200px 60px 60px;
     max-width: 100%; }
-    .um-profile.um-profile.um-profile .um-form .um-profile-body.main-default .um-profile-note,
-    .um-profile.um-profile.um-profile .um-form .um-profile-body.main-default .um-row {
-      display: none !important; }
   .um-profile.um-profile.um-profile .um-form .um-profile-nav {
     position: absolute;
     top: 150px;
@@ -1443,8 +1443,9 @@ body.header-title-style-2 #primary {
 .um-profile.um-profile.um-profile .um-main-meta-v2 {
   text-align: center; }
   .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
-    float: none;
-    font-size: 46px;
-    color: var(--text-color); }
+    float: none; }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
+      font-size: 46px;
+      color: var(--text-color); }
 
 /*# sourceMappingURL=style.css.map */
