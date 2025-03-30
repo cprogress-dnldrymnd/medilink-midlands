@@ -1758,6 +1758,7 @@ body {
         justify-content: space-between;
         margin-top: 50px;
         flex-direction: row-reverse;
+        flex-wrap: wrap;
         .um-half {
             width: auto;
             .um-button {
@@ -1773,6 +1774,10 @@ body {
                 }
             }
         }
+        .um-field-c {
+        width: 100%;
+        }
+
         .um-clear {
             display: none;
         }

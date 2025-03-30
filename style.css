@@ -1550,7 +1550,8 @@ body.header-title-style-2 #primary {
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
-  flex-direction: row-reverse; }
+  flex-direction: row-reverse;
+  flex-wrap: wrap; }
   .um-form.um-form.um-form.um-form .um-col-alt.um-col-alt .um-half {
     width: auto; }
     .um-form.um-form.um-form.um-form .um-col-alt.um-col-alt .um-half .um-button {
@@ -1563,6 +1564,8 @@ body.header-title-style-2 #primary {
         background-color: transparent !important;
         border: 1px solid var(--gray-color) !important;
         color: var(--gray-color) !important; }
+  .um-form.um-form.um-form.um-form .um-col-alt.um-col-alt .um-field-c {
+    width: 100%; }
   .um-form.um-form.um-form.um-form .um-col-alt.um-col-alt .um-clear {
     display: none; }
   @media (max-width: 575px) {
