@@ -824,6 +824,13 @@ function join_us_v2()
         'orderby' => 'term_id',
         'order' => 'ASC',
     ));
+    $patrons = get_terms(array(
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'parent' => 164,
+        'orderby' => 'term_id',
+        'order' => 'ASC',
+    ));
 
     $packages_marketing = get_terms(array(
         'taxonomy'   => $taxonomy,
@@ -950,8 +957,48 @@ function join_us_v2()
                     </tr>
                 <?php } ?>
 
-                <!-- end of benefits-->
                 <!-- end of memebers only-->
+
+                <!-- patrons -->
+                <tr>
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                        Enhanced Member only area access:
+                    </td>
+                </tr>
+
+
+                <?php foreach ($patrons as $patron) { ?>
+                    <tr>
+                        <td>
+                            <?= $patron->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            $class = '';
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
+                            if (has_term($patron->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$patron->slug];
+                                $class = '';
+                            } else {
+                                $text = '<span></span>';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <?= $text ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
+                <!-- end of patrons-->
 
 
                 <!-- membership review-->
@@ -963,7 +1010,7 @@ function join_us_v2()
                     <?php foreach ($packages as $package) { ?>
                         <?php
                         $membership_review = cb_value($package->ID, 'membership_review');
-                        
+
                         ?>
                         <td class="text-center <?= $membership_review ? '' : 'tick' ?>">
                             <span><?= $membership_review ?></span>
