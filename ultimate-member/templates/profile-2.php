@@ -282,12 +282,10 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                         </ul>
                     </div>
 
-                    <div class="um-profile-edit um-profile-headericon">
-
-                        <a href="javascript:void(0);" class="um-profile-edit-a"><i class="um-faicon-cog"></i></a>
-
-                        <?php UM()->profile()->new_ui($args['header_menu'], 'div.um-profile-edit', 'click', $items); ?>
-
+                    <div class="edit-profile-holder">
+                        <a href="<?= esc_url(um_edit_profile_url()) ?>">
+                            Edit profile
+                        </a>
                     </div>
 
                 </div>

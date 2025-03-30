@@ -1454,6 +1454,15 @@ body.header-title-style-2 #primary {
       @media (max-width: 767px) {
         .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
           font-size: 30px; } }
+  .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder {
+    text-align: center;
+    margin-top: 50px; }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder a {
+      background-color: var(--green-color);
+      padding: 10px 30px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 25px; }
   .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list {
     display: flex;
     flex-wrap: wrap;

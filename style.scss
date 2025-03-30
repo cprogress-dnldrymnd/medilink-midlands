@@ -1630,6 +1630,17 @@ body {
                 }
             }
         }
+        .edit-profile-holder {
+            text-align: center;
+            margin-top: 50px;
+            a {
+                background-color: var(--green-color);
+                padding: 10px 30px;
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 25px;
+            }
+        }
         .profile-meta-list-holder {
             .profile-meta-list {
                 display: flex;
