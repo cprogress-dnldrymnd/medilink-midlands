@@ -962,7 +962,7 @@ function join_us_v2()
                 <!-- patrons -->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        Enhanced Member only area access:
+                      
                     </td>
                 </tr>
 
