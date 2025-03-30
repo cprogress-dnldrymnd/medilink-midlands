@@ -1430,7 +1430,8 @@ body.header-title-style-2 #primary {
     right: 0;
     background-color: transparent;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    gap: 6px; }
     .um-profile.um-profile.um-profile .um-form .um-profile-nav a {
       color: #747474;
       background-color: transparent;
