@@ -1559,6 +1559,7 @@ body {
 }
 
 .um-profile.um-profile.um-profile {
+    margin-top: 90px;
     &:not(.um-editing) {
         .um-form {
             .um-profile-body {
@@ -1639,6 +1640,8 @@ body {
                 font-size: 15px;
                 font-weight: bold;
                 border-radius: 25px;
+                color: var(--white-color) !important;
+                text-transform: uppercase;
             }
         }
         .profile-meta-list-holder {

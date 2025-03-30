@@ -1403,85 +1403,89 @@ body.header-title-style-2 #primary {
 .um-cover.um-cover {
   display: none; }
 
-.um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-profile-note,
-.um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-row {
-  display: none !important; }
-.um-profile.um-profile.um-profile .um-form {
-  position: relative; }
-  .um-profile.um-profile.um-profile .um-form .um-header {
-    position: absolute;
-    top: -90px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: none; }
-    .um-profile.um-profile.um-profile .um-form .um-header .um-profile-photo a.um-profile-photo-img {
-      border: 5px solid var(--accent-color) !important; }
-    .um-profile.um-profile.um-profile .um-form .um-header .um-profile-meta {
-      display: none; }
-  .um-profile.um-profile.um-profile .um-form .um-profile-body {
-    box-shadow: 0px 10px 35px #00000012;
-    border-radius: 10px;
-    padding: 230px 60px 60px;
-    max-width: 100%; }
-  .um-profile.um-profile.um-profile .um-form .um-profile-nav {
-    position: absolute;
-    top: 150px;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    gap: 6px; }
-    .um-profile.um-profile.um-profile .um-form .um-profile-nav a {
-      color: #747474 !important;
+.um-profile.um-profile.um-profile {
+  margin-top: 90px; }
+  .um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-profile-note,
+  .um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-row {
+    display: none !important; }
+  .um-profile.um-profile.um-profile .um-form {
+    position: relative; }
+    .um-profile.um-profile.um-profile .um-form .um-header {
+      position: absolute;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: none; }
+      .um-profile.um-profile.um-profile .um-form .um-header .um-profile-photo a.um-profile-photo-img {
+        border: 5px solid var(--accent-color) !important; }
+      .um-profile.um-profile.um-profile .um-form .um-header .um-profile-meta {
+        display: none; }
+    .um-profile.um-profile.um-profile .um-form .um-profile-body {
+      box-shadow: 0px 10px 35px #00000012;
+      border-radius: 10px;
+      padding: 230px 60px 60px;
+      max-width: 100%; }
+    .um-profile.um-profile.um-profile .um-form .um-profile-nav {
+      position: absolute;
+      top: 150px;
+      left: 0;
+      right: 0;
       background-color: transparent;
-      border: 1px solid #747474 !important;
-      border-radius: 18px;
-      font-weight: 400;
-      font-size: 14px;
-      margin: 0; }
-.um-profile.um-profile.um-profile .um-main-meta-v2 {
-  text-align: center;
-  margin-top: 32px; }
-  .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
-    float: none; }
-    .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
-      font-size: 46px;
-      color: var(--text-color); }
-      @media (max-width: 991px) {
-        .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
-          font-size: 36px; } }
-      @media (max-width: 767px) {
-        .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
-          font-size: 30px; } }
-  .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder {
-    text-align: center;
-    margin-top: 50px; }
-    .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder a {
-      background-color: var(--green-color);
-      padding: 10px 30px;
-      font-size: 15px;
-      font-weight: bold;
-      border-radius: 25px; }
-  .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    gap: 10px; }
-    .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list li {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--gray-color);
-      font-size: 16px; }
-      .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list li:not(:last-child):after {
-        content: "";
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background-color: var(--accent-color); }
+      justify-content: center;
+      gap: 6px; }
+      .um-profile.um-profile.um-profile .um-form .um-profile-nav a {
+        color: #747474 !important;
+        background-color: transparent;
+        border: 1px solid #747474 !important;
+        border-radius: 18px;
+        font-weight: 400;
+        font-size: 14px;
+        margin: 0; }
+  .um-profile.um-profile.um-profile .um-main-meta-v2 {
+    text-align: center;
+    margin-top: 32px; }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
+      float: none; }
+      .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
+        font-size: 46px;
+        color: var(--text-color); }
+        @media (max-width: 991px) {
+          .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
+            font-size: 36px; } }
+        @media (max-width: 767px) {
+          .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
+            font-size: 30px; } }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder {
+      text-align: center;
+      margin-top: 50px; }
+      .um-profile.um-profile.um-profile .um-main-meta-v2 .edit-profile-holder a {
+        background-color: var(--green-color);
+        padding: 10px 30px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 25px;
+        color: var(--white-color) !important;
+        text-transform: uppercase; }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      gap: 10px; }
+      .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--gray-color);
+        font-size: 16px; }
+        .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list li:not(:last-child):after {
+          content: "";
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background-color: var(--accent-color); }
 
 /*# sourceMappingURL=style.css.map */
