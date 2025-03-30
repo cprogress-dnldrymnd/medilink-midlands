@@ -1437,7 +1437,8 @@ body.header-title-style-2 #primary {
         border: none !important; }
   .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt {
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    margin-top: 50px; }
     .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half {
       width: auto; }
       .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half a {
