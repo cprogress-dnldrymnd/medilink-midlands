@@ -841,8 +841,6 @@ function join_us_v2()
     ));
 
 
-    $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-    $taxonomy_terms_custom_text_array = [];
 ?>
     <div class="join-us-v2">
         <table>
@@ -896,10 +894,10 @@ function join_us_v2()
                             $class = '';
                             $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
                             $taxonomy_terms_custom_text_array = [];
-
                             foreach ($taxonomy_terms_custom_text as $custom_text) {
                                 $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                             }
+
                             if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             }
@@ -936,10 +934,12 @@ function join_us_v2()
                             <?php
                             $class = '';
 
-
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
                             foreach ($taxonomy_terms_custom_text as $custom_text) {
                                 $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                             }
+
                             if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             }
@@ -976,10 +976,13 @@ function join_us_v2()
                             <?php
                             $class = '';
 
-
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
                             foreach ($taxonomy_terms_custom_text as $custom_text) {
                                 $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                             }
+
+
                             if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             }
@@ -1096,7 +1099,7 @@ function join_us_v2()
                         </td>
                     <?php } ?>
                 </tr>
-            
+
                 <?php foreach ($packages_marketing as $marketing) { ?>
                     <tr>
                         <td>
