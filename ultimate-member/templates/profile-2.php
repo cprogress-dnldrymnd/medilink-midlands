@@ -225,7 +225,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $organisation = get_user_meta(get_current_user_id(), 'organisation', true);
                     $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
                     $address = get_user_meta(get_current_user_id(), 'address', true);
-                    $title = get_user_meta(get_current_user_id(), '', true);
+                    $title = get_user_meta(get_current_user_id(), 'title', true);
         ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
