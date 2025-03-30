@@ -1323,7 +1323,7 @@ a {
     padding: 0 !important;
     width: 13.33333333333333%;
     vertical-align: top;
-    background-color: #FCFCFC !important; }
+    background-color: #fcfcfc !important; }
     .join-us-v2 .package-title-th .package-title-holder,
     .join-us-v2 .package-title-th .price {
       padding-left: 10px;
@@ -1388,7 +1388,7 @@ body.header-title-style-2 #primary {
   display: none !important; }
 
 .select2-search__field.select2-search__field.select2-search__field {
-  font-family: 'Open Sans',sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   font-size: 15px !important;
   padding-left: 15px !important;
@@ -1403,7 +1403,12 @@ body.header-title-style-2 #primary {
 .um-cover.um-cover {
   display: none; }
 
-.um-profile .um-profile-body.main-default {
-  display: none !important; }
+.um-profile .um-profile-body {
+  box-shadow: 0px 10px 35px #00000012;
+  border-radius: 10px;
+  padding: 60px; }
+  .um-profile .um-profile-body.main-default .um-profile-note,
+  .um-profile .um-profile-body.main-default .um-row {
+    display: none !important; }
 
 /*# sourceMappingURL=style.css.map */

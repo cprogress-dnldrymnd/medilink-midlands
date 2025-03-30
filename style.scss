@@ -1436,13 +1436,13 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     .excerpt {
         font-size: 13px;
         font-weight: 600;
-        padding: 25px 15px ;
+        padding: 25px 15px;
     }
     .package-title-th {
         padding: 0 !important;
         width: 13.33333333333333%;
         vertical-align: top;
-        background-color: #FCFCFC !important;
+        background-color: #fcfcfc !important;
         .package-title-holder,
         .price {
             padding-left: 10px;
@@ -1540,16 +1540,15 @@ body {
 }
 
 .select2-search__field.select2-search__field.select2-search__field {
-	font-family: 'Open Sans',sans-serif;
-	font-weight: 400;
-	font-size: 15px !important;
-	padding-left: 15px !important;
-	padding-right: 15px !important;
-	padding-top: 3px !important;
-
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding-top: 3px !important;
 }
 
-.select2-selection.select2-selection{
+.select2-selection.select2-selection {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
     background-position: calc(100% - 15px) center;
     background-repeat: no-repeat;
@@ -1561,8 +1560,14 @@ body {
 
 .um-profile {
     .um-profile-body {
+        box-shadow: 0px 10px 35px #00000012;
+        border-radius: 10px;
+        padding: 60px;
         &.main-default {
-            display: none !important;
+            .um-profile-note,
+            .um-row {
+                display: none !important;
+            }
         }
     }
 }
