@@ -220,12 +220,21 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                 $subnav = UM()->profile()->active_subnav();
                 $subnav = ! empty($subnav) ? $subnav : 'default';
 
-                if ($menu_enabled || ! empty($tabs[$nav]['hidden'])) { ?>
+                if ($menu_enabled || ! empty($tabs[$nav]['hidden'])) {
+                    $job_role = get_user_meta(get_current_user_id(), 'job_role', true);
+                    $organisation = get_user_meta(get_current_user_id(), 'organisation', true);
+                    $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
+                    $address = get_user_meta(get_current_user_id(), 'address', true);
+                    $title = get_user_meta(get_current_user_id(), '', true);
+        ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
                 <div class="um-main-meta um-main-meta-v2">
 
                     <?php if ($args['show_name']) { ?>
+                        <div class="um-title">
+                            <?= $title?>
+                        </div>
                         <div class="um-name">
 
                             <a href="<?php echo esc_url(um_user_profile_url()); ?>"
@@ -255,12 +264,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                             ?>
                         </div>
                     <?php } ?>
-                    <?php
-                    $job_role = get_user_meta(get_current_user_id(), 'job_role', true);
-                    $organisation = get_user_meta(get_current_user_id(), 'organisation', true);
-                    $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
-                    $address = get_user_meta(get_current_user_id(), 'address', true);
-                    ?>
+
                     <div class="profile-meta-list-holder">
                         <ul class="profile-meta-list">
                             <?php if ($job_role) { ?>
