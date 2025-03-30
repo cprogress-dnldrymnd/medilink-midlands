@@ -1559,15 +1559,31 @@ body {
 }
 
 .um-profile.um-profile.um-profile {
-    .um-profile-body {
-        box-shadow: 0px 10px 35px #00000012;
-        border-radius: 10px;
-        padding: 200px 60px 60px;
-        max-width: 100%;
-        &.main-default {
-            .um-profile-note,
-            .um-row {
-                display: none !important;
+    .um-form {
+        position: relative;
+        .um-header {
+            position: absolute;
+            top: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: none;
+            .um-profile-photo {
+                border: 5px solid var(--accent-color);
+            }
+            .um-profile-meta {
+                display: none;
+            }
+        }
+        .um-profile-body {
+            box-shadow: 0px 10px 35px #00000012;
+            border-radius: 10px;
+            padding: 200px 60px 60px;
+            max-width: 100%;
+            &.main-default {
+                .um-profile-note,
+                .um-row {
+                    display: none !important;
+                }
             }
         }
     }
