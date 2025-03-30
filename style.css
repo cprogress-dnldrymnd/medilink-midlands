@@ -1433,7 +1433,20 @@ body.header-title-style-2 #primary {
       .um-profile.um-profile.um-profile.um-editing .um-form .um-profile-body .um-row .um-col-1 > .um-field input[type="tel"],
       .um-profile.um-profile.um-profile.um-editing .um-form .um-profile-body .um-row .um-col-1 > .um-field input[type="text"] {
         background-color: #f9f9f9;
-        border-radius: 10px; }
+        border-radius: 10px;
+        border: none !important; }
+  .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt {
+    display: flex;
+    justify-content: space-between; }
+    .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half {
+      width: auto; }
+      .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-half a {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 400;
+        min-width: 150px; }
+    .um-profile.um-profile.um-profile.um-editing .um-form .um-col-alt.um-col-alt .um-clear {
+      display: none; }
   .um-profile.um-profile.um-profile .um-form {
     position: relative; }
     .um-profile.um-profile.um-profile .um-form .um-header {

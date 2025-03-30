@@ -1604,9 +1604,26 @@ body {
                             input[type="text"] {
                                 background-color: #f9f9f9;
                                 border-radius: 10px;
+                                border: none !important;
                             }
                         }
                     }
+                }
+            }
+            .um-col-alt.um-col-alt {
+                display: flex;
+                justify-content: space-between;
+                .um-half {
+                    width: auto;
+                    a {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        min-width: 150px;
+                    }
+                }
+                .um-clear {
+                    display: none;
                 }
             }
         }
