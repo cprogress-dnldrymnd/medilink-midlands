@@ -1568,7 +1568,9 @@ body {
             transform: translateX(-50%);
             border: none;
             .um-profile-photo {
-                border: 5px solid var(--accent-color);
+                a.um-profile-photo-img {
+                    border: 5px solid var(--accent-color);
+                }
             }
             .um-profile-meta {
                 display: none;
@@ -1585,6 +1587,12 @@ body {
                     display: none !important;
                 }
             }
+        }
+        .um-profile-nav {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            right: 0;
         }
     }
 }

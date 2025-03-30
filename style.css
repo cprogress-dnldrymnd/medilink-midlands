@@ -1411,7 +1411,7 @@ body.header-title-style-2 #primary {
     left: 50%;
     transform: translateX(-50%);
     border: none; }
-    .um-profile.um-profile.um-profile .um-form .um-header .um-profile-photo {
+    .um-profile.um-profile.um-profile .um-form .um-header .um-profile-photo a.um-profile-photo-img {
       border: 5px solid var(--accent-color); }
     .um-profile.um-profile.um-profile .um-form .um-header .um-profile-meta {
       display: none; }
@@ -1423,5 +1423,10 @@ body.header-title-style-2 #primary {
     .um-profile.um-profile.um-profile .um-form .um-profile-body.main-default .um-profile-note,
     .um-profile.um-profile.um-profile .um-form .um-profile-body.main-default .um-row {
       display: none !important; }
+  .um-profile.um-profile.um-profile .um-form .um-profile-nav {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0; }
 
 /*# sourceMappingURL=style.css.map */
