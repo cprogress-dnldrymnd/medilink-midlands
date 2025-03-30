@@ -1599,8 +1599,6 @@ body {
                             }
                         }
                         > .um-field {
-                            width: calc(50% - 10px);
-                            flex: 0 0 calc(50% - 10px);
                             input[type="number"],
                             input[type="password"],
                             input[type="search"],
@@ -1609,6 +1607,10 @@ body {
                                 background-color: #f9f9f9;
                                 border-radius: 10px;
                                 border: none !important;
+                            }
+                            @media (min-width: 1025px) {
+                                width: calc(50% - 10px);
+                                flex: 0 0 calc(50% - 10px);
                             }
                         }
                     }
@@ -1637,6 +1639,10 @@ body {
                 .um-clear {
                     display: none;
                 }
+                @media (max-width: 575px) {
+                    flex-direction: column;
+                    gap: 20px;
+                }
             }
         }
     }
@@ -1658,6 +1664,9 @@ body {
             }
             .um-profile-meta {
                 display: none;
+            }
+            @media (max-width: 575px) {
+                top: -55px;
             }
         }
         .um-profile-body {
@@ -1692,6 +1701,9 @@ body {
                         border-color: var(--accent-color) !important;
                     }
                 }
+            }
+            @media (max-width: 575px) {
+                padding-top: 100px;
             }
         }
     }
