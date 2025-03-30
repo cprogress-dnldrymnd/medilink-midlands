@@ -256,6 +256,15 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                         </div>
                     <?php } ?>
                     <?php
+                    $job_role = get_user_meta(get_current_user_id(), 'job_role', true);
+                    ?>
+                    <ul class="profile-meta-list">
+                        <?php if ($job_role) { ?>
+                            <li><?= $job_role ?></li>
+                        <?php } ?>
+
+                    </ul>
+                    <?php
                     // Custom hook to display tabbed content
                     /**
                      * UM hook
