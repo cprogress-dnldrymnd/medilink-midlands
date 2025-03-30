@@ -1452,9 +1452,12 @@ body.header-title-style-2 #primary {
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    justify-content: center;
+    gap: 10px; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list li {
       display: flex;
+      align-items: center;
       gap: 10px;
       color: var(--gray-color);
       font-size: 16px; }

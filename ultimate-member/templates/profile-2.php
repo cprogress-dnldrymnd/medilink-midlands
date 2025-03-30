@@ -272,7 +272,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 
 
                         </ul>
-                        <ul>
+                        <ul class="profile-meta-list">
                             <?php if ($phone_number) { ?>
                                 <li><?= $phone_number ?></li>
                             <?php } ?>
