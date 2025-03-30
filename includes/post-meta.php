@@ -73,7 +73,7 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('select', 'membership_review', __('Membership Review'))
 				->set_options(array(
 					'' => 'None',
-					'blank' => 'None(Blank)',
+					'&nbsp;' => 'None(Blank)',
 					'Annual' => 'Annual',
 					'Per Quarter' => 'Per Quarter'
 				)),
