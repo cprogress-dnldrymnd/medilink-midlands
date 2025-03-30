@@ -211,40 +211,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 
         <?php }
             } else {
-        ?>
-        <div class="um-main-meta">
 
-            <?php if ($args['show_name']) { ?>
-                <div class="um-name">
-
-                    <a href="<?php echo esc_url(um_user_profile_url()); ?>"
-                        title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('display_name', 'html'); ?></a>
-
-                    <?php
-                    /**
-                     * UM hook
-                     *
-                     * @type action
-                     * @title um_after_profile_name_inline
-                     * @description Insert after profile name some content
-                     * @input_vars
-                     * [{"var":"$args","type":"array","desc":"Form Arguments"}]
-                     * @change_log
-                     * ["Since: 2.0"]
-                     * @usage add_action( 'um_after_profile_name_inline', 'function_name', 10, 1 );
-                     * @example
-                     * <?php
-                     * add_action( 'um_after_profile_name_inline', 'my_after_profile_name_inline', 10, 1 );
-                     * function my_after_profile_name_inline( $args ) {
-                     *     // your code here
-                     * }
-                     * ?>
-                     */
-                    do_action('um_after_profile_name_inline', $args, um_user('ID'));
-                    ?>
-                </div>
-            <?php } ?>
-            <?php
 
                 $menu_enabled = UM()->options()->get('profile_menu');
                 $tabs = UM()->profile()->tabs_active();
@@ -255,8 +222,39 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 
                 if ($menu_enabled || ! empty($tabs[$nav]['hidden'])) { ?>
 
-                <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
+            <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
+                <div class="um-main-meta">
 
+                    <?php if ($args['show_name']) { ?>
+                        <div class="um-name">
+
+                            <a href="<?php echo esc_url(um_user_profile_url()); ?>"
+                                title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('display_name', 'html'); ?></a>
+
+                            <?php
+                            /**
+                             * UM hook
+                             *
+                             * @type action
+                             * @title um_after_profile_name_inline
+                             * @description Insert after profile name some content
+                             * @input_vars
+                             * [{"var":"$args","type":"array","desc":"Form Arguments"}]
+                             * @change_log
+                             * ["Since: 2.0"]
+                             * @usage add_action( 'um_after_profile_name_inline', 'function_name', 10, 1 );
+                             * @example
+                             * <?php
+                             * add_action( 'um_after_profile_name_inline', 'my_after_profile_name_inline', 10, 1 );
+                             * function my_after_profile_name_inline( $args ) {
+                             *     // your code here
+                             * }
+                             * ?>
+                             */
+                            do_action('um_after_profile_name_inline', $args, um_user('ID'));
+                            ?>
+                        </div>
+                    <?php } ?>
                     <?php
                     // Custom hook to display tabbed content
                     /**
@@ -308,5 +306,5 @@ $description_key = UM()->profile()->get_show_bio_key($args);
             }
 
             do_action('um_profile_footer', $args); ?>
-        </div>
+            </div>
     </div>
