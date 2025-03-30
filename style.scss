@@ -1580,6 +1580,9 @@ body {
             left: 50%;
             transform: translateX(-50%);
             border: none;
+            .um-profile-edit {
+                display: none;
+            }
             .um-profile-photo {
                 a.um-profile-photo-img {
                     border: 5px solid var(--accent-color) !important;
