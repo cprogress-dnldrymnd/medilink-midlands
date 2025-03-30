@@ -1539,6 +1539,9 @@ body.header-title-style-2 #primary {
       width: calc(50% - 10px);
       flex: 0 0 calc(50% - 10px); } }
 
+.um-register.um-register.um-register {
+  max-width: 600px; }
+
 .um-form.um-form.um-form.um-form .um-col-alt.um-col-alt {
   display: flex;
   justify-content: space-between;
