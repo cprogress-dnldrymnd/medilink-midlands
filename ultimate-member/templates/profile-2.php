@@ -223,7 +223,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                 if ($menu_enabled || ! empty($tabs[$nav]['hidden'])) { ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
-                <div class="um-main-meta">
+                <div class="um-main-meta um-main-meta-v2">
 
                     <?php if ($args['show_name']) { ?>
                         <div class="um-name">

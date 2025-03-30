@@ -1440,5 +1440,11 @@ body.header-title-style-2 #primary {
       font-weight: 400;
       font-size: 14px;
       margin: 0; }
+.um-profile.um-profile.um-profile .um-main-meta-v2 {
+  text-align: center; }
+  .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
+    float: none;
+    font-size: 46px;
+    color: var(--text-color); }
 
 /*# sourceMappingURL=style.css.map */

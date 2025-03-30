@@ -1608,4 +1608,12 @@ body {
             }
         }
     }
+    .um-main-meta-v2 {
+        text-align: center;
+        .um-name {
+            float: none;
+            font-size: 46px;
+            color: var(--text-color);
+        }
+    }
 }
