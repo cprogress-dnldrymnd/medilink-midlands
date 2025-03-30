@@ -1408,11 +1408,11 @@ body.header-title-style-2 #primary {
   .um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-profile-note,
   .um-profile.um-profile.um-profile:not(.um-editing) .um-form .um-profile-body.main-default .um-row {
     display: none !important; }
-  .um-profile.um-profile.um-profile:not(.um-editing).um-editing .um-form .um-profile-body .um-row .um-col-1 {
+  .um-profile.um-profile.um-profile.um-editing .um-form .um-profile-body .um-row .um-col-1 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px; }
-    .um-profile.um-profile.um-profile:not(.um-editing).um-editing .um-form .um-profile-body .um-row .um-col-1 > .um-field {
+    .um-profile.um-profile.um-profile.um-editing .um-form .um-profile-body .um-row .um-col-1 > .um-field {
       width: calc(50% - 10px);
       flex: 0 0 calc(50% - 10px); }
   .um-profile.um-profile.um-profile .um-form {
