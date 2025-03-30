@@ -963,12 +963,9 @@ function join_us_v2()
                     <?php foreach ($packages as $package) { ?>
                         <?php
                         $membership_review = cb_value($package->ID, 'membership_review');
-                        $class = '';
-                        if ($membership_review != 'blank') {
-                            $class = 'tick';
-                        }
+                        
                         ?>
-                        <td class="text-center <?= $class ?>">
+                        <td class="text-center <?= $membership_review ? '' : 'tick' ?>">
                             <span><?= $membership_review ?></span>
                         </td>
                     <?php } ?>
