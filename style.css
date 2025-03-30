@@ -1403,12 +1403,13 @@ body.header-title-style-2 #primary {
 .um-cover.um-cover {
   display: none; }
 
-.um-profile .um-profile-body {
+.um-profile.um-profile.um-profile .um-profile-body {
   box-shadow: 0px 10px 35px #00000012;
   border-radius: 10px;
-  padding: 60px; }
-  .um-profile .um-profile-body.main-default .um-profile-note,
-  .um-profile .um-profile-body.main-default .um-row {
+  padding: 200px 60px 60px;
+  max-width: 100%; }
+  .um-profile.um-profile.um-profile .um-profile-body.main-default .um-profile-note,
+  .um-profile.um-profile.um-profile .um-profile-body.main-default .um-row {
     display: none !important; }
 
 /*# sourceMappingURL=style.css.map */

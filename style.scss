@@ -1558,11 +1558,12 @@ body {
     display: none;
 }
 
-.um-profile {
+.um-profile.um-profile.um-profile {
     .um-profile-body {
         box-shadow: 0px 10px 35px #00000012;
         border-radius: 10px;
-        padding: 60px;
+        padding: 200px 60px 60px;
+        max-width: 100%;
         &.main-default {
             .um-profile-note,
             .um-row {
