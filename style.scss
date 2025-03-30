@@ -1604,14 +1604,23 @@ body {
             display: flex;
             justify-content: center;
             gap: 6px;
-            a {
-                color: #747474 !important;
-                background-color: transparent;
-                border: 1px solid #747474 !important;
-                border-radius: 18px;
-                font-weight: 400;
-                font-size: 14px;
-                margin: 0;
+            .um-profile-nav-item {
+                a {
+                    color: #747474 !important;
+                    background-color: transparent;
+                    border: 1px solid #747474 !important;
+                    border-radius: 18px;
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0;
+                }
+                &.active {
+                    a {
+                        background-color: var(--accent-color);
+                        color: var(--white-color) !important;
+                        border-color: var(--accent-color) !important;
+                    }
+                }
             }
         }
     }
