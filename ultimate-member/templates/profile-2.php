@@ -85,6 +85,7 @@ $description_key = UM()->profile()->get_show_bio_key( $args );
 		 * @description Additional classes for profile navbar
 		 * @input_vars
 		 * [{"var":"$classes","type":"string","desc":"UM Posts Tab query"}]
+		 * @change_log
 		 * ["Since: 2.0"]
 		 * @usage
 		 * <?php add_filter( 'um_profile_navbar_classes', 'function_name', 10, 1 ); ?>
