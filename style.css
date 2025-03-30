@@ -1465,6 +1465,10 @@ body.header-title-style-2 #primary {
           top: 80px; } }
   .um-profile.um-profile.um-profile .um-main-meta-v2 {
     text-align: center; }
+    .um-profile.um-profile.um-profile .um-main-meta-v2 .um-title {
+      font-size: 22px;
+      color: var(--gray-color);
+      margin-bottom: 10px; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
       float: none; }
       .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
