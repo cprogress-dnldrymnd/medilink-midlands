@@ -918,7 +918,7 @@ function join_us_v2()
                     </td>
                 </tr>
 
-
+                
                 <?php foreach ($packages_members_only as $members_only) { ?>
                     <tr>
                         <td>
@@ -926,18 +926,31 @@ function join_us_v2()
                         </td>
                         <?php foreach ($packages as $package) { ?>
                             <?php
+                            $class = '';
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
                             if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
-                            } else {
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$members_only->slug];
                                 $class = '';
+                            } else {
+                                $text = '<span></span>';
                             }
                             ?>
                             <td class="tick <?= $class ?>">
-                                <span></span>
+                                <?= $text ?>
                             </td>
                         <?php } ?>
                     </tr>
                 <?php } ?>
+
+                <!-- end of benefits-->
                 <!-- end of memebers only-->
 
 
