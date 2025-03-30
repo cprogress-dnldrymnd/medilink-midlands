@@ -1571,6 +1571,21 @@ body {
                 }
             }
         }
+        &.um-editing {
+            .um-form {
+                .um-profile-body {
+                    .um-row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        > .um-field {
+                            width: calc(50% - 10px);
+                            flex: 0 0 calc(50% - 10px);
+                        }
+                    }
+                }
+            }
+        }
     }
     .um-form {
         position: relative;
