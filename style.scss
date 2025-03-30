@@ -1574,7 +1574,11 @@ body {
     }
     &.um-editing {
         .um-form {
+            .um-profile-nav {
+                display: none;
+            }
             .um-profile-body {
+                padding-top: 150px;
                 .um-row {
                     .um-col-1 {
                         display: flex;
