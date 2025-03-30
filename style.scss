@@ -1623,5 +1623,29 @@ body {
                 color: var(--text-color);
             }
         }
+        .profile-meta-list-holder {
+            .profile-meta-list {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    display: flex;
+                    gap: 10px;
+                    color: var(--gray-color);
+                    font-size: 16px;
+                    &:not(:last-child) {
+                        &:after {
+                            content: '';
+                            width: 3px;
+                            height: 3px;
+                            border-radius: 50%;
+                            background-color: var(--accent-color);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

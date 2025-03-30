@@ -259,23 +259,29 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $job_role = get_user_meta(get_current_user_id(), 'job_role', true);
                     $organisation = get_user_meta(get_current_user_id(), 'organisation', true);
                     $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
-                    $address = get_user_meta(get_current_user_id(), 'phone_number', address);
+                    $address = get_user_meta(get_current_user_id(), 'address', true);
                     ?>
-                    <ul class="profile-meta-list">
-                    <?php if ($job_role) { ?>
-                            <li><?= $job_role ?></li>
-                        <?php } ?>
-                        <?php if ($organisation) { ?>
-                            <li><?= $organisation ?></li>
-                        <?php } ?>
-                        <?php if ($phone_number) { ?>
-                            <li><?= $phone_number ?></li>
-                        <?php } ?>
-                        <?php if ($address) { ?>
-                            <li><?= $address ?></li>
-                        <?php } ?>
+                    <div class="profile-meta-list-holder">
+                        <ul class="profile-meta-list">
+                            <?php if ($job_role) { ?>
+                                <li><?= $job_role ?></li>
+                            <?php } ?>
+                            <?php if ($organisation) { ?>
+                                <li><?= $organisation ?></li>
+                            <?php } ?>
 
-                    </ul>
+
+                        </ul>
+                        <ul>
+                            <?php if ($phone_number) { ?>
+                                <li><?= $phone_number ?></li>
+                            <?php } ?>
+                            <?php if ($address) { ?>
+                                <li><?= $address ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
                     <?php
                     // Custom hook to display tabbed content
                     /**
