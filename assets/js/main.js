@@ -50,6 +50,7 @@ function select__2() {
     jQuery(".selected-sectors li").click(function () {
         // The value you want to remove. Change this to the actual value.
         var valueToRemove = jQuery(this).attr('for');
+        console.log(valueToRemove);
         jQuery('select[name="more-sectors-pseudo[]"]').val(function (index, currentValues) {
             if (currentValues) {
                 return currentValues.filter(function (value) {
