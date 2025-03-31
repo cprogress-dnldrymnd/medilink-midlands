@@ -1628,7 +1628,7 @@ body.header-title-style-2 #primary {
   gap: 10px;
   font-size: 14px; }
 
-.selected-sectors li {
+.selected-sectors .selected-sector {
   background-color: #f9f9f9 !important;
   padding: 5px 20px 5px 5px;
   border-radius: 10px !important;

@@ -36,7 +36,7 @@ function select__2() {
         if (selectedValues) {
             // Iterate over the selected values and create list items
             selectedValues.forEach(function (value) {
-                var listItem = jQuery("<li for='" + value + "'>").text(value);
+                var listItem = jQuery("<div class='selected-sectors' for='" + value + "'>").text(value);
                 listElement.append(listItem);
             });
         }
@@ -47,7 +47,7 @@ function select__2() {
         }
     });
 
-    jQuery(".selected-sectors li").click(function () {
+    jQuery(".selected-sectors .selected-sectors").click(function () {
         // The value you want to remove. Change this to the actual value.
         var valueToRemove = jQuery(this).attr('for');
         console.log(valueToRemove);
