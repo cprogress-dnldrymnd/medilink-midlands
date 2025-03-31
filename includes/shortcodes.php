@@ -1336,37 +1336,27 @@ function join_us_v2()
                                 <ul class="checklist-ul">
                                     <?php if ($discount_mm_training_networking) { ?>
                                         <li>
-                                            <strong>
-                                                MM training & networking:
-                                            </strong>
-
+                                            MM training & networking:
                                             <?= $discount_mm_training_networking ?>
                                         </li>
                                     <?php } ?>
                                     <?php if ($discount_events_marketing_services) { ?>
                                         <li>
-                                            <strong>
-                                                Events and/or Marketing services:
-                                            </strong>
+                                            Events and/or Marketing services:
 
                                             <span><?= $discount_events_marketing_services ?></span>
                                         </li>
                                     <?php } ?>
                                     <?php if ($discount_medtech_expo) { ?>
                                         <li>
-                                            <strong>
-                                                Medtech Innovation Expo (MTI) exhibition space:
+                                            Medtech Innovation Expo (MTI) exhibition space:
                                             </strong>
-
                                             <span><?= $discount_medtech_expo ?></span>
                                         </li>
                                     <?php } ?>
                                     <?php if ($discount_internation_trade) { ?>
                                         <li>
-                                            <strong>
-                                                Access to International Trade Shows discounts:
-                                            </strong>
-
+                                            Access to International Trade Shows discounts:
                                             <span><?= $discount_internation_trade ?></span>
                                         </li>
                                     <?php } ?>
@@ -1413,33 +1403,25 @@ function join_us_v2()
                                 <?php } ?>
                                 <?php if ($marketing_thought_leadership_article) { ?>
                                     <li>
-                                        <strong>
-                                            Thought leadership article
-                                        </strong>
+                                        Thought leadership article:
                                         <span><?= $marketing_thought_leadership_article ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_blog) { ?>
                                     <li>
-                                        <strong>
-                                            Blog
-                                        </strong>
+                                        Blog
                                         <span><?= $marketing_blog ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_promotion) { ?>
                                     <li>
-                                        <strong>
-                                            Promotion of events
-                                        </strong>
+                                        Promotion of events:
                                         <span><?= $marketing_promotion ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_memeber_marketplace) { ?>
                                     <li>
-                                        <strong>
-                                            Member Market place listing
-                                        </strong>
+                                        Member Market place listing:
                                         <span><?= $marketing_memeber_marketplace ?></span>
                                     </li>
                                 <?php } ?>
