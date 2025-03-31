@@ -653,30 +653,35 @@ section.cta .cta-content {
 body header #navbar .menu-item.menu-item > a {
     border-bottom: none !important;
 }
-#join-us-button {
-    a {
-        background-color: rgba(255, 255, 255, 0.25);
-        padding: 10px 30px;
-        text-transform: uppercase;
-        border-radius: 30px;
-        line-height: 28px;
-        font-weight: 600;
-        margin: 17px 0px;
-        margin-left: 20px;
-        font-size: 14px;
-        -webkit-transition: all 250ms ease-in-out;
-        transition: all 250ms ease-in-out 0s;
-        @media (max-width: 1024px) {
-            text-align: center;
-            padding-top: 10px !important;
-            padding-bottom: 10px !important;
-            width: 100%;
+nav {
+    #navbar {
+        #join-us-button {
+            a {
+                background-color: rgba(255, 255, 255, 0.25);
+                padding: 10px 30px;
+                text-transform: uppercase;
+                border-radius: 30px;
+                line-height: 28px;
+                font-weight: 600;
+                margin: 17px 0px;
+                margin-left: 20px;
+                font-size: 14px;
+                -webkit-transition: all 250ms ease-in-out;
+                transition: all 250ms ease-in-out 0s;
+                @media (max-width: 1024px) {
+                    text-align: center;
+                    padding-top: 10px !important;
+                    padding-bottom: 10px !important;
+                    width: 100%;
+                }
+            }
+            @media (max-width: 1024px) {
+                width: 100%;
+            }
         }
     }
-    @media (max-width: 1024px) {
-        width: 100%;
-    }
 }
+
 #join-us-button a:hover {
     background-color: rgba(255, 255, 255, 0.35);
 }
