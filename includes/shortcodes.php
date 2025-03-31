@@ -1209,7 +1209,7 @@ function join_us_v2()
                 }
                 ?>
                 <div class="col-12">
-                    <h2><?= $package->post_title ?></h2>
+                    <div class="package-title"><?= $package->post_title ?></div>
                     <div class="feature">
                         <div class="feature-title">
                             Benefits to support your innovation ideas and organisation
