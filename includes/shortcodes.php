@@ -1215,7 +1215,10 @@ function join_us_v2()
                                 } else {
                                     $text = false;
                                 }
-
+                                $taxonomy_terms_custom_text_array = [];
+                                foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                    $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                                }
                                 if ($text) {
                                     echo "<p>$text</p>";
                                 } else {
