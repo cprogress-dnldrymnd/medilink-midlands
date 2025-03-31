@@ -1909,5 +1909,10 @@ body {
         padding: 20px;
         width: calc(50% - 10px);
         flex: 0 0 calc(50% - 10px);
+        background-color: var(--white-color);
+        @media(max-width: 767px) {
+            width: 100%;
+            flex: 0 0 100%;
+        }
     }
 }
