@@ -1695,10 +1695,12 @@ body.header-title-style-2 #primary {
     flex: 0 0 calc(50% - 10px);
     background-color: var(--white-color); }
     .package-mobile-holder .package-mobile-item .package-title-price .package-title {
-      font-weight: bold; }
+      font-weight: bold;
+      color: #000; }
     .package-mobile-holder .package-mobile-item .package-title-price .price .price-text {
       font-size: 25px;
-      color: var(--green-color); }
+      color: var(--green-color);
+      font-weight: bold; }
     .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button a {
       width: 100%;
       border-radius: 0; }

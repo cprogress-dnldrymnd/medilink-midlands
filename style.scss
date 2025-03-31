@@ -1931,10 +1931,12 @@ body {
         .package-title-price {
             .package-title {
                 font-weight: bold;
+                color: #000;
             }
             .price .price-text {
                 font-size: 25px;
                 color: var(--green-color);
+                font-weight: bold;
             }
             .modeltheme_button {
                 a {
