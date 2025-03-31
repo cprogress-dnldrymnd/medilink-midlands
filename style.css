@@ -1581,6 +1581,11 @@ body.header-title-style-2 #primary {
   box-shadow: none !important;
   border-radius: 10px !important;
   background-color: #f9f9f9 !important; }
+.contact-tikidocs.contact-tikidocs.contact-tikidocs .row-flex input,
+.contact-tikidocs.contact-tikidocs.contact-tikidocs .row-flex textarea,
+.contact-tikidocs.contact-tikidocs.contact-tikidocs .row-flex select {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
 .contact-tikidocs.contact-tikidocs.contact-tikidocs .codedropz-upload-wrapper {
   box-shadow: none;
   border-radius: 10px; }
