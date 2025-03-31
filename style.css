@@ -1096,7 +1096,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 a {
   color: var(--black-color) !important; }
 
-.btn-menu.btn-menu.btn-menu a {
+#navbar .btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu a {
   background-color: rgba(255, 255, 255, 0.25) !important;
   padding: 10px 30px !important;
   text-transform: uppercase !important;
@@ -1109,7 +1109,7 @@ a {
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out 0s; }
   @media (max-width: 1024px) {
-    .btn-menu.btn-menu.btn-menu a {
+    #navbar .btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu a {
       margin: 0 !important;
       width: 100%;
       text-align: center;
