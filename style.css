@@ -630,7 +630,8 @@ nav #navbar #join-us-button a {
       text-align: center;
       padding-top: 10px !important;
       padding-bottom: 10px !important;
-      width: 100%; } }
+      width: 100%;
+      margin: 10px 0 0 0; } }
 @media (max-width: 1024px) {
   nav #navbar #join-us-button {
     width: 100%; } }
