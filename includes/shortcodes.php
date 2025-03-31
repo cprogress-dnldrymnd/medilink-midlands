@@ -1241,7 +1241,7 @@ function join_us_v2()
                                     $text = false;
                                 }
 
-                                if ($text && $text != ' ') {
+                                if ($text && $text != '&nbsp;') {
                                     echo "<li>$text</li>";
                                 } else {
                                     if (has_term($benefits->slug, $taxonomy, $package->ID)) {
