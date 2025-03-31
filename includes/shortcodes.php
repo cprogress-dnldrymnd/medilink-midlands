@@ -1208,7 +1208,7 @@ function join_us_v2()
                     $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                 }
                 $price = carbon_get_post_meta($package->ID, 'price');
-                $text = false;
+
                 ?>
                 <div class="package-mobile-item">
                     <div class="package-title-price">
@@ -1249,6 +1249,7 @@ function join_us_v2()
                                         echo "<li>$text</li>";
                                     }
                                 }
+                                $text = false;
                                 ?>
                             <?php } ?>
                         </ul>
@@ -1271,7 +1272,7 @@ function join_us_v2()
                                     echo "<li>$text</li>";
                                 } else {
                                     if (has_term($members_only->slug, $taxonomy, $package->ID)) {
-                                        $text = $benefits->name;
+                                        $text = $members_only->name;
                                         echo "<li>$text</li>";
                                     }
                                 }
