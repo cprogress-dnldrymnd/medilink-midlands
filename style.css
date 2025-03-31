@@ -1539,6 +1539,8 @@ body.header-title-style-2 #primary {
     .um-row .um-col-1 > .um-field input[type="search"]:hover,
     .um-row .um-col-1 > .um-field input[type="tel"]:hover,
     .um-row .um-col-1 > .um-field input[type="text"]:hover {
+      background-color: #f9f9f9;
+      border-radius: 10px;
       border: none !important; }
   @media (min-width: 1025px) {
     .um-row .um-col-1 > .um-field {
