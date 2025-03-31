@@ -389,21 +389,22 @@ function submit_blog_form_with_login()
 {
     ob_start();
 ?>
-    <div class="member-marketplace-form" id="member-marketplace-form">
+    <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
-            <h2>Submit a Blog</h2>
-
-            <?php if (is_user_logged_in()) { ?>
-                <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
-            <?php } else { ?>
-                <div class="login-notice">
-                    <div class="inner">
-                        <p>
-                            Please login before you can submit.
-                        </p>
+            <div class="inner">
+                <h2>Submit a Blog</h2>
+                <?php if (is_user_logged_in()) { ?>
+                    <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
+                <?php } else { ?>
+                    <div class="login-notice">
+                        <div class="inner">
+                            <p>
+                                Please login before you can submit.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
 <?php
