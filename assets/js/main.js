@@ -27,7 +27,20 @@ function select__2() {
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
         var selectedValues = jQuery(this).val();
-        jQuery('.selected-sectors').text(selectedValues.join(", "));
+        //jQuery('.selected-sectors').text(selectedValues.join(", "));
+        // Clear the existing list items
+        var listElement = jQuery('.selected-sectors');
+        listElement.empty();
+        // Get the selected values from the multiselect
+
+        // If there are selected values, create list items
+        if (selectedValues) {
+            // Iterate over the selected values and create list items
+            selectedValues.forEach(function (value) {
+                var listItem = jQuery("<li>").text(value);
+                listElement.append(listItem);
+            });
+        }
         if (selectedValues) {
             jQuery('input[name="more-sectors"]').val(selectedValues.join(", "));
         } else {
