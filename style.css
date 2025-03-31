@@ -1694,6 +1694,9 @@ body.header-title-style-2 #primary {
     width: calc(50% - 10px);
     flex: 0 0 calc(50% - 10px);
     background-color: var(--white-color); }
+    .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button a {
+      width: 100%;
+      border-radius: 0; }
     @media (max-width: 767px) {
       .package-mobile-holder .package-mobile-item {
         width: 100%;
