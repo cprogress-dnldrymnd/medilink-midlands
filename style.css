@@ -1723,7 +1723,8 @@ body.header-title-style-2 #primary {
         color: var(--white-color);
         text-align: center;
         padding: 10px;
-        font-size: 14px; }
+        font-size: 14px;
+        margin-bottom: 20px; }
       .package-mobile-holder .package-mobile-item .features-mobile-holder .checklist-ul {
         padding-left: 10px; }
         .package-mobile-holder .package-mobile-item .features-mobile-holder .checklist-ul li {
