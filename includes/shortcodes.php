@@ -1210,7 +1210,7 @@ function join_us_v2()
                 $price = carbon_get_post_meta($package->ID, 'price');
 
                 ?>
-                <div class="package-mobile-item">
+                <div class="package-mobile-item" id="package-mobile-<?= $package->ID ?>">
                     <div class="package-title-price">
                         <div class="package-title">
                             <?= $package->post_title ?>
@@ -1253,7 +1253,7 @@ function join_us_v2()
                             <?php } ?>
                         </ul>
                     </div>
-                    <div class="feature">
+                    <div class="feature feature-member-only">
                         <div class="feature-title">
                             Enhanced Member only area access:
                         </div>
@@ -1272,11 +1272,12 @@ function join_us_v2()
                                 } else {
                                     if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                         $text = $members_only->name;
+                                        $term_val = 'has_term';
                                         echo "<li>$text</li>";
                                     }
-                                    if(!$text) {
-                                        echo 'xx';
-                                    }
+                                }
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-'.$package->ID.' .feature-member-only { display: none } </style>';
                                 }
                                 ?>
                             <?php } ?>
