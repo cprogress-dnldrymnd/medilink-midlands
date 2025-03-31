@@ -1585,4 +1585,15 @@ body.header-title-style-2 #primary {
   box-shadow: none;
   border-radius: 10px; }
 
+.box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner {
+  box-shadow: 0px 10px 35px #00000012;
+  border-radius: 10px;
+  padding: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px; }
+  .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner .wpcf7-submit {
+    margin-bottom: 0; }
+
 /*# sourceMappingURL=style.css.map */
