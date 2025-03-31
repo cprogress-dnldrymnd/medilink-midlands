@@ -1253,6 +1253,32 @@ function join_us_v2()
                             <?php } ?>
                         </ul>
                     </div>
+                    <div class="feature">
+                        <div class="feature-title">
+                            Enhanced Member only area access:
+                        </div>
+                        <ul>
+                            <?php foreach ($packages_members_only as $members_only) { ?>
+                                <?php
+
+                                if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
+                                    $text = $taxonomy_terms_custom_text_array[$members_only->slug];
+                                } else {
+                                    $text = false;
+                                }
+
+                                if ($text && $text != '&nbsp;') {
+                                    echo "<li>$text</li>";
+                                } else {
+                                    if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                        $text = $benefits->name;
+                                        echo "<li>$text</li>";
+                                    }
+                                }
+                                ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
             <?php } ?>
         </div>
