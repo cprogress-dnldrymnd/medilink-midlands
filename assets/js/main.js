@@ -47,7 +47,9 @@ function select__2() {
         }
     });
 
-    jQuery(".selected-sectors .selected-sector").click(function () {
+ 
+
+    jQuery('body').on('click', '.selected-sectors .selected-sector', function () {
         // The value you want to remove. Change this to the actual value.
         var valueToRemove = jQuery(this).attr('for');
         console.log(valueToRemove);
