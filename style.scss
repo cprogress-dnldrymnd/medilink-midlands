@@ -1929,20 +1929,32 @@ body {
         flex: 0 0 calc(50% - 10px);
         background-color: var(--white-color);
         .package-title-price {
+            text-align: center;
             .package-title {
                 font-weight: bold;
                 color: #000;
             }
-            .price .price-text {
-                font-size: 25px;
-                color: var(--green-color);
-                font-weight: bold;
+            .price {
+                .price-text {
+                    font-size: 25px;
+                    color: var(--green-color);
+                    font-weight: bold;
+                }
+                .per {
+                    font-weight: bold;
+                }
             }
             .modeltheme_button {
                 a {
                     width: 100%;
                     border-radius: 0;
                 }
+            }
+            .excerpt {
+                border-top: 1px solid lightgray;
+                padding-top: 20px;
+                margin-top: 20px;
+                font-size: 14px;
             }
         }
         @media (max-width: 767px) {

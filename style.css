@@ -1694,16 +1694,25 @@ body.header-title-style-2 #primary {
     width: calc(50% - 10px);
     flex: 0 0 calc(50% - 10px);
     background-color: var(--white-color); }
-    .package-mobile-holder .package-mobile-item .package-title-price .package-title {
-      font-weight: bold;
-      color: #000; }
-    .package-mobile-holder .package-mobile-item .package-title-price .price .price-text {
-      font-size: 25px;
-      color: var(--green-color);
-      font-weight: bold; }
-    .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button a {
-      width: 100%;
-      border-radius: 0; }
+    .package-mobile-holder .package-mobile-item .package-title-price {
+      text-align: center; }
+      .package-mobile-holder .package-mobile-item .package-title-price .package-title {
+        font-weight: bold;
+        color: #000; }
+      .package-mobile-holder .package-mobile-item .package-title-price .price .price-text {
+        font-size: 25px;
+        color: var(--green-color);
+        font-weight: bold; }
+      .package-mobile-holder .package-mobile-item .package-title-price .price .per {
+        font-weight: bold; }
+      .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button a {
+        width: 100%;
+        border-radius: 0; }
+      .package-mobile-holder .package-mobile-item .package-title-price .excerpt {
+        border-top: 1px solid lightgray;
+        padding-top: 20px;
+        margin-top: 20px;
+        font-size: 14px; }
     @media (max-width: 767px) {
       .package-mobile-holder .package-mobile-item {
         width: 100%;
