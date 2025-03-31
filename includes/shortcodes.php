@@ -1261,6 +1261,7 @@ function join_us_v2()
                                 <?php } ?>
                             </ul>
                         </div>
+                        <?php $term_val = ''; ?>
                         <div class="feature feature-member-only">
                             <div class="feature-title">
                                 Enhanced Member only area access:
@@ -1280,7 +1281,6 @@ function join_us_v2()
                                     } else {
                                         if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                             $text = $members_only->name;
-                                            $term_val = 'has_term';
                                             echo "<li>$text</li>";
                                         }
                                     }
@@ -1292,6 +1292,7 @@ function join_us_v2()
                                 <?php } ?>
                             </ul>
                         </div>
+                        <?php $term_val = ''; ?>
                         <div class="feature feature-patrons">
                             <div class="feature-title">
                                 &nbsp;
@@ -1322,6 +1323,8 @@ function join_us_v2()
                                 <?php } ?>
                             </ul>
                         </div>
+                        <?php $term_val = ''; ?>
+
                         <?php
                         $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
                         $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
@@ -1366,6 +1369,8 @@ function join_us_v2()
                                 </ul>
                             </div>
                         <?php } ?>
+                        <?php $term_val = ''; ?>
+
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
                         $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
