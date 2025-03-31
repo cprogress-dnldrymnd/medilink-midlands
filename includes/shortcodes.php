@@ -1277,7 +1277,37 @@ function join_us_v2()
                                     }
                                 }
                                 if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-'.$package->ID.' .feature-member-only { display: none } </style>';
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                }
+                                ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div class="feature feature-patrons">
+                        <div class="feature-title">
+                            &nbsp;
+                        </div>
+                        <ul>
+                            <?php foreach ($patrons as $patron) { ?>
+                                <?php
+
+                                if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
+                                    $text = $taxonomy_terms_custom_text_array[$patron->slug];
+                                } else {
+                                    $text = false;
+                                }
+
+                                if ($text && $text != '&nbsp;') {
+                                    echo "<li>$text</li>";
+                                } else {
+                                    if (has_term($patron->slug, $taxonomy, $package->ID)) {
+                                        $text = $patron->name;
+                                        $term_val = 'has_term';
+                                        echo "<li>$text</li>";
+                                    }
+                                }
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
                                 }
                                 ?>
                             <?php } ?>
