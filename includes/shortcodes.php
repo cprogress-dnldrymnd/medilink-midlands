@@ -1207,9 +1207,26 @@ function join_us_v2()
                 foreach ($taxonomy_terms_custom_text as $custom_text) {
                     $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                 }
+                $price = carbon_get_post_meta($package->ID, 'price');
+
                 ?>
                 <div class="package-mobile-item">
-                    <div class="package-title"><?= $package->post_title ?></div>
+                    <div class="package-title-price">
+                        <div class="package-title">
+                            <?= $package->post_title ?>
+                        </div>
+                        <div class="price">
+                            <div class="price-text">
+                                <?= $price ?>
+                            </div>
+                            <div class="per">
+                                Annually
+                            </div>
+                            <div class="text-center modeltheme_button wow bounce">
+                                <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="feature">
                         <div class="feature-title">
                             Benefits to support your innovation ideas and organisation
