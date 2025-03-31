@@ -1652,6 +1652,12 @@ body.header-title-style-2 #primary {
   margin-top: 50px; }
   .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner .wpcf7-submit {
     margin-bottom: 0; }
+  @media (max-width: 1024px) {
+    .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner {
+      padding: 30px; } }
+  @media (max-width: 767px) {
+    .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner {
+      padding: 20px; } }
 
 .selected-sectors {
   margin-bottom: 15px;
