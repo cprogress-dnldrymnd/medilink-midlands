@@ -1420,7 +1420,7 @@ function join_us_v2()
                                     $term_val = 'has_term';
                                     ?>
                                     <li>
-                                        Blog
+                                        Blog:
                                         <span><?= $marketing_blog ?></span>
                                     </li>
                                 <?php } ?>
