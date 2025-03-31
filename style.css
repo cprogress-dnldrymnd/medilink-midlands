@@ -1112,7 +1112,11 @@ a {
     .btn-menu.btn-menu.btn-menu a {
       margin: 0 !important;
       width: 100%;
-      text-align: center; } }
+      text-align: center;
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+      padding-top: 10px !important;
+      padding-botom: 10px !important; } }
 
 .contact-tikidocs.contact-tikidocs select {
   font-size: 14px;
