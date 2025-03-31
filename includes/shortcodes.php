@@ -1249,7 +1249,6 @@ function join_us_v2()
                                         echo "<li>$text</li>";
                                     }
                                 }
-                                $text = false;
                                 ?>
                             <?php } ?>
                         </ul>
