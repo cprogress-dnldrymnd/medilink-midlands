@@ -1198,6 +1198,30 @@ function join_us_v2()
             </tbody>
         </table>
     </div>
+    <div class="join-us-mobile">
+        <div class="row row-flex">
+            <?php foreach ($packages as $package) { ?>
+                <div class="col-12">
+                    <h2><?= $package->post_title ?></h2>
+                    <div class="feature">
+                        <div class="feature-title">
+                            Benefits to support your innovation ideas and organisation
+                        </div>
+                        <ul>
+                            <?php foreach ($packages_benefits as $benefits) { ?>
+                                <?php if (has_term($benefits->slug, $taxonomy, $package->ID)) { ?>
+                                    <li>
+                                        <?= $benefits->name ?>
+                                    </li>
+                                <?php } ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+
+    </div>
 <?php
     return ob_get_clean();
 }
