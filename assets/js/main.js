@@ -36,7 +36,7 @@ function select__2() {
         if (selectedValues) {
             // Iterate over the selected values and create list items
             selectedValues.forEach(function (value) {
-                var listItem = jQuery("<div class='selected-sectors' for='" + value + "'>").text(value);
+                var listItem = jQuery("<div class='selected-sector' for='" + value + "'>").text(value);
                 listElement.append(listItem);
             });
         }
