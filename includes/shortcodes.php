@@ -1199,7 +1199,7 @@ function join_us_v2()
         </table>
     </div>
     <div class="join-us-mobile">
-        <div class="row row-flex">
+        <div class="package-mobile-holder">
             <?php foreach ($packages as $package) { ?>
                 <?php
                 $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
@@ -1208,7 +1208,7 @@ function join_us_v2()
                     $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
                 }
                 ?>
-                <div class="col-12">
+                <div class="package-mobile-item">
                     <div class="package-title"><?= $package->post_title ?></div>
                     <div class="feature">
                         <div class="feature-title">
