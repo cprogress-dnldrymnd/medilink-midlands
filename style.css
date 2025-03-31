@@ -1499,7 +1499,8 @@ body.header-title-style-2 #primary {
       color: var(--gray-color);
       margin-bottom: 10px; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name {
-      float: none; }
+      float: none;
+      margin-right: 0 !important; }
       .um-profile.um-profile.um-profile .um-main-meta-v2 .um-name a {
         font-size: 46px;
         color: var(--text-color); }
