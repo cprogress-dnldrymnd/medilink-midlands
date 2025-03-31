@@ -366,6 +366,7 @@ function member_marketplace_form()
                         one will be listed.
                     </p>
                 </div>
+                <br><br>
                 <?php if (is_user_logged_in()) { ?>
                     <?= do_shortcode('[contact-form-7 id="af104d5" title="Submit an Offer"]') ?>
                 <?php } else { ?>
