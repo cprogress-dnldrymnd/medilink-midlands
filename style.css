@@ -1576,9 +1576,13 @@ body.header-title-style-2 #primary {
       gap: 20px; } }
 
 .contact-tikidocs.contact-tikidocs.contact-tikidocs input,
-.contact-tikidocs.contact-tikidocs.contact-tikidocs textarea {
+.contact-tikidocs.contact-tikidocs.contact-tikidocs textarea,
+.contact-tikidocs.contact-tikidocs.contact-tikidocs select {
   box-shadow: none !important;
-  border-radius: 10px;
-  background-color: #f9f9f9; }
+  border-radius: 10px !important;
+  background-color: #f9f9f9 !important; }
+.contact-tikidocs.contact-tikidocs.contact-tikidocs .codedropz-upload-wrapper {
+  box-shadow: none;
+  border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */

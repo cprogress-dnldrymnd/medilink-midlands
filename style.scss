@@ -841,7 +841,6 @@ p:last-child {
     margin-bottom: 20px;
 }
 
-
 .modal-open.modal-open .modal {
     opacity: 1;
 }
@@ -1789,9 +1788,14 @@ body {
 }
 .contact-tikidocs.contact-tikidocs.contact-tikidocs {
     input,
-    textarea {
+    textarea,
+    select {
         box-shadow: none !important;
+        border-radius: 10px !important;
+        background-color: #f9f9f9 !important;
+    }
+    .codedropz-upload-wrapper {
+        box-shadow: none;
         border-radius: 10px;
-        background-color: #f9f9f9;
     }
 }
