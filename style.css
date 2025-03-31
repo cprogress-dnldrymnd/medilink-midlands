@@ -1600,6 +1600,9 @@ body.header-title-style-2 #primary {
   box-shadow: none;
   border-radius: 10px; }
 
+.box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style h2 {
+  margin-top: 0;
+  margin-bottom: 30px; }
 .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style .inner {
   box-shadow: 0px 10px 35px #00000012;
   border-radius: 10px;
