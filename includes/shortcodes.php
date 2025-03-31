@@ -1227,7 +1227,7 @@ function join_us_v2()
                             </div>
                         </div>
                     </div>
-                    <div class="feature">
+                    <div class="feature feature-benefits">
                         <div class="feature-title">
                             Benefits to support your innovation ideas and organisation
                         </div>
@@ -1246,8 +1246,12 @@ function join_us_v2()
                                 } else {
                                     if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                         $text = $benefits->name;
+                                        $term_val = 'has_term';
                                         echo "<li>$text</li>";
                                     }
+                                }
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-benefits { display: none } </style>';
                                 }
                                 ?>
                             <?php } ?>
