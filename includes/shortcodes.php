@@ -1270,7 +1270,7 @@ function join_us_v2()
                                 if ($text && $text != '&nbsp;') {
                                     echo "<li>$text</li>";
                                 } else {
-                                    if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                    if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                         $text = $benefits->name;
                                         echo "<li>$text</li>";
                                     }
