@@ -1373,6 +1373,11 @@ function join_us_v2()
                     <?php } ?>
                     <?php
                     $marketing_level = cb_value($package->ID, 'marketing_level');
+                    $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
+                    $marketing_blog = cb_value($package->ID, 'marketing_blog');
+                    $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
+                    $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
+
                     ?>
                     <div class="feature feature-marketing">
                         <div class="feature-title">
@@ -1402,6 +1407,39 @@ function join_us_v2()
                                 }
                                 ?>
                             <?php } ?>
+                            <?php if ($marketing_thought_leadership_article) { ?>
+                                <li>
+                                    <strong>
+                                        Thought leadership article
+                                    </strong>
+                                    <span><?= $marketing_thought_leadership_article ?></span>
+                                </li>
+                            <?php } ?>
+                            <?php if ($marketing_blog) { ?>
+                                <li>
+                                    <strong>
+                                        Blog
+                                    </strong>
+                                    <span><?= $marketing_blog ?></span>
+                                </li>
+                            <?php } ?>
+                            <?php if ($marketing_promotion) { ?>
+                                <li>
+                                    <strong>
+                                        Promotion of events
+                                    </strong>
+                                    <span><?= $marketing_promotion ?></span>
+                                </li>
+                            <?php } ?>
+                            <?php if ($marketing_memeber_marketplace) { ?>
+                                <li>
+                                    <strong>
+                                        Member Market place listing
+                                    </strong>
+                                    <span><?= $marketing_memeber_marketplace ?></span>
+                                </li>
+                            <?php } ?>
+
                         </ul>
                     </div>
                 </div>
