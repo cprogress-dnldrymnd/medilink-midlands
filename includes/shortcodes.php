@@ -1316,12 +1316,12 @@ function join_us_v2()
 
                     <div class="feature feature-discounts">
                         <div class="feature-title">
-                            &nbsp;
+                            Discounts
                         </div>
                         <ul>
                             <li>
                                 <strong>
-                                    MM training & networking
+                                    MM training & networking:
                                 </strong>
                                 <?php foreach ($packages as $package) { ?>
                                     <?php
@@ -1332,7 +1332,7 @@ function join_us_v2()
                             </li>
                             <li>
                                 <strong>
-                                    Events and/or Marketing services
+                                    Events and/or Marketing services:
                                 </strong>
                                 <?php foreach ($packages as $package) { ?>
                                     <?php
@@ -1343,7 +1343,7 @@ function join_us_v2()
                             </li>
                             <li>
                                 <strong>
-                                    Medtech Innovation Expo (MTI) exhibition space
+                                    Medtech Innovation Expo (MTI) exhibition space:
                                 </strong>
                                 <?php foreach ($packages as $package) { ?>
                                     <?php
@@ -1354,7 +1354,7 @@ function join_us_v2()
                             </li>
                             <li>
                                 <strong>
-                                    Access to International Trade Shows discounts
+                                    Access to International Trade Shows discounts:
                                 </strong>
                                 <?php foreach ($packages as $package) { ?>
                                     <?php
