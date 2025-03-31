@@ -47,6 +47,19 @@ function select__2() {
         }
     });
 
+    jQuery(".selected-sectors li").click(function () {
+        // The value you want to remove. Change this to the actual value.
+        var valueToRemove = jQuery(this).attr('for');
+        jQuery('select[name="more-sectors-pseudo[]"]').val(function (index, currentValues) {
+            if (currentValues) {
+                return currentValues.filter(function (value) {
+                    return value !== valueToRemove;
+                });
+            }
+            return null;
+        }).trigger('change');
+    });
+
 }
 
 
