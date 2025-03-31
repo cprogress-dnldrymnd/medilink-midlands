@@ -1307,10 +1307,64 @@ function join_us_v2()
                                     }
                                 }
                                 if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
                                 }
                                 ?>
                             <?php } ?>
+                        </ul>
+                    </div>
+
+                    <div class="feature feature-discounts">
+                        <div class="feature-title">
+                            &nbsp;
+                        </div>
+                        <ul>
+                            <li>
+                                <strong>
+                                    MM training & networking
+                                </strong>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
+                                    ?>
+                                    <?= $discount_mm_training_networking ?>
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <strong>
+                                    Events and/or Marketing services
+                                </strong>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
+                                    ?>
+                                    <span><?= $discount_events_marketing_services ?></span>
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <strong>
+                                    Medtech Innovation Expo (MTI) exhibition space
+                                </strong>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
+                                    ?>
+                                    <span><?= $discount_medtech_expo ?></span>
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <strong>
+                                    Access to International Trade Shows discounts
+                                </strong>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
+                                    ?>
+                                    <span><?= $discount_internation_trade ?></span>
+
+                                <?php } ?>
+                            </li>
+                            <!-- end of Discounts-->
                         </ul>
                     </div>
                 </div>
