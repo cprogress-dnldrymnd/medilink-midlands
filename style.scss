@@ -649,18 +649,28 @@ section.cta .cta-content {
 .current-offers .filter-holder a.active {
     background-color: var(--accent-color);
 }
-#join-us-button a {
-    background-color: rgba(255, 255, 255, 0.25);
-    padding: 10px 30px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    line-height: 28px;
-    font-weight: 600;
-    margin: 17px 0px;
-    margin-left: 20px;
-    font-size: 14px;
-    -webkit-transition: all 250ms ease-in-out;
-    transition: all 250ms ease-in-out 0s;
+#join-us-button {
+    a {
+        background-color: rgba(255, 255, 255, 0.25);
+        padding: 10px 30px;
+        text-transform: uppercase;
+        border-radius: 30px;
+        line-height: 28px;
+        font-weight: 600;
+        margin: 17px 0px;
+        margin-left: 20px;
+        font-size: 14px;
+        -webkit-transition: all 250ms ease-in-out;
+        transition: all 250ms ease-in-out 0s;
+        @media (max-width: 1024px) {
+            max-width: 230px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+    @media (max-width: 1024px) {
+        width: 100%;
+    }
 }
 #join-us-button a:hover {
     background-color: rgba(255, 255, 255, 0.35);
@@ -1172,6 +1182,12 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     font-size: 14px !important;
     -webkit-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out 0s;
+    @media (max-width: 1024px) {
+        margin: 0 !important;
+        width: auto;
+        max-width: 230px;
+        text-align: center;
+    }
 }
 
 .contact-tikidocs.contact-tikidocs select {

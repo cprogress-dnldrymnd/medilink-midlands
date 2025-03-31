@@ -622,6 +622,14 @@ section.cta .cta-content {
   font-size: 14px;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out 0s; }
+  @media (max-width: 1024px) {
+    #join-us-button a {
+      max-width: 230px;
+      text-align: center;
+      width: 100%; } }
+@media (max-width: 1024px) {
+  #join-us-button {
+    width: 100%; } }
 
 #join-us-button a:hover {
   background-color: rgba(255, 255, 255, 0.35); }
@@ -1101,6 +1109,12 @@ a {
   font-size: 14px !important;
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out 0s; }
+  @media (max-width: 1024px) {
+    .btn-menu.btn-menu.btn-menu a {
+      margin: 0 !important;
+      width: auto;
+      max-width: 230px;
+      text-align: center; } }
 
 .contact-tikidocs.contact-tikidocs select {
   font-size: 14px;
