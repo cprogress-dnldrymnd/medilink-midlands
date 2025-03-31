@@ -1685,7 +1685,7 @@ body.header-title-style-2 #primary {
 .package-mobile-holder {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; }
+  gap: 40px; }
   .package-mobile-holder .package-mobile-item {
     box-shadow: 0px 10px 35px #00000012;
     border-radius: 10px;
