@@ -1737,7 +1737,9 @@ body {
                 background-color: #f9f9f9;
                 border-radius: 10px;
                 border: none !important;
-                &:hover {
+                &:hover,
+                &:active,
+                &:focus {
                     background-color: #f9f9f9;
                     border-radius: 10px;
                     border: none !important;

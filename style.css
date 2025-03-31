@@ -1534,11 +1534,19 @@ body.header-title-style-2 #primary {
     background-color: #f9f9f9;
     border-radius: 10px;
     border: none !important; }
-    .um-row .um-col-1 > .um-field input[type="number"]:hover,
+    .um-row .um-col-1 > .um-field input[type="number"]:hover, .um-row .um-col-1 > .um-field input[type="number"]:active, .um-row .um-col-1 > .um-field input[type="number"]:focus,
     .um-row .um-col-1 > .um-field input[type="password"]:hover,
+    .um-row .um-col-1 > .um-field input[type="password"]:active,
+    .um-row .um-col-1 > .um-field input[type="password"]:focus,
     .um-row .um-col-1 > .um-field input[type="search"]:hover,
+    .um-row .um-col-1 > .um-field input[type="search"]:active,
+    .um-row .um-col-1 > .um-field input[type="search"]:focus,
     .um-row .um-col-1 > .um-field input[type="tel"]:hover,
-    .um-row .um-col-1 > .um-field input[type="text"]:hover {
+    .um-row .um-col-1 > .um-field input[type="tel"]:active,
+    .um-row .um-col-1 > .um-field input[type="tel"]:focus,
+    .um-row .um-col-1 > .um-field input[type="text"]:hover,
+    .um-row .um-col-1 > .um-field input[type="text"]:active,
+    .um-row .um-col-1 > .um-field input[type="text"]:focus {
       background-color: #f9f9f9;
       border-radius: 10px;
       border: none !important; }
