@@ -27,7 +27,6 @@ function select__2() {
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
         var selectedValues = jQuery(this).val();
-        //jQuery('.selected-sectors').text(selectedValues.join(", "));
         // Clear the existing list items
         var listElement = jQuery('.selected-sectors');
         listElement.empty();
