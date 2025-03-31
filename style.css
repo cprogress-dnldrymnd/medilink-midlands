@@ -1705,9 +1705,8 @@ body.header-title-style-2 #primary {
         font-weight: bold; }
       .package-mobile-holder .package-mobile-item .package-title-price .price .per {
         font-weight: bold; }
-      .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button a {
-        width: 100%;
-        border-radius: 0; }
+      .package-mobile-holder .package-mobile-item .package-title-price .modeltheme_button {
+        margin-bottom: 20px; }
       .package-mobile-holder .package-mobile-item .package-title-price .excerpt {
         border-top: 1px solid lightgray;
         padding-top: 20px;
