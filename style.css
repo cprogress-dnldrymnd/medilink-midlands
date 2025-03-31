@@ -624,7 +624,6 @@ section.cta .cta-content {
   transition: all 250ms ease-in-out 0s; }
   @media (max-width: 1024px) {
     #join-us-button a {
-      max-width: 230px;
       text-align: center;
       width: 100%; } }
 @media (max-width: 1024px) {
@@ -1113,7 +1112,6 @@ a {
     .btn-menu.btn-menu.btn-menu a {
       margin: 0 !important;
       width: auto;
-      max-width: 230px;
       text-align: center; } }
 
 .contact-tikidocs.contact-tikidocs select {

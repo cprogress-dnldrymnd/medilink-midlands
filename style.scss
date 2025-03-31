@@ -663,7 +663,6 @@ section.cta .cta-content {
         -webkit-transition: all 250ms ease-in-out;
         transition: all 250ms ease-in-out 0s;
         @media (max-width: 1024px) {
-            max-width: 230px;
             text-align: center;
             width: 100%;
         }
@@ -1185,7 +1184,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     @media (max-width: 1024px) {
         margin: 0 !important;
         width: auto;
-        max-width: 230px;
         text-align: center;
     }
 }
