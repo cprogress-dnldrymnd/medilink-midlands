@@ -1274,6 +1274,9 @@ function join_us_v2()
                                         $text = $members_only->name;
                                         echo "<li>$text</li>";
                                     }
+                                    if(!$text) {
+                                        echo 'xx';
+                                    }
                                 }
                                 ?>
                             <?php } ?>
