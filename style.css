@@ -1713,6 +1713,9 @@ body.header-title-style-2 #primary {
         padding-bottom: 20px;
         margin-top: 20px;
         font-size: 14px; }
+    .package-mobile-holder .package-mobile-item .feature-patrons .feature-title.feature-title {
+      height: 2px;
+      padding: 0; }
     .package-mobile-holder .package-mobile-item .features-mobile-holder {
       display: flex;
       gap: 20px;

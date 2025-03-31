@@ -1955,6 +1955,12 @@ body {
                 font-size: 14px;
             }
         }
+        .feature-patrons {
+            .feature-title.feature-title {
+                height: 2px;
+                padding: 0;
+            }
+        }
         .features-mobile-holder {
             display: flex;
             gap: 20px;
