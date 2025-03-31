@@ -1410,6 +1410,9 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 }
 .join-us-v2 {
     position: relative;
+    @media (max-width: 1199px) {
+        display: none;
+    }
     &:before {
         content: "";
         position: absolute;
@@ -1890,6 +1893,11 @@ body {
     background-position: right center;
 }
 
+.join-us-mobile {
+    @media (min-width: 1200px) {
+        display: none;
+    }
+}
 .package-mobile-holder {
     display: flex;
     flex-direction: column;

@@ -1302,6 +1302,9 @@ a {
 
 .join-us-v2 {
   position: relative; }
+  @media (max-width: 1199px) {
+    .join-us-v2 {
+      display: none; } }
   .join-us-v2:before {
     content: "";
     position: absolute;
@@ -1662,6 +1665,10 @@ body.header-title-style-2 #primary {
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right center; }
+
+@media (min-width: 1200px) {
+  .join-us-mobile {
+    display: none; } }
 
 .package-mobile-holder {
   display: flex;
