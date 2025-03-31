@@ -610,6 +610,9 @@ section.cta .cta-content {
 .current-offers .filter-holder a.active {
   background-color: var(--accent-color); }
 
+body header #navbar .menu-item.menu-item > a {
+  border-bottom: none !important; }
+
 #join-us-button a {
   background-color: rgba(255, 255, 255, 0.25);
   padding: 10px 30px;
@@ -625,6 +628,8 @@ section.cta .cta-content {
   @media (max-width: 1024px) {
     #join-us-button a {
       text-align: center;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
       width: 100%; } }
 @media (max-width: 1024px) {
   #join-us-button {

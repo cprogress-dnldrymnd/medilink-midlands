@@ -649,6 +649,10 @@ section.cta .cta-content {
 .current-offers .filter-holder a.active {
     background-color: var(--accent-color);
 }
+
+body header #navbar .menu-item.menu-item > a {
+    border-bottom: none !important;
+}
 #join-us-button {
     a {
         background-color: rgba(255, 255, 255, 0.25);
@@ -664,6 +668,8 @@ section.cta .cta-content {
         transition: all 250ms ease-in-out 0s;
         @media (max-width: 1024px) {
             text-align: center;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
             width: 100%;
         }
     }
@@ -1910,7 +1916,7 @@ body {
         width: calc(50% - 10px);
         flex: 0 0 calc(50% - 10px);
         background-color: var(--white-color);
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
             width: 100%;
             flex: 0 0 100%;
         }
