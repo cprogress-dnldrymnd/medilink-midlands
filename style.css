@@ -1599,6 +1599,9 @@ body.header-title-style-2 #primary {
 .contact-tikidocs.contact-tikidocs.contact-tikidocs .codedropz-upload-wrapper {
   box-shadow: none;
   border-radius: 10px; }
+.contact-tikidocs.contact-tikidocs.contact-tikidocs label i {
+  top: 50%;
+  transform: translateY(-50%); }
 
 .box-shadow-style.box-shadow-style.box-shadow-style.box-shadow-style h2 {
   margin-top: 0;
