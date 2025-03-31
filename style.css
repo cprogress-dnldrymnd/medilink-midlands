@@ -1691,8 +1691,8 @@ body.header-title-style-2 #primary {
     border-radius: 10px;
     padding: 40px;
     padding: 20px;
-    width: calc(50% - 10px);
-    flex: 0 0 calc(50% - 10px);
+    width: calc(50% - 20px);
+    flex: 0 0 calc(50% - 20px);
     background-color: var(--white-color); }
     .package-mobile-holder .package-mobile-item .package-title-price {
       text-align: center; }
