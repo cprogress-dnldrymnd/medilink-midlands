@@ -1374,16 +1374,16 @@ function join_us_v2()
                     <?php
                     $marketing_level = cb_value($package->ID, 'marketing_level');
                     ?>
-                    <div class="feature feature-member-only">
+                    <div class="feature feature-marketing">
                         <div class="feature-title">
                             Marketing: <?= $marketing_level ?>
                         </div>
                         <ul class="checklist-ul">
-                            <?php foreach ($packages_members_only as $members_only) { ?>
+                            <?php foreach ($packages_marketing as $marketing) { ?>
                                 <?php
 
-                                if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$members_only->slug];
+                                if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
+                                    $text = $taxonomy_terms_custom_text_array[$marketing->slug];
                                 } else {
                                     $text = false;
                                 }
@@ -1391,14 +1391,14 @@ function join_us_v2()
                                 if ($text && $text != '&nbsp;') {
                                     echo "<li>$text</li>";
                                 } else {
-                                    if (has_term($members_only->slug, $taxonomy, $package->ID)) {
-                                        $text = $members_only->name;
+                                    if (has_term($marketing->slug, $taxonomy, $package->ID)) {
+                                        $text = $marketing->name;
                                         $term_val = 'has_term';
                                         echo "<li>$text</li>";
                                     }
                                 }
                                 if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
                                 }
                                 ?>
                             <?php } ?>
