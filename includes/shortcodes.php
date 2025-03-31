@@ -1402,9 +1402,7 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
-                                    }
+                                 
                                     ?>
                                 <?php } ?>
                                 <?php if ($marketing_thought_leadership_article) { ?>
