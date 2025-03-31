@@ -1900,12 +1900,14 @@ body {
 }
 .package-mobile-holder {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
     .package-mobile-item {
         box-shadow: 0px 10px 35px #00000012;
         border-radius: 10px;
         padding: 40px;
         padding: 20px;
+        width: calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px);
     }
 }
