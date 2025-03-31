@@ -452,6 +452,7 @@ function user_field($atts)
         $user_info = get_userdata($user_id);
         return $user_info->user_email;
     } else if ($key == 'first_and_last_name') {
+        $first_name = get_user_meta($user_id, 'first_name', true);
         $last_name = get_user_meta($user_id, 'last_name', true);
         return $first_name . ' ' . $last_name;
     } else if ($key == 'user_id') {
