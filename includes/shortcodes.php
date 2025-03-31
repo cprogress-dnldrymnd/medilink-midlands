@@ -1402,34 +1402,50 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
-                                 
+
                                     ?>
                                 <?php } ?>
                                 <?php if ($marketing_thought_leadership_article) { ?>
+                                    <?php
+                                    $term_val = 'has_term';
+                                    ?>
                                     <li>
                                         Thought leadership article:
                                         <span><?= $marketing_thought_leadership_article ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_blog) { ?>
+                                    <?php
+                                    $term_val = 'has_term';
+                                    ?>
                                     <li>
                                         Blog
                                         <span><?= $marketing_blog ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_promotion) { ?>
+                                    <?php
+                                    $term_val = 'has_term';
+                                    ?>
                                     <li>
                                         Promotion of events:
                                         <span><?= $marketing_promotion ?></span>
                                     </li>
                                 <?php } ?>
                                 <?php if ($marketing_memeber_marketplace) { ?>
+                                    <?php
+                                    $term_val = 'has_term';
+                                    ?>
                                     <li>
                                         Member Market place listing:
                                         <span><?= $marketing_memeber_marketplace ?></span>
                                     </li>
                                 <?php } ?>
-
+                                <?php
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
