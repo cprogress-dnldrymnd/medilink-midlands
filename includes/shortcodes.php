@@ -1230,220 +1230,222 @@ function join_us_v2()
                             <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
                         </div>
                     </div>
-                    <div class="feature feature-benefits">
-                        <div class="feature-title">
-                            Benefits to support your innovation ideas and organisation
-                        </div>
-                        <ul class="checklist-ul">
-                            <?php foreach ($packages_benefits as $benefits) { ?>
-                                <?php
-
-                                if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$benefits->slug];
-                                } else {
-                                    $text = false;
-                                }
-
-                                if ($text && $text != '&nbsp;') {
-                                    echo "<li>$text</li>";
-                                } else {
-                                    if (has_term($benefits->slug, $taxonomy, $package->ID)) {
-                                        $text = $benefits->name;
-                                        $term_val = 'has_term';
-                                        echo "<li>$text</li>";
-                                    }
-                                }
-                                if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-benefits { display: none } </style>';
-                                }
-                                ?>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <div class="feature feature-member-only">
-                        <div class="feature-title">
-                            Enhanced Member only area access:
-                        </div>
-                        <ul class="checklist-ul">
-                            <?php foreach ($packages_members_only as $members_only) { ?>
-                                <?php
-
-                                if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$members_only->slug];
-                                } else {
-                                    $text = false;
-                                }
-
-                                if ($text && $text != '&nbsp;') {
-                                    echo "<li>$text</li>";
-                                } else {
-                                    if (has_term($members_only->slug, $taxonomy, $package->ID)) {
-                                        $text = $members_only->name;
-                                        $term_val = 'has_term';
-                                        echo "<li>$text</li>";
-                                    }
-                                }
-                                if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
-                                }
-                                ?>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <div class="feature feature-patrons">
-                        <div class="feature-title">
-                            &nbsp;
-                        </div>
-                        <ul class="checklist-ul">
-                            <?php foreach ($patrons as $patron) { ?>
-                                <?php
-
-                                if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$patron->slug];
-                                } else {
-                                    $text = false;
-                                }
-
-                                if ($text && $text != '&nbsp;') {
-                                    echo "<li>$text</li>";
-                                } else {
-                                    if (has_term($patron->slug, $taxonomy, $package->ID)) {
-                                        $text = $patron->name;
-                                        $term_val = 'has_term';
-                                        echo "<li>$text</li>";
-                                    }
-                                }
-                                if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
-                                }
-                                ?>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <?php
-                    $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
-                    $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
-                    $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
-                    $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
-                    ?>
-                    <?php if ($discount_mm_training_networking || $discount_events_marketing_services || $discount_medtech_expo || $discount_internation_trade) { ?>
-                        <div class="feature feature-discounts">
-
+                    <div class="features-mobile-holder">
+                        <div class="feature feature-benefits">
                             <div class="feature-title">
-                                Discounts
+                                Benefits to support your innovation ideas and organisation
                             </div>
                             <ul class="checklist-ul">
-                                <?php if ($discount_mm_training_networking) { ?>
-                                    <li>
-                                        <strong>
-                                            MM training & networking:
-                                        </strong>
+                                <?php foreach ($packages_benefits as $benefits) { ?>
+                                    <?php
 
-                                        <?= $discount_mm_training_networking ?>
-                                    </li>
+                                    if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$benefits->slug];
+                                    } else {
+                                        $text = false;
+                                    }
+
+                                    if ($text && $text != '&nbsp;') {
+                                        echo "<li>$text</li>";
+                                    } else {
+                                        if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                            $text = $benefits->name;
+                                            $term_val = 'has_term';
+                                            echo "<li>$text</li>";
+                                        }
+                                    }
+                                    if (!str_contains($term_val, 'has_term')) {
+                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-benefits { display: none } </style>';
+                                    }
+                                    ?>
                                 <?php } ?>
-                                <?php if ($discount_events_marketing_services) { ?>
-                                    <li>
-                                        <strong>
-                                            Events and/or Marketing services:
-                                        </strong>
-
-                                        <span><?= $discount_events_marketing_services ?></span>
-                                    </li>
-                                <?php } ?>
-                                <?php if ($discount_medtech_expo) { ?>
-                                    <li>
-                                        <strong>
-                                            Medtech Innovation Expo (MTI) exhibition space:
-                                        </strong>
-
-                                        <span><?= $discount_medtech_expo ?></span>
-                                    </li>
-                                <?php } ?>
-                                <?php if ($discount_internation_trade) { ?>
-                                    <li>
-                                        <strong>
-                                            Access to International Trade Shows discounts:
-                                        </strong>
-
-                                        <span><?= $discount_internation_trade ?></span>
-                                    </li>
-                                <?php } ?>
-
-                                <!-- end of Discounts-->
                             </ul>
                         </div>
-                    <?php } ?>
-                    <?php
-                    $marketing_level = cb_value($package->ID, 'marketing_level');
-                    $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
-                    $marketing_blog = cb_value($package->ID, 'marketing_blog');
-                    $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
-                    $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
+                        <div class="feature feature-member-only">
+                            <div class="feature-title">
+                                Enhanced Member only area access:
+                            </div>
+                            <ul class="checklist-ul">
+                                <?php foreach ($packages_members_only as $members_only) { ?>
+                                    <?php
 
-                    ?>
-                    <div class="feature feature-marketing">
-                        <div class="feature-title">
-                            Marketing: <?= $marketing_level ?>
-                        </div>
-                        <ul class="checklist-ul">
-                            <?php foreach ($packages_marketing as $marketing) { ?>
-                                <?php
-
-                                if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$marketing->slug];
-                                } else {
-                                    $text = false;
-                                }
-
-                                if ($text && $text != '&nbsp;') {
-                                    echo "<li>$text</li>";
-                                } else {
-                                    if (has_term($marketing->slug, $taxonomy, $package->ID)) {
-                                        $text = $marketing->name;
-                                        $term_val = 'has_term';
-                                        echo "<li>$text</li>";
+                                    if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$members_only->slug];
+                                    } else {
+                                        $text = false;
                                     }
-                                }
-                                if (!str_contains($term_val, 'has_term')) {
-                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
-                                }
-                                ?>
-                            <?php } ?>
-                            <?php if ($marketing_thought_leadership_article) { ?>
-                                <li>
-                                    <strong>
-                                        Thought leadership article
-                                    </strong>
-                                    <span><?= $marketing_thought_leadership_article ?></span>
-                                </li>
-                            <?php } ?>
-                            <?php if ($marketing_blog) { ?>
-                                <li>
-                                    <strong>
-                                        Blog
-                                    </strong>
-                                    <span><?= $marketing_blog ?></span>
-                                </li>
-                            <?php } ?>
-                            <?php if ($marketing_promotion) { ?>
-                                <li>
-                                    <strong>
-                                        Promotion of events
-                                    </strong>
-                                    <span><?= $marketing_promotion ?></span>
-                                </li>
-                            <?php } ?>
-                            <?php if ($marketing_memeber_marketplace) { ?>
-                                <li>
-                                    <strong>
-                                        Member Market place listing
-                                    </strong>
-                                    <span><?= $marketing_memeber_marketplace ?></span>
-                                </li>
-                            <?php } ?>
 
-                        </ul>
+                                    if ($text && $text != '&nbsp;') {
+                                        echo "<li>$text</li>";
+                                    } else {
+                                        if (has_term($members_only->slug, $taxonomy, $package->ID)) {
+                                            $text = $members_only->name;
+                                            $term_val = 'has_term';
+                                            echo "<li>$text</li>";
+                                        }
+                                    }
+                                    if (!str_contains($term_val, 'has_term')) {
+                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                    }
+                                    ?>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <div class="feature feature-patrons">
+                            <div class="feature-title">
+                                &nbsp;
+                            </div>
+                            <ul class="checklist-ul">
+                                <?php foreach ($patrons as $patron) { ?>
+                                    <?php
+
+                                    if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$patron->slug];
+                                    } else {
+                                        $text = false;
+                                    }
+
+                                    if ($text && $text != '&nbsp;') {
+                                        echo "<li>$text</li>";
+                                    } else {
+                                        if (has_term($patron->slug, $taxonomy, $package->ID)) {
+                                            $text = $patron->name;
+                                            $term_val = 'has_term';
+                                            echo "<li>$text</li>";
+                                        }
+                                    }
+                                    if (!str_contains($term_val, 'has_term')) {
+                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
+                                    }
+                                    ?>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <?php
+                        $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
+                        $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
+                        $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
+                        $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
+                        ?>
+                        <?php if ($discount_mm_training_networking || $discount_events_marketing_services || $discount_medtech_expo || $discount_internation_trade) { ?>
+                            <div class="feature feature-discounts">
+
+                                <div class="feature-title">
+                                    Discounts
+                                </div>
+                                <ul class="checklist-ul">
+                                    <?php if ($discount_mm_training_networking) { ?>
+                                        <li>
+                                            <strong>
+                                                MM training & networking:
+                                            </strong>
+
+                                            <?= $discount_mm_training_networking ?>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($discount_events_marketing_services) { ?>
+                                        <li>
+                                            <strong>
+                                                Events and/or Marketing services:
+                                            </strong>
+
+                                            <span><?= $discount_events_marketing_services ?></span>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($discount_medtech_expo) { ?>
+                                        <li>
+                                            <strong>
+                                                Medtech Innovation Expo (MTI) exhibition space:
+                                            </strong>
+
+                                            <span><?= $discount_medtech_expo ?></span>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($discount_internation_trade) { ?>
+                                        <li>
+                                            <strong>
+                                                Access to International Trade Shows discounts:
+                                            </strong>
+
+                                            <span><?= $discount_internation_trade ?></span>
+                                        </li>
+                                    <?php } ?>
+
+                                    <!-- end of Discounts-->
+                                </ul>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        $marketing_level = cb_value($package->ID, 'marketing_level');
+                        $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
+                        $marketing_blog = cb_value($package->ID, 'marketing_blog');
+                        $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
+                        $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
+
+                        ?>
+                        <div class="feature feature-marketing">
+                            <div class="feature-title">
+                                Marketing: <?= $marketing_level ?>
+                            </div>
+                            <ul class="checklist-ul">
+                                <?php foreach ($packages_marketing as $marketing) { ?>
+                                    <?php
+
+                                    if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$marketing->slug];
+                                    } else {
+                                        $text = false;
+                                    }
+
+                                    if ($text && $text != '&nbsp;') {
+                                        echo "<li>$text</li>";
+                                    } else {
+                                        if (has_term($marketing->slug, $taxonomy, $package->ID)) {
+                                            $text = $marketing->name;
+                                            $term_val = 'has_term';
+                                            echo "<li>$text</li>";
+                                        }
+                                    }
+                                    if (!str_contains($term_val, 'has_term')) {
+                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
+                                    }
+                                    ?>
+                                <?php } ?>
+                                <?php if ($marketing_thought_leadership_article) { ?>
+                                    <li>
+                                        <strong>
+                                            Thought leadership article
+                                        </strong>
+                                        <span><?= $marketing_thought_leadership_article ?></span>
+                                    </li>
+                                <?php } ?>
+                                <?php if ($marketing_blog) { ?>
+                                    <li>
+                                        <strong>
+                                            Blog
+                                        </strong>
+                                        <span><?= $marketing_blog ?></span>
+                                    </li>
+                                <?php } ?>
+                                <?php if ($marketing_promotion) { ?>
+                                    <li>
+                                        <strong>
+                                            Promotion of events
+                                        </strong>
+                                        <span><?= $marketing_promotion ?></span>
+                                    </li>
+                                <?php } ?>
+                                <?php if ($marketing_memeber_marketplace) { ?>
+                                    <li>
+                                        <strong>
+                                            Member Market place listing
+                                        </strong>
+                                        <span><?= $marketing_memeber_marketplace ?></span>
+                                    </li>
+                                <?php } ?>
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             <?php } ?>
