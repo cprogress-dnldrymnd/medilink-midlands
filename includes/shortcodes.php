@@ -1284,6 +1284,7 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
+                                    echo $term_val;
                                     if (!str_contains($term_val, 'has_term')) {
                                         echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
                                     }
