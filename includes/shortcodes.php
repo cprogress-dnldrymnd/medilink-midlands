@@ -416,10 +416,12 @@ function submit_blog_form()
 {
     ob_start();
 ?>
-    <div class="member-marketplace-form" id="member-marketplace-form">
+    <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
-            <h2>Submit a Blog</h2>
-            <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
+            <div class="inner">
+                <h2>Submit a Blog</h2>
+                <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
+            </div>
         </div>
     </div>
 <?php
