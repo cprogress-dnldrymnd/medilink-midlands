@@ -790,10 +790,6 @@ p:last-child {
 .div-title.div-title.div-title {
   margin-bottom: 20px; }
 
-.contact-tikidocs.contact-tikidocs input {
-  background-color: var(--white-color) !important;
-  border: 1px solid #f7f8fa !important; }
-
 .modal-open.modal-open .modal {
   opacity: 1; }
 
@@ -1581,6 +1577,8 @@ body.header-title-style-2 #primary {
 
 .contact-tikidocs.contact-tikidocs.contact-tikidocs input,
 .contact-tikidocs.contact-tikidocs.contact-tikidocs textarea {
-  box-shadow: none !important; }
+  box-shadow: none !important;
+  border-radius: 10px;
+  background-color: #f9f9f9; }
 
 /*# sourceMappingURL=style.css.map */
