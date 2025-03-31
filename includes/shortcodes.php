@@ -1406,7 +1406,7 @@ function join_us_v2()
 
                                     ?>
                                 <?php } ?>
-                                <?php if ($marketing_thought_leadership_article) { ?>
+                                <?php if ($marketing_thought_leadership_article && $marketing_thought_leadership_article != '&nbsp;') { ?>
                                     <?php
                                     $term_val = 'has_term';
                                     ?>
@@ -1415,7 +1415,7 @@ function join_us_v2()
                                         <span><?= $marketing_thought_leadership_article ?></span>
                                     </li>
                                 <?php } ?>
-                                <?php if ($marketing_blog) { ?>
+                                <?php if ($marketing_blog && $marketing_blog != '&nbsp;') { ?>
                                     <?php
                                     $term_val = 'has_term';
                                     ?>
@@ -1424,7 +1424,7 @@ function join_us_v2()
                                         <span><?= $marketing_blog ?></span>
                                     </li>
                                 <?php } ?>
-                                <?php if ($marketing_promotion) { ?>
+                                <?php if ($marketing_promotion && $marketing_promotion != '&nbsp;') { ?>
                                     <?php
                                     $term_val = 'has_term';
                                     ?>
@@ -1433,7 +1433,7 @@ function join_us_v2()
                                         <span><?= $marketing_promotion ?></span>
                                     </li>
                                 <?php } ?>
-                                <?php if ($marketing_memeber_marketplace) { ?>
+                                <?php if ($marketing_memeber_marketplace && $marketing_memeber_marketplace != '&nbsp;') { ?>
                                     <?php
                                     $term_val = 'has_term';
                                     ?>
