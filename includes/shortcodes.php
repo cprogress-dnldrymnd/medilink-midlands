@@ -1242,7 +1242,7 @@ function join_us_v2()
                                 }
 
                                 if ($text) {
-                                    echo "<p>$text</p>";
+                                    echo "<li>$text</li>";
                                 } else {
                                     if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                         $text = $benefits->name;
