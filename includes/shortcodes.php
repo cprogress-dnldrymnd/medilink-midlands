@@ -1315,55 +1315,53 @@ function join_us_v2()
                     </div>
 
                     <div class="feature feature-discounts">
+                        <?php
+                        $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
+                        $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
+                        $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
+                        $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
+                        ?>
                         <div class="feature-title">
                             Discounts
                         </div>
                         <ul>
-                            <li>
-                                <strong>
-                                    MM training & networking:
-                                </strong>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
-                                    ?>
-                                    <?= $discount_mm_training_networking ?>
-                                <?php } ?>
-                            </li>
-                            <li>
-                                <strong>
-                                    Events and/or Marketing services:
-                                </strong>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
-                                    ?>
-                                    <span><?= $discount_events_marketing_services ?></span>
-                                <?php } ?>
-                            </li>
-                            <li>
-                                <strong>
-                                    Medtech Innovation Expo (MTI) exhibition space:
-                                </strong>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
-                                    ?>
-                                    <span><?= $discount_medtech_expo ?></span>
-                                <?php } ?>
-                            </li>
-                            <li>
-                                <strong>
-                                    Access to International Trade Shows discounts:
-                                </strong>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
-                                    ?>
-                                    <span><?= $discount_internation_trade ?></span>
+                            <?php if ($discount_mm_training_networking) { ?>
+                                <li>
+                                    <strong>
+                                        MM training & networking:
+                                    </strong>
 
-                                <?php } ?>
-                            </li>
+                                    <?= $discount_mm_training_networking ?>
+                                </li>
+                            <?php } ?>
+                            <?php if ($discount_events_marketing_services) { ?>
+                                <li>
+                                    <strong>
+                                        Events and/or Marketing services:
+                                    </strong>
+
+                                    <span><?= $discount_events_marketing_services ?></span>
+                                </li>
+                            <?php } ?>
+                            <?php if ($discount_medtech_expo) { ?>
+                                <li>
+                                    <strong>
+                                        Medtech Innovation Expo (MTI) exhibition space:
+                                    </strong>
+
+                                    <span><?= $discount_medtech_expo ?></span>
+                                </li>
+                            <?php } ?>
+                            <?php if ($discount_internation_trade) { ?>
+                                <li>
+                                    <strong>
+                                        Access to International Trade Shows discounts:
+                                    </strong>
+
+                                    <span><?= $discount_internation_trade ?></span>
+                                </li>
+                            <?php } ?>
+
                             <!-- end of Discounts-->
                         </ul>
                     </div>
