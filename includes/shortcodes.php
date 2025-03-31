@@ -336,47 +336,49 @@ function member_marketplace_form()
 {
     ob_start();
 ?>
-    <div class="member-marketplace-form" id="member-marketplace-form">
+    <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
-
-            <div class="heading-title-desc mt-0 mb-4">
-                <h2>Members Marketplace Special Offers from our Patrons and Members</h2>
-                <p>
-                    <?php if (is_user_logged_in()) { ?>
-                        <?php
-                        $current_user = wp_get_current_user();
-                        $display_name = $current_user->display_name;
-                        ?>
-                        <span>
-                            <?= $display_name ?>,
-                        </span>
-                    <?php } ?>
-                </p>
-                <p>
-                    If you are looking to submit an offer, please complete the submission form with all requested details
-                    below.
-                </p>
-                <p>
-                    Once submitted a member of the Membership Team will review your offer and you will receive confirmation
-                    of your offer within 3 working days. To prevent any delays, please complete the form with all required
-                    information.
-                </p>
-                <p>
-                    Please note, members can have only list one offer on the Marketplace. If we receive more than one, only
-                    one will be listed.
-                </p>
-            </div>
-            <?php if (is_user_logged_in()) { ?>
-                <?= do_shortcode('[contact-form-7 id="af104d5" title="Submit an Offer"]') ?>
-            <?php } else { ?>
-                <div class="login-notice">
-                    <div class="inner">
-                        <p>
-                            Please login before you can submit.
-                        </p>
-                    </div>
+            <div class="inner">
+                <div class="heading-title-desc mt-0 mb-4">
+                    <h2>Members Marketplace Special Offers from our Patrons and Members</h2>
+                    <p>
+                        <?php if (is_user_logged_in()) { ?>
+                            <?php
+                            $current_user = wp_get_current_user();
+                            $display_name = $current_user->display_name;
+                            ?>
+                            <span>
+                                <?= $display_name ?>,
+                            </span>
+                        <?php } ?>
+                    </p>
+                    <p>
+                        If you are looking to submit an offer, please complete the submission form with all requested details
+                        below.
+                    </p>
+                    <p>
+                        Once submitted a member of the Membership Team will review your offer and you will receive confirmation
+                        of your offer within 3 working days. To prevent any delays, please complete the form with all required
+                        information.
+                    </p>
+                    <p>
+                        Please note, members can have only list one offer on the Marketplace. If we receive more than one, only
+                        one will be listed.
+                    </p>
                 </div>
-            <?php } ?>
+                <?php if (is_user_logged_in()) { ?>
+                    <?= do_shortcode('[contact-form-7 id="af104d5" title="Submit an Offer"]') ?>
+                <?php } else { ?>
+                    <div class="login-notice">
+                        <div class="inner">
+                            <p>
+                                Please login before you can submit.
+                            </p>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+
         </div>
     </div>
 <?php
