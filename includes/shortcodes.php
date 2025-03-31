@@ -1209,11 +1209,22 @@ function join_us_v2()
                         </div>
                         <ul>
                             <?php foreach ($packages_benefits as $benefits) { ?>
-                                <?php if (has_term($benefits->slug, $taxonomy, $package->ID)) { ?>
-                                    <li>
-                                        <?= $benefits->name ?>
-                                    </li>
-                                <?php } ?>
+                                <?php
+                                if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
+                                    $text = $taxonomy_terms_custom_text_array[$benefits->slug];
+                                } else {
+                                    $text = false;
+                                }
+
+                                if ($text) {
+                                    echo "<p>$text</p>";
+                                } else {
+                                    if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                        $text = $benefits->name;
+                                        echo "<li>$text</li>";
+                                    }
+                                }
+                                ?>
                             <?php } ?>
                         </ul>
                     </div>
