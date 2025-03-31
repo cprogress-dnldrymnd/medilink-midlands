@@ -1929,6 +1929,13 @@ body {
         flex: 0 0 calc(50% - 10px);
         background-color: var(--white-color);
         .package-title-price {
+            .package-title {
+                font-weight: bold;
+            }
+            .price .price-text {
+                font-size: 25px;
+                color: var(--green-color);
+            }
             .modeltheme_button {
                 a {
                     width: 100%;
