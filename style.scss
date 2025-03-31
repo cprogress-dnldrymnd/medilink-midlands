@@ -1741,6 +1741,9 @@ body {
                 background-color: #f9f9f9;
                 border-radius: 10px;
                 border: none !important;
+                &:hover {
+                    border: none !important;
+                }
             }
             @media (min-width: 1025px) {
                 width: calc(50% - 10px);
@@ -1775,7 +1778,7 @@ body {
             }
         }
         .um-field-c {
-        width: 100%;
+            width: 100%;
         }
 
         .um-clear {
@@ -1785,5 +1788,11 @@ body {
             flex-direction: column;
             gap: 20px;
         }
+    }
+}
+.contact-tikidocs.contact-tikidocs.contact-tikidocs {
+    input,
+    textarea {
+        box-shadow: none !important;
     }
 }
