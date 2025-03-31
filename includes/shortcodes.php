@@ -1230,6 +1230,7 @@ function join_us_v2()
                             <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
                         </div>
                     </div>
+                    <?php $term_val = ''; ?>
                     <div class="features-mobile-holder">
                         <div class="feature feature-benefits">
                             <div class="feature-title">
