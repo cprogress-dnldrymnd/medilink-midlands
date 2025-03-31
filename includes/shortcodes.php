@@ -1231,7 +1231,7 @@ function join_us_v2()
                         <div class="feature-title">
                             Benefits to support your innovation ideas and organisation
                         </div>
-                        <ul>
+                        <ul class="checklist-ul">
                             <?php foreach ($packages_benefits as $benefits) { ?>
                                 <?php
 
@@ -1261,7 +1261,7 @@ function join_us_v2()
                         <div class="feature-title">
                             Enhanced Member only area access:
                         </div>
-                        <ul>
+                        <ul class="checklist-ul">
                             <?php foreach ($packages_members_only as $members_only) { ?>
                                 <?php
 
@@ -1291,7 +1291,7 @@ function join_us_v2()
                         <div class="feature-title">
                             &nbsp;
                         </div>
-                        <ul>
+                        <ul class="checklist-ul">
                             <?php foreach ($patrons as $patron) { ?>
                                 <?php
 
@@ -1329,7 +1329,7 @@ function join_us_v2()
                             <div class="feature-title">
                                 Discounts
                             </div>
-                            <ul>
+                            <ul class="checklist-ul">
                                 <?php if ($discount_mm_training_networking) { ?>
                                     <li>
                                         <strong>
@@ -1371,7 +1371,39 @@ function join_us_v2()
                             </ul>
                         </div>
                     <?php } ?>
+                    <?php
+                    $marketing_level = cb_value($package->ID, 'marketing_level');
+                    ?>
+                    <div class="feature feature-member-only">
+                        <div class="feature-title">
+                            Marketing: <?= $marketing_level ?>
+                        </div>
+                        <ul class="checklist-ul">
+                            <?php foreach ($packages_members_only as $members_only) { ?>
+                                <?php
 
+                                if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
+                                    $text = $taxonomy_terms_custom_text_array[$members_only->slug];
+                                } else {
+                                    $text = false;
+                                }
+
+                                if ($text && $text != '&nbsp;') {
+                                    echo "<li>$text</li>";
+                                } else {
+                                    if (has_term($members_only->slug, $taxonomy, $package->ID)) {
+                                        $text = $members_only->name;
+                                        $term_val = 'has_term';
+                                        echo "<li>$text</li>";
+                                    }
+                                }
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                }
+                                ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
             <?php } ?>
         </div>
