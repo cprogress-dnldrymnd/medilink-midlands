@@ -1750,7 +1750,8 @@ body.header-title-style-2 #primary {
   display: flex;
   flex-direction: column; }
   .header-title-breadcrumb-overlay .col-md-12 h1 {
-    order: 2; }
+    order: 2;
+    margin-bottom: 20px; }
   .header-title-breadcrumb-overlay .col-md-12 .breadcrumb {
     order: 1; }
   .header-title-breadcrumb-overlay .col-md-12 .title-area-desc {
