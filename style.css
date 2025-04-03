@@ -1778,7 +1778,7 @@ body.header-title-style-2 #primary {
   border: none; }
 .select-2-style-2 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   padding: 0; }
-.select-2-style-2 .select2-container .select2-search--inline {
-  width: 100%; }
+.select-2-style-2 .select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: none; }
 
 /*# sourceMappingURL=style.css.map */
