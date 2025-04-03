@@ -379,20 +379,3 @@ function mycustom_wpcf7_form_elements($form)
     $form = do_shortcode($form);
     return $form;
 }
-
-
-add_filter( 'wpcf7_feedback_response', 'wp_kama_wpcf7_feedback_response_filter', 10, 2 );
-
-/**
- * Function for `wpcf7_feedback_response` filter-hook.
- * 
- * @param  $response 
- * @param  $result   
- *
- * @return 
- */
-function wp_kama_wpcf7_feedback_response_filter( $response, $result ){
-
-	// filter...
-	return $response;
-}
