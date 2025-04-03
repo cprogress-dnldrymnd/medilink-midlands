@@ -1764,6 +1764,11 @@ body.header-title-style-2 #primary {
   border-radius: 10px !important;
   background-color: #f9f9f9 !important;
   width: 100%;
-  height: auto; }
+  height: auto;
+  border: 1px solid #ececec; }
+
+#bbpress-forums div.wp-editor-container.wp-editor-container {
+  border-radius: 10px;
+  overflow: hidden; }
 
 /*# sourceMappingURL=style.css.map */
