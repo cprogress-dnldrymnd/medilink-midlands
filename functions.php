@@ -171,7 +171,7 @@ function save_cf7_to_custom_post($contact_form)
         $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : '';
         $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? $posted_data['submit_offer_supporting_resource'] : false;
         $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false;
-        $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false;
+        $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'] : false;
         $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'] : false;
 
         $post_data = array();
