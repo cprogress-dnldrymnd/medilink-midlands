@@ -381,7 +381,7 @@ function mycustom_wpcf7_form_elements($form)
 }
 
 
-add_filter('wpcf7_feedback_response', 'wp_kama_wpcf7_feedback_response_filter', 10, 2);
+add_filter( 'wpcf7_feedback_response', 'wp_kama_wpcf7_feedback_response_filter', 10, 2 );
 
 /**
  * Function for `wpcf7_feedback_response` filter-hook.
@@ -391,9 +391,8 @@ add_filter('wpcf7_feedback_response', 'wp_kama_wpcf7_feedback_response_filter', 
  *
  * @return 
  */
-function wp_kama_wpcf7_feedback_response_filter($response, $result)
-{
+function wp_kama_wpcf7_feedback_response_filter( $response, $result ){
 
-    // filter...
-    return $result . $response;
+	// filter...
+	return 's'.$response;
 }
