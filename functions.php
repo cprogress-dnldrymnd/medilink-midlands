@@ -356,16 +356,16 @@ function custom_class($classes)
 
 function action_wp_footer()
 {
-    $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
+    $title_area_description = get_post_meta(get_the_ID(), 'header_title_style', true);
     if ($title_area_description) { ?>
 
         <script>
             jQuery(document).ready(function() {
-                console.log(jQuery.trim('<?= $title_area_description ?>'));
+                jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
             });
         </script>
 
-    <?php
+<?php
     }
 }
 
