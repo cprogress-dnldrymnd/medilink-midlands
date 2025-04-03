@@ -1732,7 +1732,7 @@ body.header-title-style-2 #primary {
           background-color: transparent !important;
           padding: 0 !important; }
           .package-mobile-holder .package-mobile-item .features-mobile-holder .checklist-ul li:before {
-            content: '';
+            content: "";
             display: inline-block;
             width: 16px;
             height: 16px;
@@ -1745,5 +1745,15 @@ body.header-title-style-2 #primary {
       .package-mobile-holder .package-mobile-item {
         width: 100%;
         flex: 0 0 100%; } }
+
+.header-title-breadcrumb-overlay .col-md-12 {
+  display: flex;
+  flex-direction: column; }
+  .header-title-breadcrumb-overlay .col-md-12 h1 {
+    order: 1; }
+  .header-title-breadcrumb-overlay .col-md-12 .breadcrumb {
+    order: 2; }
+  .header-title-breadcrumb-overlay .col-md-12 .title-area-desc {
+    order: 3; }
 
 /*# sourceMappingURL=style.css.map */
