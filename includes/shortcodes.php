@@ -726,7 +726,7 @@ function offer_category()
         'taxonomy'   => 'membersmarketplace_category',
         'hide_empty' => false,
     ));
-    $select = '<select name="offer_category_pseudo" id="offer_category_pseudo" multiple>';
+    $select = '<select name="offer_category_pseudo[]" id="offer_category_pseudo" multiple>';
     $select .= '<option>Select Category</option>';
     foreach ($terms as $term) {
         $select .= '<option value="' . $term->term_id . '">';

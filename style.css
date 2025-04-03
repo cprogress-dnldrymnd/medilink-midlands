@@ -1789,6 +1789,7 @@ body.header-title-style-2 #primary {
 .select-2-style-2 .select2-container .select2-search--inline {
   flex: 1 0 0%; }
 .select-2-style-2 .select2-container--default .select2-search--inline .select2-search__field {
-  width: 100% !important; }
+  width: 100% !important;
+  padding: 0 !important; }
 
 /*# sourceMappingURL=style.css.map */

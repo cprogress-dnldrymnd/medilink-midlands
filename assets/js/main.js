@@ -25,9 +25,6 @@ function select__2() {
         maximumSelectionLength: 3,
     });
 
-    jQuery('.select-2-category select').select2({
-        placeholder: "Offer Category",
-    });
 
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
         var selectedValues = jQuery(this).val();
@@ -51,7 +48,7 @@ function select__2() {
         }
     });
 
- 
+
 
     jQuery('body').on('click', '.selected-sectors .selected-sector', function () {
         // The value you want to remove. Change this to the actual value.
@@ -65,6 +62,23 @@ function select__2() {
             }
             return null;
         }).trigger('change');
+    });
+
+    // Initialize Select2 for the category select element
+
+    jQuery('.select-2-category select').select2({
+        placeholder: "Offer Category",
+    });
+
+
+    jQuery('select[name="offer_category_pseudo[]"]').on('change', function () {
+        var selectedValues = jQuery(this).val();
+
+        if (selectedValues) {
+            jQuery('input[name="submit_offer_category"]').val(selectedValues.join(", "));
+        } else {
+            jQuery('input[name="submit_offer_category"]').val('');
+        }
     });
 
 }
