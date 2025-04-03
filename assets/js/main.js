@@ -25,6 +25,10 @@ function select__2() {
         maximumSelectionLength: 3,
     });
 
+    jQuery('.select-2-category select').select2({
+        placeholder: "Offer Category",
+    });
+
     jQuery('select[name="more-sectors-pseudo[]"]').on('change', function () {
         var selectedValues = jQuery(this).val();
         // Clear the existing list items
