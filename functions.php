@@ -356,7 +356,7 @@ function custom_class($classes)
 
 function action_wp_footer()
 {
-    $title_area_description = get_post_meta(get_the_ID(), 'header_title_style', true);
+    $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
     if ($title_area_description) { ?>
 
         <script>
