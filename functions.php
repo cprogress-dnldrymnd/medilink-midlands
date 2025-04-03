@@ -361,7 +361,7 @@ function action_wp_footer()
 
         <script>
             jQuery(document).ready(function() {
-                console.log('xxx');
+                console.log($title_area_description);
             });
         </script>
 
