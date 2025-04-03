@@ -368,3 +368,5 @@ function action_wp_footer()
 <?php
     }
 }
+
+add_action('wp_footer', 'action_wp_footer');
