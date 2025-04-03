@@ -1757,4 +1757,13 @@ body.header-title-style-2 #primary {
   .header-title-breadcrumb-overlay .col-md-12 .title-area-desc {
     order: 3; }
 
+#bbpress-forums fieldset.bbp-form.bbp-form input[type="password"],
+#bbpress-forums fieldset.bbp-form.bbp-form input[type="text"],
+#bbpress-forums fieldset.bbp-form.bbp-form select {
+  box-shadow: none !important;
+  border-radius: 10px !important;
+  background-color: #f9f9f9 !important;
+  width: 100%;
+  height: auto; }
+
 /*# sourceMappingURL=style.css.map */
