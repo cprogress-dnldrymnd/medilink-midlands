@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var wpcf7Elm = document.querySelector('.wpcf7'); // Adjust selector if needed
 
     if (wpcf7Elm) {
+        console.log('WPCF7 is present!');
         wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
             // Success message
             var responseOutput = wpcf7Elm.querySelector('.wpcf7-response-output');
