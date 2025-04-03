@@ -198,7 +198,8 @@ function save_cf7_to_custom_post($contact_form)
                 }
             }
             if ($submit_offer_category) {
-                wp_set_post_terms($post_id, $submit_offer_category, 'membersmarketplace_category');
+                $submit_offer_category_arr = explode(',', $submit_offer_category);
+                wp_set_post_terms($post_id, $submit_offer_category_arr, 'membersmarketplace_category');
             }
         }
     } else if ($form_id == 50282) {
@@ -372,8 +373,9 @@ function action_wp_footer()
 add_action('wp_footer', 'action_wp_footer');
 
 
-add_filter( 'wpcf7_form_elements', 'mycustom_wpcf7_form_elements' );
-function mycustom_wpcf7_form_elements( $form ) {
-    $form = do_shortcode( $form );
+add_filter('wpcf7_form_elements', 'mycustom_wpcf7_form_elements');
+function mycustom_wpcf7_form_elements($form)
+{
+    $form = do_shortcode($form);
     return $form;
 }
