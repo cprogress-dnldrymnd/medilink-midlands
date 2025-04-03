@@ -2037,7 +2037,7 @@ body {
         border: none;
     }
     .select2-container--default .select2-selection--multiple .select2-selection__rendered {
-        padding: 0;
+        padding: 0 0 0 55px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -2045,8 +2045,11 @@ body {
     .select2-container--default.select2-container--focus .select2-selection--multiple {
         border: none;
     }
+    .select2-container .select2-search--inline{
+        flex: 1 0 0%;
+        
+    }
     .select2-container--default .select2-search--inline .select2-search__field {
         width: 100% !important;
-        flex: 1 0 0%;
     }
 }
