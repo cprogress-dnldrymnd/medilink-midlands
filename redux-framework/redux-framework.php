@@ -79,12 +79,7 @@ if (class_exists('Redux')) {
                     array(
                         'id' => 'title_area_description',
                         'title' => __('Title Area Description', 'redux-framework-demo'),
-                        'type' => 'select',
-                        'options' => array(
-                            'style-default' => 'Default',
-                            'style-1' => 'Style 1',
-                            'style-2' => 'Style 2'
-                        )
+                        'type' => 'textarea',
                     ),
                 ),
             );
