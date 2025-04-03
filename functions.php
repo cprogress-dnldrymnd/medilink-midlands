@@ -394,5 +394,5 @@ add_filter( 'wpcf7_feedback_response', 'wp_kama_wpcf7_feedback_response_filter',
 function wp_kama_wpcf7_feedback_response_filter( $response, $result ){
 
 	// filter...
-	return $response;
+	return $result;
 }
