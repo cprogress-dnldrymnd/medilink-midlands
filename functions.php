@@ -370,3 +370,10 @@ function action_wp_footer()
 }
 
 add_action('wp_footer', 'action_wp_footer');
+
+
+add_filter( 'wpcf7_form_elements', 'mycustom_wpcf7_form_elements' );
+function mycustom_wpcf7_form_elements( $form ) {
+    $form = do_shortcode( $form );
+    return $form;
+}

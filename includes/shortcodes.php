@@ -726,14 +726,15 @@ function offer_category()
         'taxonomy'   => 'membersmarketplace_category',
         'hide_empty' => false,
     ));
-    $select = '<option>Select Category</option>';
+    $select = '<select name="offer_category_pseudo" id="offer_category_pseudo" multiple>';
+    $select .= '<option>Select Category</option>';
     foreach ($terms as $term) {
         $select .= '<option value="' . $term->term_id . '">';
         //$select[$term->term_id] = $term->name;
         $select .= $term->name;
         $select .= '</option>';
     }
-
+    $select .= '</select>';
     return $select;
 }
 add_shortcode('offer_category', 'offer_category');
