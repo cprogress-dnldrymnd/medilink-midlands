@@ -370,20 +370,3 @@ function action_wp_footer()
 }
 
 add_action('wp_footer', 'action_wp_footer');
-
-function action_wp_head()
-{
-    $title_area_description = get_post_meta(get_the_ID(), 'header_title_style', true);
-    if ($title_area_description) { ?>
-
-        <style>
-            .header-title-breadcrumb .col-md-12.text-left:after {
-                content: 'sss' !important;
-            }
-        </style>
-
-<?php
-    }
-}
-
-add_action('wp_head', 'action_wp_head');
