@@ -2029,6 +2029,10 @@ body {
 }
 
 .select-2-style-2 {
+    .select2-container .select2-selection--multiple .select2-selection__rendered {
+        border-radius: 10px !important;
+        background-color: #f9f9f9 !important;
+    }
     .select2-container--default .select2-selection--multiple {
         border: none;
     }
@@ -2038,5 +2042,7 @@ body {
     .select2-container--default.select2-container--focus .select2-selection--multiple {
         border: none;
     }
-
+    .select2-container--default .select2-search--inline .select2-search__field {
+        width: auto !important;
+    }
 }

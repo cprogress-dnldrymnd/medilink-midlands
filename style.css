@@ -1774,11 +1774,16 @@ body.header-title-style-2 #primary {
 #bbpress-forums div.bbp-template-notice img.avatar.avatar {
   display: none; }
 
+.select-2-style-2 .select2-container .select2-selection--multiple .select2-selection__rendered {
+  border-radius: 10px !important;
+  background-color: #f9f9f9 !important; }
 .select-2-style-2 .select2-container--default .select2-selection--multiple {
   border: none; }
 .select-2-style-2 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
   padding: 0; }
 .select-2-style-2 .select2-container--default.select2-container--focus .select2-selection--multiple {
   border: none; }
+.select-2-style-2 .select2-container--default .select2-search--inline .select2-search__field {
+  width: auto !important; }
 
 /*# sourceMappingURL=style.css.map */
