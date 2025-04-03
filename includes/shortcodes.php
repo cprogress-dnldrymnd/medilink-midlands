@@ -730,7 +730,6 @@ function offer_category()
     $select .= '<option>Select Category</option>';
     foreach ($terms as $term) {
         $select .= '<option value="' . $term->term_id . '">';
-        //$select[$term->term_id] = $term->name;
         $select .= $term->name;
         $select .= '</option>';
     }
