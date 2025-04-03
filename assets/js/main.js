@@ -214,8 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var wpcf7Elm = document.querySelector('.wpcf7'); // Adjust selector if needed
 
     if (wpcf7Elm) {
-        console.log('WPCF7 is present!');
-        wpcf7Elm.addEventListener('wpcf7mailsent', function (event) {
+        document.addEventListener('wpcf7mailsent', function (event) {
             // Success message
             var responseOutput = wpcf7Elm.querySelector('.wpcf7-response-output');
             if (responseOutput) {
@@ -223,20 +222,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 var successSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="green" aria-hidden="true" style="vertical-align: middle; margin-right: 5px;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
                 // Prepend the SVG to the existing message
                 responseOutput.innerHTML = successSVG + responseOutput.innerHTML;
+
+                console.log(successSVG);
+
             }
+
+
         }, false);
 
-        wpcf7Elm.addEventListener('wpcf7invalid', function (event) {
+        document.addEventListener('wpcf7invalid', function (event) {
             // Validation error message
             var responseOutput = wpcf7Elm.querySelector('.wpcf7-response-output');
             if (responseOutput) {
                 // Define your error SVG code here
                 var errorSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="orange" aria-hidden="true" style="vertical-align: middle; margin-right: 5px;"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>';
                 responseOutput.innerHTML = errorSVG + responseOutput.innerHTML;
+
+                console.log(errorSVG);
+
             }
         }, false);
 
-        wpcf7Elm.addEventListener('wpcf7spam', function (event) {
+        document.addEventListener('wpcf7spam', function (event) {
             // Spam message
             var responseOutput = wpcf7Elm.querySelector('.wpcf7-response-output');
             if (responseOutput) {
@@ -246,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }, false);
 
-        wpcf7Elm.addEventListener('wpcf7mailfailed', function (event) {
+        document.addEventListener('wpcf7mailfailed', function (event) {
             // Mail sending failed message (server error)
             var responseOutput = wpcf7Elm.querySelector('.wpcf7-response-output');
             if (responseOutput) {
