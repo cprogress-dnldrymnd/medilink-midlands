@@ -1782,6 +1782,7 @@ body.header-title-style-2 #primary {
   width: 100%; }
 .select-2-style-2 .select2-container--default .select2-search--inline .select2-search__field {
   width: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  padding-left: 55px !important; }
 
 /*# sourceMappingURL=style.css.map */
