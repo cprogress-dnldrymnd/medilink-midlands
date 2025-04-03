@@ -1771,4 +1771,7 @@ body.header-title-style-2 #primary {
   border-radius: 10px;
   overflow: hidden; }
 
+#bbpress-forums div.bbp-template-notice img.avatar.avatar {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */
