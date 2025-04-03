@@ -167,12 +167,12 @@ function save_cf7_to_custom_post($contact_form)
 
     if ($form_id == 50054) {
         // Sanitize and validate data (crucial!).
-        $post_title = isset($posted_data['submit_offer_title']) ? sanitize_text_field($posted_data['submit_offer_title']) : 'Contact Form Submission'; 
-        $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : ''; 
-        $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? $posted_data['submit_offer_supporting_resource'] : false; 
-        $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false; 
-        $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false; 
-        $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'] : false; 
+        $post_title = isset($posted_data['submit_offer_title']) ? sanitize_text_field($posted_data['submit_offer_title']) : 'Contact Form Submission';
+        $post_content = isset($posted_data['submit_offer_details']) ? wp_kses_post($posted_data['submit_offer_details']) : '';
+        $submit_offer_supporting_resource = isset($posted_data['submit_offer_supporting_resource']) ? $posted_data['submit_offer_supporting_resource'] : false;
+        $submit_offer_supporting_image = isset($posted_data['submit_offer_supporting_image']) ? $posted_data['submit_offer_supporting_image'][0]  : false;
+        $submit_offer_category = isset($posted_data['submit_offer_category']) ? $posted_data['submit_offer_category'][0] : false;
+        $submit_offer_user_id = isset($posted_data['submit_offer_user_id']) ? $posted_data['submit_offer_user_id'] : false;
 
         $post_data = array();
 
@@ -203,11 +203,11 @@ function save_cf7_to_custom_post($contact_form)
         }
     } else if ($form_id == 50282) {
         // Sanitize and validate data (crucial!).
-        $post_title = isset($posted_data['submit_blog_title']) ? sanitize_text_field($posted_data['submit_blog_title']) : 'Contact Form Submission'; 
-        $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : ''; 
-        $submit_blog_featured_image = isset($posted_data['submit_blog_featured_image']) ? $posted_data['submit_blog_featured_image'][0]  : false; 
-        $submit_blog_user_id = isset($posted_data['submit_blog_user_id']) ? $posted_data['submit_blog_user_id'] : false; 
-        $submit_blog_category = isset($posted_data['submit_blog_category']) ? $posted_data['submit_blog_category'][0] : false; 
+        $post_title = isset($posted_data['submit_blog_title']) ? sanitize_text_field($posted_data['submit_blog_title']) : 'Contact Form Submission';
+        $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : '';
+        $submit_blog_featured_image = isset($posted_data['submit_blog_featured_image']) ? $posted_data['submit_blog_featured_image'][0]  : false;
+        $submit_blog_user_id = isset($posted_data['submit_blog_user_id']) ? $posted_data['submit_blog_user_id'] : false;
+        $submit_blog_category = isset($posted_data['submit_blog_category']) ? $posted_data['submit_blog_category'][0] : false;
 
         $post_data = array();
 
@@ -221,10 +221,10 @@ function save_cf7_to_custom_post($contact_form)
         if (is_user_logged_in()) {
             $post_data['post_author'] = $submit_blog_user_id;
         } else {
-            $submit_blog_full_name = isset($posted_data['submit_blog_full_name']) ? wp_kses_post($posted_data['submit_blog_full_name']) : ''; 
-            $submit_blog_email_address = isset($posted_data['submit_blog_email_address']) ? wp_kses_post($posted_data['submit_blog_email_address']) : ''; 
-            $submit_blog_organisation = isset($posted_data['submit_blog_organisation']) ? wp_kses_post($posted_data['submit_blog_organisation']) : ''; 
-            $submit_blog_phone_number = isset($posted_data['submit_blog_phone_number']) ? wp_kses_post($posted_data['submit_blog_phone_number']) : ''; 
+            $submit_blog_full_name = isset($posted_data['submit_blog_full_name']) ? wp_kses_post($posted_data['submit_blog_full_name']) : '';
+            $submit_blog_email_address = isset($posted_data['submit_blog_email_address']) ? wp_kses_post($posted_data['submit_blog_email_address']) : '';
+            $submit_blog_organisation = isset($posted_data['submit_blog_organisation']) ? wp_kses_post($posted_data['submit_blog_organisation']) : '';
+            $submit_blog_phone_number = isset($posted_data['submit_blog_phone_number']) ? wp_kses_post($posted_data['submit_blog_phone_number']) : '';
 
 
             $post_data['meta_input'] = [];
@@ -337,7 +337,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
             </div>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -352,4 +352,19 @@ function custom_class($classes)
         $classes[] = 'header-title-' . $header_title_style;
     }
     return $classes;
+}
+
+function action_wp_footer()
+{
+    $title_area_description = get_post_meta(get_the_ID(), 'header_title_style', true);
+    if ($title_area_description) { ?>
+
+        <script>
+            jQuery(document).ready(function() {
+                jQuery('<div class="title-area-desc"><?= wpautop($title_area_description) ?></div>').insertAfter('.breadcrumb');
+            });
+        </script>
+
+<?php
+    }
 }
