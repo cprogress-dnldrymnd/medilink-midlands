@@ -361,6 +361,7 @@ function action_wp_footer()
 
         <script>
             jQuery(document).ready(function() {
+                console.log('xxx');
                 jQuery('<div class="title-area-desc"><?= wpautop($title_area_description) ?></div>').insertAfter('.breadcrumb');
             });
         </script>
