@@ -6,13 +6,7 @@
  */
 
 ?>
-<?php if (is_bbpress()) { ?>
-    <div class="featured-articles">
-        <div class="container">
-            <?= do_shortcode('[featured_articles]') ?>
-        </div>
-    </div>
-<?php } ?>
+
 <?php if (get_post_type() == 'mt_listing') { ?>
     <div class="resources-footer">
         <div class="container">
