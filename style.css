@@ -1849,6 +1849,9 @@ body.header-title-style-2 #primary {
     padding: 0; }
 
   .single.single-post .article-header .article-details .post-title {
-    padding: 0; } }
+    padding: 0; }
+
+  .box-shadow-inner.box-shadow-inner.box-shadow-inner img {
+    width: auto; } }
 
 /*# sourceMappingURL=style.css.map */
