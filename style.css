@@ -1852,6 +1852,7 @@ body.header-title-style-2 #primary {
     padding: 0; }
 
   .box-shadow-inner.box-shadow-inner.box-shadow-inner img {
-    width: auto; } }
+    width: auto;
+    max-width: 100px; } }
 
 /*# sourceMappingURL=style.css.map */
