@@ -15,14 +15,15 @@ if (is_tax()) {
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                    <h1><?= $title ?></h1>
-                    <p style="margin-bottom: 2rem">
-                        Welcome to the Member Marketplace submission area.
-                    </p>
                     <ol class="breadcrumb text-left">
                         <li><a href="https://medilink.theprogressteam.com/">Home</a></li>
                         <li>MEMBERS MARKETPLACE</li>
                     </ol>
+
+                    <h1><?= $title ?></h1>
+                    <p style="margin-bottom: 2rem">
+                        Welcome to the Member Marketplace submission area.
+                    </p>
 
                     <div class="modeltheme_button wow bounce animated" style="margin-top: 40px; visibility: visible;"><a href="#submit-offer" class="button-winona button-green btn btn-sm">Submit an offer</a></div>
                 </div>
