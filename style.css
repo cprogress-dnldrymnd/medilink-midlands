@@ -1828,5 +1828,18 @@ body.header-title-style-2 #primary {
 
   .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
     display: none; } }
+@media (max-width: 575px) {
+  .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
+    flex-direction: column; }
+    .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail {
+      position: relative;
+      padding: 30%; }
+      .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail .blog_post_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; } }
 
 /*# sourceMappingURL=style.css.map */
