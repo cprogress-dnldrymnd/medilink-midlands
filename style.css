@@ -1461,6 +1461,11 @@ body.header-title-style-2 #primary {
       @media (max-width: 1199px) {
         .um-profile.um-profile.um-profile .um-form .um-profile-body {
           padding-top: 150px; } }
+      @media (max-width: 767px) {
+        .um-profile.um-profile.um-profile .um-form .um-profile-body {
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 80px; } }
     .um-profile.um-profile.um-profile .um-form .um-profile-nav {
       position: absolute;
       top: 150px;
@@ -1581,6 +1586,10 @@ body.header-title-style-2 #primary {
     .um-row .um-col-1 > .um-field {
       width: calc(50% - 10px);
       flex: 0 0 calc(50% - 10px); } }
+  @media (max-width: 1024px) {
+    .um-row .um-col-1 > .um-field {
+      width: 100%;
+      flex: 0 0 100%; } }
 
 .um-register.um-register.um-register {
   max-width: 600px; }
