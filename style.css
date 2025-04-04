@@ -1812,5 +1812,14 @@ body.header-title-style-2 #primary {
     width: 100%;
     text-align: center;
 }*/
+@media (max-width: 767px) {
+  #modeltheme-main-head .container {
+    background-color: var(--accent-color); }
+    #modeltheme-main-head .container .navbar-header {
+      padding-left: 0; }
+  #modeltheme-main-head .logo {
+    margin: 0 !important;
+    background-color: var(--white-color);
+    padding: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
