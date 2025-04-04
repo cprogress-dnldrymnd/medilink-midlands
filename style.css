@@ -1831,10 +1831,10 @@ body.header-title-style-2 #primary {
 @media (max-width: 575px) {
   .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
     flex-direction: column; }
-    .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail {
+    .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail a {
       position: relative;
       padding: 30%; }
-      .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail .blog_post_image {
+      .blogloop-v2.blogloop-no-flex.list-view .blog_custom .post-thumbnail a .blog_post_image {
         position: absolute;
         top: 0;
         left: 0;
