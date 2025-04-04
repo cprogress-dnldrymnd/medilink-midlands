@@ -1991,7 +1991,7 @@ body {
     }
 }
 
-.header-title-breadcrumb-overlay {
+.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
     .col-md-12 {
         display: flex;
         flex-direction: column;
@@ -2006,6 +2006,9 @@ body {
         .desc {
             order: 3;
         }
+    }
+    @media(max-width: 767px) {
+        padding-top: 100px;
     }
 }
 
