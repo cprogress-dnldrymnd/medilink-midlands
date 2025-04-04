@@ -1758,7 +1758,7 @@ body.header-title-style-2 #primary {
   .header-title-breadcrumb:not(.header-title-breadcrumb-custom) .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .desc {
     order: 3; }
 @media (max-width: 767px) {
-  .header-title-breadcrumb:not(.header-title-breadcrumb-custom) {
+  .header-title-breadcrumb .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
     padding-top: 100px; } }
 
 #bbpress-forums fieldset.bbp-form.bbp-form input[type="password"],
