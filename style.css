@@ -1754,7 +1754,8 @@ body.header-title-style-2 #primary {
     margin-bottom: 20px; }
   .header-title-breadcrumb-overlay .col-md-12 .breadcrumb {
     order: 1; }
-  .header-title-breadcrumb-overlay .col-md-12 .title-area-desc {
+  .header-title-breadcrumb-overlay .col-md-12 .title-area-desc,
+  .header-title-breadcrumb-overlay .col-md-12 .desc {
     order: 3; }
 
 #bbpress-forums fieldset.bbp-form.bbp-form input[type="password"],
