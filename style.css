@@ -1746,16 +1746,16 @@ body.header-title-style-2 #primary {
         width: 100%;
         flex: 0 0 100%; } }
 
-.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 {
+.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:not(.header-title-breadcrumb-custom) .col-md-12 {
   display: flex;
   flex-direction: column; }
-  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 h1 {
+  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:not(.header-title-breadcrumb-custom) .col-md-12 h1 {
     order: 2;
     margin-bottom: 20px; }
-  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .breadcrumb {
+  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:not(.header-title-breadcrumb-custom) .col-md-12 .breadcrumb {
     order: 1; }
-  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .title-area-desc,
-  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .desc {
+  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:not(.header-title-breadcrumb-custom) .col-md-12 .title-area-desc,
+  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:not(.header-title-breadcrumb-custom) .col-md-12 .desc {
     order: 3; }
 @media (max-width: 767px) {
   .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
