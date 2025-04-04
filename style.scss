@@ -1990,27 +1990,28 @@ body {
         }
     }
 }
-
-.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
+.header-title-breadcrumb {
     &:not(.header-title-breadcrumb-custom) {
-        .col-md-12 {
-            display: flex;
-            flex-direction: column;
-            h1 {
-                order: 2;
-                margin-bottom: 20px;
-            }
-            .breadcrumb {
-                order: 1;
-            }
-            .title-area-desc,
-            .desc {
-                order: 3;
+        .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
+            .col-md-12 {
+                display: flex;
+                flex-direction: column;
+                h1 {
+                    order: 2;
+                    margin-bottom: 20px;
+                }
+                .breadcrumb {
+                    order: 1;
+                }
+                .title-area-desc,
+                .desc {
+                    order: 3;
+                }
             }
         }
-    }
-    @media (max-width: 767px) {
-        padding-top: 100px;
+        @media (max-width: 767px) {
+            padding-top: 100px;
+        }
     }
 }
 
