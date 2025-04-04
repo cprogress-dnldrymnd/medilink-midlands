@@ -1820,6 +1820,9 @@ body.header-title-style-2 #primary {
   #modeltheme-main-head .logo {
     margin: 0 !important;
     background-color: var(--white-color);
-    padding: 10px; } }
+    padding: 10px; }
+
+  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

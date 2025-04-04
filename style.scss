@@ -2091,4 +2091,7 @@ body {
             padding: 10px;
         }
     }
+    .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
+        display: none;
+    }
 }
