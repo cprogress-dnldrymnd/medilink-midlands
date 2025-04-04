@@ -2099,9 +2099,8 @@ body {
         display: none;
     }
 }
-
-.blogloop-v2.blogloop-no-flex.list-view .blog_custom {
-    @media (max-width: 575px) {
+@media (max-width: 575px) {
+    .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
         flex-direction: column;
         .post-thumbnail {
             a {
@@ -2117,5 +2116,15 @@ body {
                 }
             }
         }
+    }
+    .post-category-comment-date {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+    }
+
+    .single.single-post .article-header .article-details .post-title {
+        padding: 0;
     }
 }
