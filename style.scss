@@ -2154,6 +2154,9 @@ body {
         border: none;
         border-radius: 0;
     }
+    .input-label {
+        min-height: 60px;
+    }
     .codedropz-upload-wrapper {
         padding: 0;
         background-color: transparent !important;
@@ -2162,6 +2165,9 @@ body {
             padding: 0;
             .codedropz-upload-container {
                 padding: 0;
+                .codedropz-upload-inner {
+                    font-size: 0;
+                }
                 .codedropz-btn-wrap {
                     display: flex;
                     align-items: center;

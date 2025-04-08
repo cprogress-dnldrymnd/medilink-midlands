@@ -1866,6 +1866,8 @@ body.header-title-style-2 #primary {
 .upload-file-style-1.upload-file-style-1.upload-file-style-1 label {
   border: none;
   border-radius: 0; }
+.upload-file-style-1.upload-file-style-1.upload-file-style-1 .input-label {
+  min-height: 60px; }
 .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper {
   padding: 0;
   background-color: transparent !important; }
@@ -1874,6 +1876,8 @@ body.header-title-style-2 #primary {
     padding: 0; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container {
       padding: 0; }
+      .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-upload-inner {
+        font-size: 0; }
       .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-btn-wrap {
         display: flex;
         align-items: center;
