@@ -1877,7 +1877,8 @@ body.header-title-style-2 #primary {
     font-size: 0;
     background: #f7f8fa !important;
     padding: 10px 25px;
-    height: 45px; }
+    height: 45px;
+    cursor: pointer; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-btn-wrap:before {
       content: "Upload";
       font-size: 15px; }
