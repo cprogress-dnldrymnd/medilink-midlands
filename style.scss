@@ -2156,9 +2156,12 @@ body {
     }
     .codedropz-upload-wrapper {
         padding: 0;
-        background-color: transparent;
+        background-color: transparent !important;
         .codedropz-upload-handler {
+            border: none;
+            padding: 0;
             .codedropz-upload-container {
+                padding: 0;
                 .codedropz-btn-wrap {
                     display: flex;
                     align-items: center;
