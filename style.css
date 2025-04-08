@@ -1876,7 +1876,8 @@ body.header-title-style-2 #primary {
     padding: 0; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .dnd-upload-counter {
       bottom: -4px;
-      font-size: 10px; }
+      font-size: 10px;
+      display: none; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container {
       padding: 0; }
       .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-upload-inner {
