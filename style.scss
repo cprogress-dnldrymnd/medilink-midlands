@@ -2155,6 +2155,8 @@ body {
         border-radius: 0;
     }
     .codedropz-upload-wrapper {
+        padding: 0;
+        background-color: transparent;
         .codedropz-upload-handler {
             .codedropz-upload-container {
                 .codedropz-btn-wrap {
@@ -2163,6 +2165,9 @@ body {
                     gap: 10px;
                     justify-content: space-between;
                     font-size: 0;
+                    background: #f7f8fa !important;
+                    padding: 10px 25px;
+                    height: 45px;
                     &:before {
                         content: "Upload";
                         font-size: 15px;
