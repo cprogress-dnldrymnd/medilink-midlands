@@ -2164,12 +2164,14 @@ body {
             border: none;
             padding: 0;
             .dnd-upload-counter {
-                bottom: -2px;
+                bottom: -4px;
+                font-size: 10px;
             }
             .codedropz-upload-container {
                 padding: 0;
                 .codedropz-upload-inner {
                     font-size: 0;
+                    line-height: 0;
                 }
                 .codedropz-btn-wrap {
                     display: flex;
@@ -2181,6 +2183,7 @@ body {
                     padding: 10px 25px;
                     height: 45px;
                     cursor: pointer;
+                    border-radius: 10px !important;
                     &:before {
                         content: "Upload";
                         font-size: 15px;

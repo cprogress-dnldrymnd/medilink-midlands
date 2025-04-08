@@ -1875,11 +1875,13 @@ body.header-title-style-2 #primary {
     border: none;
     padding: 0; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .dnd-upload-counter {
-      bottom: -2px; }
+      bottom: -4px;
+      font-size: 10px; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container {
       padding: 0; }
       .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-upload-inner {
-        font-size: 0; }
+        font-size: 0;
+        line-height: 0; }
       .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-btn-wrap {
         display: flex;
         align-items: center;
@@ -1889,7 +1891,8 @@ body.header-title-style-2 #primary {
         background: #f7f8fa !important;
         padding: 10px 25px;
         height: 45px;
-        cursor: pointer; }
+        cursor: pointer;
+        border-radius: 10px !important; }
         .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-btn-wrap:before {
           content: "Upload";
           font-size: 15px; }
