@@ -1874,6 +1874,8 @@ body.header-title-style-2 #primary {
   .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler {
     border: none;
     padding: 0; }
+    .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .dnd-upload-counter {
+      bottom: -2px; }
     .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container {
       padding: 0; }
       .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-upload-inner {

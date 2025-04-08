@@ -2163,6 +2163,9 @@ body {
         .codedropz-upload-handler {
             border: none;
             padding: 0;
+            .dnd-upload-counter {
+                bottom: -2px;
+            }
             .codedropz-upload-container {
                 padding: 0;
                 .codedropz-upload-inner {
