@@ -385,6 +385,8 @@ function delete_post_type()
 {
     unregister_post_type('mt_portfolio');
     unregister_post_type('mt_changelog');
+    unregister_post_type('clients');
+    unregister_post_type('member');
 }
 add_action('init', 'delete_post_type');
 
