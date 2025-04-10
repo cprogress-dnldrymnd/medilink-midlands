@@ -379,3 +379,5 @@ function mycustom_wpcf7_form_elements($form)
     $form = do_shortcode($form);
     return $form;
 }
+
+unregister_post_type('mt_portfolio');
