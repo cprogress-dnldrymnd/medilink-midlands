@@ -404,7 +404,7 @@ add_action('admin_head', 'action_admin_head');
 
 add_filter('wp_prepare_themes_for_js', function ($themes) {
 
-    $sc = get_stylesheet_directory_uri() . '/screenshot.png';
+    $sc = get_stylesheet_directory_uri() . '/screenshot-theme.png';
 
     $themes['wikb']['screenshot'][0] = $sc;
     $themes['wikb']['name'] = 'Medilink Midlands';
