@@ -384,5 +384,6 @@ function mycustom_wpcf7_form_elements($form)
 function delete_post_type()
 {
     unregister_post_type('mt_portfolio');
+    unregister_post_type('mt_changelog');
 }
 add_action('init', 'delete_post_type');
