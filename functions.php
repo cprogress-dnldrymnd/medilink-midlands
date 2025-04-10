@@ -380,4 +380,9 @@ function mycustom_wpcf7_form_elements($form)
     return $form;
 }
 
-unregister_post_type('mt_portfolio');
+
+function delete_post_type()
+{
+    unregister_post_type('mt_portfolio');
+}
+add_action('init', 'delete_post_type');
