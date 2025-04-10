@@ -387,3 +387,14 @@ function delete_post_type()
     unregister_post_type('mt_changelog');
 }
 add_action('init', 'delete_post_type');
+
+function action_admin_head() {
+    ?>
+    <style>
+        #toplevel_page_WikbChild {
+            display: none;
+        }
+    </style>
+    <?php
+}
+add_action('admin_head', 'action_admin_head');
