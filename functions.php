@@ -366,7 +366,7 @@ function action_wp_footer()
             });
         </script>
 
-<?php
+    <?php
     }
 }
 
@@ -390,13 +390,33 @@ function delete_post_type()
 }
 add_action('init', 'delete_post_type');
 
-function action_admin_head() {
+function action_admin_head()
+{
     ?>
     <style>
         #toplevel_page_WikbChild {
             display: none;
         }
     </style>
-    <?php
+<?php
 }
 add_action('admin_head', 'action_admin_head');
+
+add_filter('wp_prepare_themes_for_js', function ($themes) {
+
+    $sc = get_stylesheet_directory_uri() . '/screenshot.png';
+
+    $themes['wikb']['screenshot'][0] = $sc;
+    $themes['wikb']['name'] = 'Medilink Midlands';
+    $themes['wikb']['description'] = '';
+    $themes['wikb']['authorAndUri'] = 'Digitally Disruptive';
+    $themes['wikb']['tags'] = '';
+
+
+    $themes['wikb-child']['name'] = 'Medilink Midlands Child';
+    $themes['wikb-child']['description'] = '';
+    $themes['wikb-child']['authorAndUri'] = 'Digitally Disruptive';
+    $themes['wikb-child']['tags'] = '';
+
+    return $themes;
+});
