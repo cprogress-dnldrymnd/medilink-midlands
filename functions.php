@@ -417,6 +417,8 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
     $themes['wikb-child']['description'] = '';
     $themes['wikb-child']['authorAndUri'] = 'Digitally Disruptive';
     $themes['wikb-child']['tags'] = '';
+    $themes['wikb-child']['screenshot'][0] = $sc;
+
 
     return $themes;
 });
