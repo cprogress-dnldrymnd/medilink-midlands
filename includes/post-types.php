@@ -138,18 +138,6 @@ class newTaxonomy
 
 
 
-$membersmarketplace = new newPostType();
-$membersmarketplace->key = 'membersmarketplace';
-$membersmarketplace->name = 'Member Marketplace';
-$membersmarketplace->singular_name = 'Member Marketplace';
-$membersmarketplace->icon = 'dashicons-format-aside';
-$membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
-$membersmarketplace->exclude_from_search = false;
-$membersmarketplace->publicly_queryable = true;
-$membersmarketplace->show_in_admin_bar = true;
-$membersmarketplace->has_archive = false;
-
-
 $Marketplace = new newTaxonomy();
 $Marketplace->taxonomy = 'membersmarketplace_category';
 $Marketplace->post_type = 'membersmarketplace';
@@ -211,6 +199,20 @@ $Training_Materials->rewrite = array(
     'with_front' => false,
     'slug'         => 'events-and-training-materials',
 );
+
+
+$membersmarketplace = new newPostType();
+$membersmarketplace->key = 'membersmarketplace';
+$membersmarketplace->name = 'Member Marketplace';
+$membersmarketplace->singular_name = 'Member Marketplace';
+$membersmarketplace->icon = 'dashicons-format-aside';
+$membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$membersmarketplace->exclude_from_search = false;
+$membersmarketplace->publicly_queryable = true;
+$membersmarketplace->show_in_admin_bar = true;
+$membersmarketplace->has_archive = false;
+
+
 
 // Add the custom columns to the templates post type:
 add_filter('manage_templates_posts_columns', 'set_custom_edit_templates_columns');
