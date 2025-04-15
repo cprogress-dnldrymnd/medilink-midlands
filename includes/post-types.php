@@ -2,7 +2,7 @@
 class newPostType
 {
     public $name;
-	public $key;
+    public $key;
     public $singular_name;
     public $icon;
     public $supports;
@@ -148,10 +148,10 @@ $Offers->exclude_from_search = false;
 $Offers->publicly_queryable = true;
 $Offers->show_in_admin_bar = true;
 $Offers->has_archive = true;
-$Offers->rewrite =array(
-        'with_front' => true,
-        'slug'         => 'member-marketplace',
-    );
+$Offers->rewrite = array(
+    'with_front' => false,
+    'slug'         => 'member-marketplace-v2',
+);
 
 $Marketplace = new newTaxonomy();
 $Marketplace->taxonomy = 'membersmarketplace_category';
@@ -174,7 +174,8 @@ $Marketplace->args = array(
         'add_or_remove_items'        => __('Add or remove items', 'text_domain'),
         'choose_from_most_used'      => __('Choose from the most used', 'text_domain'),
         'popular_items'              => __('Popular Items', 'text_domain'),
-        'search_items'               => __('Search Items', 'text_domain'),        'not_found'                  => __('Not Found', 'text_domain'),
+        'search_items'               => __('Search Items', 'text_domain'),
+        'not_found'                  => __('Not Found', 'text_domain'),
         'no_terms'                   => __('No items', 'text_domain'),
         'items_list'                 => __('Items list', 'text_domain'),
         'items_list_navigation'      => __('Items list navigation', 'text_domain'),
@@ -209,10 +210,10 @@ $Training_Materials->exclude_from_search = false;
 $Training_Materials->publicly_queryable = true;
 $Training_Materials->show_in_admin_bar = true;
 $Training_Materials->has_archive = true;
-$Training_Materials->rewrite =array(
-        'with_front' => false,
-        'slug'         => 'events-and-training-materials',
-    );
+$Training_Materials->rewrite = array(
+    'with_front' => false,
+    'slug'         => 'events-and-training-materials',
+);
 
 // Add the custom columns to the templates post type:
 add_filter('manage_templates_posts_columns', 'set_custom_edit_templates_columns');
@@ -270,7 +271,8 @@ $Packages_Categories->args = array(
         'add_or_remove_items'        => __('Add or remove items', 'text_domain'),
         'choose_from_most_used'      => __('Choose from the most used', 'text_domain'),
         'popular_items'              => __('Popular Items', 'text_domain'),
-        'search_items'               => __('Search Items', 'text_domain'),        'not_found'                  => __('Not Found', 'text_domain'),
+        'search_items'               => __('Search Items', 'text_domain'),
+        'not_found'                  => __('Not Found', 'text_domain'),
         'no_terms'                   => __('No items', 'text_domain'),
         'items_list'                 => __('Items list', 'text_domain'),
         'items_list_navigation'      => __('Items list navigation', 'text_domain'),
