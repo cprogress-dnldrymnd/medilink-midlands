@@ -200,7 +200,6 @@ $Training_Materials->rewrite = array(
     'slug'         => 'events-and-training-materials',
 );
 
-
 $membersmarketplace = new newPostType();
 $membersmarketplace->key = 'membersmarketplace';
 $membersmarketplace->name = 'Member Marketplace';
@@ -211,7 +210,10 @@ $membersmarketplace->exclude_from_search = false;
 $membersmarketplace->publicly_queryable = true;
 $membersmarketplace->show_in_admin_bar = true;
 $membersmarketplace->has_archive = false;
-
+$membersmarketplace->rewrite = array(
+    'with_front' => false,
+    'slug'         => 'member-marketplace',
+);
 
 
 // Add the custom columns to the templates post type:
