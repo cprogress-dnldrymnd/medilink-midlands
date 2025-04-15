@@ -147,11 +147,8 @@ $membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail
 $membersmarketplace->exclude_from_search = false;
 $membersmarketplace->publicly_queryable = true;
 $membersmarketplace->show_in_admin_bar = true;
-$membersmarketplace->has_archive = true;
-$membersmarketplace->rewrite = array(
-    'with_front' => false,
-    'slug'         => 'member-marketplace',
-);
+$membersmarketplace->has_archive = false;
+
 
 $Marketplace = new newTaxonomy();
 $Marketplace->taxonomy = 'membersmarketplace_category';
