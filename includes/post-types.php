@@ -150,7 +150,7 @@ $Offers->show_in_admin_bar = true;
 $Offers->has_archive = true;
 $Offers->rewrite = array(
     'with_front' => false,
-    'slug'         => 'member-marketplace-v2',
+    'slug'         => 'member-marketplace',
 );
 
 $Marketplace = new newTaxonomy();
