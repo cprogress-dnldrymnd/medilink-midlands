@@ -138,17 +138,17 @@ class newTaxonomy
 
 
 
-$Offers = new newPostType();
-$Offers->key = 'membersmarketplace';
-$Offers->name = 'Member Marketplace';
-$Offers->singular_name = 'Member Marketplace';
-$Offers->icon = 'dashicons-format-aside';
-$Offers->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
-$Offers->exclude_from_search = false;
-$Offers->publicly_queryable = true;
-$Offers->show_in_admin_bar = true;
-$Offers->has_archive = true;
-$Offers->rewrite = array(
+$membersmarketplace = new newPostType();
+$membersmarketplace->key = 'membersmarketplace';
+$membersmarketplace->name = 'Member Marketplace';
+$membersmarketplace->singular_name = 'Member Marketplace';
+$membersmarketplace->icon = 'dashicons-format-aside';
+$membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$membersmarketplace->exclude_from_search = false;
+$membersmarketplace->publicly_queryable = true;
+$membersmarketplace->show_in_admin_bar = true;
+$membersmarketplace->has_archive = true;
+$membersmarketplace->rewrite = array(
     'with_front' => false,
     'slug'         => 'member-marketplace',
 );
