@@ -149,7 +149,7 @@ $Offers->publicly_queryable = true;
 $Offers->show_in_admin_bar = true;
 $Offers->has_archive = true;
 $Offers->rewrite =array(
-        'with_front' => false,
+        'with_front' => true,
         'slug'         => 'member-marketplace',
     );
 
