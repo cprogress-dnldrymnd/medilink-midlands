@@ -461,7 +461,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         } else {
             $message .= 'No specific changes data available.';
         }
-        error_log(print_r($message, true));
+        error_log(print_r($changes, true));
         // Send the email
         //wp_mail($admin_email, $subject, $message);
     }
