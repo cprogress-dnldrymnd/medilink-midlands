@@ -438,7 +438,10 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 function um_notify_admin_on_account_update($user_id, $changes)
 {
     // Get admin email address
-    $admin_email = get_option('admin_email');
+    $ultimate_member_options = get_option('um_options');
+    if (isset($ultimate_member_options['admin_email'])) {
+        $admin_email =  $ultimate_member_options['admin_email'];
+    }
 
     if ($admin_email) {
         $user_info = get_userdata($user_id);

@@ -267,6 +267,12 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     <?php } ?>
 
                     <div class="profile-meta-list-holder">
+                        <?php
+                        $ultimate_member_options = get_option('um_options');
+                        if (isset($ultimate_member_options['admin_email'])) {
+                           echo  $admin_email =  $ultimate_member_options['admin_email'];
+                        }
+                        ?>
                         <ul class="profile-meta-list">
                             <?php if ($job_role) { ?>
                                 <li><?= $job_role ?></li>
