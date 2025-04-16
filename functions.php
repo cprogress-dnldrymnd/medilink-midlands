@@ -461,7 +461,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         } else {
             $message .= 'No specific changes data available.';
         }
-        $user_meta = get_user_meta($user_id, 'user_meta_previous');
+        $user_meta = get_user_meta($user_id, 'user_meta_previous', true);
 
         error_log(print_r($changes, true));
         error_log(print_r($user_meta, true));
