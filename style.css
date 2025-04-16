@@ -1521,6 +1521,11 @@ body.header-title-style-2 #primary {
         text-transform: uppercase; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder {
       margin-top: 32px; }
+      .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .org-description {
+        margin-top: 30px; }
+        .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .org-description * {
+          color: var(--gray-color);
+          font-size: 16px; }
       .um-profile.um-profile.um-profile .um-main-meta-v2 .profile-meta-list-holder .profile-meta-list {
         display: flex;
         flex-wrap: wrap;
