@@ -563,6 +563,7 @@ function member_directory()
                                     echo membership_listing();
                                     ?>
                                 <?php } ?>
+                                <?php wp_reset_postdata()?>
                             <?php } ?>
                         </div>
                     </div>
