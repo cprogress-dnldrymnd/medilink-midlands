@@ -216,17 +216,17 @@ $membersmarketplace->rewrite = array(
 );
 
 
-$Training_Materials = new newPostType();
-$Training_Materials->key = 'training-materials2';
-$Training_Materials->name = 'Training Materials';
-$Training_Materials->singular_name = 'Training Material';
-$Training_Materials->icon = 'dashicons-format-aside';
-$Training_Materials->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
-$Training_Materials->exclude_from_search = false;
-$Training_Materials->publicly_queryable = true;
-$Training_Materials->show_in_admin_bar = true;
-$Training_Materials->has_archive = true;
-$Training_Materials->rewrite = array(
+$Training_Materials2 = new newPostType();
+$Training_Materials2->key = 'training-materials2';
+$Training_Materials2->name = 'Training Materials';
+$Training_Materials2->singular_name = 'Training Material';
+$Training_Materials2->icon = 'dashicons-format-aside';
+$Training_Materials2->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$Training_Materials2->exclude_from_search = false;
+$Training_Materials2->publicly_queryable = true;
+$Training_Materials2->show_in_admin_bar = true;
+$Training_Materials2->has_archive = true;
+$Training_Materials2->rewrite = array(
     'with_front' => false,
     'slug'         => 'events-and-training-materials2',
 );
