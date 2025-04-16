@@ -1,4 +1,12 @@
 <?php
+function delete_post_type()
+{
+    unregister_post_type('mt_portfolio');
+    unregister_post_type('mt_changelog');
+    unregister_post_type('clients');
+    unregister_post_type('member');
+}
+add_action('init', 'delete_post_type');
 function wikb_child_scripts()
 {
     wp_enqueue_style('wikb-parent-style', get_template_directory_uri() . '/style.css');
@@ -379,7 +387,6 @@ function mycustom_wpcf7_form_elements($form)
     $form = do_shortcode($form);
     return $form;
 }
-
 
 
 function action_admin_head()
