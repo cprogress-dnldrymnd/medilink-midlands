@@ -461,7 +461,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
             if ($prev_val != $new_val) {
                 $changes_html .= "<tr>";
                 $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$prev_val</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left: font-weight: 400'>$new_val</td>";
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$new_val</td>";
                 $changes_html .= "</tr>";
             }
         }
