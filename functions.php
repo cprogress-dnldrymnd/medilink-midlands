@@ -460,9 +460,11 @@ function um_notify_admin_on_account_update($user_id, $changes)
         foreach ($user_meta_previous as $key_previous =>  $previous) {
             $prev_val = $previous;
             $new_val = $changes[$key_previous];
-            error_log(print_r($prev_val . '---' . $new_val, true));
+
+            if ($prev_val != $new_val) {
+                error_log(print_r($prev_val . '---' . $new_val, true));
+            }
         }
-        error_log(print_r($changes, true));
 
         // Send the email
         //wp_mail($admin_email, $subject, $message);
