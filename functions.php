@@ -477,5 +477,4 @@ function my_user_before_updating_profile($userinfo)
 {
     $user_meta = get_user_meta($userinfo->ID);
     update_user_meta($userinfo->ID, 'user_meta_previous', $user_meta);
-    error_log(print_r($userinfo, true));
 }
