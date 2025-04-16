@@ -209,25 +209,8 @@ $membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail
 $membersmarketplace->exclude_from_search = false;
 $membersmarketplace->publicly_queryable = true;
 $membersmarketplace->show_in_admin_bar = true;
-$membersmarketplace->has_archive = true;
+$membersmarketplace->has_archive = false;
 $membersmarketplace->rewrite = array(
-    'with_front' => false,
-    'slug'         => 'member-marketplace-old',
-);
-
-
-
-$Member_Marketplace = new newPostType();
-$Member_Marketplace->key = 'member-marketplace';
-$Member_Marketplace->name = 'Member Marketplace';
-$Member_Marketplace->singular_name = 'Member Marketplace';
-$Member_Marketplace->icon = 'dashicons-format-aside';
-$Member_Marketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
-$Member_Marketplace->exclude_from_search = false;
-$Member_Marketplace->publicly_queryable = true;
-$Member_Marketplace->show_in_admin_bar = true;
-$Member_Marketplace->has_archive = true;
-$Member_Marketplace->rewrite = array(
     'with_front' => false,
     'slug'         => 'member-marketplace',
 );
