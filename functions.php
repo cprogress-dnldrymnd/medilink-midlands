@@ -443,6 +443,9 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $admin_email =  $ultimate_member_options['admin_email'];
     }
 
+    $user_meta_previous = get_user_meta($user_id, 'user_meta_previous', true);
+
+
     if ($admin_email) {
         $user_info = get_userdata($user_id);
         $username  = $user_info->user_login;
@@ -452,19 +455,14 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $message = sprintf('A user has updated their account details on %s.', get_bloginfo('name')) . "\r\n\r\n";
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
         $message .= "Changes:\r\n";
-
-        if (! empty($changes)) {
-            foreach ($changes as $key => $value) {
-                $old_value = get_user_meta($user_id, $key, true);
-                $message .= sprintf('- %s: Old Value - %s, New Value - %s', $key, maybe_serialize($old_value), maybe_serialize($value)) . "\r\n";
-            }
-        } else {
-            $message .= 'No specific changes data available.';
+        foreach ($changes as $key => $value) {
         }
-        $user_meta = get_user_meta($user_id, 'user_meta_previous', true);
-
+        foreach ($user_meta_previous as $key_previous =>  $previous) {
+            $prev_val = $previous;
+            $new_val = $changes[$key_previous];
+            error_log(print_r($prev_val . '---' . $new_val, true));
+        }
         error_log(print_r($changes, true));
-        error_log(print_r($user_meta, true));
 
         // Send the email
         //wp_mail($admin_email, $subject, $message);
@@ -481,7 +479,6 @@ function my_user_before_updating_profile($userinfo)
     $user_meta_previous['address'] = get_user_meta($userinfo['ID'], 'address', true);
     $user_meta_previous['ttle'] = get_user_meta($userinfo['ID'], 'ttle', true);
     $user_meta_previous['organisation_description'] = get_user_meta($userinfo['ID'], 'organisation_description', true);
-
 
     update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta_previous);
 }
