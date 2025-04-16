@@ -215,6 +215,20 @@ $membersmarketplace->rewrite = array(
     'slug'         => 'member-marketplace',
 );
 
+$Marketplace = new newPostType();
+$Marketplace->key = 'membersmarketplace2';
+$Marketplace->name = 'Member Marketplace';
+$Marketplace->singular_name = 'Member Marketplace';
+$Marketplace->icon = 'dashicons-format-aside';
+$Marketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$Marketplace->exclude_from_search = false;
+$Marketplace->publicly_queryable = true;
+$Marketplace->show_in_admin_bar = true;
+$Marketplace->has_archive = false;
+$Marketplace->rewrite = array(
+    'with_front' => false,
+    'slug'         => 'test',
+);
 
 // Add the custom columns to the templates post type:
 add_filter('manage_templates_posts_columns', 'set_custom_edit_templates_columns');
