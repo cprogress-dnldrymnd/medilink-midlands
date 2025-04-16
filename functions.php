@@ -467,3 +467,6 @@ function um_notify_admin_on_account_update($user_id, $changes)
     }
 }
 add_action('um_after_user_account_updated', 'um_notify_admin_on_account_update', 10, 2);
+
+
+error_log( print_r( 'test', true ) );
