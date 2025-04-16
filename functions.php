@@ -456,18 +456,16 @@ function um_notify_admin_on_account_update($user_id, $changes)
         if (! empty($changes)) {
             foreach ($changes as $key => $value) {
                 $old_value = get_user_meta($user_id, $key, true);
-                $message .= sprintf('- %s: Old Value - %s, New Value - %s', $key, maybe_serialize($old_value), maybe_serialize($value[0])) . "\r\n";
+                $message .= sprintf('- %s: Old Value - %s, New Value - %s', $key, maybe_serialize($old_value), maybe_serialize($value)) . "\r\n";
             }
         } else {
             $message .= 'No specific changes data available.';
         }
-        error_log( print_r( $message, true ) );
+        error_log(print_r($message, true));
         // Send the email
         wp_mail($admin_email, $subject, $message);
     }
-    
-error_log( print_r( 'test', true ) );
 
+    error_log(print_r('test', true));
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
-
