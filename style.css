@@ -1766,6 +1766,9 @@ body.header-title-style-2 #primary {
   .header-title-breadcrumb:not(.header-title-breadcrumb-custom) .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .title-area-desc,
   .header-title-breadcrumb:not(.header-title-breadcrumb-custom) .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .desc {
     order: 3; }
+  .header-title-breadcrumb:not(.header-title-breadcrumb-custom) .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay .col-md-12 .modeltheme_button {
+    order: 4;
+    margin-top: 20px; }
 @media (max-width: 767px) {
   .header-title-breadcrumb .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay.header-title-breadcrumb-overlay {
     padding-top: 100px; } }
