@@ -467,3 +467,9 @@ function um_notify_admin_on_account_update($user_id, $changes)
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
+
+add_action('um_user_before_updating_profile', 'my_user_before_updating_profile', 10, 1);
+function my_user_before_updating_profile($userinfo)
+{
+    error_log(print_r('mama mo', true));
+}
