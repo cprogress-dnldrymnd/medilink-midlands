@@ -226,6 +226,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
                     $address = get_user_meta(get_current_user_id(), 'address', true);
                     $title = get_user_meta(get_current_user_id(), 'ttle', true);
+                    $organisation_description = get_user_meta(get_current_user_id(), 'organisation_description', true);
         ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
@@ -233,7 +234,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 
                     <?php if ($args['show_name']) { ?>
                         <div class="um-title">
-                            <?= $title?>
+                            <?= $title ?>
                         </div>
                         <div class="um-name">
 
@@ -284,7 +285,13 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                                 <li><?= $address ?></li>
                             <?php } ?>
                         </ul>
+                        <?php if ($organisation_description) {  ?>
+                            <div class="org-description">
+                                <?= wpautop($organisation_description) ?>
+                            </div>
+                        <?php } ?>
                     </div>
+
 
                     <div class="edit-profile-holder">
                         <a href="<?= esc_url(um_edit_profile_url()) ?>">
