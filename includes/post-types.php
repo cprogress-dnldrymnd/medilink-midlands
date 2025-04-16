@@ -227,7 +227,7 @@ $Marketplace->show_in_admin_bar = true;
 $Marketplace->has_archive = true;
 $Marketplace->rewrite = array(
     'with_front' => false,
-    'slug'         => 'test',
+    'slug'         => 'testsss',
 );
 
 // Add the custom columns to the templates post type:
