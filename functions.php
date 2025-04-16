@@ -476,5 +476,5 @@ add_action('um_user_before_updating_profile', 'my_user_before_updating_profile',
 function my_user_before_updating_profile($userinfo)
 {
     $user_meta = get_user_meta($userinfo['ID']);
-    update_user_meta($userinfo->ID, 'user_meta_previous', $user_meta);
+    update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta);
 }
