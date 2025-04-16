@@ -467,16 +467,3 @@ function um_notify_admin_on_account_update($user_id, $changes)
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
-
-
-/**
- * Get the previous value of a user field before an Ultimate Member profile update.
- *
- * @param int   $user_id The ID of the user being updated.
- * @param array $args    The array of updated user data.
- */
-function um_get_previous_user_field_value($user_id, $args)
-{
-    error_log(print_r('mama mo', true));
-}
-add_action('um_before_user_updating', 'um_get_previous_user_field_value', 10, 2);
