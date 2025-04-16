@@ -460,15 +460,15 @@ function um_notify_admin_on_account_update($user_id, $changes)
             $new_val = $changes[$key_previous];
             if ($prev_val != $new_val) {
                 $changes_html .= "<tr>";
-                $changes_html .= "<td>$prev_val</td>";
-                $changes_html .= "<td>$new_val</td>";
+                $changes_html .= "<td style='padding: 10px; text-align: left'>$prev_val</td>";
+                $changes_html .= "<td style='padding: 10px; text-align: left'>$new_val</td>";
                 $changes_html .= "</tr>";
             }
         }
 
         if ($changes_html != '') {
-            $email_html = "<table>";
-            $email_html .= "<tr><th>Previous Value</th><th>New Value</th></tr>";
+            $email_html = "<table style='width: 100%'>";
+            $email_html .= "<tr><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
             $email_html .= "</table>";
 
@@ -503,7 +503,7 @@ function email_template($display_name, $changes)
 ?>
     <div style='max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
         <div style='color: #444444;font-weight: normal'>
-            <div style='text-align: center'><img src='<?= $site_url ?>wp-content/uploads/2025/01/medlink-logo-1.png' alt='' /></div>
+            <div style='text-align: center'><img src='<?= $site_url ?>/wp-content/uploads/2025/01/medlink-logo-1.png' alt='' /></div>
             <div style='text-align: center;font-weight: 600;font-size: 26px;padding: 10px 0;border-bottom: solid 3px #eeeeee'><?= $site_name ?></div>
             <div style='clear: both'> </div>
         </div>
