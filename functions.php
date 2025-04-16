@@ -471,5 +471,7 @@ add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
 add_action('um_user_before_updating_profile', 'my_user_before_updating_profile', 10, 1);
 function my_user_before_updating_profile($userinfo)
 {
+    $user_meta = get_user_meta($userinfo->ID);
+    update_user_meta($userinfo->ID, 'user_meta_previous', $user_meta);
     error_log(print_r($userinfo, true));
 }
