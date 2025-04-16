@@ -367,11 +367,17 @@ function action_wp_footer()
 {
     echo get_the_ID();
     $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
-    $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
-    if ($title_area_description) { ?>
+    $title_area_button_text = get_post_meta(get_the_ID(), 'title_area_button_text', true);
+    $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
+    if ($title_area_description || $title_area_button_text) { ?>
         <script>
             jQuery(document).ready(function() {
-                jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
+                <?php if ($title_area_description) { ?>
+                    jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
+                <?php } ?>
+                <?php if ($title_area_button_text) { ?>
+                    jQuery('<div class="modeltheme_button "> <a href="<?= $title_area_button_link ?>" class="button-winona button-green btn btn-sm"> <?= $title_area_button_text ?> </a> </div>').insertAfter('.breadcrumb');
+                <?php } ?>
             });
         </script>
     <?php
