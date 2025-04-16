@@ -216,20 +216,23 @@ $membersmarketplace->rewrite = array(
 );
 
 
-$Training_Materials2 = new newPostType();
-$Training_Materials2->key = 'training-materials2';
-$Training_Materials2->name = 'Training Materials';
-$Training_Materials2->singular_name = 'Training Material';
-$Training_Materials2->icon = 'dashicons-format-aside';
-$Training_Materials2->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
-$Training_Materials2->exclude_from_search = false;
-$Training_Materials2->publicly_queryable = true;
-$Training_Materials2->show_in_admin_bar = true;
-$Training_Materials2->has_archive = true;
-$Training_Materials2->rewrite = array(
+
+$Member_Marketplace = new newPostType();
+$Member_Marketplace->key = 'member-marketplace';
+$Member_Marketplace->name = 'Member Marketplace';
+$Member_Marketplace->singular_name = 'Member Marketplace';
+$Member_Marketplace->icon = 'dashicons-format-aside';
+$Member_Marketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$Member_Marketplace->exclude_from_search = false;
+$Member_Marketplace->publicly_queryable = true;
+$Member_Marketplace->show_in_admin_bar = true;
+$Member_Marketplace->has_archive = true;
+$Member_Marketplace->rewrite = array(
     'with_front' => false,
-    'slug'         => 'events-and-training-materials2',
+    'slug'         => 'member-marketplace',
 );
+
+
 // Add the custom columns to the templates post type:
 add_filter('manage_templates_posts_columns', 'set_custom_edit_templates_columns');
 function set_custom_edit_templates_columns($columns)
