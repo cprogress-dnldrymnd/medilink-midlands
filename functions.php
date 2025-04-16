@@ -522,3 +522,8 @@ function email_template($display_name, $changes)
 <?php
     return ob_get_clean();
 }
+
+function wpse27856_set_content_type(){
+    return "text/html";
+}
+add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
