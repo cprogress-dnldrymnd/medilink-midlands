@@ -471,12 +471,10 @@ function um_notify_admin_on_account_update($user_id, $changes)
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
             $email_html .= "</table>";
-
-            error_log(print_r(email_template($username, $email_html), true));
         }
 
         // Send the email
-        //wp_mail($admin_email, $subject, $message);
+        wp_mail($admin_email, $subject, email_template($username, $email_html));
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
