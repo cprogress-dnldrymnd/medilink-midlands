@@ -2016,7 +2016,7 @@ body {
                 .desc {
                     order: 3;
                 }
-                .modeltheme_button  {
+                .modeltheme_button {
                     order: 4;
                     margin-top: 20px;
                 }
@@ -2190,7 +2190,7 @@ body {
                     cursor: pointer;
                     border-radius: 10px !important;
                     &:before {
-                        content: "Upload";
+                        content: var(--text, "Upload");
                         font-size: 15px;
                     }
                     &::after {
