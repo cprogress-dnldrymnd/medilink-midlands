@@ -426,3 +426,41 @@ add_filter('wp_prepare_themes_for_js', function ($themes) {
 
     return $themes;
 });
+
+
+
+/**
+ * Notify admin when a user updates their account details.
+ *
+ * @param int   $user_id The ID of the updated user.
+ * @param array $changes An array of the changes made to the user's account.
+ */
+function um_notify_admin_on_account_update($user_id, $changes)
+{
+    // Get admin email address
+    $admin_email = get_option('admin_email');
+
+    if ($admin_email) {
+        $user_info = get_userdata($user_id);
+        $username  = $user_info->user_login;
+        $user_email = $user_info->user_email;
+
+        $subject = sprintf('[%s] User Account Updated', get_bloginfo('name'));
+        $message = sprintf('A user has updated their account details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+        $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
+        $message .= "Changes:\r\n";
+
+        if (! empty($changes)) {
+            foreach ($changes as $key => $value) {
+                $old_value = get_user_meta($user_id, $key, true);
+                $message .= sprintf('- %s: Old Value - %s, New Value - %s', $key, maybe_serialize($old_value), maybe_serialize($value[0])) . "\r\n";
+            }
+        } else {
+            $message .= 'No specific changes data available.';
+        }
+
+        // Send the email
+        wp_mail($admin_email, $subject, $message);
+    }
+}
+add_action('um_after_user_account_updated', 'um_notify_admin_on_account_update', 10, 2);
