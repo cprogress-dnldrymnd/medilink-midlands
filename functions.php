@@ -475,6 +475,13 @@ add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
 add_action('um_user_before_updating_profile', 'my_user_before_updating_profile', 10, 1);
 function my_user_before_updating_profile($userinfo)
 {
-    $user_meta = get_user_meta($userinfo['ID']);
-    update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta);
+    $user_meta_previous['job_role'] = get_user_meta($userinfo['ID'], 'job_role', true);
+    $user_meta_previous['organisation']  = get_user_meta($userinfo['ID'], 'organisation', true);
+    $user_meta_previous['phone_number'] = get_user_meta($userinfo['ID'], 'phone_number', true);
+    $user_meta_previous['address'] = get_user_meta($userinfo['ID'], 'address', true);
+    $user_meta_previous['ttle'] = get_user_meta($userinfo['ID'], 'ttle', true);
+    $user_meta_previous['organisation_description'] = get_user_meta($userinfo['ID'], 'organisation_description', true);
+
+
+    update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta_previous);
 }
