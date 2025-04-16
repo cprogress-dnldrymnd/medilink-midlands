@@ -81,6 +81,16 @@ if (class_exists('Redux')) {
                         'title' => __('Title Area Description', 'redux-framework-demo'),
                         'type' => 'textarea',
                     ),
+                    array(
+                        'id' => 'title_area_button_text',
+                        'title' => __('Title Area Button Text', 'redux-framework-demo'),
+                        'type' => 'text',
+                    ),
+                    array(
+                        'id' => 'title_area_button_link',
+                        'title' => __('Title Area Button Link', 'redux-framework-demo'),
+                        'type' => 'text',
+                    ),
                 ),
             );
 
