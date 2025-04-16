@@ -212,7 +212,7 @@ $membersmarketplace->show_in_admin_bar = true;
 $membersmarketplace->has_archive = true;
 $membersmarketplace->rewrite = array(
     'with_front' => false,
-    'slug'         => 'member-marketplace',
+    'slug'         => 'member-marketplace-old',
 );
 
 
