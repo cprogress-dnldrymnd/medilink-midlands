@@ -463,9 +463,8 @@ function um_notify_admin_on_account_update($user_id, $changes)
         }
         error_log(print_r($message, true));
         // Send the email
-        wp_mail($admin_email, $subject, $message);
+        //wp_mail($admin_email, $subject, $message);
     }
 
-    error_log(print_r('test', true));
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
