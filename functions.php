@@ -335,7 +335,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
                         <h1><?= $heading ?></h1>
 
                         <ol class="breadcrumb text-left">
-                            <li><a href="https://medilink.theprogressteam.com/">Home</a></li>
+                            <li><a href="<?= $site_url ?>/">Home</a></li>
                             <li class="active"><?= $heading ?></li>
                         </ol>
                         <div class="desc">
@@ -444,7 +444,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
     }
 
     $user_meta_previous = get_user_meta($user_id, 'user_meta_previous', true);
-
+    $changes_html = '';
 
     if ($admin_email) {
         $user_info = get_userdata($user_id);
@@ -455,15 +455,24 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $message = sprintf('A user has updated their account details on %s.', get_bloginfo('name')) . "\r\n\r\n";
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
         $message .= "Changes:\r\n";
-        foreach ($changes as $key => $value) {
-        }
         foreach ($user_meta_previous as $key_previous =>  $previous) {
             $prev_val = $previous;
             $new_val = $changes[$key_previous];
-
             if ($prev_val != $new_val) {
-                error_log(print_r($prev_val . '---' . $new_val, true));
+                $changes_html .= "<tr>";
+                $changes_html .= "<td>$prev_val</td>";
+                $changes_html .= "<td>$new_val</td>";
+                $changes_html .= "</tr>";
             }
+        }
+
+        if ($changes_html != '') {
+            $email_html = "<table>";
+            $email_html .= "<tr><th>Previous Value</th><th>New Value</th></tr>";
+            $email_html .= $changes_html;
+            $email_html .= "</table>";
+
+            error_log(print_r(email_template($username, $email_html), true));
         }
 
         // Send the email
@@ -483,4 +492,35 @@ function my_user_before_updating_profile($userinfo)
     $user_meta_previous['organisation_description'] = get_user_meta($userinfo['ID'], 'organisation_description', true);
 
     update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta_previous);
+}
+
+function email_template($display_name, $changes)
+{
+    $site_name = 'Medilink Midlands';
+    $site_url = get_site_url();
+
+    ob_start();
+?>
+    <div style='max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
+        <div style='color: #444444;font-weight: normal'>
+            <div style='text-align: center'><img src='<?= $site_url ?>wp-content/uploads/2025/01/medlink-logo-1.png' alt='' /></div>
+            <div style='text-align: center;font-weight: 600;font-size: 26px;padding: 10px 0;border-bottom: solid 3px #eeeeee'><?= $site_name ?></div>
+            <div style='clear: both'> </div>
+        </div>
+        <div style='padding: 0 30px 30px 30px;border-bottom: 3px solid #eeeeee'>
+            <div style='padding: 30px 0;font-size: 24px;text-align: center;line-height: 40px'><?= $display_name ?> has just updated their information.</div>
+
+            <div style='padding: 0 0 15px 0'>
+                <div style='background: #eee;color: #444;padding: 12px 15px;border-radius: 3px;font-weight: bold;font-size: 16px'>Here are the changes on the account:<br /><br />
+                    <?= $changes ?>
+                </div>
+            </div>
+        </div>
+        <div style='color: #999;padding: 20px 30px'>
+            <div>Thank you!</div>
+            <div>The <a style='color: #3ba1da;text-decoration: none' href='<?= $site_url ?>'><?= $site_name ?></a> Team</div>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
 }
