@@ -769,7 +769,7 @@ add_shortcode('offer_category', 'offer_category');
 function blog_category()
 {
     $terms = get_terms(array(
-        'taxonomy'   => 'membersmarketplace_category',
+        'taxonomy'   => 'category',
         'hide_empty' => false,
     ));
     $select = '<select name="blog_category_pseudo[]" id="blog_category_pseudo" multiple>';
