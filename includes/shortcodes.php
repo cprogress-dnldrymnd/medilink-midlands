@@ -11,7 +11,7 @@ function featured_articles()
     <div class="title-subtile-holder wow bounce text_left" style="animation-name: bounce; margin-bottom: 35px">
         <h2 class="section-title light_title">Featured Articles</h2>
     </div>
-    <?= blog__post()($posts) ?>
+    <?= blog__post($posts) ?>
     <?php if (!is_home()) { ?>
         <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a
                 href="https://medilink.theprogressteam.com/latest-articles/" class="button-winona button-green btn btn-sm">VIEW
@@ -24,7 +24,7 @@ function featured_articles()
 
 add_shortcode('featured_articles', 'featured_articles');
 
-function blog__post(): bool|string
+function blog__post($posts): bool|string
 {
     ob_start(); ?>
     <div class="blog-posts blog-posts-v2 flex-row simple-posts blog-posts-shortcode wow">
