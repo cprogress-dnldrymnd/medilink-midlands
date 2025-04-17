@@ -240,22 +240,19 @@ function save_cf7_to_custom_post($contact_form)
         $post_data['post_type'] = 'post';
         $post_data['post_status'] = 'pending';
 
-        if (is_user_logged_in()) {
-            $post_data['post_author'] = $submit_blog_user_id;
-        }
-        else {
-            $submit_blog_full_name = isset($posted_data['submit_blog_full_name']) ? wp_kses_post($posted_data['submit_blog_full_name']) : '';
-            $submit_blog_email_address = isset($posted_data['submit_blog_email_address']) ? wp_kses_post($posted_data['submit_blog_email_address']) : '';
-            $submit_blog_organisation = isset($posted_data['submit_blog_organisation']) ? wp_kses_post($posted_data['submit_blog_organisation']) : '';
-            $submit_blog_phone_number = isset($posted_data['submit_blog_phone_number']) ? wp_kses_post($posted_data['submit_blog_phone_number']) : '';
+        $post_data['post_author'] = $submit_blog_user_id;
+
+        $submit_blog_full_name = isset($posted_data['submit_blog_full_name']) ? wp_kses_post($posted_data['submit_blog_full_name']) : '';
+        $submit_blog_email_address = isset($posted_data['submit_blog_email_address']) ? wp_kses_post($posted_data['submit_blog_email_address']) : '';
+        $submit_blog_organisation = isset($posted_data['submit_blog_organisation']) ? wp_kses_post($posted_data['submit_blog_organisation']) : '';
+        $submit_blog_phone_number = isset($posted_data['submit_blog_phone_number']) ? wp_kses_post($posted_data['submit_blog_phone_number']) : '';
 
 
-            $post_data['meta_input'] = [];
-            $post_data['meta_input']['_submit_blog_full_name'] = $submit_blog_full_name;
-            $post_data['meta_input']['_submit_blog_email_address'] = $submit_blog_email_address;
-            $post_data['meta_input']['_submit_blog_organisation'] = $submit_blog_organisation;
-            $post_data['meta_input']['_submit_blog_phone_number'] = $submit_blog_phone_number;
-        }
+        $post_data['meta_input'] = [];
+        $post_data['meta_input']['_submit_blog_full_name'] = $submit_blog_full_name;
+        $post_data['meta_input']['_submit_blog_email_address'] = $submit_blog_email_address;
+        $post_data['meta_input']['_submit_blog_organisation'] = $submit_blog_organisation;
+        $post_data['meta_input']['_submit_blog_phone_number'] = $submit_blog_phone_number;
         $post_id = wp_insert_post($post_data);
 
         if ($post_id) {
@@ -349,7 +346,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
                         <h1><?= $heading ?></h1>
 
                         <ol class="breadcrumb text-left">
-                            <li><a href="<?= $site_url ?>/">Home</a></li>
+                            <li><a href="<?= get_site_url() ?>/">Home</a></li>
                             <li class="active"><?= $heading ?></li>
                         </ol>
                         <div class="desc">
@@ -522,7 +519,8 @@ function email_template($display_name, $changes)
                     alt='' /></div>
             <div
                 style='text-align: center;font-weight: 600;font-size: 26px;padding: 10px 0;border-bottom: solid 3px #eeeeee'>
-                <?= $site_name ?></div>
+                <?= $site_name ?>
+            </div>
             <div style='clear: both'> </div>
         </div>
         <div style='padding: 0 30px 30px 30px;border-bottom: 3px solid #eeeeee'>
