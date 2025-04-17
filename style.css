@@ -1972,4 +1972,18 @@ body.header-title-style-2 #primary {
 #qt_bbp_topic_content_toolbar .ed_button#qt_bbp_topic_content_close {
   display: none !important; }
 
+#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content,
+div.bbp-template-notice p,
+#bbpress-forums .bbp-forum-info .bbp-forum-content,
+#bbpress-forums p.bbp-topic-meta,
+div.bbp-breadcrumb,
+div.bbp-topic-tags,
+#bbpress-forums ul.bbp-lead-topic,
+#bbpress-forums ul.bbp-topics,
+#bbpress-forums ul.bbp-forums,
+#bbpress-forums ul.bbp-replies,
+#bbpress-forums ul.bbp-search-results,
+#bbpress-forums {
+  font-family: "Open Sans" !important; }
+
 /*# sourceMappingURL=style.css.map */
