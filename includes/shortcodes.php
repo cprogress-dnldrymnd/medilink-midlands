@@ -1509,6 +1509,7 @@ function user_posts()
         'post_status' => array('publish', 'pending')
     ));
     echo '<div class="user-posts">';
+    echo '<h3>Articles Posted</h3>';
     if ($posts) {
         echo blog__post($posts);
     } else {
