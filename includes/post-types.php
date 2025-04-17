@@ -320,4 +320,4 @@ function modify_wpsl_stores_admin_label($args, $post_type)
 }
 
 // Hook into the register_post_type_args filter.
-add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 99, 2);
+add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2);
