@@ -1920,5 +1920,7 @@ body.header-title-style-2 #primary {
   display: none !important; }
 .um-profile-body.posts.posts.posts-default.posts-default .user-posts {
   margin-top: 30px; }
+  .um-profile-body.posts.posts.posts-default.posts-default .user-posts .main-heading {
+    margin-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */
