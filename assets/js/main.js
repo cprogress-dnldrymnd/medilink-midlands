@@ -67,7 +67,7 @@ function select__2() {
     // Initialize Select2 for the category select element
 
     jQuery('.select-2-category select').select2({
-        placeholder: "Offer Category",
+        placeholder: "Category",
     });
 
 
