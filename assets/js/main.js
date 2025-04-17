@@ -81,6 +81,17 @@ function select__2() {
         }
     });
 
+
+    jQuery('select[name="blog_category_pseudo[]"]').on('change', function () {
+        var selectedValues = jQuery(this).val();
+
+        if (selectedValues) {
+            jQuery('input[name="submit_blog_category"]').val(selectedValues.join(", "));
+        } else {
+            jQuery('input[name="submit_blog_category"]').val('');
+        }
+    });
+
 }
 
 
