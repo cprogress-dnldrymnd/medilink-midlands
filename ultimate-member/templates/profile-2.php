@@ -301,8 +301,9 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                                     Edit profile
                                 </a>
                             </div>
-                        <?php } else { ?>
-                            
+                        <?php }
+                        else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'posts') { ?>
+                        <?= do_shortcode( '[user_posts]' ) ?>
                         <?php } ?>
 
                     </div>
