@@ -1918,7 +1918,7 @@ body.header-title-style-2 #primary {
         .upload-file-style-1.upload-file-style-1.upload-file-style-1 .codedropz-upload-wrapper .codedropz-upload-handler .codedropz-upload-container .codedropz-btn-wrap::after {
           content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="15.448" height="15.447" viewBox="0 0 15.448 15.447"><g id="upload-minimalistic-svgrepo-com" transform="translate(-2.25 -2.25)"><path id="Path_366" data-name="Path 366" d="M2.844,14.25a.594.594,0,0,1,.594.594,21.281,21.281,0,0,0,.082,2.529,1.786,1.786,0,0,0,.44,1.108,1.786,1.786,0,0,0,1.108.44A21.293,21.293,0,0,0,7.6,19H12.35a21.294,21.294,0,0,0,2.529-.082,1.786,1.786,0,0,0,1.108-.44,1.786,1.786,0,0,0,.44-1.108,21.293,21.293,0,0,0,.082-2.529.594.594,0,1,1,1.188,0v.043a21.734,21.734,0,0,1-.092,2.643,2.945,2.945,0,0,1-.778,1.79,2.945,2.945,0,0,1-1.79.778,21.734,21.734,0,0,1-2.643.092H7.554A21.733,21.733,0,0,1,4.91,20.1a2.945,2.945,0,0,1-1.79-.778,2.945,2.945,0,0,1-.778-1.79,21.72,21.72,0,0,1-.092-2.643v-.043A.594.594,0,0,1,2.844,14.25Z" transform="translate(0 -2.494)" fill="%23a8a8a8" fill-rule="evenodd" opacity="0.5"/><path id="Path_367" data-name="Path 367" d="M11.013,2.25a.594.594,0,0,1,.438.193L14.62,5.909a.594.594,0,1,1-.877.8L11.607,4.375v8.768a.594.594,0,1,1-1.188,0V4.375L8.283,6.711a.594.594,0,0,1-.877-.8l3.169-3.466A.594.594,0,0,1,11.013,2.25Z" transform="translate(-1.039)" fill="%23a8a8a8" fill-rule="evenodd"/></g></svg>'); }
 
-.um-profile-body.posts {
+.um-profile-body.posts.posts {
   display: none !important; }
 
 /*# sourceMappingURL=style.css.map */
