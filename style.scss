@@ -2704,3 +2704,9 @@ div.bbp-topic-tags,
 #bbpress-forums {
     font-family: 'Open Sans' !important
 }
+
+.bbp-template-notice.bbp-template-notice {
+    &:not(.info) {
+        display: none !important;
+    }
+}
