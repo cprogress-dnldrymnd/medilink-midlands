@@ -571,7 +571,7 @@ function member_directory()
                     <div class="member-directory-filter-submit">
                         <div class="modeltheme_button view-all">
                             <a href="#" class="button-winona button-green btn btn-sm submit-directory-filter">
-                                Submit
+                                Search
                             </a>
                         </div>
                     </div>
