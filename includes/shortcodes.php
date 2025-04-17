@@ -1503,12 +1503,19 @@ function user_posts()
 {
     ob_start();
     $posts = get_posts(array(
-        'post_type'  => 'post',
-        'numberpost' => -1,
-        'author' => um_user('ID'),
+        'post_type'   => 'post',
+        'numberpost'  => -1,
+        'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
-    echo blog__post($posts);
+    if ($posts) {
+        echo blog__post($posts);
+    } else {
+        echo '<div class="um-profile-note" style="display: block;">
+			<span>
+				This user has not created any posts.			</span>
+		</div>';
+    }
     return ob_get_clean();
 }
 add_shortcode('user_posts', 'user_posts');
