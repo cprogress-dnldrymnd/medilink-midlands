@@ -143,7 +143,7 @@ $Marketplace->taxonomy = 'membersmarketplace_category';
 $Marketplace->post_type = 'membersmarketplace';
 $Marketplace->args = array(
     'label'        => 'Categories',
-    'labels' => array(
+    'labels'       => array(
         'name'                       => _x('Categories', 'Taxonomy General Name', 'text_domain'),
         'singular_name'              => _x('Category', 'Taxonomy Singular Name', 'text_domain'),
         'menu_name'                  => __('Category', 'text_domain'),
@@ -171,7 +171,7 @@ $Marketplace->args = array(
     'has_archive'  => true,
     'rewrite'      => array(
         'with_front' => false,
-        'slug'         => 'member-marketplace-category',
+        'slug'       => 'member-marketplace-category',
     )
 );
 $Templates = new newPostType();
@@ -197,7 +197,7 @@ $Training_Materials->show_in_admin_bar = true;
 $Training_Materials->has_archive = true;
 $Training_Materials->rewrite = array(
     'with_front' => false,
-    'slug'         => 'events-and-training-materials',
+    'slug'       => 'events-and-training-materials',
 );
 
 $membersmarketplace = new newPostType();
@@ -212,7 +212,7 @@ $membersmarketplace->show_in_admin_bar = true;
 $membersmarketplace->has_archive = true;
 $membersmarketplace->rewrite = array(
     'with_front' => false,
-    'slug'         => 'member-marketplace',
+    'slug'       => 'member-marketplace',
 );
 
 
@@ -256,7 +256,7 @@ $Packages_Categories->taxonomy = 'packages_category';
 $Packages_Categories->post_type = 'packages';
 $Packages_Categories->args = array(
     'label'        => 'Categories',
-    'labels' => array(
+    'labels'       => array(
         'name'                       => _x('Categories', 'Taxonomy General Name', 'text_domain'),
         'singular_name'              => _x('Category', 'Taxonomy Singular Name', 'text_domain'),
         'menu_name'                  => __('Category', 'text_domain'),
@@ -286,9 +286,10 @@ $Packages_Categories->args = array(
 );
 
 
-function modify_wpsl_stores_admin_label( $args, $post_type ) {
+function modify_wpsl_stores_admin_label($args, $post_type)
+{
     // Check if the post type is 'wpsl_stores'.
-    if ( 'wpsl_stores' === $post_type ) {
+    if ('wpsl_stores' === $post_type) {
         // Modify the labels array.
         $args['labels']['name'] = 'Member Directory';
         $args['labels']['singular_name'] = 'Member';
@@ -310,14 +311,14 @@ function modify_wpsl_stores_admin_label( $args, $post_type ) {
         $args['labels']['items_list_navigation'] = 'Members list navigation';
         $args['labels']['items_list'] = 'Members list';
         $args['labels']['name_admin_bar'] = 'Member Directory'; // Appears in the admin bar
-
+        $args['menu_icon'] = 'dashicons-admin-users'; // Appears in the admin bar
         // Optionally, you can also change other settings like the menu icon.
         // $args['menu_icon'] = 'dashicons-groups'; // Example: Change to the groups icon.
 
-        $args['rewrite'] = array( 'slug' => 'member-directory' ); // Change the slug
+
     }
     return $args;
 }
 
 // Hook into the register_post_type_args filter.
-add_filter( 'register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2 );
+add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2);
