@@ -65,7 +65,7 @@ function blog__post($posts): bool|string
 
                             <!-- POST DETAILS -->
 
-                            <div class="post-details">
+                            <div class="post-details text-left">
 
                                 <div class="post-date">
                                     <?= $date ?>
