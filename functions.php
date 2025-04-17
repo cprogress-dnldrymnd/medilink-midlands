@@ -529,29 +529,38 @@ function wpse27856_set_content_type(){
 add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
 
 /**
- * Add a new custom tab to the Ultimate Member profile.
+ * Add a new custom profile tab to WP Ultimate Member.
  *
  * @param array $tabs Array of existing profile tabs.
- * @return array Modified array of profile tabs.
+ * @return array Updated array of profile tabs.
  */
-function my_um_add_custom_profile_tab( $tabs ) {
+function my_um_add_custom_profile_tab($tabs)
+{
     $tabs['my_custom_tab'] = array(
-        'name' => 'My Custom Tab',
-        'icon' => 'um-faicon-star', // You can use any Font Awesome icon class
-        'custom' => true,
+        'name'             => __('My Custom Tab', 'your-text-domain'), // The name of your tab
+        'icon'             => 'um-faicon-star', // Font Awesome icon class (optional)
+        'priority'         => 100, // Adjust the order of the tab
+        'content_callback' => 'my_um_custom_tab_content', // Function to display the tab content
     );
     return $tabs;
 }
-add_filter( 'um_profile_tabs', 'my_um_add_custom_profile_tab');
+add_filter('um_profile_tabs', 'my_um_add_custom_profile_tab', 100);
 
 /**
- * Display content for the custom profile tab.
+ * Callback function to display the content of the custom profile tab.
  *
- * @param array $args Array of arguments related to the profile.
+ * @param array $args Array of arguments (usually empty in this context).
  */
-function my_um_custom_profile_tab_content( $args ) {
-    echo '<p>This is the content for my custom profile tab!</p>';
-    // You can add more complex HTML, PHP, or shortcodes here.
+function my_um_custom_tab_content($args)
+{
+    // Output the content you want to display in your custom tab here.
+    echo '<div class="um-profile-body">';
+    echo '<p>This is the content of my custom profile tab!</p>';
+    // You can fetch and display user-specific data here using UM functions.
+    $user_id = um_profile_id(); // Get the ID of the currently viewed user.
+    $custom_field_value = get_user_meta($user_id, 'your_custom_field_key', true);
+    if ($custom_field_value) {
+        echo '<p>Your Custom Field Value: ' . esc_html($custom_field_value) . '</p>';
+    }
+    echo '</div>';
 }
-add_action( 'um_profile_content_my_custom_tab_default', 'my_um_custom_profile_tab_content' );
-?>
