@@ -261,7 +261,9 @@ function save_cf7_to_custom_post($contact_form)
                 set_post_thumbnail($post_id, $featured_image);
             }
             if ($submit_blog_category) {
-                wp_set_post_terms($post_id, $submit_blog_category, 'category');
+                $submit_blog_category_arr = explode(',', $submit_blog_category);
+
+                wp_set_post_terms($post_id, $submit_blog_category_arr, 'category');
             }
         }
     }
