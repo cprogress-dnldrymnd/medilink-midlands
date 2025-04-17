@@ -229,7 +229,7 @@ function save_cf7_to_custom_post($contact_form)
         $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : '';
         $submit_blog_featured_image = isset($posted_data['submit_blog_featured_image']) ? $posted_data['submit_blog_featured_image'][0] : false;
         $submit_blog_user_id = isset($posted_data['submit_blog_user_id']) ? $posted_data['submit_blog_user_id'] : false;
-        $submit_blog_category = isset($posted_data['submit_blog_category']) ? $posted_data['submit_blog_category'][0] : false;
+        $submit_blog_category = isset($posted_data['submit_blog_category']) ? $posted_data['submit_blog_category'] : false;
 
         $post_data = array();
 
