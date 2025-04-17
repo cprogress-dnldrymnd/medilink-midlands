@@ -312,7 +312,6 @@ function modify_wpsl_stores_admin_label($args, $post_type)
         $args['labels']['items_list'] = 'Members list';
         $args['labels']['name_admin_bar'] = 'Member Directory'; // Appears in the admin bar
         $args['menu_icon'] = 'dashicons-admin-users'; // Appears in the admin bar
-        // Optionally, you can also change other settings like the menu icon.
         // $args['menu_icon'] = 'dashicons-groups'; // Example: Change to the groups icon.
 
 
