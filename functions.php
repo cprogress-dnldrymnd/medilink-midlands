@@ -527,3 +527,31 @@ function wpse27856_set_content_type(){
     return "text/html";
 }
 add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+
+/**
+ * Add a new custom tab to the Ultimate Member profile.
+ *
+ * @param array $tabs Array of existing profile tabs.
+ * @return array Modified array of profile tabs.
+ */
+function my_um_add_custom_profile_tab( $tabs ) {
+    $tabs['my_custom_tab'] = array(
+        'name' => 'My Custom Tab',
+        'icon' => 'um-faicon-star', // You can use any Font Awesome icon class
+        'custom' => true,
+    );
+    return $tabs;
+}
+add_filter( 'um_profile_tabs', 'my_um_add_custom_profile_tab', 1000 );
+
+/**
+ * Display content for the custom profile tab.
+ *
+ * @param array $args Array of arguments related to the profile.
+ */
+function my_um_custom_profile_tab_content( $args ) {
+    echo '<p>This is the content for my custom profile tab!</p>';
+    // You can add more complex HTML, PHP, or shortcodes here.
+}
+add_action( 'um_profile_content_my_custom_tab_default', 'my_um_custom_profile_tab_content' );
+?>
