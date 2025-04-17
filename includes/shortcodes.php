@@ -1501,5 +1501,13 @@ add_shortcode('join_us_v2', 'join_us_v2');
 
 function user_posts()
 {
-
+    ob_start();
+    $posts = get_posts(array(
+        'post_type'  => 'post',
+        'numberpost' => 3,
+        'category'   => 95
+    ));
+    echo blog__post($posts);
+    return ob_get_clean();
 }
+add_shortcode('user_posts', 'user_posts');
