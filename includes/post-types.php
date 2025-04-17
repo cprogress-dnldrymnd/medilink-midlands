@@ -284,3 +284,40 @@ $Packages_Categories->args = array(
     'has_archive'  => false,
     'rewrite'      => false,
 );
+
+
+function modify_wpsl_stores_admin_label( $args, $post_type ) {
+    // Check if the post type is 'wpsl_stores'.
+    if ( 'wpsl_stores' === $post_type ) {
+        // Modify the labels array.
+        $args['labels']['name'] = 'Member Directory';
+        $args['labels']['singular_name'] = 'Member';
+        $args['labels']['menu_name'] = 'Member Directory';
+        $args['labels']['all_items'] = 'All Members';
+        $args['labels']['add_new'] = 'Add New Member';
+        $args['labels']['add_new_item'] = 'Add New Member';
+        $args['labels']['edit_item'] = 'Edit Member';
+        $args['labels']['new_item'] = 'New Member';
+        $args['labels']['view_item'] = 'View Member';
+        $args['labels']['search_items'] = 'Search Members';
+        $args['labels']['not_found'] = 'No members found';
+        $args['labels']['not_found_in_trash'] = 'No members found in Trash';
+        $args['labels']['parent_item_colon'] = 'Parent Member:';
+        $args['labels']['archives'] = 'Member Archives';
+        $args['labels']['insert_into_item'] = 'Insert into member';
+        $args['labels']['uploaded_to_this_item'] = 'Uploaded to this member';
+        $args['labels']['filter_items_list'] = 'Filter members list';
+        $args['labels']['items_list_navigation'] = 'Members list navigation';
+        $args['labels']['items_list'] = 'Members list';
+        $args['labels']['name_admin_bar'] = 'Member Directory'; // Appears in the admin bar
+
+        // Optionally, you can also change other settings like the menu icon.
+        // $args['menu_icon'] = 'dashicons-groups'; // Example: Change to the groups icon.
+
+        $args['rewrite'] = array( 'slug' => 'member-directory' ); // Change the slug
+    }
+    return $args;
+}
+
+// Hook into the register_post_type_args filter.
+add_filter( 'register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2 );
