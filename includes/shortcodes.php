@@ -406,7 +406,7 @@ function member_marketplace_form()
 add_shortcode('member_marketplace_form', 'member_marketplace_form');
 
 
-function submit_blog_form_with_login()
+function submit_blog_form()
 {
     ob_start();
     ?>
@@ -434,7 +434,7 @@ function submit_blog_form_with_login()
 }
 
 
-function submit_blog_form()
+function submit_blog_form_no_login()
 {
     ob_start();
     ?>
