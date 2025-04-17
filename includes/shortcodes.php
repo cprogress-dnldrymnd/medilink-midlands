@@ -1504,10 +1504,11 @@ function user_posts()
     ob_start();
     $posts = get_posts(array(
         'post_type'  => 'post',
-        'numberpost' => 3,
-        'category'   => 95
+        'numberpost' => -1,
+        'author' => '',
     ));
     echo blog__post($posts);
+    echo um_user('ID');
     return ob_get_clean();
 }
 add_shortcode('user_posts', 'user_posts');
