@@ -1924,7 +1924,9 @@ body.header-title-style-2 #primary {
     margin-bottom: 20px; }
 
 #bbpress-forums div.bbp-the-content-wrapper div.quicktags-toolbar {
-  gap: 10px; }
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap; }
 
 #bbpress-forums #qt_bbp_topic_content_toolbar .ed_button.ed_button.ed_button {
   background-size: 25px;
@@ -1976,7 +1978,9 @@ body.header-title-style-2 #primary {
   display: none !important; }
 
 #bbpress-forums div.bbp-the-content-wrapper div.quicktags-toolbar {
-  gap: 10px; }
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap; }
 
 #bbpress-forums #qt_bbp_topic_content_toolbar .ed_button.ed_button.ed_button {
   background-size: 25px;

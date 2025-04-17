@@ -2557,9 +2557,13 @@ body {
         }
     }
 }
+
 #bbpress-forums div.bbp-the-content-wrapper div.quicktags-toolbar {
     gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 #bbpress-forums #qt_bbp_topic_content_toolbar .ed_button.ed_button.ed_button {
     background-size: 25px;
     background-position: center;
@@ -2622,6 +2626,8 @@ body {
 
 #bbpress-forums div.bbp-the-content-wrapper div.quicktags-toolbar {
     gap: 10px;
+    display: flex;
+    flex-wrap: wrap
 }
 
 #bbpress-forums #qt_bbp_topic_content_toolbar .ed_button.ed_button.ed_button {
