@@ -766,7 +766,25 @@ function offer_category()
 }
 add_shortcode('offer_category', 'offer_category');
 
+function blog_category()
+{
+    $terms = get_terms(array(
+        'taxonomy'   => 'membersmarketplace_category',
+        'hide_empty' => false,
+    ));
+    $select = '<select name="offer_category_pseudo[]" id="offer_category_pseudo" multiple>';
+    $select .= '<option>Select Category</option>';
+    foreach ($terms as $term) {
+        $select .= '<option value="' . $term->term_id . '">';
+        $select .= $term->name;
+        $select .= '</option>';
+    }
+    $select .= '</select>';
+    return $select;
+}
+add_shortcode('blog_category', 'blog_category');
 
+/*
 function blog_category()
 {
     $terms = get_terms(array(
@@ -784,7 +802,7 @@ function blog_category()
     return $select;
 }
 add_shortcode('blog_category', 'blog_category');
-
+*/
 function template($atts)
 {
     extract(
