@@ -1506,6 +1506,7 @@ function user_posts()
         'post_type'  => 'post',
         'numberpost' => -1,
         'author' => um_user('ID'),
+        'post_status' => array('publish', 'pending')
     ));
     echo blog__post($posts);
     return ob_get_clean();
