@@ -36,6 +36,10 @@ function blog__post($posts): bool|string
                 $date = get_the_date('', $post->ID);
                 $image = get_the_post_thumbnail_url($post->ID, 'large');
                 $category = get_the_category($post->ID);
+
+                if(!$image) {
+                    $image = wp_get_attachment_image_url( 50874, 'large' );
+                }
                 ?>
                 <div class="vc_col-sm-4">
                     <article class="single-post list-view">
