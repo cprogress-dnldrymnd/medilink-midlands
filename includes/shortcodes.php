@@ -1508,14 +1508,16 @@ function user_posts()
         'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
+    echo '<div class="user-posts">';
     if ($posts) {
         echo blog__post($posts);
     } else {
-        echo '<div class="um-profile-note" style="display: block;">
+        echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
 			<span>
 				This user has not created any posts.			</span>
 		</div>';
     }
+    echo '</div>';
     return ob_get_clean();
 }
 add_shortcode('user_posts', 'user_posts');

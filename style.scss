@@ -2542,4 +2542,12 @@ body {
     .um-ajax-items {
         display: none !important;
     }
+    .um-profile-note{
+        &:not(.um-profile-note-real) {
+            display: none !important;
+        }
+    }
+    .user-posts {
+        margin-top: 30px;
+    }
 }

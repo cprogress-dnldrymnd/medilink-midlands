@@ -1916,5 +1916,9 @@ body.header-title-style-2 #primary {
 
 .um-profile-body.posts.posts.posts-default.posts-default .um-ajax-items {
   display: none !important; }
+.um-profile-body.posts.posts.posts-default.posts-default .um-profile-note:not(.um-profile-note-real) {
+  display: none !important; }
+.um-profile-body.posts.posts.posts-default.posts-default .user-posts {
+  margin-top: 30px; }
 
 /*# sourceMappingURL=style.css.map */
