@@ -262,7 +262,6 @@ function save_cf7_to_custom_post($contact_form)
             }
             if ($submit_blog_category) {
                 $submit_blog_category_arr = explode(',', $submit_blog_category);
-
                 wp_set_post_terms($post_id, $submit_blog_category_arr, 'category');
             }
         }
