@@ -413,7 +413,7 @@ function submit_blog_form()
     <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
             <div class="inner">
-                <h2>Submit a Article</h2>
+                <h2>Submit an Article</h2>
                 <?php if (is_user_logged_in()) { ?>
                     <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
                 <?php }
@@ -441,7 +441,7 @@ function submit_blog_form_no_login()
     <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
             <div class="inner">
-                <h2>Submit a Article</h2>
+                <h2>Submit an Article</h2>
                 <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
             </div>
         </div>
