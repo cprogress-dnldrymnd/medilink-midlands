@@ -295,12 +295,14 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                             <?php } ?>
                         </div>
 
-                        <?php if (!isset($_GET['profiletab'])) { ?>
+                        <?php if (!isset($_GET['profiletab']) || (isset($_GET['profiletab']) && $_GET['profiletab'] == 'main')) { ?>
                             <div class="edit-profile-holder">
                                 <a href="<?= esc_url(um_edit_profile_url()) ?>">
                                     Edit profile
                                 </a>
                             </div>
+                        <?php } else { ?>
+                            
                         <?php } ?>
 
                     </div>
