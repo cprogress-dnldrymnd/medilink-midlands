@@ -542,7 +542,7 @@ function my_um_add_custom_profile_tab( $tabs ) {
     );
     return $tabs;
 }
-add_filter( 'um_profile_tabs', 'my_um_add_custom_profile_tab', 1000 );
+add_filter( 'um_profile_tabs', 'my_um_add_custom_profile_tab');
 
 /**
  * Display content for the custom profile tab.
