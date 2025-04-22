@@ -573,3 +573,25 @@ function um_change_posts_text($translation, $text, $domain)
 }
 add_filter('gettext', 'um_change_posts_text', 20, 3);
 add_filter('ngettext', 'um_change_posts_text', 20, 3);
+
+
+
+function forum_posts_admin_page() {
+    add_menu_page(
+        'Forum Posts',           // Page title
+        'Forum Posts',           // Menu title
+        'moderate_comments',     // Capability required to see the page
+        'forum-posts',           // Menu slug (unique identifier)
+        'forum_posts_page_content', // Function to display the page content
+        'dashicons-admin-comments', // Icon to use (optional, see https://developer.wordpress.org/resource/dashicons/)
+        25                      // Position in the menu (optional)
+    );
+}
+add_action('admin_menu', 'forum_posts_admin_page');
+
+function forum_posts_page_content() {
+    echo '<div class="wrap">';
+    echo '<h2>Forum Posts</h2>';
+    echo do_shortcode('[bsp-moderation-pending]');
+    echo '</div>';
+}
