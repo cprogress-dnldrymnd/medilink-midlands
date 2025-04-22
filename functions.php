@@ -574,24 +574,22 @@ function um_change_posts_text($translation, $text, $domain)
 add_filter('gettext', 'um_change_posts_text', 20, 3);
 add_filter('ngettext', 'um_change_posts_text', 20, 3);
 
-
-
-function forum_posts_admin_page() {
+function add_forum_posts_admin_link() {
     add_menu_page(
-        'Forum Posts',           // Page title
-        'Forum Posts',           // Menu title
-        'moderate_comments',     // Capability required to see the page
-        'forum-posts',           // Menu slug (unique identifier)
-        'forum_posts_page_content', // Function to display the page content
-        'dashicons-admin-comments', // Icon to use (optional, see https://developer.wordpress.org/resource/dashicons/)
-        25                      // Position in the menu (optional)
+        'Forum Posts',        // Page title
+        'Forum Posts',        // Menu title
+        'manage_options',     // Capability required to see this menu
+        'forum_posts',        // Menu slug (unique identifier)
+        'forum_posts_page',   // Function to display the page content (we'll just redirect)
+        'dashicons-admin-post', // Icon to use (optional - see WordPress Dashicons)
+        25                    // Position in the menu order (adjust as needed)
     );
 }
-add_action('admin_menu', 'forum_posts_admin_page');
+add_action('admin_menu', 'add_forum_posts_admin_link');
 
-function forum_posts_page_content() {
-    echo '<div class="wrap">';
-    echo '<h2>Forum Posts</h2>';
-    echo do_shortcode('[bsp-moderation-pending]');
-    echo '</div>';
+function forum_posts_page() {
+    $redirect_url = 'https://medilink.theprogressteam.com/pending-forum-posts/';
+    echo '<script type="text/javascript">window.location = "' . esc_url($redirect_url) . '";</script>';
+    echo '<noscript><meta http-equiv="refresh" content="0;url=' . esc_url($redirect_url) . '"></noscript>';
+    echo '<p>Redirecting to <a href="' . esc_url($redirect_url) . '">' . esc_html($redirect_url) . '</a>...</p>';
 }
