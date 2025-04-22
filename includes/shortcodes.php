@@ -965,7 +965,7 @@ function join_us_v2()
                 <!-- memebers only-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        Enhanced Member only area access:
+                            <?= get_term_by('term_id', 121, 'packages_category')->name ?>
                     </td>
                 </tr>
 
