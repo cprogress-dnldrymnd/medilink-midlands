@@ -1133,7 +1133,7 @@ function join_us_v2()
 
                 <tr>
                     <td class="title-data">
-                        <strong>Marketing</strong>
+                        <strong><?= get_term_by('term_id', 134, 'packages_category')->name ?></strong>
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
