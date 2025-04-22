@@ -871,21 +871,21 @@ function join_us_v2()
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent'     => 113,
-        'order'      => 'ASC',
+        'order'      => 'DESC',
       
     ));
     $packages_members_only = get_terms(array(
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent'     => 121,
-        'order'      => 'ASC',
+        'order'      => 'DESC',
     
     ));
     $patrons = get_terms(array(
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent'     => 164,
-        'order'      => 'ASC',
+        'order'      => 'DESC',
        
     ));
 
@@ -893,7 +893,7 @@ function join_us_v2()
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent'     => 134,
-        'order'      => 'ASC',
+        'order'      => 'DESC',
     ));
 
 
