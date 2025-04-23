@@ -99,8 +99,11 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
 				->add_fields(array(
 					Field::make('select', 'term_slug', __('Select Term'))
+						->set_width(50)
 						->set_options(packages_category()),
-					Field::make('text', 'custom_text', __('Custom Text')),
+					Field::make('text', 'custom_text', __('Custom Text'))
+						->set_width(50)
+
 				))
 				->set_layout('grid')
 				->set_collapsed(true)
