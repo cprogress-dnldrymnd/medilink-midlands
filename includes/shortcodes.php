@@ -1048,23 +1048,6 @@ function join_us_v2()
                 <!-- end of patrons-->
 
 
-                <!-- membership review-->
-
-                <tr>
-                    <td>
-                        Membership Review
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $membership_review = cb_value($package->ID, 'membership_review');
-
-                        ?>
-                        <td class="text-center <?= $membership_review ? '' : 'tick' ?>">
-                            <span><?= $membership_review ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <!-- end of membership review-->
 
                 <!-- Discounts-->
                 <tr>
