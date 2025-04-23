@@ -41,6 +41,19 @@ Container::make('post_meta', 'Submitted By')
 /* Membership Marketplace
 /*-----------------------------------------------------------------------------------*/
 
+function packages_category()
+{
+	$terms = get_terms(array(
+		'taxonomy' => 'packages_category',
+		'hide_empty' => false,
+	));
+	$terms_arr = [];
+	foreach ($terms as $term) {
+		$terms_arr[$term->slug] = $term->name;
+	}
+	return $terms_arr;
+}
+
 Container::make('post_meta', 'Packages Details')
 	->where('post_type', '=', 'packages')
 	->add_fields(
@@ -62,7 +75,6 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('text', 'marketing_blog', __('Marketing: Blog (1 per year)')),
 			Field::make('text', 'marketing_promotion', __('Marketing: Promotion of events')),
 			Field::make('text', 'marketing_memeber_marketplace', __('Marketing: Member Market place listing')),
-
 			Field::make('select', 'marketing_level', __('Marketing Level'))
 				->set_options(array(
 					'' => 'None',
@@ -76,13 +88,11 @@ Container::make('post_meta', 'Packages Details')
 			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
 				->add_fields(array(
 					Field::make('text', 'term_slug', __('Term Slug')),
+					Field::make('select', 'membership_review', __('Membership Review'))
+						->set_options(packages_category()),
 					Field::make('text', 'custom_text', __('Custom Text')),
 				))
 				->set_layout('tabbed-horizontal')
 				->set_header_template('<%- term_slug %> : <%- custom_text %> ')
-
-
-
-
 		)
 	);
