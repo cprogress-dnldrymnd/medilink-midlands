@@ -1147,58 +1147,6 @@ function join_us_v2()
                         <?php } ?>
                     </tr>
                 <?php } ?>
-                <tr>
-                    <td>
-                        Thought leadership article
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
-                        ?>
-                        <td class="text-center <?= $marketing_thought_leadership_article ? '' : 'tick' ?>">
-                            <span><?= $marketing_thought_leadership_article ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Blog
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $marketing_blog = cb_value($package->ID, 'marketing_blog');
-                        ?>
-                        <td class="text-center <?= $marketing_blog ? '' : 'tick' ?>">
-                            <span><?= $marketing_blog ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Promotion of events
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
-                        ?>
-                        <td class="text-center <?= $marketing_promotion ? '' : 'tick' ?>">
-                            <span><?= $marketing_promotion ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Member Market place listing
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
-                        ?>
-                        <td class="text-center <?= $marketing_memeber_marketplace ? '' : 'tick' ?>">
-                            <span><?= $marketing_memeber_marketplace ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
                 <!-- end of marketing-->
 
 

@@ -70,21 +70,6 @@ Container::make('post_meta', 'Packages Details')
 	->add_fields(
 		array(
 			Field::make('text', 'price', __('Price')),
-			Field::make('select', 'membership_review', __('Membership Review'))
-				->set_options(array(
-					'' => 'None',
-					'&nbsp;' => 'None(Blank)',
-					'Annual' => 'Annual',
-					'Per Quarter' => 'Per Quarter'
-				)),
-
-			Field::make('text', 'discount_mm_training_networking', __('Discount: MM training & networking')),
-			Field::make('text', 'discount_events_marketing_services', __('Discount: Events and/or Marketing services')),
-			Field::make('text', 'discount_medtech_expo', __('Discount: MedTech Innovation Expo (MTI) exhibition space')),
-			Field::make('text', 'discount_internation_trade', __('Discount: Access to International Trade Shows discounts')),
-			Field::make('text', 'marketing_thought_leadership_article', __('Marketing: Thought leadership article')),
-			Field::make('text', 'marketing_blog', __('Marketing: Blog (1 per year)')),
-			Field::make('text', 'marketing_promotion', __('Marketing: Promotion of events')),
 			Field::make('text', 'marketing_memeber_marketplace', __('Marketing: Member Market place listing')),
 			Field::make('select', 'marketing_level', __('Marketing Level'))
 				->set_options(array(
