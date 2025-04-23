@@ -1325,7 +1325,6 @@ function join_us_v2()
                                     ?>
                                 <?php } ?>
                                 <?php
-                                echo $term_val;
                                 if (!str_contains($term_val, 'has_term')) {
                                     echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
                                 }
