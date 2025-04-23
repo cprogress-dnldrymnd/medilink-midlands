@@ -1206,7 +1206,8 @@ function join_us_v2()
                                     }
 
                                     if ($text && $text != '&nbsp;') {
-                                        echo "<li>$text</li>";
+                                        $name = $benefits->name;
+                                        echo "<li><span><strong>$name: </strong>$text</li>";
                                     } else {
                                         if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                             $text = $benefits->name;
@@ -1237,7 +1238,8 @@ function join_us_v2()
                                     }
 
                                     if ($text && $text != '&nbsp;') {
-                                        echo "<li>$text</li>";
+                                        $name = $members_only->name;
+                                        echo "<li><span><strong>$name: </strong>$text</li>";
                                     } else {
                                         if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                             $text = $members_only->name;
@@ -1268,7 +1270,8 @@ function join_us_v2()
                                     }
 
                                     if ($text && $text != '&nbsp;') {
-                                        echo "<li>$text</li>";
+                                        $name = $patron->name;
+                                        echo "<li><span><strong>$name: </strong>$text</li>";
                                     } else {
                                         if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                             $text = $patron->name;
@@ -1301,7 +1304,8 @@ function join_us_v2()
                                     }
 
                                     if ($text && $text != '&nbsp;') {
-                                        echo "<li>$text</li>";
+                                        $name = $discount->name;
+                                        echo "<li><span><strong>$name: </strong>$text</li>";
                                     } else {
                                         if (has_term($discount->slug, $taxonomy, $package->ID)) {
                                             $text = $discount->name;
@@ -1322,8 +1326,6 @@ function join_us_v2()
 
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
-
-
                         ?>
                         <div class="feature feature-marketing">
                             <div class="feature-title">
