@@ -98,8 +98,7 @@ Container::make('post_meta', 'Packages Details')
 
 			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
 				->add_fields(array(
-					Field::make('text', 'term_slug', __('Term Slug')),
-					Field::make('select', 'membership_review', __('Membership Review'))
+					Field::make('select', 'term_slug', __('Select Term'))
 						->set_options(packages_category()),
 					Field::make('text', 'custom_text', __('Custom Text')),
 				))
