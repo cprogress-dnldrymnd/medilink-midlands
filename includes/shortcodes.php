@@ -1246,12 +1246,14 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
-                                    echo $term_val;
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
-                                    }
+
                                     ?>
                                 <?php } ?>
+                                <?php
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
+                                }
+                                ?>
                             </ul>
                         </div>
                         <?php $term_val = ''; ?>
@@ -1262,7 +1264,6 @@ function join_us_v2()
                             <ul class="checklist-ul">
                                 <?php foreach ($patrons as $patron) { ?>
                                     <?php
-
                                     if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$patron->slug];
                                     } else {
@@ -1279,11 +1280,13 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
-                                    }
                                     ?>
                                 <?php } ?>
+                                <?php
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
+                                }
+                                ?>
                             </ul>
                         </div>
                         <?php $term_val = ''; ?>
@@ -1313,11 +1316,13 @@ function join_us_v2()
                                             echo "<li>$text</li>";
                                         }
                                     }
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
-                                    }
                                     ?>
                                 <?php } ?>
+                                <?php
+                                if (!str_contains($term_val, 'has_term')) {
+                                    echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
+                                }
+                                ?>
                                 <!-- end of Discounts-->
                             </ul>
                         </div>
