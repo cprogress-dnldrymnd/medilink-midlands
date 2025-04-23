@@ -973,7 +973,7 @@ function join_us_v2()
                 <!-- memebers only-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                            <?= get_term_by('term_id', 121, 'packages_category')->name ?>
+                        <?= get_term_by('term_id', 121, 'packages_category')->name ?>
                     </td>
                 </tr>
 
@@ -1060,7 +1060,7 @@ function join_us_v2()
                 <!-- Discounts-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                            <?= get_term_by('term_id', 172, 'packages_category')->name ?>
+                        <?= get_term_by('term_id', 172, 'packages_category')->name ?>
                     </td>
                 </tr>
 
@@ -1329,10 +1329,7 @@ function join_us_v2()
 
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
-                        $marketing_thought_leadership_article = cb_value($package->ID, 'marketing_thought_leadership_article');
-                        $marketing_blog = cb_value($package->ID, 'marketing_blog');
-                        $marketing_promotion = cb_value($package->ID, 'marketing_promotion');
-                        $marketing_memeber_marketplace = cb_value($package->ID, 'marketing_memeber_marketplace');
+
 
                         ?>
                         <div class="feature feature-marketing">
@@ -1361,42 +1358,7 @@ function join_us_v2()
 
                                     ?>
                                 <?php } ?>
-                                <?php if ($marketing_thought_leadership_article && $marketing_thought_leadership_article != '&nbsp;') { ?>
-                                    <?php
-                                    $term_val = 'has_term';
-                                    ?>
-                                    <li>
-                                        Thought leadership article:
-                                        <span><?= $marketing_thought_leadership_article ?></span>
-                                    </li>
-                                <?php } ?>
-                                <?php if ($marketing_blog && $marketing_blog != '&nbsp;') { ?>
-                                    <?php
-                                    $term_val = 'has_term';
-                                    ?>
-                                    <li>
-                                        Blog:
-                                        <span><?= $marketing_blog ?></span>
-                                    </li>
-                                <?php } ?>
-                                <?php if ($marketing_promotion && $marketing_promotion != '&nbsp;') { ?>
-                                    <?php
-                                    $term_val = 'has_term';
-                                    ?>
-                                    <li>
-                                        Promotion of events:
-                                        <span><?= $marketing_promotion ?></span>
-                                    </li>
-                                <?php } ?>
-                                <?php if ($marketing_memeber_marketplace && $marketing_memeber_marketplace != '&nbsp;') { ?>
-                                    <?php
-                                    $term_val = 'has_term';
-                                    ?>
-                                    <li>
-                                        Member Market place listing:
-                                        <span><?= $marketing_memeber_marketplace ?></span>
-                                    </li>
-                                <?php } ?>
+
                                 <?php
                                 if (!str_contains($term_val, 'has_term')) {
                                     echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
