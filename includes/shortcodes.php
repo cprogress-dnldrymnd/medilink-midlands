@@ -1208,6 +1208,8 @@ function join_us_v2()
                                     if ($text && $text != '&nbsp;') {
                                         $name = $benefits->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
+                                        $term_val .= 'has_term';
+
                                     } else {
                                         if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                             $text = $benefits->name;
@@ -1240,6 +1242,8 @@ function join_us_v2()
                                     if ($text && $text != '&nbsp;') {
                                         $name = $members_only->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
+                                        $term_val .= 'has_term';
+
                                     } else {
                                         if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                             $text = $members_only->name;
@@ -1273,6 +1277,8 @@ function join_us_v2()
                                     if ($text && $text != '&nbsp;') {
                                         $name = $patron->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
+                                        $term_val .= 'has_term';
+
                                     } else {
                                         if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                             $text = $patron->name;
@@ -1308,6 +1314,7 @@ function join_us_v2()
                                     if ($text && $text != '&nbsp;') {
                                         $name = $discount->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
+                                        $term_val .= 'has_term';
                                     } else {
                                         if (has_term($discount->slug, $taxonomy, $package->ID)) {
                                             $text = $discount->name;
@@ -1349,6 +1356,7 @@ function join_us_v2()
                                     if ($text && $text != '&nbsp;') {
                                         $name = $marketing->name;
                                         echo "<li><span><strong>$name: </strong>$text</span></li>";
+                                        $term_val .= 'has_term';
                                     } else {
                                         if (has_term($marketing->slug, $taxonomy, $package->ID)) {
                                             $text = $marketing->name;
