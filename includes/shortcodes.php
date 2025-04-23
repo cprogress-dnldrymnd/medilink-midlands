@@ -885,6 +885,14 @@ function join_us_v2()
     ));
 
 
+    $discounts = get_terms(array(
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'parent'     => 172,
+        'order'      => 'ASC',
+    ));
+
+
 ?>
     <div class="join-us-v2">
         <table>
@@ -1051,63 +1059,44 @@ function join_us_v2()
 
                 <!-- Discounts-->
                 <tr>
-                    <td class="title-data " colspan="<?= count($packages) + 1 ?>">
-                        Discounts
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                            <?= get_term_by('term_id', 172, 'packages_category')->name ?>
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        MM training & networking
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
-                        ?>
-                        <td class="text-center <?= $discount_mm_training_networking ? '' : 'tick' ?>">
-                            <span><?= $discount_mm_training_networking ?></span>
+                <?php foreach ($discounts as $discount) { ?>
+                    <tr>
+                        <td>
+                            <?= $discount->name ?>
                         </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Events and/or Marketing services
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
-                        ?>
-                        <td class="text-center <?= $discount_events_marketing_services ? '' : 'tick' ?>">
-                            <span><?= $discount_events_marketing_services ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Medtech Innovation Expo (MTI) exhibition space
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
-                        ?>
-                        <td class="text-center <?= $discount_medtech_expo ? '' : 'tick' ?>">
-                            <span><?= $discount_medtech_expo ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
-                <tr>
-                    <td>
-                        Access to International Trade Shows discounts
-                    </td>
-                    <?php foreach ($packages as $package) { ?>
-                        <?php
-                        $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
-                        ?>
-                        <td class="text-center <?= $discount_internation_trade ? '' : 'tick' ?>">
-                            <span><?= $discount_internation_trade ?></span>
-                        </td>
-                    <?php } ?>
-                </tr>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            $class = '';
+
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
+
+
+                            if (has_term($discount->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$discount->slug];
+                                $class = '';
+                            } else {
+                                $text = '<span></span>';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <?= $text ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
                 <!-- end of Discounts-->
 
 
