@@ -70,7 +70,6 @@ Container::make('post_meta', 'Packages Details')
 	->add_fields(
 		array(
 			Field::make('text', 'price', __('Price')),
-			Field::make('text', 'marketing_memeber_marketplace', __('Marketing: Member Market place listing')),
 			Field::make('select', 'marketing_level', __('Marketing Level'))
 				->set_options(array(
 					'' => 'None',
