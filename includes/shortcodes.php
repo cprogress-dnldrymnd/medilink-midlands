@@ -1340,7 +1340,8 @@ function join_us_v2()
                                     }
 
                                     if ($text && $text != '&nbsp;') {
-                                        echo "<li>$text</li>";
+                                        $name = $marketing->name;
+                                        echo "<li><strong>$name</strong>$text</li>";
                                     } else {
                                         if (has_term($marketing->slug, $taxonomy, $package->ID)) {
                                             $text = $marketing->name;
