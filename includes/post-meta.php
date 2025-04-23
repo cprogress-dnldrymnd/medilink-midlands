@@ -43,14 +43,25 @@ Container::make('post_meta', 'Submitted By')
 
 function packages_category()
 {
-	$terms = get_terms(array(
-		'taxonomy' => 'packages_category',
-		'hide_empty' => false,
-	));
+	global $wpdb;
+
+	$taxonomy = 'packages_category';
 	$terms_arr = [];
-	foreach ($terms as $term) {
-		$terms_arr[$term->slug] = $term->name;
+
+	$results = $wpdb->get_results($wpdb->prepare(
+		"SELECT t.slug, t.name
+		FROM {$wpdb->terms} AS t
+		INNER JOIN {$wpdb->term_taxonomy} AS tt ON t.term_id = tt.term_id
+		WHERE tt.taxonomy = %s",
+		$taxonomy
+	));
+
+	if ($results) {
+		foreach ($results as $row) {
+			$terms_arr[$row->slug] = $row->name;
+		}
 	}
+
 	return $terms_arr;
 }
 
