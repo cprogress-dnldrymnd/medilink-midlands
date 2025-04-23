@@ -1299,7 +1299,6 @@ function join_us_v2()
                             <ul class="checklist-ul">
                                 <?php foreach ($discounts as $discount) { ?>
                                     <?php
-
                                     if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$discount->slug];
                                     } else {
@@ -1319,6 +1318,7 @@ function join_us_v2()
                                     ?>
                                 <?php } ?>
                                 <?php
+                                echo $term_val;
                                 if (!str_contains($term_val, 'has_term')) {
                                     echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
                                 }
