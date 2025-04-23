@@ -892,6 +892,10 @@ function join_us_v2()
         'order'      => 'ASC',
     ));
 
+    $benefits_title = get_term_by('term_id', 113, 'packages_category')->name;
+    $members_only_title = get_term_by('term_id', 121, 'packages_category')->name;
+    $discounts_title = get_term_by('term_id', 172, 'packages_category')->name;
+    $marketing_title = get_term_by('term_id', 134, 'packages_category')->name;
 
 ?>
     <div class="join-us-v2">
@@ -933,7 +937,7 @@ function join_us_v2()
                 <!-- benefits-->
                 <tr class="top-left-first">
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        <?= get_term_by('term_id', 113, 'packages_category')->name ?>
+                        <?= $benefits_title ?>
                     </td>
                 </tr>
 
@@ -973,7 +977,7 @@ function join_us_v2()
                 <!-- memebers only-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        <?= get_term_by('term_id', 121, 'packages_category')->name ?>
+                        <?= $members_only_title ?>
                     </td>
                 </tr>
 
@@ -1060,7 +1064,7 @@ function join_us_v2()
                 <!-- Discounts-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        <?= get_term_by('term_id', 172, 'packages_category')->name ?>
+                        <?= $discounts_title ?>
                     </td>
                 </tr>
 
@@ -1105,7 +1109,7 @@ function join_us_v2()
 
                 <tr>
                     <td class="title-data">
-                        <strong><?= get_term_by('term_id', 134, 'packages_category')->name ?></strong>
+                        <strong><?= $marketing_title ?></strong>
                     </td>
                     <?php foreach ($packages as $package) { ?>
                         <?php
@@ -1189,7 +1193,7 @@ function join_us_v2()
                     <div class="features-mobile-holder">
                         <div class="feature feature-benefits">
                             <div class="feature-title">
-                                Benefits to support your innovation ideas and organisation
+                                <?= $benefits_title ?>
                             </div>
                             <ul class="checklist-ul">
                                 <?php foreach ($packages_benefits as $benefits) { ?>
@@ -1220,7 +1224,7 @@ function join_us_v2()
                         <?php $term_val = ''; ?>
                         <div class="feature feature-member-only">
                             <div class="feature-title">
-                                Enhanced Member only area access:
+                                <?= $members_only_title ?>
                             </div>
                             <ul class="checklist-ul">
                                 <?php foreach ($packages_members_only as $members_only) { ?>
@@ -1281,50 +1285,39 @@ function join_us_v2()
                         </div>
                         <?php $term_val = ''; ?>
 
-                        <?php
-                        $discount_mm_training_networking = cb_value($package->ID, 'discount_mm_training_networking');
-                        $discount_events_marketing_services = cb_value($package->ID, 'discount_events_marketing_services');
-                        $discount_medtech_expo = cb_value($package->ID, 'discount_medtech_expo');
-                        $discount_internation_trade = cb_value($package->ID, 'discount_internation_trade');
-                        ?>
-                        <?php if ($discount_mm_training_networking || $discount_events_marketing_services || $discount_medtech_expo || $discount_internation_trade) { ?>
-                            <div class="feature feature-discounts">
+                        <div class="feature feature-discounts">
 
-                                <div class="feature-title">
-                                    Discounts
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php if ($discount_mm_training_networking) { ?>
-                                        <li>
-                                            MM training & networking:
-                                            <?= $discount_mm_training_networking ?>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($discount_events_marketing_services) { ?>
-                                        <li>
-                                            Events and/or Marketing services:
-
-                                            <span><?= $discount_events_marketing_services ?></span>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($discount_medtech_expo) { ?>
-                                        <li>
-                                            Medtech Innovation Expo (MTI) exhibition space:
-                                            </strong>
-                                            <span><?= $discount_medtech_expo ?></span>
-                                        </li>
-                                    <?php } ?>
-                                    <?php if ($discount_internation_trade) { ?>
-                                        <li>
-                                            Access to International Trade Shows discounts:
-                                            <span><?= $discount_internation_trade ?></span>
-                                        </li>
-                                    <?php } ?>
-
-                                    <!-- end of Discounts-->
-                                </ul>
+                            <div class="feature-title">
+                                <?= $discounts_title ?>
                             </div>
-                        <?php } ?>
+                            <ul class="checklist-ul">
+                                <?php foreach ($discounts as $discount) { ?>
+                                    <?php
+
+                                    if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$discount->slug];
+                                    } else {
+                                        $text = false;
+                                    }
+
+                                    if ($text && $text != '&nbsp;') {
+                                        echo "<li>$text</li>";
+                                    } else {
+                                        if (has_term($discount->slug, $taxonomy, $package->ID)) {
+                                            $text = $discount->name;
+                                            $term_val = 'has_term';
+                                            echo "<li>$text</li>";
+                                        }
+                                    }
+                                    if (!str_contains($term_val, 'has_term')) {
+                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
+                                    }
+                                    ?>
+                                <?php } ?>
+                                <!-- end of Discounts-->
+                            </ul>
+                        </div>
+
                         <?php $term_val = ''; ?>
 
                         <?php
@@ -1334,7 +1327,7 @@ function join_us_v2()
                         ?>
                         <div class="feature feature-marketing">
                             <div class="feature-title">
-                                Marketing: <?= $marketing_level ?>
+                                <?= $marketing_title ?>: <?= $marketing_level ?>
                             </div>
                             <ul class="checklist-ul">
                                 <?php foreach ($packages_marketing as $marketing) { ?>
