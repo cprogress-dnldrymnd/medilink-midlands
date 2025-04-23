@@ -1211,7 +1211,7 @@ function join_us_v2()
                                     } else {
                                         if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                             $text = $benefits->name;
-                                            $term_val = 'has_term';
+                                            $term_val .= 'has_term';
                                             echo "<li>$text</li>";
                                         }
                                     }
@@ -1276,7 +1276,7 @@ function join_us_v2()
                                     } else {
                                         if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                             $text = $patron->name;
-                                            $term_val = 'has_term';
+                                            $term_val .= 'has_term';
                                             echo "<li>$text</li>";
                                         }
                                     }
@@ -1312,7 +1312,7 @@ function join_us_v2()
                                     } else {
                                         if (has_term($discount->slug, $taxonomy, $package->ID)) {
                                             $text = $discount->name;
-                                            $term_val = 'has_term';
+                                            $term_val .= 'has_term';
                                             echo "<li>$text</li>";
                                         }
                                     }
@@ -1352,7 +1352,7 @@ function join_us_v2()
                                     } else {
                                         if (has_term($marketing->slug, $taxonomy, $package->ID)) {
                                             $text = $marketing->name;
-                                            $term_val = 'has_term';
+                                            $term_val .= 'has_term';
                                             echo "<li>$text</li>";
                                         }
                                     }
