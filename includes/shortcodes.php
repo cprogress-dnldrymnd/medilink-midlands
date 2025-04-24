@@ -518,6 +518,9 @@ function claim_offer_form()
                 }
                 ?>
             </div>
+            <div class="col-lg-12">
+                <h4>Supporting Documents</h4>
+            </div>
         </div>
     </div>
 <?php
@@ -1209,7 +1212,6 @@ function join_us_v2()
                                         $name = $benefits->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-
                                     } else {
                                         if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                             $text = $benefits->name;
@@ -1243,7 +1245,6 @@ function join_us_v2()
                                         $name = $members_only->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-
                                     } else {
                                         if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                             $text = $members_only->name;
@@ -1278,7 +1279,6 @@ function join_us_v2()
                                         $name = $patron->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-
                                     } else {
                                         if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                             $text = $patron->name;
