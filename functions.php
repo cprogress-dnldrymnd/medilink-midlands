@@ -602,7 +602,7 @@ function add_custom_links_to_menu($items, $args)
                 ),
                 array(
                     'title' => 'Log Out',
-                    'url'   => '/example-page/', // Replace with your desired URL
+                    'url'   => esc_url(wp_logout_url(home_url())), // Replace with your desired URL
                     'id'    => 'custom-menu-item-logout',
                 ),
 
