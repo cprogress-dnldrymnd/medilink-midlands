@@ -2020,4 +2020,11 @@ div.bbp-topic-tags,
     .text-counter label .text-counter-holder.warning {
       color: orange; }
 
+.offer-documents-holder {
+  border-top: 1px solid;
+  padding-top: 20px;
+  margin-top: 20px; }
+  .offer-documents-holder .offer-documents h4 {
+    font-weight: bold; }
+
 /*# sourceMappingURL=style.css.map */
