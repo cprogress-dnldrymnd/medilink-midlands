@@ -648,3 +648,18 @@ function add_custom_links_to_menu($items, $args)
     return $items;
 }
 add_filter('wp_nav_menu_objects', 'add_custom_links_to_menu', 10, 2);
+
+
+function claim_offer_button($id)
+{
+    ob_start();
+    $post = get_post($id);
+    $post_author = $post->post_author;
+    $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
+?>
+    <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>">Claim Offer
+
+    </a>
+<?php
+    return ob_get_clean();
+}
