@@ -2687,9 +2687,16 @@ div.bbp-topic-tags,
     border-top: 1px solid;
     padding-top: 20px;
     margin-top: 20px;
+    gap: 20px;
     .offer-documents {
+        display: flex;
+        flex-wrap: wrap;
         h4 {
             font-weight: bold;
+            width: 100%;
+        }
+        .offer-document {
+            width: calc(33.33333333333333px% - 13.33333333333333px);
         }
     }
 }

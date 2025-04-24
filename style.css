@@ -2023,8 +2023,15 @@ div.bbp-topic-tags,
 .offer-documents-holder {
   border-top: 1px solid;
   padding-top: 20px;
-  margin-top: 20px; }
-  .offer-documents-holder .offer-documents h4 {
-    font-weight: bold; }
+  margin-top: 20px;
+  gap: 20px; }
+  .offer-documents-holder .offer-documents {
+    display: flex;
+    flex-wrap: wrap; }
+    .offer-documents-holder .offer-documents h4 {
+      font-weight: bold;
+      width: 100%; }
+    .offer-documents-holder .offer-documents .offer-document {
+      width: calc(33.33333333333333px% - 13.33333333333333px); }
 
 /*# sourceMappingURL=style.css.map */
