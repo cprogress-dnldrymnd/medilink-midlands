@@ -601,7 +601,7 @@ function add_custom_links_to_menu( $items, $args ) {
         $custom_links = array(
             array(
                 'title' => 'Profile',
-                'url'   => '/', // Or use home_url() for the site's home page
+                'url'   => do_shortcode('[um_author_profile_link raw=1 user_id='.get_current_user_id().']'), // Or use home_url() for the site's home page
                 'id'    => 'custom-menu-item-profile', // Unique ID
             ),
             array(
