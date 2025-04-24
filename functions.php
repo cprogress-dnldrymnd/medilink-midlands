@@ -55,7 +55,7 @@ function change_mt_listing_category2_slug($args, $taxonomy)
 add_filter('register_taxonomy_args', 'change_mt_listing_category2_slug', 10, 2);
 
 
-function memberplace_marketplace()
+function member_marketplace()
 {
     ob_start();
 ?>

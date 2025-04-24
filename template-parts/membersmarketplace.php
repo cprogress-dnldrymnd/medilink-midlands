@@ -74,7 +74,6 @@ $featureds = get_posts(array(
                                                 <?php } ?>
                                                 <div class="modeltheme_button">
                                                     <?= _claim_offer_button($featured->ID) ?>
-                                                    <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($featured->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $featured->post_title ?>">Claim Offer</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +114,7 @@ $featureds = get_posts(array(
                 <?php } ?>
             </div>
         </div>
-        <?= memberplace_marketplace() ?>
+        <?= member_marketplace() ?>
         <div class="modeltheme_button text-center view-all">
             <a href="#" class="button-winona button-green btn btn-sm">View All</a>
         </div>
