@@ -593,3 +593,96 @@ function forum_posts_page() {
     echo '<noscript><meta http-equiv="refresh" content="0;url=' . esc_url($redirect_url) . '"></noscript>';
     echo '<p>Redirecting to <a href="' . esc_url($redirect_url) . '">' . esc_html($redirect_url) . '</a>...</p>';
 }
+
+/**
+ * Dynamically adds links to a specific WordPress menu.
+ *
+ * @param array $items The menu items, sorted and filtered.
+ * @param WP_Term $menu The menu object being filtered.
+ * @param array $args An array of wp_nav_menu() arguments.
+ * @return array The modified menu items.
+ */
+function my_dynamic_menu_links( $items, $menu, $args ) {
+	// Specify the ID of the menu you want to modify.
+	$menu_id = 182;
+
+	// Check if the current menu matches the specified ID.
+	if ( isset( $menu->term_id ) && $menu->term_id == $menu_id ) {
+		// Array of links to add. Each link is an array with 'title' and 'url'.
+		$new_links = array(
+			array(
+				'title' => 'Dynamic Link 1',
+				'url'   => '/dynamic-link-1/',
+			),
+			array(
+				'title' => 'External Link',
+				'url'   => 'https://www.example.com',
+			),
+			array(
+				'title' => 'Another Link',
+				'url'   => '/another-page/',
+			),
+			// Add more links as needed.
+		);
+
+		// Determine the order for the new menu items.
+		// You might want to add them at the end or at a specific position.
+		$last_order = 0;
+		if ( ! empty( $items ) ) {
+			foreach ( $items as $item ) {
+				$last_order = max( $last_order, $item->menu_order );
+			}
+		}
+		$order_increment = 1;
+
+		// Create WP_Post objects for the new menu items.
+		foreach ( $new_links as $link ) {
+			$menu_item = new WP_Post();
+			$menu_item->post_title = $link['title'];
+			$menu_item->post_type = 'nav_menu_item';
+			$menu_item->menu_order = $last_order + $order_increment;
+			$menu_item->post_status = 'publish';
+
+			$menu_item->ID = wp_insert_post( $menu_item );
+
+			update_post_meta( $menu_item->ID, '_menu_item_type', 'custom' );
+			update_post_meta( $menu_item->ID, '_menu_item_object', 'custom' );
+			update_post_meta( $menu_item->ID, '_menu_item_url', $link['url'] );
+			update_post_meta( $menu_item->ID, '_menu_item_target', '' ); // Optional: '_blank' for new tab
+			update_post_meta( $menu_item->ID, '_menu_item_classes', array() );
+
+			$items[] = wp_setup_nav_menu_item( $menu_item );
+			$order_increment++;
+		}
+	}
+
+	return $items;
+}
+add_filter( 'wp_get_nav_menu_items', 'my_dynamic_menu_links', 10, 3 );
+
+/**
+ * Ensures the dynamic menu items are correctly associated with the menu.
+ *
+ * @param array $sorted_menu_items The sorted array of menu item objects.
+ * @param array $args An array of wp_nav_menu() arguments.
+ * @return array The sorted array of menu item objects.
+ */
+function my_fix_dynamic_menu_item_db_id( $sorted_menu_items, $args ) {
+	$menu_id = 182;
+	$menu_object = wp_get_nav_menu_object( $menu_id );
+
+	if ( $menu_object && ! empty( $sorted_menu_items ) ) {
+		foreach ( $sorted_menu_items as &$item ) {
+			if ( $item->post_type === 'nav_menu_item' && ! $item->db_id ) {
+				// Try to find a matching menu item (this might need adjustments based on your specific needs)
+				$existing_item = wp_get_nav_menu_item( null, $item->post_title, 'title', $menu_id );
+				if ( $existing_item ) {
+					$item->db_id = $existing_item->db_id;
+				}
+			}
+		}
+	}
+	return $sorted_menu_items;
+}
+// Hook this function with a lower priority to run after WordPress has processed the menu items.
+add_filter( 'wp_nav_menu_objects', 'my_fix_dynamic_menu_item_db_id', 20, 2 );
