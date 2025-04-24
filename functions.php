@@ -658,7 +658,7 @@ function _claim_offer_button($id)
             $documents_html .= '<div class="offer-document"> ' . wp_get_attachment_url($document['resource']) . ' </div>';
         }
         $documents_html .= '</div>';
-        echo $document_html;
+        echo $documents_html;
     }
 ?>
     <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>" documents="<?= $documents_html ?>">Claim Offer
