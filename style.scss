@@ -1180,33 +1180,31 @@ p.copyright a,
         max-height: 500px;
         overflow: auto;
     }
-}
-
-.claim-offer-form .row .wpcf7-submit {
-    margin: 0 !important;
-}
-
-.claim-offer-form .row .image-box {
-    margin-bottom: 1rem;
-    position: relative;
-    padding: 40%;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.claim-offer-form .row .image-box img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.claim-offer-form .offer-details {
-    color: var(--gray-color);
-    font-size: 15px;
-    font-weight: 400;
+    .row {
+        .image-box {
+            margin-bottom: 1rem;
+            position: relative;
+            padding: 35%;
+            border-radius: 10px;
+            overflow: hidden;
+            img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .wpcf7-submit {
+            margin: 0 !important;
+        }
+    }
+    .offer-details {
+        color: var(--gray-color);
+        font-size: 15px;
+        font-weight: 400;
+    }
 }
 
 .membership-directory .listings .listing {
@@ -2652,7 +2650,7 @@ div.bbp-topic-tags,
     }
 }
 
-.modal-window__close.modal-window__close{
+.modal-window__close.modal-window__close {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
     background-color: var(--accent-color);
     background-size: 20px;
