@@ -2011,8 +2011,12 @@ div.bbp-topic-tags,
     position: absolute;
     z-index: 1;
     top: 5px;
-    right: 10px;
-    font-size: 12px; }
+    right: 17px;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    padding: 5px;
+    line-height: 1;
+    border-radius: 5px; }
     .text-counter label .text-counter-holder.warning {
       color: orange; }
 
