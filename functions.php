@@ -653,11 +653,12 @@ function _claim_offer_button($id)
     $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
     $documents = carbon_get_post_meta($post->ID, 'submit_offer_supporting_resource');
     if ($documents) {
-        $documents_html = '<div class="offer-documents">';
+        $documents_html = "<div class='offer-documents>";
         foreach ($documents as $document) {
-            $documents_html .= '<div class="offer-document"> <a href="' . wp_get_attachment_url($document['resource']) . '"> </a> </div>';
+            $doc_url = wp_get_attachment_url($document["resource"]);
+            $documents_html .= "<div class='offer-document'> <a href='$doc_url'> </a> </div>";
         }
-        $documents_html .= '</div>';
+        $documents_html .= "</div>";
     }
 ?>
     <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button" offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>" offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>" offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>" documents="<?= $documents_html ?>">Claim Offer
