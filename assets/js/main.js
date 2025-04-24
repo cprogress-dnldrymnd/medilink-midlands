@@ -6,6 +6,41 @@ jQuery(document).ready(function () {
     learn_more();
 });
 
+
+function textarea_counter() {
+    const MAX_LENGTH = 10000;
+    const WARNING_THRESHOLD = 9500;
+
+    // Function to update character count
+    function updateCharacterCount(textarea, counterElement) {
+        const text = textarea.val();
+        const length = text.length;
+
+        counterElement.text(length + ' / ' + MAX_LENGTH);
+
+        // Remove any existing classes first.
+        counterElement.removeClass('warning error');
+
+        if (length > MAX_LENGTH) {
+            counterElement.addClass('error');
+        } else if (length > WARNING_THRESHOLD) {
+            counterElement.addClass('warning');
+        }
+    }
+
+    // Create counter for each textarea
+    jQuery('.text-counter textarea').each(function () {
+        const textarea = jQuery(this);
+        $counter = jQuery(this).parent().prev();
+        // Initial count update
+        updateCharacterCount(textarea, counterElement);
+
+        // Bind input event to update count dynamically
+        textarea.on('input', function () {
+            updateCharacterCount(textarea, );
+        });
+    });
+}
 function package() {
 
     if (jQuery('.package-price-main-details-inner').length > 0) {
