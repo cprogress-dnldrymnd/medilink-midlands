@@ -518,8 +518,8 @@ function claim_offer_form()
                 }
                 ?>
             </div>
-            <div class="col-lg-12">
-                <h4>Supporting Documents</h4>
+            <div class="col-lg-12 supporting-documents">
+                
             </div>
         </div>
     </div>

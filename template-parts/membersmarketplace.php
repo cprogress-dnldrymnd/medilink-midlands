@@ -164,6 +164,7 @@ $featureds = get_posts(array(
             $offer_owner_company = jQuery(this).attr('offer_owner_company');
             $offer_image = jQuery(this).attr('offer_image');
             $offer_details = jQuery(this).attr('offer_details');
+            $documents = jQuery(this).attr('documents');
 
             jQuery('input[name="offer_title"]').val($offer_title);
             jQuery('input[name="offer_desc"]').val($offer_desc);
@@ -175,6 +176,7 @@ $featureds = get_posts(array(
             jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
             jQuery('.claim-offer-form .offer-details').html($offer_details);
             jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
+            jQuery('.claim-offer-form .supporting-documents').html($documents);
 
             jQuery('#form-clicked .wpcf7-submit').click();
             e.preventDefault();
