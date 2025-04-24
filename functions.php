@@ -594,3 +594,51 @@ function forum_posts_page() {
     echo '<p>Redirecting to <a href="' . esc_url($redirect_url) . '">' . esc_html($redirect_url) . '</a>...</p>';
 }
 
+function add_custom_links_to_menu( $items, $args ) {
+    // Check if the current menu ID matches the target menu ID.
+    if (isset($args->menu->term_id) && $args->menu->term_id == 182) { // Use term_id
+        // Define the custom links you want to add.
+        $custom_links = array(
+            array(
+                'title' => 'Home',
+                'url'   => '/', // Or use home_url() for the site's home page
+                'id'    => 'custom-menu-item-home', // Unique ID
+            ),
+            array(
+                'title' => 'Example',
+                'url'   => '/example-page/', // Replace with your desired URL
+                'id'    => 'custom-menu-item-example',
+            ),
+             array(
+                'title' => 'Products',
+                'url'   => '/products/', // Replace with your desired URL
+                'id'    => 'custom-menu-item-products',
+            ),
+            // Add more links as needed.
+        );
+
+        // Calculate the insertion point (e.g., after the first item).
+        $insert_after = 1; // Insert after the first existing item.
+        $index = 0;
+
+        // Loop through the custom links and add them to the menu items array.
+        foreach ( $custom_links as $link_data ) {
+            $menu_item = (object) array(
+                'ID'            => $link_data['id'],
+                'title'         => $link_data['title'],
+                'url'           => $link_data['url'],
+                'menu_order'    => 0, // Set to 0, and WordPress will handle ordering
+                'menu_item_parent' => 0,
+                'type'          => 'custom',
+                'object'        => 'custom',
+                'db_id'         => 0, // Set to 0 for new items
+            );
+
+             // Insert the new item at the correct position
+            array_splice( $items, $index + $insert_after, 0, array( $menu_item ) );
+            $index++; // Increment, since we are inserting *after* existing elements
+        }
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'add_custom_links_to_menu', 10, 2 );
