@@ -652,7 +652,6 @@ function _claim_offer_button($id)
     $post_author = $post->post_author;
     $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
     $documents = carbon_get_the_post_meta($post->ID, 'submit_offer_supporting_resource');
-
     if ($documents) {
         $documents_html = '<div class="offer-documents">';
         foreach ($documents as $document) {
