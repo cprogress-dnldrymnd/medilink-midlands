@@ -2033,5 +2033,14 @@ div.bbp-topic-tags,
       width: 100%; }
     .offer-documents-holder .offer-documents .offer-document {
       width: calc(33.33333333333333px% - 13.33333333333333px); }
+      .offer-documents-holder .offer-documents .offer-document a {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--accent-color);
+        color: var(--white-color);
+        padding: 20px;
+        border-radius: 5px; }
 
 /*# sourceMappingURL=style.css.map */
