@@ -4,6 +4,7 @@ jQuery(document).ready(function () {
     membership_form();
     package();
     learn_more();
+    textarea_counter();
 });
 
 
