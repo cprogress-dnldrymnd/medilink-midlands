@@ -2042,6 +2042,7 @@ div.bbp-topic-tags,
         background-color: var(--accent-color);
         color: var(--white-color);
         padding: 20px;
-        border-radius: 5px; }
+        border-radius: 5px;
+        gap: 10px; }
 
 /*# sourceMappingURL=style.css.map */
