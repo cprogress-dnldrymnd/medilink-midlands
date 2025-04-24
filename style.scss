@@ -1162,6 +1162,22 @@ p.copyright a,
 
 .claim-offer-form {
     padding-top: 10px;
+    .contact-tikidocs.contact-tikidocs.contact-tikidocs {
+        label {
+            i {
+                top: 29px;
+            }
+        }
+        input {
+            margin-bottom: 0 !important;
+        }
+        .wpcf7-submit {
+            margin-top: 20px !important;
+            width: 100%;
+        }
+    }
+    .post-box {
+    }
 }
 
 .claim-offer-form .row .wpcf7-submit {

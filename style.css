@@ -949,6 +949,13 @@ p.copyright a,
 
 .claim-offer-form {
   padding-top: 10px; }
+  .claim-offer-form .contact-tikidocs.contact-tikidocs.contact-tikidocs label i {
+    top: 29px; }
+  .claim-offer-form .contact-tikidocs.contact-tikidocs.contact-tikidocs input {
+    margin-bottom: 0 !important; }
+  .claim-offer-form .contact-tikidocs.contact-tikidocs.contact-tikidocs .wpcf7-submit {
+    margin-top: 20px !important;
+    width: 100%; }
 
 .claim-offer-form .row .wpcf7-submit {
   margin: 0 !important; }
