@@ -32,13 +32,13 @@ function textarea_counter() {
     // Create counter for each textarea
     jQuery('.text-counter textarea').each(function () {
         const textarea = jQuery(this);
-        $counter = jQuery(this).parent().prev();
+        counter = jQuery(this).parent().prev();
         // Initial count update
         updateCharacterCount(textarea, counterElement);
 
         // Bind input event to update count dynamically
         textarea.on('input', function () {
-            updateCharacterCount(textarea, );
+            updateCharacterCount(textarea, counter);
         });
     });
 }
