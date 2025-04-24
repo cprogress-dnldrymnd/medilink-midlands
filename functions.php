@@ -58,7 +58,7 @@ add_filter('register_taxonomy_args', 'change_mt_listing_category2_slug', 10, 2);
 function memberplace_marketplace()
 {
     ob_start();
-    ?>
+?>
     <div class="post-box-holder flex-row">
         <div class="row">
             <?php while (have_posts()) {
@@ -102,7 +102,7 @@ function memberplace_marketplace()
             <?php } ?>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -111,8 +111,7 @@ function _author_email($post_author)
     $user = get_userdata($post_author);
     if ($user && isset($user->user_email)) {
         return $user->user_email;
-    }
-    else {
+    } else {
         return false; // Or handle the error as needed
     }
 }
@@ -124,8 +123,7 @@ function _author_company($post_author)
 
     if ($organisation) {
         return $organisation;
-    }
-    else {
+    } else {
         return false; // Or handle the absence of the meta value as needed
     }
 }
@@ -141,18 +139,14 @@ function _author_name($post_author)
 
         if (!empty($first_name) && !empty($last_name)) {
             return $first_name . ' ' . $last_name;
-        }
-        elseif (!empty($first_name)) {
+        } elseif (!empty($first_name)) {
             return $first_name;
-        }
-        elseif (!empty($last_name)) {
+        } elseif (!empty($last_name)) {
             return $last_name;
-        }
-        else {
+        } else {
             return $user->display_name; // Fallback to display name if first/last names are empty
         }
-    }
-    else {
+    } else {
         return false; // Or handle the error as needed
     }
 }
@@ -162,8 +156,7 @@ function _author_logo($post_author)
     $member_folder = "/wp-content/uploads/ultimatemember/$post_author/";
     if ($organisation) {
         return $member_folder . $organisation;
-    }
-    else {
+    } else {
         return false; // Or handle the absence of the meta value as needed
     }
 }
@@ -222,8 +215,7 @@ function save_cf7_to_custom_post($contact_form)
                 wp_set_post_terms($post_id, $submit_offer_category_arr, 'membersmarketplace_category');
             }
         }
-    }
-    else if ($form_id == 50282) {
+    } else if ($form_id == 50282) {
         // Sanitize and validate data (crucial!).
         $post_title = isset($posted_data['submit_blog_title']) ? sanitize_text_field($posted_data['submit_blog_title']) : 'Contact Form Submission';
         $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : '';
@@ -338,7 +330,7 @@ function upload_file($file_url, $post_id = 0)
 function wikb_header_title_breadcrumbs_v2($heading, $desc)
 {
     ob_start();
-    ?>
+?>
     <div class="header-title-breadcrumb header-title-breadcrumb-custom relative">
         <div class="header-title-breadcrumb-overlay text-center">
             <div class="container">
@@ -362,9 +354,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
     return ob_get_clean();
 }
 
-function action_wp_body_class()
-{
-}
+function action_wp_body_class() {}
 
 add_filter('body_class', 'custom_class');
 function custom_class($classes)
@@ -384,7 +374,7 @@ function action_wp_footer()
     $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
     if ($title_area_description || $title_area_button_text) { ?>
         <script>
-            jQuery(document).ready(function () {
+            jQuery(document).ready(function() {
                 <?php if ($title_area_description) { ?>
                     jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
                 <?php } ?>
@@ -393,7 +383,7 @@ function action_wp_footer()
                 <?php } ?>
             });
         </script>
-        <?php
+    <?php
     }
 }
 
@@ -416,7 +406,7 @@ function action_admin_head()
             display: none;
         }
     </style>
-    <?php
+<?php
 }
 add_action('admin_head', 'action_admin_head');
 
@@ -512,7 +502,7 @@ function email_template($display_name, $changes)
     $site_url = get_site_url();
 
     ob_start();
-    ?>
+?>
     <div
         style='max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
         <div style='color: #444444;font-weight: normal'>
@@ -542,7 +532,7 @@ function email_template($display_name, $changes)
             </div>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -557,14 +547,11 @@ function um_change_posts_text($translation, $text, $domain)
     if ('ultimate-member' === $domain) {
         if ('Posts' === $text) {
             return 'Articles';
-        }
-        elseif ('View Posts' === $text) {
+        } elseif ('View Posts' === $text) {
             return 'View Articles';
-        }
-        elseif ('No Posts Yet.' === $text) {
+        } elseif ('No Posts Yet.' === $text) {
             return 'No Articles Yet.';
-        }
-        elseif ('load more posts' === $text) {
+        } elseif ('load more posts' === $text) {
             return 'load more articles';
         }
         // Add more conditions as needed for other instances of "Posts"
@@ -574,7 +561,8 @@ function um_change_posts_text($translation, $text, $domain)
 add_filter('gettext', 'um_change_posts_text', 20, 3);
 add_filter('ngettext', 'um_change_posts_text', 20, 3);
 
-function add_forum_posts_admin_link() {
+function add_forum_posts_admin_link()
+{
     add_menu_page(
         'Forum Posts',        // Page title
         'Forum Posts',        // Menu title
@@ -587,43 +575,46 @@ function add_forum_posts_admin_link() {
 }
 add_action('admin_menu', 'add_forum_posts_admin_link');
 
-function forum_posts_page() {
+function forum_posts_page()
+{
     $redirect_url = 'https://medilink.theprogressteam.com/pending-forum-posts/';
     echo '<script type="text/javascript">window.location = "' . esc_url($redirect_url) . '";</script>';
     echo '<noscript><meta http-equiv="refresh" content="0;url=' . esc_url($redirect_url) . '"></noscript>';
     echo '<p>Redirecting to <a href="' . esc_url($redirect_url) . '">' . esc_html($redirect_url) . '</a>...</p>';
 }
 
-function add_custom_links_to_menu( $items, $args ) {
+function add_custom_links_to_menu($items, $args)
+{
     // Check if the current menu ID matches the target menu ID.
     if (isset($args->menu->term_id) && $args->menu->term_id == 182) { // Use term_id
         // Define the custom links you want to add.
-        $custom_links = array(
-            array(
-                'title' => 'Profile',
-                'url'   => do_shortcode('[um_author_profile_link raw=1 user_id='.get_current_user_id().']'), // Or use home_url() for the site's home page
-                'id'    => 'custom-menu-item-profile', // Unique ID
-            ),
-            array(
-                'title' => 'Edit Profile',
-                'url'   => esc_url(um_edit_profile_url()), // Or use home_url() for the site's home page
-                'id'    => 'custom-menu-item-edit-profile', // Unique ID
-            ),
-            array(
-                'title' => 'Log Out',
-                'url'   => '/example-page/', // Replace with your desired URL
-                'id'    => 'custom-menu-item-logout',
-            ),
-         
-            // Add more links as needed.
-        );
+        if (is_user_logged_in()) {
+            $custom_links = array(
+                array(
+                    'title' => 'Profile',
+                    'url'   => do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']'), // Or use home_url() for the site's home page
+                    'id'    => 'custom-menu-item-profile', // Unique ID
+                ),
+                array(
+                    'title' => 'Edit Profile',
+                    'url'   => esc_url(um_edit_profile_url()), // Or use home_url() for the site's home page
+                    'id'    => 'custom-menu-item-edit-profile', // Unique ID
+                ),
+                array(
+                    'title' => 'Log Out',
+                    'url'   => '/example-page/', // Replace with your desired URL
+                    'id'    => 'custom-menu-item-logout',
+                ),
 
+                // Add more links as needed.
+            );
+        }
         // Calculate the insertion point (e.g., after the first item).
         $insert_after = 1; // Insert after the first existing item.
         $index = 0;
 
         // Loop through the custom links and add them to the menu items array.
-        foreach ( $custom_links as $link_data ) {
+        foreach ($custom_links as $link_data) {
             $menu_item = (object) array(
                 'ID'            => $link_data['id'],
                 'title'         => $link_data['title'],
@@ -635,11 +626,11 @@ function add_custom_links_to_menu( $items, $args ) {
                 'db_id'         => 0, // Set to 0 for new items
             );
 
-             // Insert the new item at the correct position
-            array_splice( $items, $index + $insert_after, 0, array( $menu_item ) );
+            // Insert the new item at the correct position
+            array_splice($items, $index + $insert_after, 0, array($menu_item));
             $index++; // Increment, since we are inserting *after* existing elements
         }
     }
     return $items;
 }
-add_filter( 'wp_nav_menu_objects', 'add_custom_links_to_menu', 10, 2 );
+add_filter('wp_nav_menu_objects', 'add_custom_links_to_menu', 10, 2);
