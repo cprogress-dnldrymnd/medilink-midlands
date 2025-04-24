@@ -2030,8 +2030,7 @@ div.bbp-topic-tags,
     gap: 20px; }
     .offer-documents-holder .offer-documents h4 {
       font-weight: bold;
-      width: 100%;
-      margin-bottom: 30px; }
+      width: 100%; }
     .offer-documents-holder .offer-documents .offer-document {
       width: calc(33.33333333333333% - 13.33333333333333px); }
       .offer-documents-holder .offer-documents .offer-document a {
