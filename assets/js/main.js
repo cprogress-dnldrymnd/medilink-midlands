@@ -34,7 +34,7 @@ function textarea_counter() {
         const textarea = jQuery(this);
         counter = jQuery(this).parent().prev();
         // Initial count update
-        updateCharacterCount(textarea, counterElement);
+        updateCharacterCount(textarea, counter);
 
         // Bind input event to update count dynamically
         textarea.on('input', function () {

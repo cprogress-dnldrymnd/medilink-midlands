@@ -2013,5 +2013,7 @@ div.bbp-topic-tags,
     top: 5px;
     right: 10px;
     font-size: 12px; }
+    .text-counter label .text-counter-holder.warning {
+      color: orange; }
 
 /*# sourceMappingURL=style.css.map */

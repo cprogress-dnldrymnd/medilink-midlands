@@ -2672,6 +2672,9 @@ div.bbp-topic-tags,
             top: 5px;
             right: 10px;
             font-size: 12px;
+            &.warning {
+                color: orange;
+            }
         }
     }
 }
