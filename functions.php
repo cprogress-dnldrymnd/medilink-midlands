@@ -656,7 +656,9 @@ function _claim_offer_button($id)
         $documents_html = "<div class='offer-documents'>";
         foreach ($documents as $document) {
             $doc_url = wp_get_attachment_url($document["resource"]);
-            $documents_html .= "<div class='offer-document'> <a href='$doc_url'> </a> </div>";
+            $file_path = get_attached_file($document["resource"]);
+            $file_name = basename($file_path);
+            $documents_html .= "<div class='offer-document'> <a href='$doc_url'> $file_name </a> </div>";
         }
         $documents_html .= "</div>";
     }
