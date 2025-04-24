@@ -608,6 +608,20 @@ function add_custom_links_to_menu($items, $args)
 
                 // Add more links as needed.
             );
+        } else {
+            $custom_links = array(
+                array(
+                    'title' => 'Sign In',
+                    'url'   => '/login/', // Or use home_url() for the site's home page
+                    'id'    => 'custom-menu-item-profile', // Unique ID
+                ),
+                array(
+                    'title' => 'Register',
+                    'url'   => '/register/', // Or use home_url() for the site's home page
+                    'id'    => 'custom-menu-item-edit-profile', // Unique ID
+                ),
+                // Add more links as needed.
+            );
         }
         // Calculate the insertion point (e.g., after the first item).
         $insert_after = 1; // Insert after the first existing item.
