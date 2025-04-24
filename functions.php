@@ -89,12 +89,7 @@ function member_marketplace()
                         </div>
                         <div class="bottom">
                             <div class="modeltheme_button">
-                                <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button"
-                                    offer_owner_company="<?= _author_company($post_author) ?>"
-                                    offer_owner_email="<?= _author_email($post_author) ?>"
-                                    offer_details="<?= wpautop(get_the_content()) ?>" offer_image="<?= $offer_image ?>"
-                                    offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= get_the_title() ?>">Claim
-                                    Offer</a>
+                                <?= _claim_offer_button(get_the_ID()) ?>
                             </div>
                         </div>
                     </div>
