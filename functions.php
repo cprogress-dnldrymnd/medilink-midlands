@@ -606,7 +606,7 @@ function add_custom_links_to_menu( $items, $args ) {
             ),
             array(
                 'title' => 'Edit Profile',
-                'url'   => '/', // Or use home_url() for the site's home page
+                'url'   => esc_url(um_edit_profile_url()), // Or use home_url() for the site's home page
                 'id'    => 'custom-menu-item-edit-profile', // Unique ID
             ),
             array(
