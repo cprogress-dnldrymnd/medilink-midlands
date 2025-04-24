@@ -653,7 +653,7 @@ function _claim_offer_button($id)
     $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
     $documents = carbon_get_post_meta($post->ID, 'submit_offer_supporting_resource');
     if ($documents) {
-        $documents_html = "<div class='offer-documents>";
+        $documents_html = "<div class='offer-documents'>";
         foreach ($documents as $document) {
             $doc_url = wp_get_attachment_url($document["resource"]);
             $documents_html .= "<div class='offer-document'> <a href='$doc_url'> </a> </div>";
