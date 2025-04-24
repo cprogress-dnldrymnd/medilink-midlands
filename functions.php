@@ -600,20 +600,21 @@ function add_custom_links_to_menu( $items, $args ) {
         // Define the custom links you want to add.
         $custom_links = array(
             array(
-                'title' => 'Home',
+                'title' => 'Profile',
                 'url'   => '/', // Or use home_url() for the site's home page
-                'id'    => 'custom-menu-item-home', // Unique ID
+                'id'    => 'custom-menu-item-profile', // Unique ID
             ),
             array(
-                'title' => 'Example',
+                'title' => 'Edit Profile',
+                'url'   => '/', // Or use home_url() for the site's home page
+                'id'    => 'custom-menu-item-edit-profile', // Unique ID
+            ),
+            array(
+                'title' => 'Log Out',
                 'url'   => '/example-page/', // Replace with your desired URL
-                'id'    => 'custom-menu-item-example',
+                'id'    => 'custom-menu-item-logout',
             ),
-             array(
-                'title' => 'Products',
-                'url'   => '/products/', // Replace with your desired URL
-                'id'    => 'custom-menu-item-products',
-            ),
+         
             // Add more links as needed.
         );
 
