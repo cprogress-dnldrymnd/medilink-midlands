@@ -2663,3 +2663,15 @@ div.bbp-topic-tags,
     top: 0;
     right: 0;
 }
+.text-counter {
+    label {
+        position: relative;
+        .text-counter-holder {
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            right: 10px;
+            font-size: 12px;
+        }
+    }
+}
