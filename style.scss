@@ -1161,7 +1161,6 @@ p.copyright a,
 }
 
 .claim-offer-form {
-    padding-top: 10px;
     .contact-tikidocs.contact-tikidocs.contact-tikidocs {
         label {
             i {
@@ -1169,7 +1168,7 @@ p.copyright a,
             }
         }
         input {
-            margin-bottom: 0 !important;
+            margin-bottom: 20px !important;
         }
         .wpcf7-submit {
             margin-top: 20px !important;
@@ -1177,6 +1176,8 @@ p.copyright a,
         }
     }
     .post-box {
+        max-height: 500px;
+        overflow: auto;
     }
 }
 
