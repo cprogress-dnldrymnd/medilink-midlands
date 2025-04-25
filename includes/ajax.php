@@ -73,7 +73,6 @@ function ajax_member_marketplace()
     $membersmarketplace_category = isset($_POST['membersmarketplace_category']) ? $_POST['membersmarketplace_category'] : false;
 
 
-
     $args['post_status'] = 'publish';
     $args['post_type'] = 'membersmarketplace';
     $args['posts_per_page'] = 1;
@@ -89,6 +88,9 @@ function ajax_member_marketplace()
             ),
         );
     }
+    echo '<pre>';
+    var_dump($args);
+    echo '</pre>';
 
     $query = new WP_Query($args);
 
