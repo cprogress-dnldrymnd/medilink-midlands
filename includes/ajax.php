@@ -74,7 +74,7 @@ function ajax_member_marketplace()
 
     $args['post_status'] = 'publish';
     $args['post_type'] = 'membersmarketplace';
-    $args['posts_per_page'] = 12;
+    $args['posts_per_page'] = 1;
     $args['paged'] = $paged;
 
 
