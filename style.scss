@@ -2815,6 +2815,7 @@ div.bbp-topic-tags,
 .um-profile-nav-marketplace {
     svg {
         height: 18px;
+        width: auto;
         font-size: 18px;
         height: 18px;
         line-height: 18px;
@@ -2823,7 +2824,7 @@ div.bbp-topic-tags,
         top: 8px;
         left: 10px;
         * {
-            fill: currentColor !important;
+            fill: none !important;
         }
     }
 }
