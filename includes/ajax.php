@@ -70,12 +70,12 @@ function ajax_member_marketplace()
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $membersmarketplace_category = isset($_POST['membersmarketplace_category']) ? $_POST['membersmarketplace_category'] : false;
 
-    $args = array(
-        'post_status' => 'publish',
-        'post_type' => 'membersmarketplace',
-        'posts_per_page' => 12,
-        'paged' => $paged,
-    );
+
+
+    $args['post_status'] = 'publish';
+    $args['post_type'] = 'membersmarketplace';
+    $args['posts_per_page'] = 12;
+    $args['paged'] = $paged;
 
 
     if ($membersmarketplace_category) {
