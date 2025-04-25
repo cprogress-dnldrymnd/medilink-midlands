@@ -7,7 +7,7 @@ function featured_articles()
         'numberpost' => 3,
         'category'   => 95
     ));
-?>
+    ?>
     <div class="title-subtile-holder wow bounce text_left" style="animation-name: bounce; margin-bottom: 35px">
         <h2 class="section-title light_title">Featured Articles</h2>
     </div>
@@ -18,7 +18,7 @@ function featured_articles()
                 ALL</a></div>
 
     <?php } ?>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -33,7 +33,7 @@ function testimonials()
         'post_type'  => 'testimonial',
         'numberpost' => 10,
     ));
-?>
+    ?>
     <div class="testimonial-slider">
         <div class="testimonial-wrapper">
             <div class="swiper swiper-testimonial">
@@ -79,7 +79,7 @@ function testimonials()
             },
         });
     </script>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('testimonials', 'testimonials');
@@ -91,7 +91,7 @@ function join_us_old()
         'post_type'   => 'umm_stripe',
         'numberposts' => -1,
     ));
-?>
+    ?>
     <div class="packages">
         <div class="row row-flex">
             <?php for ($x = 1; $x <= 6; $x++) { ?>
@@ -148,7 +148,7 @@ function join_us_old()
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -158,7 +158,7 @@ function join_us()
 
     $plans = carbon_get_theme_option('packages');
 
-?>
+    ?>
     <div class="packages">
         <div class="row row-flex">
             <?php foreach ($plans as $plan) { ?>
@@ -189,7 +189,8 @@ function join_us()
                                         <div class="price-inner">
                                             <?php if ($package_price) { ?>
                                                 <span class="currency">£</span><span class="price-val"><?= $package_price ?></span>
-                                            <?php } else { ?>
+                                            <?php }
+                                            else { ?>
                                                 <span class="price-val">No Fee</span>
                                             <?php } ?>
 
@@ -253,7 +254,7 @@ function join_us()
             <?php } ?>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -262,7 +263,7 @@ add_shortcode('join_us', 'join_us');
 function member_marketplace_form()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
             <div class="inner">
@@ -300,7 +301,8 @@ function member_marketplace_form()
                 <br><br>
                 <?php if (is_user_logged_in()) { ?>
                     <?= do_shortcode('[contact-form-7 id="af104d5" title="Submit an Offer"]') ?>
-                <?php } else { ?>
+                <?php }
+                else { ?>
                     <div class="login-notice">
                         <div class="inner">
                             <p>
@@ -313,7 +315,7 @@ function member_marketplace_form()
 
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('member_marketplace_form', 'member_marketplace_form');
@@ -322,14 +324,15 @@ add_shortcode('member_marketplace_form', 'member_marketplace_form');
 function submit_blog_form()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
             <div class="inner">
                 <h2>Submit an Article</h2>
                 <?php if (is_user_logged_in()) { ?>
                     <?= do_shortcode('[contact-form-7 id="83cfac2" title="Submit a Blog"]') ?>
-                <?php } else { ?>
+                <?php }
+                else { ?>
                     <div class="login-notice">
                         <div class="inner">
                             <p>
@@ -341,7 +344,7 @@ function submit_blog_form()
             </div>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -349,7 +352,7 @@ function submit_blog_form()
 function submit_blog_form_no_login()
 {
     ob_start();
-?>
+    ?>
     <div class="member-marketplace-form box-shadow-style" id="member-marketplace-form">
         <div class="container">
             <div class="inner">
@@ -358,7 +361,7 @@ function submit_blog_form_no_login()
             </div>
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('submit_blog_form', 'submit_blog_form');
@@ -379,23 +382,29 @@ function user_field($atts)
 
     if ($author_id == 'current') {
         $user_id = get_current_user_id();
-    } else {
+    }
+    else {
         $user_id = $author_id;
     }
     if ($key == 'user_email') {
         $user_info = get_userdata($user_id);
         return $user_info->user_email;
-    } else if ($key == 'first_and_last_name') {
+    }
+    else if ($key == 'first_and_last_name') {
         $first_name = get_user_meta($user_id, 'first_name', true);
         $last_name = get_user_meta($user_id, 'last_name', true);
         return $first_name . ' ' . $last_name;
-    } else if ($key == 'user_id') {
+    }
+    else if ($key == 'user_id') {
         return $user_id;
-    } else if ($key == 'first_name') {
+    }
+    else if ($key == 'first_name') {
         return get_user_meta($user_id, 'first_name', true);
-    } else if ($key == 'last_name') {
+    }
+    else if ($key == 'last_name') {
         return get_user_meta($user_id, 'last_name', true);
-    } else {
+    }
+    else {
         return get_user_meta($user_id, $key, true);
     }
 }
@@ -404,7 +413,7 @@ add_shortcode('user_field', 'user_field');
 function claim_offer_form()
 {
     ob_start();
-?>
+    ?>
     <div class="claim-offer-form">
         <div class="row row-flex">
             <div class="col-md-6">
@@ -424,7 +433,8 @@ function claim_offer_form()
                 <?php
                 if (is_user_logged_in()) {
                     echo do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]');
-                } else {
+                }
+                else {
                     echo '<div class="login-notice">
                         <div class="inner">
                             <p> Please login before you can claim an offer. </p>
@@ -438,7 +448,7 @@ function claim_offer_form()
             </div>
         </div>
     </div>
-<?php
+    <?php
 
     return ob_get_clean();
 }
@@ -458,7 +468,7 @@ function member_directory()
     );
     $the_query = new WP_Query($args);
     $filters = array("1-9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z");
-?>
+    ?>
 
     <div class="membership-directory ajax-result">
         <div class="row row-flex">
@@ -512,7 +522,7 @@ function member_directory()
         </div>
     </div>
 
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -529,11 +539,12 @@ function membership_listing()
     if (has_term(112, 'wpsl_store_category', get_the_ID())) {
         $class = 'col-lg-10';
         $is_patron = true;
-    } else {
+    }
+    else {
         $class = 'col-lg-12';
         $is_patron = false;
     }
-?>
+    ?>
     <div class="col-lg-12 post-item">
         <div class="listing">
             <div class="top">
@@ -604,7 +615,7 @@ function membership_listing()
 
         </div>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 
@@ -738,7 +749,7 @@ add_shortcode('template', 'template');
 function auto_renewal()
 {
     ob_start();
-?>
+    ?>
     <div class="auto-renewal-information wow-modal-id-2">
         <span class="text">Auto Renewal Information</span>
         <span class="icon">
@@ -750,7 +761,7 @@ function auto_renewal()
             </svg>
         </span>
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('auto_renewal', 'auto_renewal');
@@ -760,7 +771,8 @@ function cb_value($post_id, $name)
     $meta = carbon_get_post_meta($post_id, $name);
     if ($meta) {
         return $meta;
-    } else {
+    }
+    else {
         return '';
     }
 }
@@ -816,7 +828,7 @@ function join_us_v2()
     $discounts_title = get_term_by('term_id', 172, 'packages_category')->name;
     $marketing_title = get_term_by('term_id', 134, 'packages_category')->name;
 
-?>
+    ?>
     <div class="join-us-v2">
         <table>
             <thead>
@@ -880,7 +892,8 @@ function join_us_v2()
                             if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
                                 $text = $taxonomy_terms_custom_text_array[$benefits->slug];
                                 $class = '';
-                            } else {
+                            }
+                            else {
                                 $text = '<span></span>';
                             }
                             ?>
@@ -922,7 +935,8 @@ function join_us_v2()
                             if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
                                 $text = $taxonomy_terms_custom_text_array[$members_only->slug];
                                 $class = '';
-                            } else {
+                            }
+                            else {
                                 $text = '<span></span>';
                             }
                             ?>
@@ -965,7 +979,8 @@ function join_us_v2()
                             if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
                                 $text = $taxonomy_terms_custom_text_array[$patron->slug];
                                 $class = '';
-                            } else {
+                            }
+                            else {
                                 $text = '<span></span>';
                             }
                             ?>
@@ -1009,7 +1024,8 @@ function join_us_v2()
                             if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
                                 $text = $taxonomy_terms_custom_text_array[$discount->slug];
                                 $class = '';
-                            } else {
+                            }
+                            else {
                                 $text = '<span></span>';
                             }
                             ?>
@@ -1036,7 +1052,8 @@ function join_us_v2()
                         $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
                         if ($marketing_level_custom_text) {
                             $marketing_text = $marketing_level_custom_text;
-                        } else {
+                        }
+                        else {
                             $marketing_text = $marketing_level;
                         }
                         ?>
@@ -1066,7 +1083,8 @@ function join_us_v2()
                             if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
                                 $text = $taxonomy_terms_custom_text_array[$marketing->slug];
                                 $class = '';
-                            } else {
+                            }
+                            else {
                                 $text = '<span></span>';
                             }
                             ?>
@@ -1126,7 +1144,8 @@ function join_us_v2()
 
                                     if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$benefits->slug];
-                                    } else {
+                                    }
+                                    else {
                                         $text = false;
                                     }
 
@@ -1134,7 +1153,8 @@ function join_us_v2()
                                         $name = $benefits->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-                                    } else {
+                                    }
+                                    else {
                                         if (has_term($benefits->slug, $taxonomy, $package->ID)) {
                                             $text = $benefits->name;
                                             $term_val .= 'has_term';
@@ -1159,7 +1179,8 @@ function join_us_v2()
 
                                     if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$members_only->slug];
-                                    } else {
+                                    }
+                                    else {
                                         $text = false;
                                     }
 
@@ -1167,7 +1188,8 @@ function join_us_v2()
                                         $name = $members_only->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-                                    } else {
+                                    }
+                                    else {
                                         if (has_term($members_only->slug, $taxonomy, $package->ID)) {
                                             $text = $members_only->name;
                                             echo "<li>$text</li>";
@@ -1193,7 +1215,8 @@ function join_us_v2()
                                     <?php
                                     if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$patron->slug];
-                                    } else {
+                                    }
+                                    else {
                                         $text = false;
                                     }
 
@@ -1201,7 +1224,8 @@ function join_us_v2()
                                         $name = $patron->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-                                    } else {
+                                    }
+                                    else {
                                         if (has_term($patron->slug, $taxonomy, $package->ID)) {
                                             $text = $patron->name;
                                             $term_val .= 'has_term';
@@ -1229,7 +1253,8 @@ function join_us_v2()
                                     <?php
                                     if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$discount->slug];
-                                    } else {
+                                    }
+                                    else {
                                         $text = false;
                                     }
 
@@ -1237,7 +1262,8 @@ function join_us_v2()
                                         $name = $discount->name;
                                         echo "<li><span><strong>$name: </strong>$text</li>";
                                         $term_val .= 'has_term';
-                                    } else {
+                                    }
+                                    else {
                                         if (has_term($discount->slug, $taxonomy, $package->ID)) {
                                             $text = $discount->name;
                                             $term_val .= 'has_term';
@@ -1263,7 +1289,8 @@ function join_us_v2()
                         $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
                         if ($marketing_level_custom_text) {
                             $marketing_text = $marketing_level_custom_text;
-                        } else {
+                        }
+                        else {
                             $marketing_text = $marketing_level;
                         }
                         ?>
@@ -1277,7 +1304,8 @@ function join_us_v2()
 
                                     if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
                                         $text = $taxonomy_terms_custom_text_array[$marketing->slug];
-                                    } else {
+                                    }
+                                    else {
                                         $text = false;
                                     }
 
@@ -1285,7 +1313,8 @@ function join_us_v2()
                                         $name = $marketing->name;
                                         echo "<li><span><strong>$name: </strong>$text</span></li>";
                                         $term_val .= 'has_term';
-                                    } else {
+                                    }
+                                    else {
                                         if (has_term($marketing->slug, $taxonomy, $package->ID)) {
                                             $text = $marketing->name;
                                             $term_val .= 'has_term';
@@ -1309,7 +1338,7 @@ function join_us_v2()
         </div>
 
     </div>
-<?php
+    <?php
     return ob_get_clean();
 }
 add_shortcode('join_us_v2', 'join_us_v2');
@@ -1320,7 +1349,7 @@ function user_posts()
     ob_start();
     $posts = get_posts(array(
         'post_type'   => 'post',
-        'numberposts'  => -1,
+        'numberposts' => -1,
         'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
@@ -1328,7 +1357,8 @@ function user_posts()
     echo '<h3 class="main-heading">Articles Posted</h3>';
     if ($posts) {
         echo post__grid($posts);
-    } else {
+    }
+    else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
 			<span>
 				This user has not created any posts.			</span>
@@ -1344,7 +1374,7 @@ function user_marketplace()
     ob_start();
     $membersmarketplace = get_posts(array(
         'post_type'   => 'membersmarketplace',
-        'numberposts'  => -1,
+        'numberposts' => -1,
         'author'      => um_user('ID'),
         'post_status' => array('publish')
     ));
@@ -1354,10 +1384,11 @@ function user_marketplace()
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
-            echo member_marketplace_grid($post->ID, true);
+            echo member_marketplace_grid($post->ID, hide_button: false, 'View Offer');
         }
         echo '</div></div>';
-    } else {
+    }
+    else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
 				This user has not posted any offer.			</span>
