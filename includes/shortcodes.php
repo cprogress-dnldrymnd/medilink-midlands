@@ -1352,7 +1352,7 @@ function user_marketplace()
     echo '<h3 class="main-heading">Articles Posted</h3>';
     if ($posts) {
         foreach ($posts as $post) {
-            echo member_marketplace_grid($post->ID);
+            echo member_marketplace_grid($post->ID, true);
         }
     } else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block;">

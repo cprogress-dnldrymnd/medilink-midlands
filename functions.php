@@ -75,7 +75,7 @@ function member_marketplace()
     return ob_get_clean();
 }
 
-function member_marketplace_grid($id)
+function member_marketplace_grid($id, $hide_button = false)
 {
     ob_start();
     $post = get_post($id);
@@ -101,11 +101,13 @@ function member_marketplace_grid($id)
                     </div>
                 <?php } ?>
             </div>
-            <div class="bottom">
-                <div class="modeltheme_button">
-                    <?= _claim_offer_button(get_the_ID()) ?>
+            <?php if ($hide_button == false) { ?>
+                <div class="bottom">
+                    <div class="modeltheme_button">
+                        <?= _claim_offer_button(get_the_ID()) ?>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 <?php
