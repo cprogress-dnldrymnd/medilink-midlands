@@ -467,6 +467,10 @@ function custom_class($classes)
     if ($header_title_style) {
         $classes[] = 'header-title-' . $header_title_style;
     }
+
+    if(isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {
+        $classes[] = 'marketplace-active-tab';
+    }
     return $classes;
 }
 
