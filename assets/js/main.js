@@ -6,7 +6,15 @@ jQuery(document).ready(function () {
     package();
     learn_more();
     textarea_counter();
+    profile_marketplace_nav();
 });
+
+function profile_marketplace_nav() {
+    if (jQuery('body').hasClass('um-page-user')) {
+        $anchor = '<div class="um-profile-nav-item um-profile-nav-marketplace"><a href="?profiletab=marketplace" class="profile-nav-marketplace" title="Marketplace"> <i class="um-faicon-pencil"></i> <span class="title">Marketplace</span> </a></div>';
+        jQuery($anchor).appendTo('.um-profile-nav')
+    }
+}
 
 
 function textarea_counter() {
