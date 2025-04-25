@@ -2732,3 +2732,16 @@ div.bbp-topic-tags,
         }
     }
 }
+
+.loader {
+    .wpcf7-spinner {
+        visibility: visible;
+        width: 48px;
+        height: 48px;
+        &:before {
+            transform-origin: 16px 16px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
