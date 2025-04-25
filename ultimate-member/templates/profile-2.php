@@ -222,12 +222,12 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                 $subnav = !empty($subnav) ? $subnav : 'default';
 
                 if ($menu_enabled || !empty($tabs[$nav]['hidden'])) {
-                    $job_role = get_user_meta(get_current_user_id(), 'job_role', true);
-                    $organisation = get_user_meta(get_current_user_id(), 'organisation', true);
-                    $phone_number = get_user_meta(get_current_user_id(), 'phone_number', true);
-                    $address = get_user_meta(get_current_user_id(), 'address', true);
-                    $title = get_user_meta(get_current_user_id(), 'ttle', true);
-                    $organisation_description = get_user_meta(get_current_user_id(), 'organisation_description', true);
+                    $job_role = get_user_meta(, 'job_role', true);
+                    $organisation = get_user_meta(um_user('ID'), 'organisation', true);
+                    $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
+                    $address = get_user_meta(um_user('ID'), 'address', true);
+                    $title = get_user_meta(um_user('ID'), 'ttle', true);
+                    $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
         ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
