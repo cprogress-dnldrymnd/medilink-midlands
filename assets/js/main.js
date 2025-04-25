@@ -10,11 +10,9 @@ jQuery(document).ready(function () {
 
 
 function textarea_counter() {
-    const MAX_LENGTH = 10000;
-    const WARNING_THRESHOLD = 9500;
 
     // Function to update character count
-    function updateCharacterCount(textarea, counterElement) {
+    function updateCharacterCount(textarea, counterElement, MAX_LENGTH, WARNING_THRESHOLD) {
         const text = textarea.val();
         const length = text.length;
 
@@ -31,15 +29,17 @@ function textarea_counter() {
     }
 
     // Create counter for each textarea
-    jQuery('.text-counter textarea').each(function () {
-        const textarea = jQuery(this);
-        counter = jQuery(this).parent().prev();
+    jQuery('.text-counter').each(function () {
+        const textarea = jQuery(this).find('textarea');
+        MAX_LENGTH = textarea.attr('maxlength');
+        WARNING_THRESHOLD = jQuery(this).attr('threshold');
+        counter = jQuery(this).find('.text-counter-holder');
         // Initial count update
-        updateCharacterCount(textarea, counter);
+        updateCharacterCount(textarea, counter, MAX_LENGTH, WARNING_THRESHOLD);
 
         // Bind input event to update count dynamically
         textarea.on('input', function () {
-            updateCharacterCount(textarea, counter);
+            updateCharacterCount(textarea, counter, MAX_LENGTH, WARNING_THRESHOLD);
         });
     });
 }
