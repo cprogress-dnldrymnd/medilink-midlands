@@ -2051,7 +2051,7 @@ div.bbp-topic-tags,
         .offer-documents-holder .offer-documents .offer-document {
           width: 100%; } }
 
-.modal-window .window__wrapper .modal-window__content {
+.modal-window.modal-window .modal-window__wrapper .modal-window__content {
   display: block;
   left: 50%;
   top: 50%;
