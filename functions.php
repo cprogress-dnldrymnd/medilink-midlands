@@ -92,7 +92,7 @@ function member_marketplace_grid($id, $hide_button = false)
                 </div>
                 <div class="desc">
                     <h3>
-                        <?php get_the_title($id) ?>
+                        <?= get_the_title($id) ?>
                     </h3>
                 </div>
                 <?php if (get_the_excerpt($id)) { ?>
