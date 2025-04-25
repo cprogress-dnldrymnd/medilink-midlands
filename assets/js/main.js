@@ -255,13 +255,14 @@ function ajax_member_marketplace() {
 
 }
 function _ajax_member_marketplace() {
-
+    membersmarketplace_category = jQuery('input[name="membersmarketplace_category"]').val();
     jQuery.ajax({
         url: ajax_params.ajax_url,
         type: 'POST',
         data: {
             action: 'ajax_member_marketplace',
             paged: ajax_params.paged,
+            membersmarketplace_category: membersmarketplace_category,
             security: ajax_params.nonce,
         },
         beforeSend: function () {
