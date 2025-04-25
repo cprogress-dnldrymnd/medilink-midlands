@@ -2734,6 +2734,7 @@ div.bbp-topic-tags,
 }
 
 .loader {
+    display: none;
     .wpcf7-spinner {
         visibility: visible;
         width: 48px;
@@ -2750,6 +2751,9 @@ div.bbp-topic-tags,
     &.loading {
         #results {
             display: none;
+        }
+        .loader {
+            display: block;
         }
     }
 }

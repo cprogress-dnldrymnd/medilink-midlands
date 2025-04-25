@@ -2059,16 +2059,20 @@ div.bbp-topic-tags,
   width: 90%;
   max-width: 1000px; }
 
-.loader .wpcf7-spinner {
-  visibility: visible;
-  width: 48px;
-  height: 48px; }
-  .loader .wpcf7-spinner:before {
-    transform-origin: 16px 16px;
-    width: 10px;
-    height: 10px; }
+.loader {
+  display: none; }
+  .loader .wpcf7-spinner {
+    visibility: visible;
+    width: 48px;
+    height: 48px; }
+    .loader .wpcf7-spinner:before {
+      transform-origin: 16px 16px;
+      width: 10px;
+      height: 10px; }
 
 .ajax-result.loading #results {
   display: none; }
+.ajax-result.loading .loader {
+  display: block; }
 
 /*# sourceMappingURL=style.css.map */
