@@ -208,11 +208,10 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 
                 <?php if (!UM()->user()->preview) { ?>
 
-                </form>
+            </form>
 
-            <?php }
-            }
-            else {
+        <?php }
+            } else {
 
 
                 $menu_enabled = UM()->options()->get('profile_menu');
@@ -229,86 +228,87 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $address = get_user_meta(get_current_user_id(), 'address', true);
                     $title = get_user_meta(get_current_user_id(), 'ttle', true);
                     $organisation_description = get_user_meta(get_current_user_id(), 'organisation_description', true);
-                    ?>
+        ?>
 
-                <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
-                    <div class="um-main-meta um-main-meta-v2">
+            <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
+                <div class="um-main-meta um-main-meta-v2">
 
-                        <?php if ($args['show_name']) { ?>
-                            <div class="um-title">
-                                <?= $title ?>
-                            </div>
-                            <div class="um-name">
-
-                                <a href="<?php echo esc_url(um_user_profile_url()); ?>"
-                                    title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('display_name', 'html'); ?></a>
-
-                                <?php
-                                /**
-                                 * UM hook
-                                 *
-                                 * @type action
-                                 * @title um_after_profile_name_inline
-                                 * @description Insert after profile name some content
-                                 * @input_vars
-                                 * [{"var":"$args","type":"array","desc":"Form Arguments"}]
-                                 * @change_log
-                                 * ["Since: 2.0"]
-                                 * @usage add_action( 'um_after_profile_name_inline', 'function_name', 10, 1 );
-                                 * @example
-                                 * <?php
-                                 * add_action( 'um_after_profile_name_inline', 'my_after_profile_name_inline', 10, 1 );
-                                 * function my_after_profile_name_inline( $args ) {
-                                 *     // your code here
-                                 * }
-                                 * ?>
-                                 */
-                                do_action('um_after_profile_name_inline', $args, um_user('ID'));
-                                ?>
-                            </div>
-                        <?php } ?>
-
-                        <div class="profile-meta-list-holder">
-
-                            <ul class="profile-meta-list">
-                                <?php if ($job_role) { ?>
-                                    <li><?= $job_role ?></li>
-                                <?php } ?>
-                                <?php if ($organisation) { ?>
-                                    <li><?= $organisation ?></li>
-                                <?php } ?>
-
-
-                            </ul>
-                            <ul class="profile-meta-list">
-                                <?php if ($phone_number) { ?>
-                                    <li><?= $phone_number ?></li>
-                                <?php } ?>
-                                <?php if ($address) { ?>
-                                    <li><?= $address ?></li>
-                                <?php } ?>
-                            </ul>
-                            <?php if ($organisation_description) { ?>
-                                <div class="org-description">
-                                    <?= wpautop($organisation_description) ?>
-                                </div>
-                            <?php } ?>
+                    <?php if ($args['show_name']) { ?>
+                        <div class="um-title">
+                            <?= $title ?>
                         </div>
+                        <div class="um-name">
 
-                        <?php if (!isset($_GET['profiletab']) || (isset($_GET['profiletab']) && $_GET['profiletab'] == 'main')) { ?>
-                            <div class="edit-profile-holder">
-                                <a href="<?= esc_url(um_edit_profile_url()) ?>">
-                                    Edit profile
-                                </a>
+                            <a href="<?php echo esc_url(um_user_profile_url()); ?>"
+                                title="<?php echo esc_attr(um_user('display_name')); ?>"><?php echo um_user('display_name', 'html'); ?></a>
+
+                            <?php
+                            /**
+                             * UM hook
+                             *
+                             * @type action
+                             * @title um_after_profile_name_inline
+                             * @description Insert after profile name some content
+                             * @input_vars
+                             * [{"var":"$args","type":"array","desc":"Form Arguments"}]
+                             * @change_log
+                             * ["Since: 2.0"]
+                             * @usage add_action( 'um_after_profile_name_inline', 'function_name', 10, 1 );
+                             * @example
+                             * <?php
+                             * add_action( 'um_after_profile_name_inline', 'my_after_profile_name_inline', 10, 1 );
+                             * function my_after_profile_name_inline( $args ) {
+                             *     // your code here
+                             * }
+                             * ?>
+                             */
+                            do_action('um_after_profile_name_inline', $args, um_user('ID'));
+                            ?>
+                        </div>
+                    <?php } ?>
+
+                    <div class="profile-meta-list-holder">
+
+                        <ul class="profile-meta-list">
+                            <?php if ($job_role) { ?>
+                                <li><?= $job_role ?></li>
+                            <?php } ?>
+                            <?php if ($organisation) { ?>
+                                <li><?= $organisation ?></li>
+                            <?php } ?>
+
+
+                        </ul>
+                        <ul class="profile-meta-list">
+                            <?php if ($phone_number) { ?>
+                                <li><?= $phone_number ?></li>
+                            <?php } ?>
+                            <?php if ($address) { ?>
+                                <li><?= $address ?></li>
+                            <?php } ?>
+                        </ul>
+                        <?php if ($organisation_description) { ?>
+                            <div class="org-description">
+                                <?= wpautop($organisation_description) ?>
                             </div>
-                        <?php }
-                        else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'posts') { ?>
-                        <?= do_shortcode( '[user_posts]' ) ?>
                         <?php } ?>
-
                     </div>
 
-                    <?php
+                    <?php if (!isset($_GET['profiletab']) || (isset($_GET['profiletab']) && $_GET['profiletab'] == 'main')) { ?>
+                        <div class="edit-profile-holder">
+                            <a href="<?= esc_url(um_edit_profile_url()) ?>">
+                                Edit profile
+                            </a>
+                        </div>
+                    <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'posts') { ?>
+                        <?= do_shortcode('[user_posts]') ?>
+                    <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') { { ?>
+                        <?= do_shortcode('[user_marketplace]') ?>
+                    <?php } ?>
+
+                </div>
+
+                <?php
                     // Custom hook to display tabbed content
                     /**
                      * UM hook
@@ -352,11 +352,11 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                      */
                     do_action("um_profile_content_{$nav}_{$subnav}", $args); ?>
 
-                    <div class="clear">
-                    </div>
+                <div class="clear">
                 </div>
+            </div>
 
-            <?php }
+    <?php }
             }
 
             do_action('um_profile_footer', $args); ?>
