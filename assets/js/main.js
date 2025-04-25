@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
-    ajax();
+    ajax_member_directory();
     select__2();
     membership_form();
     package();
@@ -186,19 +186,19 @@ function membership_form() {
 }
 
 
-function ajax() {
+function ajax_member_directory() {
     jQuery('.load-more-directory').on('click', function (event) {
-        _ajax_filter(jQuery(this), 'false');
+        _ajax_filter_member_directory(jQuery(this), 'false');
         event.preventDefault();
     });
 
     jQuery('.submit-directory-filter').on('click', function (event) {
-        _ajax_filter(jQuery(this), 'true');
+        _ajax_filter_member_directory(jQuery(this), 'true');
         event.preventDefault();
     });
 }
 
-function _ajax_filter(button, is_filter) {
+function _ajax_filter_member_directory(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
 
     var directory_filter = jQuery("input[name='directory-filter[]']:checked")
