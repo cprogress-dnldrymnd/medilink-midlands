@@ -269,7 +269,7 @@ function _ajax_member_marketplace() {
         },
         success: function (response) {
             if (response === 'no_more_posts') {
-
+                jQuery('.load-more-marketplace').text('No more posts').prop('disabled', true).addClass('no-more-post');
             } else {
                 jQuery('#results  .row').append(response);
                 ajax_params.paged = parseInt(ajax_params.paged) + 1;
