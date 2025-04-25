@@ -78,6 +78,7 @@ Container::make('post_meta', 'Packages Details')
 					'Level 3' => 'Level 3',
 					'Level 4' => 'Level 4',
 				)),
+			Field::make('select', 'marketing_level_custom_text', __('Marketing Level Custom Text')),
 
 
 			Field::make('complex', 'taxonomy_terms_custom_text', __('Taxonomy Terms Custom Text'))
