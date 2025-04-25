@@ -1349,8 +1349,6 @@ function user_marketplace()
         'post_status' => array('publish', 'pending')
     ));
 
-    var_dump($membersmarketplace);
-    echo count($membersmarketplace);
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
     if ($membersmarketplace && count($membersmarketplace) != 0) {
@@ -1360,7 +1358,7 @@ function user_marketplace()
         }
         echo '</div></div>';
     } else {
-        echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
+        echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
 				This user has not created any posts.			</span>
 		</div>';
