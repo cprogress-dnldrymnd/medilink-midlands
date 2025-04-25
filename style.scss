@@ -2737,6 +2737,10 @@ div.bbp-topic-tags,
     display: none;
     text-align: center;
     margin-top: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .wpcf7-spinner {
         visibility: visible;
         width: 48px;

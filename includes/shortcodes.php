@@ -546,7 +546,7 @@ function member_directory()
 ?>
 
     <div class="membership-directory ajax-result">
-        <div class="row">
+        <div class="row row-flex">
             <div class="col-lg-3">
                 <div class="member-directory-filters-holder">
                     <div class="filter-title">Member Profile Filter</div>

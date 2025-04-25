@@ -2062,7 +2062,11 @@ div.bbp-topic-tags,
 .loader {
   display: none;
   text-align: center;
-  margin-top: 50px; }
+  margin-top: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
   .loader .wpcf7-spinner {
     visibility: visible;
     width: 48px;
