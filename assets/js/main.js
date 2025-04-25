@@ -271,14 +271,8 @@ function _ajax_member_marketplace() {
             if (response === 'no_more_posts') {
 
             } else {
-                if (is_filter == 'true') {
-                    jQuery('#results').html(response);
-                } else {
-                    jQuery('#results > .row').append(response);
-                }
-                if (is_filter == 'false') {
-                    ajax_params.paged = parseInt(ajax_params.paged) + 1;
-                }
+                jQuery('#results > .row').append(response);
+                ajax_params.paged = parseInt(ajax_params.paged) + 1;
                 jQuery('.ajax-result').removeClass('loading loading-loadmore');
 
             }
