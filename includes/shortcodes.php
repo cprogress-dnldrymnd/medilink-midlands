@@ -11,7 +11,7 @@ function featured_articles()
     <div class="title-subtile-holder wow bounce text_left" style="animation-name: bounce; margin-bottom: 35px">
         <h2 class="section-title light_title">Featured Articles</h2>
     </div>
-    <?= blog__post($posts) ?>
+    <?= post__grid($posts) ?>
     <?php if (!is_home()) { ?>
         <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a
                 href="https://medilink.theprogressteam.com/latest-articles/" class="button-winona button-green btn btn-sm">VIEW
@@ -24,91 +24,6 @@ function featured_articles()
 
 add_shortcode('featured_articles', 'featured_articles');
 
-function blog__post($posts): bool|string
-{
-    ob_start(); ?>
-    <div class="blog-posts blog-posts-v2 flex-row simple-posts blog-posts-shortcode wow">
-        <div class="row">
-            <?php foreach ($posts as $post) { ?>
-                <?php
-                $permalink = get_the_permalink($post->ID);
-                $title = $post->post_title;
-                $date = get_the_date('', $post->ID);
-                $image = get_the_post_thumbnail_url($post->ID, 'large');
-                $category = get_the_category($post->ID);
-
-                if (!$image) {
-                    $image = wp_get_attachment_image_url(50874, 'large');
-                }
-                ?>
-                <div class="vc_col-sm-4">
-                    <article class="single-post list-view">
-
-                        <div class="blog_custom">
-
-                            <!-- POST THUMBNAIL -->
-
-                            <div class="post-thumbnail">
-
-                                <a class="relative" href="<?= $permalink ?>">
-
-                                    <div class="featured_image_blog">
-                                        <img decoding="async" class="blog_post_image" src="<?= $image ?>" alt="<?= $title ?>">
-                                        <div class="terms-box">
-                                            <?php foreach ($category as $cat) { ?>
-                                                <?php if ($cat->slug != 'featured-articles') { ?>
-                                                    <span><?= $cat->name ?></span>
-                                                <?php } ?>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-
-                                </a>
-
-                            </div>
-
-                            <!-- POST DETAILS -->
-
-                            <div class="post-details text-left">
-
-                                <div class="post-date">
-                                    <?= $date ?>
-                                </div>
-
-                                <h3 class="post-name">
-
-                                    <a href="<?= $permalink ?>" title="<?= $title ?>"><?= $title ?></a>
-
-                                </h3>
-
-                                <div class="post-excerpt">
-
-                                    <div class="text-element content-element">
-
-                                        <p> <a class="more-link" href="<?= $permalink ?>">Read More <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                                    <path
-                                                        d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
-                                                </svg></a></p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </div>
-            <?php } ?>
-        </div>
-    </div>
-<?php
-    return ob_get_clean();
-}
 
 
 function testimonials()
@@ -519,7 +434,7 @@ function claim_offer_form()
                 ?>
             </div>
             <div class="col-lg-12 supporting-documents">
-                
+
             </div>
         </div>
     </div>
@@ -1119,7 +1034,7 @@ function join_us_v2()
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
                         $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
-                        if($marketing_level_custom_text) {
+                        if ($marketing_level_custom_text) {
                             $marketing_text = $marketing_level_custom_text;
                         } else {
                             $marketing_text = $marketing_level;
@@ -1346,7 +1261,7 @@ function join_us_v2()
                         $marketing_level = cb_value($package->ID, 'marketing_level');
                         $marketing_level = cb_value($package->ID, 'marketing_level');
                         $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
-                        if($marketing_level_custom_text) {
+                        if ($marketing_level_custom_text) {
                             $marketing_text = $marketing_level_custom_text;
                         } else {
                             $marketing_text = $marketing_level;
@@ -1412,7 +1327,7 @@ function user_posts()
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Articles Posted</h3>';
     if ($posts) {
-        echo blog__post($posts);
+        echo post__grid($posts);
     } else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
 			<span>
@@ -1423,3 +1338,29 @@ function user_posts()
     return ob_get_clean();
 }
 add_shortcode('user_posts', 'user_posts');
+
+function user_marketplace()
+{
+    ob_start();
+    $posts = get_posts(array(
+        'post_type'   => 'membersmarketplace',
+        'numberpost'  => -1,
+        'author'      => um_user('ID'),
+        'post_status' => array('publish', 'pending')
+    ));
+    echo '<div class="user-posts">';
+    echo '<h3 class="main-heading">Articles Posted</h3>';
+    if ($posts) {
+        foreach ($posts as $post) {
+            echo member_marketplace_grid($post->ID);
+        }
+    } else {
+        echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
+			<span>
+				This user has not created any posts.			</span>
+		</div>';
+    }
+    echo '</div>';
+    return ob_get_clean();
+}
+add_shortcode('user_marketplace', 'user_marketplace');

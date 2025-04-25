@@ -112,6 +112,91 @@ function member_marketplace_grid($id)
     return ob_get_clean();
 }
 
+function post__grid($posts): bool|string
+{
+    ob_start(); ?>
+    <div class="blog-posts blog-posts-v2 flex-row simple-posts blog-posts-shortcode wow">
+        <div class="row">
+            <?php foreach ($posts as $post) { ?>
+                <?php
+                $permalink = get_the_permalink($post->ID);
+                $title = $post->post_title;
+                $date = get_the_date('', $post->ID);
+                $image = get_the_post_thumbnail_url($post->ID, 'large');
+                $category = get_the_category($post->ID);
+
+                if (!$image) {
+                    $image = wp_get_attachment_image_url(50874, 'large');
+                }
+                ?>
+                <div class="vc_col-sm-4">
+                    <article class="single-post list-view">
+
+                        <div class="blog_custom">
+
+                            <!-- POST THUMBNAIL -->
+
+                            <div class="post-thumbnail">
+
+                                <a class="relative" href="<?= $permalink ?>">
+
+                                    <div class="featured_image_blog">
+                                        <img decoding="async" class="blog_post_image" src="<?= $image ?>" alt="<?= $title ?>">
+                                        <div class="terms-box">
+                                            <?php foreach ($category as $cat) { ?>
+                                                <?php if ($cat->slug != 'featured-articles') { ?>
+                                                    <span><?= $cat->name ?></span>
+                                                <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- POST DETAILS -->
+
+                            <div class="post-details text-left">
+
+                                <div class="post-date">
+                                    <?= $date ?>
+                                </div>
+
+                                <h3 class="post-name">
+
+                                    <a href="<?= $permalink ?>" title="<?= $title ?>"><?= $title ?></a>
+
+                                </h3>
+
+                                <div class="post-excerpt">
+
+                                    <div class="text-element content-element">
+
+                                        <p> <a class="more-link" href="<?= $permalink ?>">Read More <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                                    <path
+                                                        d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                                                </svg></a></p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
 function _author_email($post_author)
 {
     $user = get_userdata($post_author);
