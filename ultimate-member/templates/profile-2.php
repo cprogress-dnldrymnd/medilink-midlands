@@ -302,7 +302,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                         </div>
                     <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'posts') { ?>
                         <?= do_shortcode('[user_posts]') ?>
-                    <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') { { ?>
+                    <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {  ?>
                         <?= do_shortcode('[user_marketplace]') ?>
                     <?php } ?>
 
