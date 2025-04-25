@@ -573,7 +573,6 @@ function member_directory()
             <div class="col-lg-9">
                 <div class="listings">
                     <div id="results">
-
                         <div class="row row-flex">
                             <?php if ($the_query->have_posts()) { ?>
                                 <?php while ($the_query->have_posts()) { ?>
@@ -586,6 +585,7 @@ function member_directory()
                             <?php } ?>
                         </div>
                     </div>
+                    <div class="loader"><span class="wpcf7-spinner"></span></div>
                 </div>
                 <div class="modeltheme_button load-more-holder">
                     <a href="#" class="button-winona button-green btn btn-sm load-more-directory">

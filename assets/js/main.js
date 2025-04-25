@@ -200,7 +200,6 @@ function ajax_member_directory() {
 
 function _ajax_filter_member_directory(button, is_filter) {
     search_var = jQuery('input[name="search_var"]').val();
-
     var directory_filter = jQuery("input[name='directory-filter[]']:checked")
         .map(function () {
             return jQuery(this).val();
