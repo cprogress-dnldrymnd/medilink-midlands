@@ -17,7 +17,7 @@ function textarea_counter() {
         const text = textarea.val();
         const length = text.length;
 
-        counterElement.text(length + ' / ' + MAX_LENGTH);
+        counterElement.text(length + ' / ' + MAX_LENGTH + ' char');
 
         // Remove any existing classes first.
         counterElement.removeClass('warning error');
