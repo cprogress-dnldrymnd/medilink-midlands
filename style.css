@@ -1102,11 +1102,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
   border: none;
   box-shadow: none; }
 
-.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts
-.list-view
-.post-details
-.post-name
-a {
+.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts .list-view .post-details .post-name a {
   color: var(--black-color) !important; }
 
 #navbar .btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu a {
@@ -2091,5 +2087,17 @@ div.bbp-topic-tags,
   letter-spacing: 1px;
   font-size: 16px;
   pointer-events: none; }
+
+.um-profile-nav-marketplace svg {
+  height: 18px;
+  font-size: 18px;
+  height: 18px;
+  line-height: 18px;
+  position: absolute;
+  display: block;
+  top: 8px;
+  left: 10px; }
+  .um-profile-nav-marketplace svg * {
+    fill: currentColor !important; }
 
 /*# sourceMappingURL=style.css.map */
