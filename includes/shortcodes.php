@@ -1350,6 +1350,7 @@ function user_marketplace()
     ));
 
     var_dump($membersmarketplace);
+    echo count($membersmarketplace);
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
     if ($membersmarketplace && count($membersmarketplace) != 0) {
