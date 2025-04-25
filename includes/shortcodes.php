@@ -1345,7 +1345,6 @@ function user_marketplace()
     $posts = get_posts(array(
         'post_type'   => 'membersmarketplace',
         'numberpost'  => -1,
-        'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
     echo '<div class="user-posts">';
