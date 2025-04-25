@@ -1320,7 +1320,7 @@ function user_posts()
     ob_start();
     $posts = get_posts(array(
         'post_type'   => 'post',
-        'numberpost'  => -1,
+        'numberposts'  => -1,
         'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
@@ -1344,7 +1344,7 @@ function user_marketplace()
     ob_start();
     $membersmarketplace = get_posts(array(
         'post_type'   => 'membersmarketplace',
-        'numberpost'  => -1,
+        'numberposts'  => -1,
         'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
