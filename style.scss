@@ -2740,7 +2740,6 @@ div.bbp-topic-tags,
     text-align: center;
     margin-top: 50px;
     height: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     .wpcf7-spinner {
@@ -2753,12 +2752,13 @@ div.bbp-topic-tags,
             height: 10px;
         }
     }
+
 }
 
 .ajax-result {
     &.loading {
         .loader {
-            display: block;
+            display: flex;
         }
     }
     &.loading-search {
