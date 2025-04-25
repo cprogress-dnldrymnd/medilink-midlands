@@ -2047,7 +2047,7 @@ div.bbp-topic-tags,
       @media (max-width: 1024px) {
         .offer-documents-holder .offer-documents .offer-document {
           width: calc(50% - 10px); } }
-      @media (max-width: 100%) {
+      @media (max-width: 575px) {
         .offer-documents-holder .offer-documents .offer-document {
           width: 100%; } }
 
