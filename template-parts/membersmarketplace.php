@@ -115,6 +115,7 @@ $featureds = get_posts(array(
             </div>
         </div>
         <?= member_marketplace() ?>
+        <div class="loader"><span class="wpcf7-spinner"></span></div>
         <div class="modeltheme_button text-center view-all">
             <a href="#" class="button-winona button-green btn btn-sm load-more-marketplace">Load more</a>
         </div>
