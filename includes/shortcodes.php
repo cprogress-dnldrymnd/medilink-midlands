@@ -585,8 +585,9 @@ function member_directory()
                             <?php } ?>
                         </div>
                     </div>
-                    <div class="loader"><span class="wpcf7-spinner"></span></div>
                 </div>
+                <div class="loader"><span class="wpcf7-spinner"></span></div>
+
                 <div class="modeltheme_button load-more-holder">
                     <a href="#" class="button-winona button-green btn btn-sm load-more-directory">
                         Load More
