@@ -2749,11 +2749,18 @@ div.bbp-topic-tags,
 
 .ajax-result {
     &.loading {
-        #results, .load-more-holder {
-            display: none;
-        }
         .loader {
             display: block;
+        }
+    }
+    &.loading-search {
+        #results{
+            display: none;
+        }
+    }
+    &.loading-loadmore {
+        .load-more-holder {
+            display: none;
         }
     }
 }

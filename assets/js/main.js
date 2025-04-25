@@ -188,7 +188,7 @@ function membership_form() {
 
 function ajax_member_directory() {
     jQuery('.load-more-directory').on('click', function (event) {
-        _ajax_filter_member_directory(jQuery(this), 'false');
+        _ajax_filter_member_directory(jQuery(this), 'false', 'loadmore');
         event.preventDefault();
     });
 
@@ -198,7 +198,7 @@ function ajax_member_directory() {
     });
 }
 
-function _ajax_filter_member_directory(button, is_filter) {
+function _ajax_filter_member_directory(button, is_filter, type = 'search') {
     search_var = jQuery('input[name="search_var"]').val();
     var directory_filter = jQuery("input[name='directory-filter[]']:checked")
         .map(function () {
@@ -217,11 +217,16 @@ function _ajax_filter_member_directory(button, is_filter) {
             security: ajax_member_directory_params.nonce,
         },
         beforeSend: function () {
-            jQuery('.ajax-result').addClass('loading');
+            if (type == 'search') {
+                jQuery('.ajax-result').addClass('loading loading-search');
+            } else {
+                jQuery('.ajax-result').addClass('loading loading-loadmore');
+            }
+
         },
         success: function (response) {
             if (response === 'no_more_posts') {
-                button.text('No more posts').prop('disabled', true);
+                button.text('No more posts').prop('disabled', true).addClass('no-more-post');
             } else {
                 if (is_filter == 'true') {
                     jQuery('#results').html(response);
@@ -232,7 +237,7 @@ function _ajax_filter_member_directory(button, is_filter) {
                     ajax_member_directory_params.paged = parseInt(ajax_member_directory_params.paged) + 1;
                 }
 
-                jQuery('.ajax-result').removeClass('loading');
+                jQuery('.ajax-result').removeClass('loading loading-search loading-loadmore');
 
             }
         },
