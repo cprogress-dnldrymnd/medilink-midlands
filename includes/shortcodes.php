@@ -1360,7 +1360,7 @@ function user_marketplace()
     } else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
-				This user has not created any posts.			</span>
+				This user has not posted any offer.			</span>
 		</div>';
     }
     echo '</div>';
