@@ -1118,9 +1118,15 @@ function join_us_v2()
                     <?php foreach ($packages as $package) { ?>
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
+                        $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
+                        if($marketing_level_custom_text) {
+                            $marketing_text = $marketing_level_custom_text;
+                        } else {
+                            $marketing_text = $marketing_level;
+                        }
                         ?>
                         <td class="text-center bg-orange">
-                            <span><?= $marketing_level ?></span>
+                            <span><?= $marketing_text ?></span>
                         </td>
                     <?php } ?>
                 </tr>
