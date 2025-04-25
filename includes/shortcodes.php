@@ -1351,11 +1351,11 @@ function user_marketplace()
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
     if ($posts) {
+        echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($posts as $post) {
-            echo '<div class="post-box-holder flex-row"> <div class="row">';
             echo member_marketplace_grid($post->ID, true);
-            echo '</div></div>';
         }
+        echo '</div></div>';
     } else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block;">
 			<span>
