@@ -107,10 +107,10 @@ $featureds = get_posts(array(
             ));
             ?>
             <div class="filter-holder">
-                <a class="active" href="/membersmarketplace/">ALL</a>
+                <a class="<?= is_post_type_archive('membersmarketplace') ? 'active' : '' ?>" href="<?= get_post_type_archive_link('membersmarketplace') ?>">ALL</a>
                 <?php foreach ($terms as $term) { ?>
                     <?php if ($term->slug != 'featured') { ?>
-                        <a href="<?= get_term_link($term->term_id) ?>"><?= $term->name ?></a>
+                        <a <?= $term->term_id == get_queried_object_id() ? 'active' : '' ?> href="<?= get_term_link($term->term_id) ?>"><?= $term->name ?></a>
                     <?php } ?>
                 <?php } ?>
             </div>
