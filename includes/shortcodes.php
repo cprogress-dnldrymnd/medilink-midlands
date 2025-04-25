@@ -1349,7 +1349,7 @@ function user_marketplace()
         'post_status' => array('publish', 'pending')
     ));
     echo '<div class="user-posts">';
-    echo '<h3 class="main-heading">Articles Posted</h3>';
+    echo '<h3 class="main-heading">Marketplace</h3>';
     if ($posts) {
         foreach ($posts as $post) {
             echo member_marketplace_grid($post->ID, true);
