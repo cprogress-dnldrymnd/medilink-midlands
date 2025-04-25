@@ -2074,9 +2074,8 @@ div.bbp-topic-tags,
 
 .ajax-result.loading .loader {
   display: block; }
-.ajax-result.loading-search #results {
-  display: none; }
-.ajax-result.loading-loadmore .load-more-holder {
+.ajax-result.loading-search #results,
+.ajax-result.loading-search .load-more-holder {
   display: none; }
 
 /*# sourceMappingURL=style.css.map */

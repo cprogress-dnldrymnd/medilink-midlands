@@ -2756,11 +2756,7 @@ div.bbp-topic-tags,
         }
     }
     &.loading-search {
-        #results{
-            display: none;
-        }
-    }
-    &.loading-loadmore {
+        #results,
         .load-more-holder {
             display: none;
         }
