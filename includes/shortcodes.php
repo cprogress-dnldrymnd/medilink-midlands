@@ -1379,7 +1379,7 @@ function user_marketplace()
         'post_status' => array('publish')
     ));
 
-    echo '<div class="user-posts">';
+    echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
