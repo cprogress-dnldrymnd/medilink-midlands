@@ -2749,7 +2749,7 @@ div.bbp-topic-tags,
 
 .ajax-result {
     &.loading {
-        #results {
+        #results, .load-more-holder {
             display: none;
         }
         .loader {

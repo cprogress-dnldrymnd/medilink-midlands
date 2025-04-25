@@ -217,7 +217,6 @@ function _ajax_filter_member_directory(button, is_filter) {
             security: ajax_member_directory_params.nonce,
         },
         beforeSend: function () {
-            button.text('Loading...');
             jQuery('.ajax-result').addClass('loading');
         },
         success: function (response) {
@@ -233,7 +232,6 @@ function _ajax_filter_member_directory(button, is_filter) {
                     ajax_member_directory_params.paged = parseInt(ajax_member_directory_params.paged) + 1;
                 }
 
-                button.text('Load More');
                 jQuery('.ajax-result').removeClass('loading');
 
             }
