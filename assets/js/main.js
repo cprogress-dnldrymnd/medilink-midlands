@@ -271,7 +271,7 @@ function _ajax_member_marketplace() {
             if (response === 'no_more_posts') {
 
             } else {
-                jQuery('#results > .row').append(response);
+                jQuery('#results  .row').append(response);
                 ajax_params.paged = parseInt(ajax_params.paged) + 1;
             }
             jQuery('.ajax-result').removeClass('loading loading-loadmore');
