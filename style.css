@@ -2109,6 +2109,8 @@ div.bbp-topic-tags,
   color: #747474 !important;
   background-color: transparent;
   border: 1px solid #747474 !important; }
+.marketplace-active-tab.marketplace-active-tab .wpcf7-submit {
+  display: none !important; }
 
 .marketplace-posts .bottom {
   margin-top: 30px; }
