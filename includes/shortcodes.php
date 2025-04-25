@@ -1346,7 +1346,7 @@ function user_marketplace()
         'post_type'   => 'membersmarketplace',
         'numberposts'  => -1,
         'author'      => um_user('ID'),
-        'post_status' => array('publish', 'pending')
+        'post_status' => array('publish')
     ));
 
     echo '<div class="user-posts">';
