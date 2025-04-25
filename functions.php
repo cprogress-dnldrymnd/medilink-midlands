@@ -469,7 +469,7 @@ function custom_class($classes)
     }
 
     if(isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {
-        $classes[] = 'marketplace-active-tab';<svg xmlns="http://www.w3.org/2000/svg" width="90.78" height="90.78" viewBox="0 0 90.78 90.78"><g id="materials-svgrepo-com" transform="translate(-1 -1)"><path id="Path_35" data-name="Path 35" d="M3,22.284,36.748,3,89.78,22.284M3,22.284V46.39L56.032,65.674,89.78,46.39V22.284M3,22.284,56.032,41.569,89.78,22.284" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4"/><path id="Path_36" data-name="Path 36" d="M3,12V36.106L56.032,55.39,89.78,36.106V12" transform="translate(0 34.39)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4"/></g></svg>
+        $classes[] = 'marketplace-active-tab';
     }
     return $classes;
 }
