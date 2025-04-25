@@ -682,3 +682,11 @@ function _claim_offer_button($id)
 <?php
     return ob_get_clean();
 }
+
+
+function my_custom_posts_per_page( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && $query->get( 'post_type' ) === 'membersmarketplace' ) {
+        $query->set( 'posts_per_page', 1 ); // Change 10 to your desired number
+    }
+}
+add_action( 'pre_get_posts', 'my_custom_posts_per_page' );
