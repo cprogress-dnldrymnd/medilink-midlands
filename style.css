@@ -2068,4 +2068,7 @@ div.bbp-topic-tags,
     width: 10px;
     height: 10px; }
 
+.ajax-result.loading #results {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */

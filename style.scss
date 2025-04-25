@@ -2745,3 +2745,11 @@ div.bbp-topic-tags,
         }
     }
 }
+
+.ajax-result {
+    &.loading {
+        #results {
+            display: none;
+        }
+    }
+}

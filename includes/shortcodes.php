@@ -545,7 +545,7 @@ function member_directory()
     $filters = array("1-9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "Y", "Z");
 ?>
 
-    <div class="membership-directory">
+    <div class="membership-directory ajax-result">
         <div class="row">
             <div class="col-lg-3">
                 <div class="member-directory-filters-holder">
