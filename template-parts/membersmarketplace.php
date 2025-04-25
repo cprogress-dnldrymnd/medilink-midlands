@@ -93,6 +93,8 @@ $featureds = get_posts(array(
             </div>
         </div>
     </section>
+<?php } else { ?>
+    <input type="hidden" name="membersmarketplace_category" value="<?= get_queried_object_id() ?>">
 <?php } ?>
 <section class="current-offers ajax-result">
     <div class="container">
