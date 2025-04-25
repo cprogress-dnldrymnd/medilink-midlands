@@ -68,6 +68,7 @@ add_action('wp_ajax_ajax_member_directory_load_more', 'ajax_member_directory_loa
 function ajax_member_marketplace()
 {
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+    $membersmarketplace_category = isset($_POST['membersmarketplace_category']) ? $_POST['membersmarketplace_category'] : false;
 
     $args = array(
         'post_status' => 'publish',
@@ -75,6 +76,17 @@ function ajax_member_marketplace()
         'posts_per_page' => 12,
         'paged' => $paged,
     );
+
+
+    if ($membersmarketplace_category) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'membersmarketplace_category',
+                'field' => 'term_id',
+                'terms' => $membersmarketplace_category,
+            ),
+        );
+    }
 
     $query = new WP_Query($args);
 
