@@ -1,5 +1,6 @@
 jQuery(document).ready(function () {
     ajax_member_directory();
+    ajax_member_marketplace();
     select__2();
     membership_form();
     package();
