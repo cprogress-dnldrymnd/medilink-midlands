@@ -2751,7 +2751,6 @@ div.bbp-topic-tags,
             height: 10px;
         }
     }
-
 }
 
 .ajax-result {
@@ -2766,4 +2765,16 @@ div.bbp-topic-tags,
             display: none;
         }
     }
+}
+
+.no-more-post.no-more-post.no-more-post.no-more-post.no-more-post {
+    width: 100%;
+    background-color: transparent;
+    color: var(--accent-color);
+    border-top: 1px solid;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    letter-spacing: 1px;
+    font-size: 16px;
+    pointer-events: none;
 }
