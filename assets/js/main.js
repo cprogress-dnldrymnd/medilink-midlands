@@ -7,8 +7,37 @@ jQuery(document).ready(function () {
     learn_more();
     textarea_counter();
     profile_marketplace_nav();
+    claim_offer();
 });
 
+function claim_offer() {
+    jQuery('.claim-offer-button').click(function (e) {
+        $offer_title = jQuery(this).attr('offer_title');
+        $offer_desc = jQuery(this).attr('offer_desc');
+        $offer_owner = jQuery(this).attr('offer_owner');
+        $offer_owner_email = jQuery(this).attr('offer_owner_email');
+        $offer_owner_company = jQuery(this).attr('offer_owner_company');
+        $offer_owner_company = jQuery(this).attr('offer_owner_company');
+        $offer_image = jQuery(this).attr('offer_image');
+        $offer_details = jQuery(this).attr('offer_details');
+        $documents = jQuery(this).attr('documents');
+
+        jQuery('input[name="offer_title"]').val($offer_title);
+        jQuery('input[name="offer_desc"]').val($offer_desc);
+        jQuery('input[name="offer_owner"]').val($offer_owner);
+        jQuery('input[name="offer_owner_email"]').val($offer_owner_email);
+        jQuery('input[name="offer_owner_company"]').val($offer_owner_company);
+
+        jQuery('.claim-offer-form .offer-title').text($offer_title);
+        jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
+        jQuery('.claim-offer-form .offer-details').html($offer_details);
+        jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
+        jQuery('.claim-offer-form .supporting-documents').html($documents);
+
+        jQuery('#form-clicked .wpcf7-submit').click();
+        e.preventDefault();
+    });
+}
 function profile_marketplace_nav() {
     if (jQuery('body').hasClass('um-page-user')) {
         $anchor = '<div class="um-profile-nav-item um-profile-nav-marketplace"><a href="?profiletab=marketplace" class="profile-nav-marketplace" title="Marketplace"> <svg xmlns="http://www.w3.org/2000/svg" width="90.78" height="90.78" viewBox="0 0 90.78 90.78"><g id="materials-svgrepo-com" transform="translate(-1 -1)"><path id="Path_35" data-name="Path 35" d="M3,22.284,36.748,3,89.78,22.284M3,22.284V46.39L56.032,65.674,89.78,46.39V22.284M3,22.284,56.032,41.569,89.78,22.284" transform="translate(0 0)" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"/><path id="Path_36" data-name="Path 36" d="M3,12V36.106L56.032,55.39,89.78,36.106V12" transform="translate(0 34.39)" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"/></g></svg> <span class="title">Marketplace</span> </a></div>';

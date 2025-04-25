@@ -156,34 +156,7 @@ $featureds = get_posts(array(
     </div>
 <?php } ?>
 <script>
-    jQuery(document).ready(function() {
-        jQuery('.claim-offer-button').click(function(e) {
-            $offer_title = jQuery(this).attr('offer_title');
-            $offer_desc = jQuery(this).attr('offer_desc');
-            $offer_owner = jQuery(this).attr('offer_owner');
-            $offer_owner_email = jQuery(this).attr('offer_owner_email');
-            $offer_owner_company = jQuery(this).attr('offer_owner_company');
-            $offer_owner_company = jQuery(this).attr('offer_owner_company');
-            $offer_image = jQuery(this).attr('offer_image');
-            $offer_details = jQuery(this).attr('offer_details');
-            $documents = jQuery(this).attr('documents');
 
-            jQuery('input[name="offer_title"]').val($offer_title);
-            jQuery('input[name="offer_desc"]').val($offer_desc);
-            jQuery('input[name="offer_owner"]').val($offer_owner);
-            jQuery('input[name="offer_owner_email"]').val($offer_owner_email);
-            jQuery('input[name="offer_owner_company"]').val($offer_owner_company);
-
-            jQuery('.claim-offer-form .offer-title').text($offer_title);
-            jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
-            jQuery('.claim-offer-form .offer-details').html($offer_details);
-            jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
-            jQuery('.claim-offer-form .supporting-documents').html($documents);
-
-            jQuery('#form-clicked .wpcf7-submit').click();
-            e.preventDefault();
-        });
-    });
     var swiper = new Swiper(".swiper-featured-offers", {
         autoheight: true,
         pagination: {
