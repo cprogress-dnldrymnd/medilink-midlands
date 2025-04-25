@@ -207,15 +207,15 @@ function _ajax_filter(button, is_filter) {
         })
         .get();
     jQuery.ajax({
-        url: ajax_post_loader_params.ajax_url,
+        url: ajax_member_directory_params.ajax_url,
         type: 'POST',
         data: {
-            action: 'ajax_post_loader_load_more',
-            paged: ajax_post_loader_params.paged,
+            action: 'ajax_member_directory_load_more',
+            paged: ajax_member_directory_params.paged,
             search_var: search_var,
             is_filter: is_filter,
             directory_filter: directory_filter,
-            security: ajax_post_loader_params.nonce,
+            security: ajax_member_directory_params.nonce,
         },
         beforeSend: function () {
             button.text('Loading...');
@@ -230,10 +230,10 @@ function _ajax_filter(button, is_filter) {
                     jQuery('#results > .row').append(response);
                 }
                 if (is_filter == 'false') {
-                    ajax_post_loader_params.paged = parseInt(ajax_post_loader_params.paged) + 1;
+                    ajax_member_directory_params.paged = parseInt(ajax_member_directory_params.paged) + 1;
                 }
 
-                console.log(ajax_post_loader_params.paged);
+                console.log(ajax_member_directory_params.paged);
                 button.text('Load More');
             }
         },

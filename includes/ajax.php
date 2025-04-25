@@ -1,7 +1,7 @@
 <?php
-function ajax_post_loader_load_more()
+function ajax_member_directory_load_more()
 {
-    check_ajax_referer('ajax_post_loader_nonce', 'security');
+    check_ajax_referer('ajax_member_directory_nonce', 'security');
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
@@ -25,7 +25,6 @@ function ajax_post_loader_load_more()
     }
 
     if ($directory_filter) {
-
         if (in_array('1-9', $directory_filter)) {
             $directory_filter[] = 1;
             $directory_filter[] = 2;
@@ -63,8 +62,8 @@ function ajax_post_loader_load_more()
         wp_die('no_more_posts');
     }
 }
-add_action('wp_ajax_nopriv_ajax_post_loader_load_more', 'ajax_post_loader_load_more');
-add_action('wp_ajax_ajax_post_loader_load_more', 'ajax_post_loader_load_more');
+add_action('wp_ajax_nopriv_ajax_member_directory_load_more', 'ajax_member_directory_load_more');
+add_action('wp_ajax_ajax_member_directory_load_more', 'ajax_member_directory_load_more');
 
 function getFirstLetter($string)
 {
