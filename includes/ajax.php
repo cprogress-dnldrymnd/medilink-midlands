@@ -72,7 +72,7 @@ function ajax_member_marketplace()
     $args = array(
         'post_status' => 'publish',
         'post_type' => 'membersmarketplace',
-        'posts_per_page' => 1,
+        'posts_per_page' => 12,
         'paged' => $paged,
     );
 

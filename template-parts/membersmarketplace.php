@@ -41,7 +41,6 @@ $featureds = get_posts(array(
 <?php if (!is_tax()) { ?>
     <section class="latest-offers">
         <div class="container">
-
             <h2>Latest Offers</h2>
             <div class="featured-offers">
                 <div class="swiper swiper-featured-offers">
