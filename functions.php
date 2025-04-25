@@ -75,7 +75,7 @@ function member_marketplace()
     return ob_get_clean();
 }
 
-function member_marketplace_grid($id, $hide_button = false)
+function member_marketplace_grid($id, $hide_button = false, $button_text = 'Claim Offer')
 {
     ob_start();
     $post = get_post($id);
@@ -104,7 +104,7 @@ function member_marketplace_grid($id, $hide_button = false)
             <?php if ($hide_button == false) { ?>
                 <div class="bottom">
                     <div class="modeltheme_button">
-                        <?= _claim_offer_button($id) ?>
+                        <?= _claim_offer_button($id, $button_text) ?>
                     </div>
                 </div>
             <?php } ?>
@@ -469,7 +469,7 @@ function custom_class($classes)
     }
 
     if(isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {
-        $classes[] = 'marketplace-active-tab';
+        $classes[] = 'marketplace-active-tab';<svg xmlns="http://www.w3.org/2000/svg" width="90.78" height="90.78" viewBox="0 0 90.78 90.78"><g id="materials-svgrepo-com" transform="translate(-1 -1)"><path id="Path_35" data-name="Path 35" d="M3,22.284,36.748,3,89.78,22.284M3,22.284V46.39L56.032,65.674,89.78,46.39V22.284M3,22.284,56.032,41.569,89.78,22.284" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4"/><path id="Path_36" data-name="Path 36" d="M3,12V36.106L56.032,55.39,89.78,36.106V12" transform="translate(0 34.39)" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="4"/></g></svg>
     }
     return $classes;
 }
@@ -761,7 +761,7 @@ function add_custom_links_to_menu($items, $args)
 add_filter('wp_nav_menu_objects', 'add_custom_links_to_menu', 10, 2);
 
 
-function _claim_offer_button($id)
+function _claim_offer_button($id, $button_text = 'Claim Offer')
 {
     ob_start();
     $post = get_post($id);
@@ -786,7 +786,8 @@ function _claim_offer_button($id)
         offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>"
         offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>"
         offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>"
-        documents="<?= $documents_html ?>">Claim Offer
+        documents="<?= $documents_html ?>">
+        <?= $button_text ?>
     </a>
     <?php
     return ob_get_clean();
