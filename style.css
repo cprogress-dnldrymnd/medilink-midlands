@@ -2060,7 +2060,8 @@ div.bbp-topic-tags,
   max-width: 1000px; }
 
 .loader {
-  display: none; }
+  display: none;
+  text-align: center; }
   .loader .wpcf7-spinner {
     visibility: visible;
     width: 48px;
