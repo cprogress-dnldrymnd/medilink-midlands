@@ -1342,16 +1342,17 @@ add_shortcode('user_posts', 'user_posts');
 function user_marketplace()
 {
     ob_start();
-    $posts = get_posts(array(
+    $membersmarketplace = get_posts(array(
         'post_type'   => 'membersmarketplace',
         'numberpost'  => -1,
+        'author'      => um_user('ID'),
         'post_status' => array('publish', 'pending')
     ));
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
-    if ($posts) {
+    if ($membersmarketplace) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
-        foreach ($posts as $post) {
+        foreach ($membersmarketplace as $post) {
             echo member_marketplace_grid($post->ID, true);
         }
         echo '</div></div>';
