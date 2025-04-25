@@ -237,10 +237,9 @@ function _ajax_filter_member_directory(button, is_filter, type = 'search') {
                 if (is_filter == 'false') {
                     ajax_params.paged = parseInt(ajax_params.paged) + 1;
                 }
-
-                jQuery('.ajax-result').removeClass('loading loading-search loading-loadmore');
-
             }
+            jQuery('.ajax-result').removeClass('loading loading-search loading-loadmore');
+
         },
         error: function (error) {
             console.log(error);
@@ -274,9 +273,8 @@ function _ajax_member_marketplace() {
             } else {
                 jQuery('#results > .row').append(response);
                 ajax_params.paged = parseInt(ajax_params.paged) + 1;
-                jQuery('.ajax-result').removeClass('loading loading-loadmore');
-
             }
+            jQuery('.ajax-result').removeClass('loading loading-loadmore');
         },
         error: function (error) {
             console.log(error);
