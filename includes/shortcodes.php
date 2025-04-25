@@ -1352,7 +1352,7 @@ function user_marketplace()
     var_dump($membersmarketplace);
     echo '<div class="user-posts">';
     echo '<h3 class="main-heading">Marketplace</h3>';
-    if ($membersmarketplace) {
+    if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
             echo member_marketplace_grid($post->ID, true);
