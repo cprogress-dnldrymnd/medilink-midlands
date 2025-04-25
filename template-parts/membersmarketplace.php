@@ -116,7 +116,7 @@ $featureds = get_posts(array(
         </div>
         <?= member_marketplace() ?>
         <div class="modeltheme_button text-center view-all">
-            <a href="#" class="button-winona button-green btn btn-sm">View All</a>
+            <a href="#" class="button-winona button-green btn btn-sm load-more-marketplace">Load more</a>
         </div>
     </div>
 </section>

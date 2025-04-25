@@ -247,9 +247,15 @@ function _ajax_filter_member_directory(button, is_filter, type = 'search') {
         }
     });
 }
+function ajax_member_marketplace() {
+    jQuery('.load-more-marketplace').on('click', function (event) {
+        _ajax_member_marketplace();
+        event.preventDefault();
+    });
 
+}
 function _ajax_member_marketplace() {
- 
+
     jQuery.ajax({
         url: ajax_params.ajax_url,
         type: 'POST',
@@ -263,7 +269,7 @@ function _ajax_member_marketplace() {
         },
         success: function (response) {
             if (response === 'no_more_posts') {
-                
+
             } else {
                 if (is_filter == 'true') {
                     jQuery('#results').html(response);
