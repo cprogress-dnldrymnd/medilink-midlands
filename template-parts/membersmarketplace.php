@@ -39,7 +39,7 @@ $featureds = get_posts(array(
 ));
 ?>
 <?php if (!is_tax()) { ?>
-    <section class="latest-offers">
+    <section class="latest-offers ajax-result">
         <div class="container">
 
             <h2>Latest Offers</h2>

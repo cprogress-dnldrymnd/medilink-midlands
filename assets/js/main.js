@@ -206,15 +206,15 @@ function _ajax_filter_member_directory(button, is_filter, type = 'search') {
         })
         .get();
     jQuery.ajax({
-        url: ajax_member_directory_params.ajax_url,
+        url: ajax_params.ajax_url,
         type: 'POST',
         data: {
             action: 'ajax_member_directory_load_more',
-            paged: ajax_member_directory_params.paged,
+            paged: ajax_params.paged,
             search_var: search_var,
             is_filter: is_filter,
             directory_filter: directory_filter,
-            security: ajax_member_directory_params.nonce,
+            security: ajax_params.nonce,
         },
         beforeSend: function () {
             if (type == 'search') {
@@ -234,7 +234,7 @@ function _ajax_filter_member_directory(button, is_filter, type = 'search') {
                     jQuery('#results > .row').append(response);
                 }
                 if (is_filter == 'false') {
-                    ajax_member_directory_params.paged = parseInt(ajax_member_directory_params.paged) + 1;
+                    ajax_params.paged = parseInt(ajax_params.paged) + 1;
                 }
 
                 jQuery('.ajax-result').removeClass('loading loading-search loading-loadmore');
@@ -247,6 +247,43 @@ function _ajax_filter_member_directory(button, is_filter, type = 'search') {
         }
     });
 }
+
+function _ajax_member_marketplace() {
+ 
+    jQuery.ajax({
+        url: ajax_params.ajax_url,
+        type: 'POST',
+        data: {
+            action: 'ajax_member_marketplace',
+            paged: ajax_params.paged,
+            security: ajax_params.nonce,
+        },
+        beforeSend: function () {
+            jQuery('.ajax-result').addClass('loading loading-loadmore');
+        },
+        success: function (response) {
+            if (response === 'no_more_posts') {
+                
+            } else {
+                if (is_filter == 'true') {
+                    jQuery('#results').html(response);
+                } else {
+                    jQuery('#results > .row').append(response);
+                }
+                if (is_filter == 'false') {
+                    ajax_params.paged = parseInt(ajax_params.paged) + 1;
+                }
+                jQuery('.ajax-result').removeClass('loading loading-loadmore');
+
+            }
+        },
+        error: function (error) {
+            console.log(error);
+            button.text('Error');
+        }
+    });
+}
+
 function matchHeights(selector) {
     var maxHeight = 0;
     // Reset heights before calculating

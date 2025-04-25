@@ -65,6 +65,37 @@ function ajax_member_directory_load_more()
 add_action('wp_ajax_nopriv_ajax_member_directory_load_more', 'ajax_member_directory_load_more');
 add_action('wp_ajax_ajax_member_directory_load_more', 'ajax_member_directory_load_more');
 
+function ajax_member_marketplace()
+{
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+
+    $args = array(
+        'post_status' => 'publish',
+        'post_type' => 'membersmarketplace',
+        'posts_per_page' => 10,
+        'paged' => $paged,
+    );
+
+    $query = new WP_Query($args);
+
+
+    if ($query->have_posts()) {
+
+        while ($query->have_posts()) {
+            $query->the_post();
+            echo member_marketplace_grid(get_the_ID());
+        }
+        wp_reset_postdata();
+
+        wp_die();
+    } else {
+        wp_die('no_more_posts');
+    }
+}
+
+add_action('wp_ajax_nopriv_ajax_member_marketplace', 'ajax_member_marketplace');
+add_action('wp_ajax_ajax_member_marketplace', 'ajax_member_marketplace');
+
 function getFirstLetter($string)
 {
     if (empty($string)) {

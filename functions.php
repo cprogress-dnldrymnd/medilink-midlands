@@ -15,7 +15,7 @@ function wikb_child_scripts()
     wp_enqueue_script('wikb-swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js');
 
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js');
-    wp_localize_script('main', 'ajax_member_directory_params', array(
+    wp_localize_script('main', 'ajax_params', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'paged'    => 2,
         'nonce'    => wp_create_nonce('ajax_member_directory_nonce'),
@@ -59,42 +59,53 @@ function member_marketplace()
 {
     ob_start();
 ?>
-    <div class="post-box-holder flex-row">
-        <div class="row">
-            <?php while (have_posts()) {
-                the_post() ?>
+    <div id="results">
+        <div class="post-box-holder flex-row">
+            <div class="row">
                 <?php
-                $post_author = get_the_author_meta('ID');
-                $offer_image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                while (have_posts()) {
+                    the_post();
+                    echo member_marketplace_grid(get_the_ID());
+                }
                 ?>
-                <div class="col-lg-4">
-                    <div class="post-box">
-                        <div class="top">
-                            <div class="image-box">
-                                <img src="<?= _author_logo($post_author) ?>">
-                            </div>
-                            <div class="post-author">
-                                <p><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></p>
-                            </div>
-                            <div class="desc">
-                                <h3>
-                                    <?php the_title() ?>
-                                </h3>
-                            </div>
-                            <?php if (get_the_excerpt()) { ?>
-                                <div class="offer-details">
-                                    <?= wpautop(get_the_excerpt()) ?>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <div class="bottom">
-                            <div class="modeltheme_button">
-                                <?= _claim_offer_button(get_the_ID()) ?>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
+
+function member_marketplace_grid($id)
+{
+    ob_start();
+    $post = get_post($id);
+    $post_author = $post->post_author;
+?>
+    <div class="col-lg-4">
+        <div class="post-box">
+            <div class="top">
+                <div class="image-box">
+                    <img src="<?= _author_logo($post_author) ?>">
                 </div>
-            <?php } ?>
+                <div class="post-author">
+                    <p><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></p>
+                </div>
+                <div class="desc">
+                    <h3>
+                        <?php the_title() ?>
+                    </h3>
+                </div>
+                <?php if (get_the_excerpt()) { ?>
+                    <div class="offer-details">
+                        <?= wpautop(get_the_excerpt()) ?>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="bottom">
+                <div class="modeltheme_button">
+                    <?= _claim_offer_button(get_the_ID()) ?>
+                </div>
+            </div>
         </div>
     </div>
 <?php
