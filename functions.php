@@ -18,7 +18,7 @@ function wikb_child_scripts()
     wp_localize_script('main', 'ajax_params', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'paged'    => 2,
-        'nonce'    => wp_create_nonce('ajax_member_directory_nonce'),
+        'nonce'    => wp_create_nonce('ajax_nonce'),
     ));
 }
 add_action('wp_enqueue_scripts', 'wikb_child_scripts');

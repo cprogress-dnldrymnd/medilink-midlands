@@ -1,7 +1,7 @@
 <?php
 function ajax_member_directory_load_more()
 {
-    check_ajax_referer('ajax_member_directory_nonce', 'security');
+    check_ajax_referer('ajax_nonce', 'security');
 
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $is_filter = isset($_POST['is_filter']) ? $_POST['is_filter'] : 'false';
@@ -67,6 +67,8 @@ add_action('wp_ajax_ajax_member_directory_load_more', 'ajax_member_directory_loa
 
 function ajax_member_marketplace()
 {
+    check_ajax_referer('ajax_nonce', 'security');
+
     $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
     $membersmarketplace_category = isset($_POST['membersmarketplace_category']) ? $_POST['membersmarketplace_category'] : false;
 
