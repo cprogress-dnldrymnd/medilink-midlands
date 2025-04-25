@@ -2823,8 +2823,23 @@ div.bbp-topic-tags,
         display: block;
         top: 8px;
         left: 10px;
+
         * {
             fill: none !important;
         }
+    }
+}
+
+.marketplace-active-tab.marketplace-active-tab {
+    .profile-nav-marketplace {
+        background-color: var(--accent-color);
+        color: var(--white-color) !important;
+        border-color: var(--accent-color) !important;
+    }
+
+    .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a {
+        color: #747474 !important;
+        background-color: transparent;
+        border: 1px solid #747474 !important;
     }
 }
