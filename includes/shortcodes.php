@@ -1344,10 +1344,17 @@ function join_us_v2()
 
                         <?php
                         $marketing_level = cb_value($package->ID, 'marketing_level');
+                        $marketing_level = cb_value($package->ID, 'marketing_level');
+                        $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
+                        if($marketing_level_custom_text) {
+                            $marketing_text = $marketing_level_custom_text;
+                        } else {
+                            $marketing_text = $marketing_level;
+                        }
                         ?>
                         <div class="feature feature-marketing">
                             <div class="feature-title">
-                                <?= $marketing_title ?>: <?= $marketing_level ?>
+                                <?= $marketing_title ?>: <?= $marketing_text ?>
                             </div>
                             <ul class="checklist-ul">
                                 <?php foreach ($packages_marketing as $marketing) { ?>
