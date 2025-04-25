@@ -492,7 +492,7 @@ function claim_offer_form()
 ?>
     <div class="claim-offer-form">
         <div class="row row-flex">
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <div class="post-box">
                     <div class="top">
                         <div class="image-box offer-image">
@@ -505,7 +505,7 @@ function claim_offer_form()
 
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <?php
                 if (is_user_logged_in()) {
                     echo do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]');

@@ -956,9 +956,10 @@ p.copyright a,
   .claim-offer-form .contact-tikidocs.contact-tikidocs.contact-tikidocs .wpcf7-submit {
     margin-top: 20px !important;
     width: 100%; }
-  .claim-offer-form .post-box {
-    max-height: 500px;
-    overflow: auto; }
+  @media (min-width: 1025px) {
+    .claim-offer-form .post-box {
+      max-height: 500px;
+      overflow: auto; } }
   .claim-offer-form .row .image-box {
     margin-bottom: 1rem;
     position: relative;
@@ -2049,5 +2050,13 @@ div.bbp-topic-tags,
       @media (max-width: 100%) {
         .offer-documents-holder .offer-documents .offer-document {
           width: 100%; } }
+
+.modal-window .window__wrapper .modal-window__content {
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1000px; }
 
 /*# sourceMappingURL=style.css.map */

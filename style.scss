@@ -1177,8 +1177,10 @@ p.copyright a,
         }
     }
     .post-box {
-        max-height: 500px;
-        overflow: auto;
+        @media (min-width: 1025px) {
+            max-height: 500px;
+            overflow: auto;
+        }
     }
     .row {
         .image-box {
@@ -2714,6 +2716,19 @@ div.bbp-topic-tags,
             @media (max-width: 100%) {
                 width: 100%;
             }
+        }
+    }
+}
+
+.modal-window {
+    .window__wrapper {
+        .modal-window__content {
+            display: block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 1000px;
         }
     }
 }
