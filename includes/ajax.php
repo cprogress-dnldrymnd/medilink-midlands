@@ -88,10 +88,6 @@ function ajax_member_marketplace()
             ),
         );
     }
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-
     $query = new WP_Query($args);
 
 
