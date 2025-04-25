@@ -688,7 +688,7 @@ function my_custom_posts_per_page($query)
 {
     if (! is_admin() && $query->is_main_query()) {
         if ($query->get('post_type') === 'membersmarketplace' || $query->is_tax('membersmarketplace_category')) {
-            $query->set('posts_per_page', 1); // Change 10 to your desired number
+            $query->set('posts_per_page', 12); // Change 10 to your desired number
         }
     }
 }
