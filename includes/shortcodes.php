@@ -815,6 +815,7 @@ function join_us_v2()
     $members_only_title = get_term_by('term_id', 187, 'packages_category')->name;
     $discounts_title = get_term_by('term_id', 172, 'packages_category')->name;
     $marketing_title = get_term_by('term_id', 134, 'packages_category')->name;
+    $patron_title = get_term_by('term_id', 164, 'packages_category')->name;
 
 ?>
     <div class="join-us-v2">
@@ -980,7 +981,7 @@ function join_us_v2()
                 <!-- patrons -->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        &nbsp;
+                        <?= $patron_title ?>
                     </td>
                 </tr>
 
