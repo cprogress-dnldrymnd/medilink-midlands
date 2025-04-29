@@ -2115,4 +2115,7 @@ div.bbp-topic-tags,
 .marketplace-posts .bottom {
   margin-top: 30px; }
 
+.bbp-role-bbp_participant .bbp-topic-form {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */
