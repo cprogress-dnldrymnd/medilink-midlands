@@ -97,7 +97,6 @@ function member_marketplace_grid($id, $hide_button = false, $button_text = 'Clai
                 </div>
                 <?php if (get_the_excerpt($id)) { ?>
                     <div class="offer-details">
-                        <?= wpautop(get_the_excerpt($id)) ?>
                     </div>
                 <?php } ?>
             </div>
