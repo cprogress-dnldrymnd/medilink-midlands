@@ -1386,6 +1386,22 @@ function join_us_v3()
                             <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                                 <?= $package_category->name ?>
                             </td>
+                            <?php if ($package_category->slug == 'marketing') { ?>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $marketing_level = cb_value($package->ID, 'marketing_level');
+                                    $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
+                                    if ($marketing_level_custom_text) {
+                                        $marketing_text = $marketing_level_custom_text;
+                                    } else {
+                                        $marketing_text = $marketing_level;
+                                    }
+                                    ?>
+                                    <td class="text-center bg-orange">
+                                        <span><?= $marketing_text ?></span>
+                                    </td>
+                                <?php } ?>
+                            <?php } ?>
                         </tr>
 
                         <?php foreach ($package_category_subcategories as $subcategory) { ?>
@@ -1421,27 +1437,8 @@ function join_us_v3()
 
                     <?php } ?>
 
-                    <tr>
-                        <td class="title-data">
-                            <strong></strong>
-                        </td>
-                        <?php foreach ($packages as $package) { ?>
-                            <?php
-                            $marketing_level = cb_value($package->ID, 'marketing_level');
-                            $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
-                            if ($marketing_level_custom_text) {
-                                $marketing_text = $marketing_level_custom_text;
-                            } else {
-                                $marketing_text = $marketing_level;
-                            }
-                            ?>
-                            <td class="text-center bg-orange">
-                                <span><?= $marketing_text ?></span>
-                            </td>
-                        <?php } ?>
-                    </tr>
 
-                    <!-- end of marketing-->
+
 
 
                 </tbody>
