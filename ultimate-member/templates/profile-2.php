@@ -225,6 +225,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $job_role = get_user_meta(um_user('ID'), 'job_role', true);
                     $organisation = get_user_meta(um_user('ID'), 'organisation', true);
                     $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
+                    $user_url = get_user_meta(um_user('ID'), 'user_url', true);
                     $address = get_user_meta(um_user('ID'), 'address', true);
                     $title = get_user_meta(um_user('ID'), 'ttle', true);
                     $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
@@ -275,6 +276,9 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                             <?php } ?>
                             <?php if ($organisation) { ?>
                                 <li><?= $organisation ?></li>
+                            <?php } ?>
+                            <?php if ($user_url) { ?>
+                                <li><a href="<?= $user_url ?>" target="_blank">Visit Website</a></li>
                             <?php } ?>
 
 
