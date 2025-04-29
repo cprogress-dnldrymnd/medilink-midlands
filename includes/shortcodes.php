@@ -824,7 +824,7 @@ function join_us_v2()
     ));
 
     $benefits_title = get_term_by('term_id', 113, 'packages_category')->name;
-    $members_only_title = get_term_by('term_id', 121, 'packages_category')->name;
+    $members_only_title = get_term_by('term_id', 187, 'packages_category')->name;
     $discounts_title = get_term_by('term_id', 172, 'packages_category')->name;
     $marketing_title = get_term_by('term_id', 134, 'packages_category')->name;
 
