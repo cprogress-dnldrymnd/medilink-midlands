@@ -229,11 +229,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $address = get_user_meta(um_user('ID'), 'address', true);
                     $title = get_user_meta(um_user('ID'), 'ttle', true);
                     $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
-                    if (current_user_can('administrator')) {
-                        echo '<pre>';
-                        var_dump(get_user_meta(um_user('ID')));
-                        echo '</pre>';
-                    }
+                  
         ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
