@@ -367,4 +367,4 @@ $description_key = UM()->profile()->get_show_bio_key($args);
     </div>
 </div>
 
-<?=  do_shortcode( '[Modal-Window id="1"]' ) ?>
+<?= do_shortcode('[Modal-Window id="1"]') ?>
