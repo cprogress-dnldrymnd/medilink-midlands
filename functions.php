@@ -97,6 +97,7 @@ function member_marketplace_grid($id, $hide_button = false, $button_text = 'Clai
                 </div>
                 <?php if (get_the_excerpt($id)) { ?>
                     <div class="offer-details">
+                        <?= wpautop(get_the_excerpt($id)) ?>
                     </div>
                 <?php } ?>
             </div>
@@ -783,7 +784,7 @@ function _claim_offer_button($id, $button_text = 'Claim Offer')
     ?>
     <button class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button"
         offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>"
-        offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>"
+        offer_details="" offer_image="<?= $offer_image ?>"
         offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>"
         documents="<?= $documents_html ?>">
         <?= $button_text ?>
