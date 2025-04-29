@@ -687,7 +687,7 @@ add_action('admin_menu', 'add_forum_posts_admin_link');
 
 function forum_posts_page()
 {
-    $redirect_url = 'https://medilink.theprogressteam.com/pending-forum-posts/';
+    $redirect_url = '/pending-forum-posts/';
     echo '<script type="text/javascript">window.location = "' . esc_url($redirect_url) . '";</script>';
     echo '<noscript><meta http-equiv="refresh" content="0;url=' . esc_url($redirect_url) . '"></noscript>';
     echo '<p>Redirecting to <a href="' . esc_url($redirect_url) . '">' . esc_html($redirect_url) . '</a>...</p>';

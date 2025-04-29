@@ -14,7 +14,7 @@ function featured_articles()
     <?= post__grid($posts) ?>
     <?php if (!is_home()) { ?>
         <div class="text-center modeltheme_button wow bounce" style="animation-name: bounce; margin-top: 40px"><a
-                href="https://medilink.theprogressteam.com/latest-articles/" class="button-winona button-green btn btn-sm">VIEW
+                href="<?=  get_site_url() ?>/latest-articles/" class="button-winona button-green btn btn-sm">VIEW
                 ALL</a></div>
 
     <?php } ?>
