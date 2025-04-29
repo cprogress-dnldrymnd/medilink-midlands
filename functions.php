@@ -803,3 +803,17 @@ function my_custom_posts_per_page($query)
     }
 }
 add_action('pre_get_posts', 'my_custom_posts_per_page');
+
+function restrict_participant_topic_creation() {
+    // Get the participant role object.
+    $participant_role = get_role( 'bbp_participant' );
+
+    // Check if the role exists and has the 'publish_topics' capability.
+    if ( $participant_role && $participant_role->has_cap( 'publish_topics' ) ) {
+        // Remove the 'publish_topics' capability from the role.
+        $participant_role->remove_cap( 'publish_topics' );
+    }
+}
+
+// Hook the function to the 'init' action.  This ensures it runs early in WordPress's loading process.
+add_action( 'init', 'restrict_participant_topic_creation' );
