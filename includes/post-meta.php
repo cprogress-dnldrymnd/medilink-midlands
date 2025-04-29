@@ -95,3 +95,10 @@ Container::make('post_meta', 'Packages Details')
 				->set_header_template('<%- term_slug %> : <%- custom_text %> ')
 		)
 	);
+
+
+Container::make('term_meta', __('Category Properties'))
+	->where('term_taxonomy', '=', 'packages_category')
+	->add_fields(array(
+		Field::make('text', 'place', __('Title Color')),
+	));

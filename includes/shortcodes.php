@@ -1441,36 +1441,6 @@ function join_us_v3()
                         <?php } ?>
                     </tr>
 
-                    <?php foreach ($packages_marketing as $marketing) { ?>
-                        <tr>
-                            <td>
-                                <?= $marketing->name ?>
-                            </td>
-                            <?php foreach ($packages as $package) { ?>
-                                <?php
-                                $class = '';
-                                $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-                                $taxonomy_terms_custom_text_array = [];
-
-                                foreach ($taxonomy_terms_custom_text as $custom_text) {
-                                    $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
-                                }
-                                if (has_term($marketing->slug, $taxonomy, $package->ID)) {
-                                    $class = 'tick-active';
-                                }
-                                if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
-                                    $text = $taxonomy_terms_custom_text_array[$marketing->slug];
-                                    $class = '';
-                                } else {
-                                    $text = '<span></span>';
-                                }
-                                ?>
-                                <td class="tick <?= $class ?>">
-                                    <?= $text ?>
-                                </td>
-                            <?php } ?>
-                        </tr>
-                    <?php } ?>
                     <!-- end of marketing-->
 
 
