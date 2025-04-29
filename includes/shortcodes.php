@@ -796,7 +796,7 @@ function join_us_v2()
     $packages_members_only = get_terms(array(
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
-        'parent'     => 121,
+        'parent'     => 187,
         'order'      => 'ASC',
 
     ));
