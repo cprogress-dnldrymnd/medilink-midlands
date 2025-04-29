@@ -782,13 +782,13 @@ function _claim_offer_button($id, $button_text = 'Claim Offer')
         $documents_html .= "</div>";
     }
     ?>
-    <a class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button"
+    <button class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button"
         offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>"
         offer_details="<?= wpautop($post->post_content) ?>" offer_image="<?= $offer_image ?>"
         offer_owner="<?= _author_name($post_author) ?>" offer_title="<?= $post->post_title ?>"
         documents="<?= $documents_html ?>">
         <?= $button_text ?>
-    </a>
+    </button>
     <?php
     return ob_get_clean();
 }
