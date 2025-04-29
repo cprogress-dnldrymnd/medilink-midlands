@@ -10,6 +10,9 @@ jQuery(document).ready(function () {
     claim_offer();
 });
 
+function remove_topic_form() {
+    jQuery('.bbp-role-bbp_participant  .bbp-topic-form').remove();
+}
 function claim_offer() {
     jQuery('.claim-offer-button').click(function (e) {
         $offer_title = jQuery(this).attr('offer_title');
