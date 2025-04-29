@@ -1383,7 +1383,7 @@ function join_us_v3()
 
                         <!-- benefits-->
                         <tr class="top-left-first">
-                            <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                            <td class="title-data" >
                                 <?= $package_category->name ?>
                             </td>
                             <?php if ($package_category->slug == 'marketing') { ?>
