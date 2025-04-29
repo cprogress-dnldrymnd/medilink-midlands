@@ -1375,7 +1375,7 @@ function join_us_v3()
                         $package_category_subcategories = get_terms(array(
                             'taxonomy'   => $taxonomy,
                             'hide_empty' => false,
-                            'parent'     => 113,
+                            'parent'     => $package_category->term_id,
                             'order'      => 'ASC',
 
                         ));
