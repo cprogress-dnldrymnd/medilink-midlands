@@ -1324,42 +1324,13 @@ function join_us_v3()
             'post_type'   => 'packages',
             'numberposts' => -1,
         ));
-        $packages_benefits = get_terms(array(
+        $packages_category = get_terms(array(
             'taxonomy'   => $taxonomy,
             'hide_empty' => false,
-            'parent'     => 113,
-            'order'      => 'ASC',
-
-        ));
-        $packages_members_only = get_terms(array(
-            'taxonomy'   => $taxonomy,
-            'hide_empty' => false,
-            'parent'     => 187,
-            'order'      => 'ASC',
-
-        ));
-        $patrons = get_terms(array(
-            'taxonomy'   => $taxonomy,
-            'hide_empty' => false,
-            'parent'     => 164,
-            'order'      => 'ASC',
-
-        ));
-
-        $packages_marketing = get_terms(array(
-            'taxonomy'   => $taxonomy,
-            'hide_empty' => false,
-            'parent'     => 134,
+            'parent'     => 0,
             'order'      => 'ASC',
         ));
 
-
-        $discounts = get_terms(array(
-            'taxonomy'   => $taxonomy,
-            'hide_empty' => false,
-            'parent'     => 172,
-            'order'      => 'ASC',
-        ));
 
 
     ?>
@@ -1399,7 +1370,56 @@ function join_us_v3()
                 </thead>
                 <tbody>
 
+                    <?php foreach ($packages_category as $package_category) { ?>
+                        <?php
+                        $package_category_subcategories = get_terms(array(
+                            'taxonomy'   => $taxonomy,
+                            'hide_empty' => false,
+                            'parent'     => 113,
+                            'order'      => 'ASC',
 
+                        ));
+                        ?>
+
+                        <!-- benefits-->
+                        <tr class="top-left-first">
+                            <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                                <?= $package_category->name ?>
+                            </td>
+                        </tr>
+
+                        <?php foreach ($package_category_subcategories as $subcategory) { ?>
+                            <tr>
+                                <td>
+                                    <?= $subcategory->name ?>
+                                </td>
+                                <?php foreach ($packages as $package) { ?>
+                                    <?php
+                                    $class = '';
+                                    $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                                    $taxonomy_terms_custom_text_array = [];
+                                    foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                        $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                                    }
+
+                                    if (has_term($subcategory->slug, $taxonomy, $package->ID)) {
+                                        $class = 'tick-active';
+                                    }
+                                    if (isset($taxonomy_terms_custom_text_array[$subcategory->slug])) {
+                                        $text = $taxonomy_terms_custom_text_array[$subcategory->slug];
+                                        $class = '';
+                                    } else {
+                                        $text = '<span></span>';
+                                    }
+                                    ?>
+                                    <td class="tick <?= $class ?>">
+                                        <?= $text ?>
+                                    </td>
+                                <?php } ?>
+                            </tr>
+                        <?php } ?>
+
+                    <?php } ?>
 
                     <tr>
                         <td class="title-data">
