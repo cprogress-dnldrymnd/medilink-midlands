@@ -853,6 +853,46 @@ function join_us_v2()
             </thead>
             <tbody>
 
+                <!-- benefits-->
+                <tr class="top-left-first">
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                        <?= $benefits_title ?>
+                    </td>
+                </tr>
+
+                <?php foreach ($packages_benefits as $benefits) { ?>
+                    <tr>
+                        <td>
+                            <?= $benefits->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            $class = '';
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
+
+                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$benefits->slug];
+                                $class = '';
+                            } else {
+                                $text = '<span></span>';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <?= $text ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
+                <!-- end of benefits-->
+
                 <!-- Discounts-->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
@@ -894,46 +934,6 @@ function join_us_v2()
                 <?php } ?>
 
                 <!-- end of Discounts-->
-
-                <!-- benefits-->
-                <tr class="top-left-first">
-                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        <?= $benefits_title ?>
-                    </td>
-                </tr>
-
-                <?php foreach ($packages_benefits as $benefits) { ?>
-                    <tr>
-                        <td>
-                            <?= $benefits->name ?>
-                        </td>
-                        <?php foreach ($packages as $package) { ?>
-                            <?php
-                            $class = '';
-                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-                            $taxonomy_terms_custom_text_array = [];
-                            foreach ($taxonomy_terms_custom_text as $custom_text) {
-                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
-                            }
-
-                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
-                                $class = 'tick-active';
-                            }
-                            if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
-                                $text = $taxonomy_terms_custom_text_array[$benefits->slug];
-                                $class = '';
-                            } else {
-                                $text = '<span></span>';
-                            }
-                            ?>
-                            <td class="tick <?= $class ?>">
-                                <?= $text ?>
-                            </td>
-                        <?php } ?>
-                    </tr>
-                <?php } ?>
-
-                <!-- end of benefits-->
 
                 <!-- memebers only-->
                 <tr>
