@@ -853,6 +853,48 @@ function join_us_v2()
             </thead>
             <tbody>
 
+                <!-- Discounts-->
+                <tr>
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                        <?= $discounts_title ?>
+                    </td>
+                </tr>
+
+                <?php foreach ($discounts as $discount) { ?>
+                    <tr>
+                        <td>
+                            <?= $discount->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            $class = '';
+
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
+
+
+                            if (has_term($discount->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$discount->slug];
+                                $class = '';
+                            } else {
+                                $text = '<span></span>';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <?= $text ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
+                <!-- end of Discounts-->
+
                 <!-- benefits-->
                 <tr class="top-left-first">
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
@@ -979,48 +1021,6 @@ function join_us_v2()
                 <!-- end of patrons-->
 
 
-
-                <!-- Discounts-->
-                <tr>
-                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
-                        <?= $discounts_title ?>
-                    </td>
-                </tr>
-
-                <?php foreach ($discounts as $discount) { ?>
-                    <tr>
-                        <td>
-                            <?= $discount->name ?>
-                        </td>
-                        <?php foreach ($packages as $package) { ?>
-                            <?php
-                            $class = '';
-
-                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-                            $taxonomy_terms_custom_text_array = [];
-                            foreach ($taxonomy_terms_custom_text as $custom_text) {
-                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
-                            }
-
-
-                            if (has_term($discount->slug, $taxonomy, $package->ID)) {
-                                $class = 'tick-active';
-                            }
-                            if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
-                                $text = $taxonomy_terms_custom_text_array[$discount->slug];
-                                $class = '';
-                            } else {
-                                $text = '<span></span>';
-                            }
-                            ?>
-                            <td class="tick <?= $class ?>">
-                                <?= $text ?>
-                            </td>
-                        <?php } ?>
-                    </tr>
-                <?php } ?>
-
-                <!-- end of Discounts-->
 
 
 
@@ -1369,7 +1369,6 @@ function join_us_v3()
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php foreach ($packages_category as $package_category) { ?>
                         <?php
                         $package_category_subcategories = get_terms(array(
