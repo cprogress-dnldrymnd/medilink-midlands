@@ -58,7 +58,7 @@ add_filter('register_taxonomy_args', 'change_mt_listing_category2_slug', 10, 2);
 function member_marketplace()
 {
     ob_start();
-    ?>
+?>
     <div id="results">
         <div class="post-box-holder flex-row">
             <div class="row">
@@ -71,7 +71,7 @@ function member_marketplace()
             </div>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -80,7 +80,7 @@ function member_marketplace_grid($id, $hide_button = false, $button_text = 'Clai
     ob_start();
     $post = get_post($id);
     $post_author = $post->post_author;
-    ?>
+?>
     <div class="col-lg-4">
         <div class="post-box">
             <div class="top">
@@ -110,7 +110,7 @@ function member_marketplace_grid($id, $hide_button = false, $button_text = 'Clai
             <?php } ?>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -196,7 +196,7 @@ function post__grid($posts): bool|string
             <?php } ?>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 function _author_email($post_author)
@@ -204,8 +204,7 @@ function _author_email($post_author)
     $user = get_userdata($post_author);
     if ($user && isset($user->user_email)) {
         return $user->user_email;
-    }
-    else {
+    } else {
         return false; // Or handle the error as needed
     }
 }
@@ -217,8 +216,7 @@ function _author_company($post_author)
 
     if ($organisation) {
         return $organisation;
-    }
-    else {
+    } else {
         return false; // Or handle the absence of the meta value as needed
     }
 }
@@ -234,18 +232,14 @@ function _author_name($post_author)
 
         if (!empty($first_name) && !empty($last_name)) {
             return $first_name . ' ' . $last_name;
-        }
-        elseif (!empty($first_name)) {
+        } elseif (!empty($first_name)) {
             return $first_name;
-        }
-        elseif (!empty($last_name)) {
+        } elseif (!empty($last_name)) {
             return $last_name;
-        }
-        else {
+        } else {
             return $user->display_name; // Fallback to display name if first/last names are empty
         }
-    }
-    else {
+    } else {
         return false; // Or handle the error as needed
     }
 }
@@ -255,8 +249,7 @@ function _author_logo($post_author)
     $member_folder = "/wp-content/uploads/ultimatemember/$post_author/";
     if ($organisation) {
         return $member_folder . $organisation;
-    }
-    else {
+    } else {
         return false; // Or handle the absence of the meta value as needed
     }
 }
@@ -315,8 +308,7 @@ function save_cf7_to_custom_post($contact_form)
                 wp_set_post_terms($post_id, $submit_offer_category_arr, 'membersmarketplace_category');
             }
         }
-    }
-    else if ($form_id == 50282) {
+    } else if ($form_id == 50282) {
         // Sanitize and validate data (crucial!).
         $post_title = isset($posted_data['submit_blog_title']) ? sanitize_text_field($posted_data['submit_blog_title']) : 'Contact Form Submission';
         $post_content = isset($posted_data['submit_blog_content']) ? wp_kses_post($posted_data['submit_blog_content']) : '';
@@ -431,7 +423,7 @@ function upload_file($file_url, $post_id = 0)
 function wikb_header_title_breadcrumbs_v2($heading, $desc)
 {
     ob_start();
-    ?>
+?>
     <div class="header-title-breadcrumb header-title-breadcrumb-custom relative">
         <div class="header-title-breadcrumb-overlay text-center">
             <div class="container">
@@ -455,9 +447,7 @@ function wikb_header_title_breadcrumbs_v2($heading, $desc)
     return ob_get_clean();
 }
 
-function action_wp_body_class()
-{
-}
+function action_wp_body_class() {}
 
 add_filter('body_class', 'custom_class');
 function custom_class($classes)
@@ -471,6 +461,30 @@ function custom_class($classes)
     if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {
         $classes[] = 'marketplace-active-tab';
     }
+
+    $user = wp_get_current_user();
+
+    // Check if the user is logged in and has a role.
+    if ($user && is_object($user) && isset($user->roles) && is_array($user->roles)) {
+        // Get the user's bbPress role.  We'll check for the most specific role.
+        $bbp_role = '';
+        if (in_array('bbp_keymaster', $user->roles)) {
+            $bbp_role = 'bbp_keymaster';
+        } elseif (in_array('bbp_moderator', $user->roles)) {
+            $bbp_role = 'bbp_moderator';
+        } elseif (in_array('bbp_participant', $user->roles)) {
+            $bbp_role = 'bbp_participant';
+        } elseif (in_array('bbp_spectator', $user->roles)) {
+            $bbp_role = 'bbp_spectator';
+        } elseif (in_array('subscriber', $user->roles)) {
+            $bbp_role = 'subscriber'; //often treated as a default role in bbPress
+        }
+
+        // If a bbPress role was found, add it as a body class.
+        if (!empty($bbp_role)) {
+            $classes[] = 'bbp-role-' . $bbp_role;
+        }
+    }
     return $classes;
 }
 
@@ -481,7 +495,7 @@ function action_wp_footer()
     $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
     if ($title_area_description || $title_area_button_text) { ?>
         <script>
-            jQuery(document).ready(function () {
+            jQuery(document).ready(function() {
                 <?php if ($title_area_description) { ?>
                     jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
                 <?php } ?>
@@ -490,7 +504,7 @@ function action_wp_footer()
                 <?php } ?>
             });
         </script>
-        <?php
+    <?php
     }
 }
 
@@ -513,7 +527,7 @@ function action_admin_head()
             display: none;
         }
     </style>
-    <?php
+<?php
 }
 add_action('admin_head', 'action_admin_head');
 
@@ -609,7 +623,7 @@ function email_template($display_name, $changes)
     $site_url = get_site_url();
 
     ob_start();
-    ?>
+?>
     <div
         style='max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
         <div style='color: #444444;font-weight: normal'>
@@ -639,7 +653,7 @@ function email_template($display_name, $changes)
             </div>
         </div>
     </div>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -654,14 +668,11 @@ function um_change_posts_text($translation, $text, $domain)
     if ('ultimate-member' === $domain) {
         if ('Posts' === $text) {
             return 'Articles';
-        }
-        elseif ('View Posts' === $text) {
+        } elseif ('View Posts' === $text) {
             return 'View Articles';
-        }
-        elseif ('No Posts Yet.' === $text) {
+        } elseif ('No Posts Yet.' === $text) {
             return 'No Articles Yet.';
-        }
-        elseif ('load more posts' === $text) {
+        } elseif ('load more posts' === $text) {
             return 'load more articles';
         }
         // Add more conditions as needed for other instances of "Posts"
@@ -718,8 +729,7 @@ function add_custom_links_to_menu($items, $args)
 
                 // Add more links as needed.
             );
-        }
-        else {
+        } else {
             $custom_links = array(
                 array(
                     'title' => 'Sign In',
@@ -781,7 +791,7 @@ function _claim_offer_button($id, $button_text = 'Claim Offer')
         $documents_html .= "</div>";
         $documents_html .= "</div>";
     }
-    ?>
+?>
     <button class="button-winona button-green btn btn-sm wow-modal-id-1 claim-offer-button"
         offer_owner_company="<?= _author_company($post_author) ?>" offer_owner_email="<?= _author_email($post_author) ?>"
         offer_details="<?= esc_html(wpautop($post->post_content)) ?>" offer_image="<?= $offer_image ?>"
@@ -789,7 +799,7 @@ function _claim_offer_button($id, $button_text = 'Claim Offer')
         documents="<?= $documents_html ?>">
         <?= $button_text ?>
     </button>
-    <?php
+<?php
     return ob_get_clean();
 }
 
@@ -803,4 +813,3 @@ function my_custom_posts_per_page($query)
     }
 }
 add_action('pre_get_posts', 'my_custom_posts_per_page');
-
