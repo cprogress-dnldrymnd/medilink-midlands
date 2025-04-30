@@ -2181,6 +2181,9 @@ div.bbp-topic-tags,
     gap: 15px; }
     .navbar-header .mobile-only a.profile {
       color: var(--white-color);
-      font-size: 30px; } }
+      font-size: 30px; }
+  .navbar-header .mobile-buttons {
+    display: flex;
+    gap: 15px; } }
 
 /*# sourceMappingURL=style.css.map */
