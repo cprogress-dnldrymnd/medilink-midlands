@@ -114,3 +114,10 @@ Container::make('post_meta', __('Pending Update'))
 		Field::make('text', 'pending_website', __('Pending Website')),
 		Field::make('html', 'approve_changes')->set_html('<a href="/wp-admin/post.php?post=' . $_GET['post'] . '&action=edit&approve_changes=true" aria-disabled="false" class="components-button is-primary is-compact">Approve Changes</a>'),
 	));
+
+
+Container::make('theme_options', __('Theme Options'))
+	->set_page_parent('edit.php?post_type=membersmarketplace')
+	->add_fields(array(
+		Field::make('textarea', 'member_marketplace_description', __('Description')),
+	));
