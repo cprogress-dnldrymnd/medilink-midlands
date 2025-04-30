@@ -42,7 +42,7 @@ $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
                                     <?= wpautop($post->post_content) ?>
                                 </div>
                             <?php } ?>
-                            <div class="modeltheme_button">
+                            <div class="modeltheme_button d-none">
                                 <?= _claim_offer_button($post->ID) ?>
                             </div>
                         </div>
