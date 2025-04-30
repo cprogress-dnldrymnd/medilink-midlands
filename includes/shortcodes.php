@@ -1655,7 +1655,7 @@ function user_directory()
     echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Membership Directory</h3>';
     echo '<div class="membership-directory">';
-    echo '<div class="listings">';
+    echo '<div class="listings text-left">';
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
