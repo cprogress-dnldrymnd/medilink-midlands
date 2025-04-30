@@ -8,6 +8,13 @@
         <!-- LOGO -->
         <div class="navbar-header col-md-3">
           <!-- NAVIGATION BURGER MENU -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
           <?php if (is_user_logged_in()) { ?>
             <div class="mobile-only">
               <a class="profile">
@@ -16,13 +23,7 @@
             </div>
           <?php } ?>
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
+         
 
 
           <?php if (class_exists('ReduxFrameworkPlugin')) {
