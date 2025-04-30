@@ -151,9 +151,11 @@ function membership_listing($id = false, $allow_edit = false)
                 <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value=" <?= $wpsl_email ?>"></label>
                 <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value=" <?= $wpsl_url ?>"></label>
             </div>
-            <button type="submit" class="button-winona button-accent btn btn-sm">
-                Submit
-            </button>
+            <div class="button-box text-right">
+                <button type="submit" class="button-winona button-accent btn btn-sm">
+                    Submit
+                </button>
+            </div>
         </form>
     <?php } ?>
     <div class="col-lg-12 post-item" id="post-<?= $id ?>">
