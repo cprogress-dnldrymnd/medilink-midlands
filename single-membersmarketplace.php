@@ -57,7 +57,7 @@ $offer_image = get_the_post_thumbnail_url($post->ID, 'large');
         </div>
     </div>
 </section>
-<section class="claim-offer-single" style="margin-top: 50px">
+<section class="claim-offer-single claim-offer-form" style="margin-top: 50px">
     <div class="container">
         <h2 class="text-center">Claim Offer</h2>
         <?= do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]') ?>
