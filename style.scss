@@ -2909,8 +2909,8 @@ div.bbp-topic-tags,
     }
 
     @media(max-width: 530px) {
-        width: 44px;
-        height: 44px;
+        height: 44px !important;
+        width: 44px !important;
     }
 }
 

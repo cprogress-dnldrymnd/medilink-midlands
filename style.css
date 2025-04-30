@@ -2159,8 +2159,8 @@ div.bbp-topic-tags,
 @media (max-width: 530px) {
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a,
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
-    width: 44px;
-    height: 44px; } }
+    height: 44px !important;
+    width: 44px !important; } }
 
 .um-form.um-form.um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg * {
   fill: currentColor !important; }
