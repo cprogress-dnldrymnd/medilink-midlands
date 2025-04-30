@@ -138,7 +138,9 @@ function membership_listing($id = false, $allow_edit = false)
 ?>
 
     <?php if ($allow_edit == true) { ?>
-        <form action="">
+        <form method="GET">
+            <input type="hidden" name="profiletab" value="directory">
+            <input type="hidden" name="edit" value="<?= $id ?>">
         <?php } ?>
         <div class="col-lg-12 post-item">
             <div class="listing">
@@ -154,7 +156,7 @@ function membership_listing($id = false, $allow_edit = false)
                                 <h3>
                                     <?= get_the_title($post_id) ?>
                                     <?php if ($allow_edit == true) { ?>
-                                        <input type="title" value=" <?= get_the_title($post_id) ?>">
+                                        <input type="text" name="title" value=" <?= get_the_title($post_id) ?>">
                                     <?php } ?>
                                 </h3>
                             </div>
