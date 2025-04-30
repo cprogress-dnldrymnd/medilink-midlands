@@ -52,7 +52,6 @@ function ajax_member_directory_load_more()
         }
         while ($query->have_posts()) {
             $query->the_post();
-
             echo membership_listing();
         }
         wp_reset_postdata();
