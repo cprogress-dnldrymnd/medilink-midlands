@@ -1018,8 +1018,6 @@ function my_admin_edit_post_function()
         $post_id = $_GET['post'];
         $args['ID'] = $post_id;
 
-
-
         $_pending_title = get_post_meta($post_id, '_pending_title', true);
         $_pending_description = get_post_meta($post_id, '_pending_description', true);
         $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
@@ -1058,6 +1056,10 @@ function my_admin_edit_post_function()
 
         update_post_meta($post_id, '_pending_email', '');
         update_post_meta($post_id, '_pending_website', '');
+    } else  if (isset($_GET['approve_listing']) && $_GET['approve_listing'] == 'true') {
+        wp_update_post(array(
+            'post_status' => 'publish',
+        ));
     }
 }
 add_action('load-post.php', 'my_admin_edit_post_function');
