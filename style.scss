@@ -3016,10 +3016,22 @@ div.bbp-topic-tags,
 body {
     &.modal-window-active {
         #modal-window-1 {
-            .modal-window__wrapper, .modal-window__content {
+
+            .modal-window__wrapper,
+            .modal-window__content {
                 display: block !important;
             }
         }
 
+    }
+
+    &:not(.modal-window-active) {
+        #modal-window-1 {
+
+            .modal-window__wrapper,
+            .modal-window__content {
+                display: none !important;
+            }
+        }
     }
 }
