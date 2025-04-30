@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12 text-left">
                     <h1>MEDILINK MEMBERS MARKETPLACE</span></h1>
                     <ol class="breadcrumb text-left">
-                        <li><a href="<?=  get_site_url() ?>">Home</a></li>
+                        <li><a href="<?= get_site_url() ?>">Home</a></li>
                         <li>MEMBERS MARKETPLACE</li>
                     </ol>
                 </div>
@@ -31,7 +31,8 @@
                                 <?= wpautop(get_the_content()) ?>
                             </div>
                             <div class="modeltheme_button">
-                                <a href="<?= get_the_permalink() ?>" class="button-winona button-green btn btn-sm">CLICK HERE</a>
+                                <a href="<?= get_the_permalink() ?>" class="button-winona button-green btn btn-sm">CLICK
+                                    HERE</a>
                             </div>
                         </div>
                     </div>
@@ -45,5 +46,10 @@
         </div>
     </div>
 </section>
-<?= do_shortcode('[claim_offer_form is_single=1]') ?>
+<section class="claim-offer-single">
+    <div class="container">
+        <h2>Claim Offer</h2>
+        <?= do_shortcode('[claim_offer_form is_single=1]') ?>
+    </div>
+</section>
 <?php get_footer() ?>
