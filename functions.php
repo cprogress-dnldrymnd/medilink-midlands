@@ -1038,8 +1038,7 @@ function my_admin_edit_post_function()
             $args['meta_input'] = $meta_inputs;
         }
 
-        echo ';dsdsdsds';
-        var_dump($args);
+        wp_update_post($args);
     }
 }
 add_action('load-post.php', 'my_admin_edit_post_function');
