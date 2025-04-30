@@ -2919,6 +2919,7 @@ div.bbp-topic-tags,
         .mobile-only {
             display: flex;
             gap: 15px;
+            align-items: center;
             a.profile {
                 color: var(--white-color);
                 font-size: 30px;
@@ -2928,6 +2929,12 @@ div.bbp-topic-tags,
         .mobile-buttons {
             display: flex;
             gap: 15px;
+            align-items: center;
+            #join-us-button {
+                a {
+                    color: var(--white-color);
+                }
+            }
         }
     }
 }

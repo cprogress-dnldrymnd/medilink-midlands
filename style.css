@@ -2178,12 +2178,16 @@ div.bbp-topic-tags,
 @media (max-width: 1024px) {
   .navbar-header .mobile-only {
     display: flex;
-    gap: 15px; }
+    gap: 15px;
+    align-items: center; }
     .navbar-header .mobile-only a.profile {
       color: var(--white-color);
       font-size: 30px; }
   .navbar-header .mobile-buttons {
     display: flex;
-    gap: 15px; } }
+    gap: 15px;
+    align-items: center; }
+    .navbar-header .mobile-buttons #join-us-button a {
+      color: var(--white-color); } }
 
 /*# sourceMappingURL=style.css.map */
