@@ -1059,10 +1059,9 @@ function notify_admin_on_member_directory_update($post_id)
     $admin_email = 'donald@cprogress.co.uk';
 
     $user_info = get_userdata(get_current_user_id());
+    $username = $user_info->user_login;
+    $user_email = $user_info->user_email;
     if ($username) {
-        $username = $user_info->user_login;
-        $user_email = $user_info->user_email;
-
         $changes_html = '';
 
         $_pending_title = get_post_meta($post_id, '_pending_title', true);
