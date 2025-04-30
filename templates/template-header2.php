@@ -121,7 +121,7 @@
                   <?php } else { ?> <!-- logged out -->
                     <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
                       <?php if (is_404()) { ?>
-                        <a href="/login"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                        <a href="/login" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
                       <?php } else { ?>
                         <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
                       <?php } ?>
