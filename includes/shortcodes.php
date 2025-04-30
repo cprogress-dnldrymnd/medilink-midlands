@@ -1659,7 +1659,7 @@ function user_directory()
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
-            echo membership_listing($post->ID, true);
+            echo membership_listing($post->ID, (get_current_user_id() == um_user('ID') ? true : false));
         }
         echo '</div></div>';
     } else {
