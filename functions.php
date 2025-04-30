@@ -832,7 +832,11 @@ function email_template($display_name, $changes, $max_width = '560px')
     return ob_get_clean();
 }
 
-
+function wpse27856_set_content_type()
+{
+    return "text/html";
+}
+add_filter('wp_mail_content_type', 'wpse27856_set_content_type');
 
 function um_change_posts_text($translation, $text, $domain)
 {
