@@ -112,4 +112,5 @@ Container::make('post_meta', __('Pending Update'))
 		Field::make('text', 'pending_phone', __('Pending Phone')),
 		Field::make('text', 'pending_email', __('Pending Email')),
 		Field::make('text', 'pending_website', __('Pending Website')),
+		Field::make('html', 'approve_changes')->set_html('<button type="button" aria-disabled="false" class="components-button editor-post-publish-button editor-post-publish-button__button is-primary is-compact">Approve Changes</button>'),
 	));
