@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> id="medilink-html">
 
 <head>
     <meta charset="<?php esc_attr(bloginfo( 'charset' )); ?>">

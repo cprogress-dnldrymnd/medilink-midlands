@@ -1856,7 +1856,14 @@ body.header-title-style-2 #primary {
   #modeltheme-main-head .container {
     background-color: var(--accent-color); }
     #modeltheme-main-head .container .navbar-header {
-      padding-left: 0; }
+      padding-left: 0; } }
+  @media (max-width: 767px) and (max-width: 1024px) {
+    #modeltheme-main-head .container {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 36.84px; } }
+@media (max-width: 767px) {
   #modeltheme-main-head .logo {
     margin: 0 !important;
     background-color: var(--white-color);

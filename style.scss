@@ -2447,6 +2447,12 @@ body {
             .navbar-header {
                 padding-left: 0;
             }
+            @media (max-width: 1024px) {
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 36.84px;
+            }
         }
 
         .logo {
@@ -2923,7 +2929,6 @@ div.bbp-topic-tags,
             a.profile {
                 color: var(--white-color);
                 font-size: 30px;
-            
             }
         }
         .mobile-buttons {
@@ -2934,7 +2939,7 @@ div.bbp-topic-tags,
                 a {
                     color: var(--white-color);
                 }
-                @media(max-width: 460px) {
+                @media (max-width: 460px) {
                     display: none !important;
                 }
             }
