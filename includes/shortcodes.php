@@ -1663,17 +1663,22 @@ function user_directory()
         }
         echo '</div></div>';
     } else {
-        echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
+        if (is_user_logged_in() && get_current_user_id() == um_user('ID')) {
+            echo '  <a href="?profiletab=directory&new_entry=true" class="button-winona button-accent btn btn-sm">
+                                        Submit Entry
+                            </a>';
+        } else {
+            echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
 				This user does not have directory.			</span>
 		</div>';
+        }
     }
     echo '</div>';
     echo '</div>';
     echo '</div>';
 
     if (isset($_GET['edit'])) {
-        
     }
 
 
