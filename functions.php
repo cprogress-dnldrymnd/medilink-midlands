@@ -145,15 +145,9 @@ function membership_listing($id = false, $allow_edit = false)
     $content_clean = strip_tags($content);
 ?>
 
-    <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
-        <?php
-        $_pending_title = get_post_meta($post_id, '_pending_title', true);
-        $_pending_description = get_post_meta($post_id, '_pending_description', true);
-        $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
-        $_pending_email = get_post_meta($post_id, '_pending_email', true);
-        $_pending_website = get_post_meta($post_id, '_pending_website', true);
-        ?>
-        <?php if ($_GET['submitted'] == 'true' && $_GET['edit'] == $post_id) { ?>
+    <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $post_id) { ?>
+
+        <?php if ($_GET['submitted'] == 'true') { ?>
             <?php
             $edit_id = $_GET['edit'];
             $new_title = $_GET['title'];
@@ -187,6 +181,14 @@ function membership_listing($id = false, $allow_edit = false)
             notify_admin_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
+        <?php } else { ?>
+            <?php
+            $_pending_title = get_post_meta($post_id, '_pending_title', true);
+            $_pending_description = get_post_meta($post_id, '_pending_description', true);
+            $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
+            $_pending_email = get_post_meta($post_id, '_pending_email', true);
+            $_pending_website = get_post_meta($post_id, '_pending_website', true);
+            ?>
         <?php } ?>
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
