@@ -801,9 +801,14 @@ function my_user_before_updating_profile($userinfo)
     update_user_meta($userinfo['ID'], 'user_meta_previous', $user_meta_previous);
 }
 
-function email_template($display_name, $changes, $max_width = '560px')
+function email_template($display_name, $changes, $max_width = '560px', $message = '')
 {
     ob_start();
+    if (!$message) {
+        $message_val = $display_name . ' has just updated their information.';
+    } else {
+        $message_val = $message;
+    }
 
     $site_name = 'Medilink Midlands';
     $site_url = get_site_url();
@@ -820,7 +825,7 @@ function email_template($display_name, $changes, $max_width = '560px')
             <div style='clear: both'> </div>
         </div>
         <div style='padding: 0 30px 30px 30px;border-bottom: 3px solid #eeeeee'>
-            <div style='padding: 30px 0;font-size: 24px;text-align: center;line-height: 40px'><?= $display_name ?> has just updated their information.</div>
+            <div style='padding: 30px 0;font-size: 24px;text-align: center;line-height: 40px'><?= $message_val ?></div>
 
             <div style='padding: 0 0 15px 0'>
                 <div
@@ -1090,16 +1095,13 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         }
 
 
-
-        $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
-        $message .= "Changes:\r\n";
         if ($new == true) {
             $current_title = get_the_title($post_id);
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
             $changes_html .= "</tr>";
-            
+
             $current_content = get_the_content(NULL, false, $post_id);
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
@@ -1126,7 +1128,7 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
             if ($changes_html != '') {
                 $email_html = "<table style='width: 100%'>";
-                $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
+                $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Value</th></tr>";
                 $email_html .= $changes_html;
                 $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Directory Listing</a></div></td></tr>';
                 $email_html .= "</table>";
@@ -1185,6 +1187,6 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
 
         $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'), $headers);
+        wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
