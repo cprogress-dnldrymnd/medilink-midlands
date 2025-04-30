@@ -46,9 +46,9 @@
         </div>
     </div>
 </section>
-<section class="claim-offer-single">
+<section class="claim-offer-single" style="margin-top: 50px">
     <div class="container">
-        <h2>Claim Offer</h2>
+        <h2 class="text-center">Claim Offer</h2>
         <?= do_shortcode('[claim_offer_form is_single=1]') ?>
     </div>
 </section>
