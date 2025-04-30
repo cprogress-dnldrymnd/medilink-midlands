@@ -2925,9 +2925,9 @@ div.bbp-topic-tags,
     width: 100% !important;
     flex: 100% !important;
 }
-.mobile-only {
+.mobile-only.mobile-only.mobile-only.mobile-only {
     @media (min-width: 1025px) {
-        display: none;
+        display: none !important;
     }
 }
 

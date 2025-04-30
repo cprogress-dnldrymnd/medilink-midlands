@@ -2187,8 +2187,8 @@ div.bbp-topic-tags,
   flex: 100% !important; }
 
 @media (min-width: 1025px) {
-  .mobile-only {
-    display: none; } }
+  .mobile-only.mobile-only.mobile-only.mobile-only {
+    display: none !important; } }
 
 @media (max-width: 1024px) {
   .navbar-header .mobile-only {
