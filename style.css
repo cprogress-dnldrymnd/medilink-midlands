@@ -1269,9 +1269,6 @@ a {
   .navbar-collapse.navbar-collapse.navbar-collapse.col-md-9.in {
     transform: translateX(0); }
 
-  .admin-bar .navbar-collapse.navbar-collapse.navbar-collapse.col-md-9 {
-    --offset: calc(36.84px + 77px + 32px); }
-
   .collapse.collapse:not([aria-expanded="true"]) {
     display: none !important;
     visibility: hidden !important; }
