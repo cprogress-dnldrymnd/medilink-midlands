@@ -1669,7 +1669,7 @@ function user_directory()
                 $organisation = get_user_meta(um_user('ID'), 'organisation', true);
                 $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
                 $website_url = get_user_meta(um_user('ID'), 'website_url', true);
-                $email = um_user('user_email');
+                $email = um_user('user_url');
                 $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
         ?>
                 <form method="GET" class="form-style-new">
