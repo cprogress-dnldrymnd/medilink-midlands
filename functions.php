@@ -231,9 +231,7 @@ function membership_listing($id = false, $allow_edit = false)
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     <?php } ?>
