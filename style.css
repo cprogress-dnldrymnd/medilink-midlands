@@ -1498,7 +1498,7 @@ body.header-title-style-2 #primary {
         border-color: var(--accent-color) !important; }
       @media (max-width: 1199px) {
         .um-profile.um-profile.um-profile .um-form .um-profile-nav {
-          top: 80px; } }
+          top: 100px; } }
   .um-profile.um-profile.um-profile .um-main-meta-v2 {
     text-align: center; }
     .um-profile.um-profile.um-profile .um-main-meta-v2 .um-title {
@@ -2123,6 +2123,17 @@ div.bbp-topic-tags,
   color: #747474 !important;
   background-color: transparent;
   border: 1px solid #747474 !important; }
+  @media (max-width: 991px) {
+    .custom-tab-active.custom-tab-active.custom-tab-active .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a svg {
+      width: 26px;
+      height: 26px; } }
+  @media (max-width: 991px) {
+    .custom-tab-active.custom-tab-active.custom-tab-active .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a span.title {
+      display: none !important; } }
+  @media (max-width: 991px) {
+    .custom-tab-active.custom-tab-active.custom-tab-active .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a {
+      height: 48px !important;
+      width: 49px !important; } }
 .custom-tab-active.custom-tab-active.custom-tab-active .wpcf7-submit {
   display: none !important; }
 
