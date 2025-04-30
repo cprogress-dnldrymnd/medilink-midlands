@@ -1129,6 +1129,6 @@ function notify_admin_on_member_directory_update($post_id)
 
         }
         $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($admin_email, $subject, "<a href='$approve_url'>sdsds</a>", $headers);
+        wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'), $headers);
     }
 }
