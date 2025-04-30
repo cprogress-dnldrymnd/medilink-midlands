@@ -268,7 +268,7 @@ function member_marketplace_form()
             <div class="inner">
                 <div class="heading-title-desc mt-0 mb-4">
                     <h2><?= carbon_get_theme_option('member_marketplace_form_heading') ?></h2>
-                    <?= wpautop(carbon_get_theme_option('member_marketplace_form_description')) ?>
+                    <?= do_shortcode(wpautop(carbon_get_theme_option('member_marketplace_form_description'))) ?>
                 </div>
                 <br><br>
                 <?php if (is_user_logged_in()) { ?>
