@@ -1130,6 +1130,6 @@ function notify_admin_on_member_directory_update($post_id)
             $email_html .= "<a href='$approve_url'>sdsds</a>";
         }
         $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($admin_email, $subject, '<a href="'.$approve_url.'">sdsds</a', $headers);
+        wp_mail($admin_email, $subject, "<a href='$approve_url'>sdsds</a>", $headers);
     }
 }
