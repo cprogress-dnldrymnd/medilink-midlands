@@ -795,10 +795,10 @@ function my_user_before_updating_profile($userinfo)
 
 function email_template($display_name, $changes, $max_width = '560px')
 {
+    ob_start();
+
     $site_name = 'Medilink Midlands';
     $site_url = get_site_url();
-
-    ob_start();
 ?>
     <div
         style='max-width: <?= $max_width ?>;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
