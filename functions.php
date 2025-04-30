@@ -1210,4 +1210,4 @@ function update_first_letter_meta( $post_id ) {
 }
 
 // Hook the function to 'save_post' to catch both new and updated posts.
-add_action( 'save_post', 'update_first_letter_meta' );
+add_action( 'post_updated', 'update_first_letter_meta' );
