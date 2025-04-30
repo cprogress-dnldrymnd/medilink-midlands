@@ -2213,6 +2213,9 @@ div.bbp-topic-tags,
 
 @media (max-width: 1024px) {
   .header-title-breadcrumb.header-title-breadcrumb {
-    margin-top: 40px; } }
+    margin-top: 40px; }
+
+  .home #primary {
+    padding-top: 40px !important; } }
 
 /*# sourceMappingURL=style.css.map */
