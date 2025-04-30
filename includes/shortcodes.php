@@ -1729,3 +1729,32 @@ function user_marketplace()
     return ob_get_clean();
 }
 add_shortcode('user_marketplace', 'user_marketplace');
+
+function user_directory()
+{
+    ob_start();
+    $membersmarketplace = get_posts(array(
+        'post_type'   => 'wpsl_stores',
+        'numberposts' => -1,
+        'author'      => um_user('ID'),
+        'post_status' => array('publish', 'private')
+    ));
+
+    echo '<div class="user-posts marketplace-posts">';
+    echo '<h3 class="main-heading">Marketplace</h3>';
+    if ($membersmarketplace && count($membersmarketplace) != 0) {
+        echo '<div class="post-box-holder flex-row"> <div class="row">';
+        foreach ($membersmarketplace as $post) {
+            echo member_marketplace_grid($post->ID, false, 'View Offer');
+        }
+        echo '</div></div>';
+    } else {
+        echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
+			<span>
+				This user has not posted any offer.			</span>
+		</div>';
+    }
+    echo '</div>';
+    return ob_get_clean();
+}
+add_shortcode('user_directory', 'user_directory');
