@@ -186,6 +186,11 @@ footer .container {
 .footer-middle-div {
     padding-bottom: 45px;
     background-color: var(--black-color);
+    .col-md-3{
+        @media(max-width: 767px) {
+            width: 100%;
+        }
+    }
 }
 
 .footer-bottom-div {

@@ -149,6 +149,9 @@ footer .container {
 .footer-middle-div {
   padding-bottom: 45px;
   background-color: var(--black-color); }
+  @media (max-width: 767px) {
+    .footer-middle-div .col-md-3 {
+      width: 100%; } }
 
 .footer-bottom-div {
   background-color: var(--black-color); }
