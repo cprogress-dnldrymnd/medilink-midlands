@@ -107,7 +107,7 @@
                                 <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
                             </li>
                           <?php } ?>
-                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id='.get_current_user_id().']') ?>">
+                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>">
                               <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
                           </li>
                           <div class="dropdown-divider"></div>
@@ -119,7 +119,12 @@
                     </li>
 
                   <?php } else { ?> <!-- logged out -->
-                    <li id="nav-menu-login" class="nav-menu-account meraki-logoin"><a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                    <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
+                      <?php if (is_404()) { ?>
+                        <a href="/login"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                      <?php } else { ?>
+                        <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                      <?php } ?>
                       <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
                     </li>
                   <?php } ?>
