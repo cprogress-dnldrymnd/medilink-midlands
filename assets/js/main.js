@@ -14,33 +14,64 @@ function remove_topic_form() {
     jQuery('.bbp-role-bbp_participant  .bbp-topic-form').remove();
 }
 function claim_offer() {
-    jQuery('.claim-offer-button').click(function (e) {
-        $offer_title = jQuery(this).attr('offer_title');
-        $offer_desc = jQuery(this).attr('offer_desc');
-        $offer_owner = jQuery(this).attr('offer_owner');
-        $offer_owner_email = jQuery(this).attr('offer_owner_email');
-        $offer_owner_company = jQuery(this).attr('offer_owner_company');
-        $offer_owner_company = jQuery(this).attr('offer_owner_company');
-        $offer_image = jQuery(this).attr('offer_image');
-        $offer_details = jQuery(this).attr('offer_details');
-        $documents = jQuery(this).attr('documents');
+    if (jQuery('body').hasClass('single-membersmarketplace')) {
+        jQuery('.claim-offer-button').click(function (e) {
+            $offer_title = jQuery('.claim-offer-button').attr('offer_title');
+            $offer_desc = jQuery('.claim-offer-button').attr('offer_desc');
+            $offer_owner = jQuery('.claim-offer-button').attr('offer_owner');
+            $offer_owner_email = jQuery('.claim-offer-button').attr('offer_owner_email');
+            $offer_owner_company = jQuery('.claim-offer-button').attr('offer_owner_company');
+            $offer_image = jQuery('.claim-offer-button').attr('offer_image');
+            $offer_details = jQuery('.claim-offer-button').attr('offer_details');
+            $documents = jQuery('.claim-offer-button').attr('documents');
 
-        jQuery('input[name="offer_title"]').val($offer_title);
-        jQuery('input[name="offer_desc"]').val($offer_desc);
-        jQuery('input[name="offer_owner"]').val($offer_owner);
-        jQuery('input[name="offer_owner_email"]').val($offer_owner_email);
-        jQuery('input[name="offer_owner_company"]').val($offer_owner_company);
+            jQuery('input[name="offer_title"]').val($offer_title);
+            jQuery('input[name="offer_desc"]').val($offer_desc);
+            jQuery('input[name="offer_owner"]').val($offer_owner);
+            jQuery('input[name="offer_owner_email"]').val($offer_owner_email);
+            jQuery('input[name="offer_owner_company"]').val($offer_owner_company);
 
-        jQuery('.claim-offer-form .offer-title').text($offer_title);
-        jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
-        jQuery('.claim-offer-form .offer-details').html($offer_details);
-        jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
-        jQuery('.claim-offer-form .supporting-documents').html($documents);
+            jQuery('.claim-offer-form .offer-title').text($offer_title);
+            jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
+            jQuery('.claim-offer-form .offer-details').html($offer_details);
+            jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
+            jQuery('.claim-offer-form .supporting-documents').html($documents);
 
-        jQuery('#form-clicked .wpcf7-submit').click();
-        jQuery('body').addClass('modal-window-active');
-        e.preventDefault();
-    });
+            jQuery('#form-clicked .wpcf7-submit').click();
+            jQuery('body').addClass('modal-window-active');
+            e.preventDefault();
+        });
+
+    } else {
+        jQuery('.claim-offer-button').click(function (e) {
+            $offer_title = jQuery(this).attr('offer_title');
+            $offer_desc = jQuery(this).attr('offer_desc');
+            $offer_owner = jQuery(this).attr('offer_owner');
+            $offer_owner_email = jQuery(this).attr('offer_owner_email');
+            $offer_owner_company = jQuery(this).attr('offer_owner_company');
+            $offer_owner_company = jQuery(this).attr('offer_owner_company');
+            $offer_image = jQuery(this).attr('offer_image');
+            $offer_details = jQuery(this).attr('offer_details');
+            $documents = jQuery(this).attr('documents');
+
+            jQuery('input[name="offer_title"]').val($offer_title);
+            jQuery('input[name="offer_desc"]').val($offer_desc);
+            jQuery('input[name="offer_owner"]').val($offer_owner);
+            jQuery('input[name="offer_owner_email"]').val($offer_owner_email);
+            jQuery('input[name="offer_owner_company"]').val($offer_owner_company);
+
+            jQuery('.claim-offer-form .offer-title').text($offer_title);
+            jQuery('.claim-offer-form .offer-author').text($offer_owner_company);
+            jQuery('.claim-offer-form .offer-details').html($offer_details);
+            jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
+            jQuery('.claim-offer-form .supporting-documents').html($documents);
+
+            jQuery('#form-clicked .wpcf7-submit').click();
+            jQuery('body').addClass('modal-window-active');
+            e.preventDefault();
+        });
+    }
+
 }
 function profile_marketplace_nav() {
     if (jQuery('body').hasClass('um-page-user')) {
