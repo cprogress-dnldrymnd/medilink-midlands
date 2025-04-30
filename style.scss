@@ -489,10 +489,18 @@ footer .container {
     background-color: var(--red-color);
 }
 
-.top-bar.top-bar > div {
-    padding: 0;
-    background-color: var(--text-color);
-    text-align: center;
+.top-bar.top-bar {
+    & > div {
+        padding: 0;
+        background-color: var(--text-color);
+        text-align: center;
+    }
+    @media (max-width: 1024px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .top-bar.top-bar.top-bar a,

@@ -405,6 +405,12 @@ footer .container {
   padding: 0;
   background-color: var(--text-color);
   text-align: center; }
+@media (max-width: 1024px) {
+  .top-bar.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; } }
 
 .top-bar.top-bar.top-bar a,
 .top-bar.top-bar.top-bar span {
