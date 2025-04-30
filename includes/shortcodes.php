@@ -267,35 +267,8 @@ function member_marketplace_form()
         <div class="container">
             <div class="inner">
                 <div class="heading-title-desc mt-0 mb-4">
-                    <h2>Members Marketplace Special Offers from our Patrons and Members</h2>
-                    <p>
-                        <?php if (is_user_logged_in()) { ?>
-                            <?php
-                            $current_user = wp_get_current_user();
-                            $display_name = $current_user->display_name;
-                            ?>
-                            <span>
-                                <?= $display_name ?>,
-                            </span>
-                        <?php } ?>
-                    </p>
-                    <p>
-                        If you are looking to submit an offer, please complete the submission form with all requested
-                        details
-                        below.
-                    </p>
-                    <p>
-                        Once submitted a member of the Membership Team will review your offer and you will receive
-                        confirmation
-                        of your offer within 3 working days. To prevent any delays, please complete the form with all
-                        required
-                        information.
-                    </p>
-                    <p>
-                        Please note, members can have only list one offer on the Marketplace. If we receive more than one,
-                        only
-                        one will be listed.
-                    </p>
+                    <h2><?= carbon_get_theme_option('member_marketplace_form_heading') ?></h2>
+                    <?= wpautop(carbon_get_theme_option('member_marketplace_form_description')) ?>
                 </div>
                 <br><br>
                 <?php if (is_user_logged_in()) { ?>
