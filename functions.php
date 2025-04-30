@@ -205,7 +205,7 @@ function membership_listing($id = false, $allow_edit = false)
                             </a>
 
                             <?php if ($allow_edit == true) { ?>
-                                <a href="#" class="button-winona button-accent btn btn-sm">
+                                <a href="/?edit=<?= $id ?>" class="button-winona button-accent btn btn-sm">
                                     Edit
                                 </a>
                             <?php } ?>
@@ -922,7 +922,8 @@ function my_custom_posts_per_page($query)
 add_action('pre_get_posts', 'my_custom_posts_per_page');
 
 
-function remove_private_protected_prefix($title) {
+function remove_private_protected_prefix($title)
+{
     $title = str_replace('Private: ', '', $title);
     $title = str_replace('Protected: ', '', $title);
     return $title;
