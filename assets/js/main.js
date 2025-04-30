@@ -60,7 +60,7 @@ function claim_offer() {
             jQuery('.claim-offer-form .offer-image img').attr('src', $offer_image);
             jQuery('.claim-offer-form .supporting-documents').html($documents);
 
-            jQuery('#form-clicked .wpcf7-submit').click();
+           // jQuery('#form-clicked .wpcf7-submit').click();
             jQuery('body').addClass('modal-window-active');
             e.preventDefault();
         });
