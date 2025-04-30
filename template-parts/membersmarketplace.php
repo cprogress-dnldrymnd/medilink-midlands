@@ -16,14 +16,15 @@ if (is_tax()) {
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-left">
                     <ol class="breadcrumb text-left">
-                        <li><a href="<?=  get_site_url() ?>">Home</a></li>
+                        <li><a href="<?= get_site_url() ?>">Home</a></li>
                         <li>MEMBERS MARKETPLACE</li>
                     </ol>
 
                     <h1><?= $title ?></h1>
-                    <p style="margin-bottom: 2rem">
-                        Welcome to the Member Marketplace submission area.
-                    </p>
+                    <div style="margin-bottom: 2rem; margin-top: 1rem">
+                        <?= wpautop(carbon_get_theme_option('member_marketplace_description')) ?>
+
+                    </div>
 
                     <div class="modeltheme_button wow bounce animated" style="margin-top: 40px; visibility: visible;"><a href="#submit-offer" class="button-winona button-green btn btn-sm">Submit an offer</a></div>
                 </div>
@@ -156,7 +157,6 @@ $featureds = get_posts(array(
     </div>
 <?php } ?>
 <script>
-
     var swiper = new Swiper(".swiper-featured-offers", {
         autoheight: true,
         pagination: {
