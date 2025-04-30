@@ -1657,13 +1657,13 @@ function user_directory()
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
-            echo member_marketplace_grid($post->ID, false, 'View Offer');
+            echo membership_listing($post->ID);
         }
         echo '</div></div>';
     } else {
         echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
-				This user has not posted any offer.			</span>
+				This user does not have directory.			</span>
 		</div>';
     }
     echo '</div>';
