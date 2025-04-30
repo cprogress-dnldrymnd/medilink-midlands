@@ -151,11 +151,7 @@ $featureds = get_posts(array(
 </div>
 <?= do_shortcode('[Modal-Window id="1"]') ?>
 
-<?php if (is_user_logged_in()) { ?>
-    <div id="form-clicked" class="d-none">
-        <?= do_shortcode('[contact-form-7 id="cffc1b6" title="Offer Clicked Form"]') ?>
-    </div>
-<?php } ?>
+
 <script>
     var swiper = new Swiper(".swiper-featured-offers", {
         autoheight: true,
