@@ -45,5 +45,5 @@
         </div>
     </div>
 </section>
-<?= do_shortcode('[claim_offer_form]') ?>
+<?= do_shortcode('[claim_offer_form is_single=1]') ?>
 <?php get_footer() ?>

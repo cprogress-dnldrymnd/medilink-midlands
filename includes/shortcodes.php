@@ -383,9 +383,21 @@ function user_field($atts)
 }
 add_shortcode('user_field', 'user_field');
 
-function claim_offer_form()
+function claim_offer_form($atts)
 {
     ob_start();
+    extract(
+        shortcode_atts(
+            array(
+                'is_single' => 0,
+            ),
+            $atts
+        )
+    );
+    if ($is_single) {
+        $image_url = get_the_post_thumbnail_url(get_the_ID());
+
+    }
     ?>
     <div class="claim-offer-form">
         <div class="row row-flex">
@@ -393,7 +405,7 @@ function claim_offer_form()
                 <div class="post-box">
                     <div class="top">
                         <div class="image-box offer-image">
-                            <img src="" alt="">
+                            <img src="<?= $image_url ?>" alt="">
                         </div>
                         <p class="offer-author"></p>
                         <h3 class="offer-title"></h3>
@@ -423,7 +435,7 @@ function claim_offer_form()
     </div>
     <script>
         jQuery(document).ready(function () {
-   
+
             jQuery("body").on("click", ".modal-window__close", function () {
                 jQuery('body').removeClass('modal-window-active');
                 console.log('xsds');
