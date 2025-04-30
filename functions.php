@@ -1060,7 +1060,7 @@ function my_admin_edit_post_function()
         $post_id = $_GET['post'];
         $args['ID'] = $post_id;
         wp_update_post(array(
-            'ID'=> $post_id,
+            'ID' => $post_id,
             'post_status' => 'publish',
         ));
     }
@@ -1078,7 +1078,6 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
     $user_info = get_userdata(get_current_user_id());
     $username = $user_info->user_login;
-    $user_email = $user_info->user_email;
     if ($username) {
         $changes_html = '';
 
@@ -1091,11 +1090,11 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
         if ($new == true) {
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
-            $message = sprintf('A user has submitted their directory details - %s.', get_the_title($post_id)) . "\r\n\r\n";
+            $message = sprintf('%s has submitted their directory details - %s.', $username, get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
-            $message = sprintf('A user has updated their directory details for %s.', get_the_title($post_id)) . "\r\n\r\n";
+            $message = sprintf('%s updated their directory details - %s.', $username, get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
         }
 
