@@ -150,7 +150,7 @@ function membership_listing($id = false)
                             <h3><?= get_the_title($post_id) ?></h3>
                         </div>
                         <div class="description-box">
-                            <?= get_the_content(NULL,$post_id) ?>
+                            <?= get_the_content(NULL, $post_id) ?>
                         </div>
                         <div class="meta-details">
                             <ul>

@@ -1653,7 +1653,9 @@ function user_directory()
     ));
 
     echo '<div class="user-posts marketplace-posts">';
-    echo '<h3 class="main-heading">Marketplace</h3>';
+    echo '<h3 class="main-heading">Membership Directory</h3>';
+    echo '<div class="membership-directory">';
+    echo '<div class="listings">';
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
@@ -1666,6 +1668,8 @@ function user_directory()
 				This user does not have directory.			</span>
 		</div>';
     }
+    echo '</div>';
+    echo '</div>';
     echo '</div>';
     return ob_get_clean();
 }
