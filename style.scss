@@ -500,6 +500,7 @@ footer .container {
         top: 0;
         left: 0;
         right: 0;
+        z-index: 1;
     }
 }
 
@@ -2455,30 +2456,24 @@ body {
         }
     }
 }
-#modeltheme-main-head {
-    .container {
-        .navbar-header {
-            @media (max-width: 767px) {
-                padding-left: 0;
-            }
-        }
-        @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+    #modeltheme-main-head {
+        .container {
             position: fixed;
             left: 0;
             right: 0;
             top: 36.84px;
-        }
-        @media (max-width: 767px) {
             background-color: var(--accent-color);
+            .navbar-header {
+                padding-left: 0;
+            }
         }
     }
 
     .logo {
-        @media (max-width: 767px) {
-            margin: 0 !important;
-            background-color: var(--white-color);
-            padding: 10px;
-        }
+        margin: 0 !important;
+        background-color: var(--white-color);
+        padding: 10px;
     }
 
     .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
