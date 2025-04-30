@@ -1659,7 +1659,7 @@ function user_directory()
     if ($membersmarketplace && count($membersmarketplace) != 0) {
         echo '<div class="post-box-holder flex-row"> <div class="row">';
         foreach ($membersmarketplace as $post) {
-            echo membership_listing($post->ID);
+            echo membership_listing($post->ID, true);
         }
         echo '</div></div>';
     } else {

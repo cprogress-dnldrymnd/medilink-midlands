@@ -114,7 +114,7 @@ function member_marketplace_grid($id, $hide_button = false, $button_text = 'Clai
     return ob_get_clean();
 }
 
-function membership_listing($id = false)
+function membership_listing($id = false, $allow_edit = false)
 {
     ob_start();
 
