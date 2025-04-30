@@ -2960,3 +2960,9 @@ div.bbp-topic-tags,
         }
     }
 }
+
+.header-title-breadcrumb.header-title-breadcrumb {
+    @media(max-width: 1024px) {
+        margin-top: 40px;
+    }
+}

@@ -2211,4 +2211,8 @@ div.bbp-topic-tags,
     .navbar-header .mobile-buttons #join-us-button {
       display: none !important; } }
 
+@media (max-width: 1024px) {
+  .header-title-breadcrumb.header-title-breadcrumb {
+    margin-top: 40px; } }
+
 /*# sourceMappingURL=style.css.map */
