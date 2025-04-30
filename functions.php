@@ -1193,13 +1193,3 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
-
-function my_um_disable_min_image_size( $args, $key, $data ) {
-	// Replace 'your_image_field_key' with the actual meta key of your image upload field
-	if ( $key === 'organisation_logo' && isset( $args['validate']['image']['min_width'] ) ) {
-		unset( $args['validate']['image']['min_width'] );
-		unset( $args['validate']['image']['min_height'] );
-	}
-	return $args;
-}
-add_filter( 'um_field_options_set_up', 'my_um_disable_min_image_size', 10, 3 );
