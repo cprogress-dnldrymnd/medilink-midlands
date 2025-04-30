@@ -1675,6 +1675,7 @@ function user_directory()
                     $meta_inputs = [];
 
                     $args['post_status'] = 'pending';
+                    $args['post_type'] = 'wpsl_stores';
 
                     if ($new_title) {
                         $args['post_title'] = $new_title;
@@ -1701,7 +1702,6 @@ function user_directory()
                     wp_insert_post($args);
                     wp_redirect('?profiletab=directory');
                     exit;
-
                 }
                 $organisation = get_user_meta(um_user('ID'), 'organisation', true);
                 $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
