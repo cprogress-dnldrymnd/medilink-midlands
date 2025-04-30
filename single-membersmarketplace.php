@@ -30,7 +30,9 @@
                             <div class="desc">
                                 <?= wpautop(get_the_content()) ?>
                             </div>
-                            
+                            <div class="modeltheme_button d-none">
+                                <?= _claim_offer_button(get_the_ID(), ) ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
