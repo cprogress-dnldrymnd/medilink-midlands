@@ -1037,8 +1037,15 @@ function my_admin_edit_post_function()
         if ($meta_inputs) {
             $args['meta_input'] = $meta_inputs;
         }
-
         wp_update_post($args);
+
+        update_post_meta($post_id, '_pending_description', '');
+        update_post_meta($post_id, '_pending_title', '');
+
+        update_post_meta($post_id, '_pending_phone', '');
+
+        update_post_meta($post_id, '_pending_email', '');
+        update_post_meta($post_id, '_pending_website', '');
     }
 }
 add_action('load-post.php', 'my_admin_edit_post_function');
