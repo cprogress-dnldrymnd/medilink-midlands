@@ -2919,6 +2919,11 @@ div.bbp-topic-tags,
         .mobile-only {
             display: flex;
             gap: 15px;
+            a.profile {
+                color: var(--white-color);
+                font-size: 30px;
+            
+            }
         }
     }
 }
