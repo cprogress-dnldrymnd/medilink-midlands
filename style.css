@@ -2088,7 +2088,7 @@ div.bbp-topic-tags,
   font-size: 16px;
   pointer-events: none; }
 
-.um-profile-nav-marketplace svg {
+.um-profile-nav-item-custom svg {
   height: 18px;
   width: auto;
   font-size: 18px;
@@ -2098,7 +2098,7 @@ div.bbp-topic-tags,
   display: block;
   top: 8px;
   left: 10px; }
-  .um-profile-nav-marketplace svg * {
+  .um-profile-nav-item-custom svg * {
     fill: none !important; }
 
 .marketplace-active-tab.marketplace-active-tab .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
