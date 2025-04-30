@@ -119,5 +119,7 @@ Container::make('post_meta', __('Pending Update'))
 Container::make('theme_options', __('Settings'))
 	->set_page_parent('edit.php?post_type=membersmarketplace')
 	->add_fields(array(
-		Field::make('textarea', 'member_marketplace_description', __('Description')),
+		Field::make('textarea', 'member_marketplace_description', __('Hero Description')),
+		Field::make('text', 'member_marketplace_form_heading', __('Form Heading')),
+		Field::make('textarea', 'member_marketplace_form_description', __('Form Description')),
 	));
