@@ -1127,7 +1127,6 @@ function notify_admin_on_member_directory_update($post_id)
             $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $approve_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
             $email_html .= "</table>";
 
-            $email_html .= "<a href='$approve_url'>sdsds</a>";
         }
         $headers = 'Content-Type: text/html; charset=UTF-8';
         wp_mail($admin_email, $subject, "<a href='$approve_url'>sdsds</a>", $headers);
