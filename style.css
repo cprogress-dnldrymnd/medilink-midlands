@@ -1859,24 +1859,25 @@ body.header-title-style-2 #primary {
       display: none !important; } }
 
 @media (max-width: 767px) {
+  #modeltheme-main-head .container .navbar-header {
+    padding-left: 0; } }
+@media (max-width: 1024px) {
   #modeltheme-main-head .container {
-    background-color: var(--accent-color); }
-    #modeltheme-main-head .container .navbar-header {
-      padding-left: 0; } }
-  @media (max-width: 767px) and (max-width: 1024px) {
-    #modeltheme-main-head .container {
-      position: fixed;
-      left: 0;
-      right: 0;
-      top: 36.84px; } }
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 36.84px; } }
+@media (max-width: 767px) {
+  #modeltheme-main-head .container {
+    background-color: var(--accent-color); } }
 @media (max-width: 767px) {
   #modeltheme-main-head .logo {
     margin: 0 !important;
     background-color: var(--white-color);
-    padding: 10px; }
+    padding: 10px; } }
+#modeltheme-main-head .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
+  display: none; }
 
-  .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
-    display: none; } }
 @media (max-width: 575px) {
   .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
     flex-direction: column; }
