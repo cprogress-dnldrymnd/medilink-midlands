@@ -2864,7 +2864,7 @@ div.bbp-topic-tags,
         background-color: var(--accent-color);
         color: var(--white-color) !important;
         border-color: var(--accent-color) !important;
-        svg {
+        svg *{
             fill: currentColor !important;
         }
     }
