@@ -8,12 +8,22 @@
         <!-- LOGO -->
         <div class="navbar-header col-md-3">
           <!-- NAVIGATION BURGER MENU -->
+          <?php if (is_user_logged_in()) { ?>
+            <div class="mobile-only">
+              <a class="profile">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </a>
+            </div>
+          <?php } ?>
+
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+
+
 
           <?php if (class_exists('ReduxFrameworkPlugin')) {
             $custom_header_activated = get_post_meta(get_the_ID(), 'smartowl_custom_header_options_status', true);
