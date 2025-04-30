@@ -161,11 +161,11 @@ function membership_listing($id = false, $allow_edit = false)
             <input type="hidden" name="edit" value="<?= $id ?>">
             <input type="hidden" name="submitted" value="true">
             <div class="form-group">
-                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value=" <?= $title ?>"></label>
+                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $title ?>"></label>
                 <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $content_clean ?></textarea></label>
-                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value=" <?= $wpsl_phone ?>"></label>
-                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value=" <?= $wpsl_email ?>"></label>
-                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value=" <?= $wpsl_url ?>"></label>
+                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $wpsl_phone ?>"></label>
+                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $wpsl_email ?>"></label>
+                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $wpsl_url ?>"></label>
             </div>
             <div class="button-box text-right">
                 <button type="submit" class="button-winona button-accent btn btn-sm">
