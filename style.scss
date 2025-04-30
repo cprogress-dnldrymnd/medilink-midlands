@@ -2984,3 +2984,11 @@ div.bbp-topic-tags,
         }
     }
 }
+
+body {
+    &.modal-window-active {
+        .modal-window__wrapper {
+            display: block !important;
+        }
+    }
+}

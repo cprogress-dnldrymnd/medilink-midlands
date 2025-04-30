@@ -424,7 +424,7 @@ function claim_offer_form()
     <script>
         document.addEventListener('wpcf7submit', function (event) {
             if ('50058' == event.detail.contactFormId) {
-                console.log("The contact form ID is 123.");
+                jQuery('body').addClass('modal-window-active');
             }
         }, false);
     </script>

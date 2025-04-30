@@ -2225,5 +2225,7 @@ div.bbp-topic-tags,
 
   .home #primary {
     padding-top: 40px !important; } }
+body.modal-window-active .modal-window__wrapper {
+  display: block !important; }
 
 /*# sourceMappingURL=style.css.map */
