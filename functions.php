@@ -159,16 +159,24 @@ function membership_listing($id = false, $allow_edit = false)
 
             if ($title != $new_title) {
                 update_post_meta($edit_id, '_pending_title', $new_title);
+            } else {
+                update_post_meta($edit_id, '_pending_title', '');
             }
             if ($new_wpsl_phone != $wpsl_phone) {
                 update_post_meta($edit_id, '_pending_phone', $new_wpsl_phone);
+            } else {
+                update_post_meta($edit_id, '_pending_phone', '');
             }
 
             if ($new_wpsl_email != $wpsl_email) {
                 update_post_meta($edit_id, '_pending_email', $new_wpsl_email);
+            } else {
+                update_post_meta($edit_id, '_pending_email', '');
             }
             if ($new_wpsl_url != $wpsl_url) {
                 update_post_meta($edit_id, '_pending_website', $new_title);
+            } else {
+                update_post_meta($edit_id, '_pending_website', '');
             }
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
