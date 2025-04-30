@@ -2856,23 +2856,6 @@ div.bbp-topic-tags,
         background-color: transparent;
         border: 1px solid #747474 !important;
 
-        svg {
-            @media(max-width: 991px) {
-                width: 26px;
-                height: 26px;
-            }
-        }
-
-        span.title {
-            @media(max-width: 991px) {
-                display: none !important;
-            }
-        }
-
-        @media(max-width: 991px) {
-            height: 48px !important;
-            width: 49px !important;
-        }
     }
 
     .wpcf7-submit {
@@ -2896,6 +2879,29 @@ div.bbp-topic-tags,
 
         svg * {
             fill: currentColor !important;
+        }
+    }
+}
+
+.um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a,
+.um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
+    a {
+        svg {
+            @media(max-width: 991px) {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        span.title {
+            @media(max-width: 991px) {
+                display: none !important;
+            }
+        }
+
+        @media(max-width: 991px) {
+            height: 48px !important;
+            width: 49px !important;
         }
     }
 }
