@@ -1769,3 +1769,16 @@ function check_if_user_has_directory_entry()
         return false;
     }
 }
+
+
+function display_name()
+{
+
+    if (is_user_logged_in()) {
+        $current_user = wp_get_current_user();
+        $display_name = $current_user->display_name;
+        return "<span>$display_name</span>";
+    }
+}
+
+add_shortcode('display_name', 'display_name');

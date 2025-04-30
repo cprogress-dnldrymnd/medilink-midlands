@@ -1193,3 +1193,4 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
+
