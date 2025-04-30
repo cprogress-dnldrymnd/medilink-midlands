@@ -1910,7 +1910,6 @@ body {
             @media (max-width: 767px) {
                 padding-left: 20px;
                 padding-right: 20px;
-                padding-top: 80px;
             }
         }
 
@@ -3053,6 +3052,14 @@ body {
             .modal-window__content {
                 display: none !important;
             }
+        }
+    }
+}
+
+.um-page-user {
+    .header-title-breadcrumb-overlay {
+        @media(max-width: 1199px) {
+            padding-bottom: 120px !important;
         }
     }
 }

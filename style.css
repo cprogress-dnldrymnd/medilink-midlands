@@ -1473,8 +1473,7 @@ body.header-title-style-2 #primary {
       @media (max-width: 767px) {
         .um-profile.um-profile.um-profile .um-form .um-profile-body {
           padding-left: 20px;
-          padding-right: 20px;
-          padding-top: 80px; } }
+          padding-right: 20px; } }
     .um-profile.um-profile.um-profile .um-form .um-profile-nav {
       position: absolute;
       top: 150px;
@@ -2242,5 +2241,9 @@ body.modal-window-active #modal-window-1 .modal-window__content {
 body:not(.modal-window-active) #modal-window-1 .modal-window__wrapper,
 body:not(.modal-window-active) #modal-window-1 .modal-window__content {
   display: none !important; }
+
+@media (max-width: 1199px) {
+  .um-page-user .header-title-breadcrumb-overlay {
+    padding-bottom: 120px !important; } }
 
 /*# sourceMappingURL=style.css.map */
