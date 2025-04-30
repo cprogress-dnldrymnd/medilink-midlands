@@ -144,6 +144,7 @@ function membership_listing($id = false, $allow_edit = false)
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
+            <input type="hidden" name="submitted" value="true">
             <div class="form-group">
                 <label class="form-control"><span>Title: </span><input type="text" name="title" id="title" value=" <?= $title ?>"></label>
                 <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $content ?></textarea></label>

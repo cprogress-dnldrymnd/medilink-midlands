@@ -1671,6 +1671,12 @@ function user_directory()
     echo '</div>';
     echo '</div>';
     echo '</div>';
+
+    if (isset($_GET['edit'])) {
+        
+    }
+
+
     return ob_get_clean();
 }
 add_shortcode('user_directory', 'user_directory');
