@@ -195,11 +195,11 @@ function membership_listing($id = false, $allow_edit = false)
             <input type="hidden" name="edit" value="<?= $id ?>">
             <input type="hidden" name="submitted" value="true">
             <div class="form-group">
-                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $_pending_title ? $_pending_title : 's' ?>"></label>
-                <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $_pending_description ? $_pending_description : $content_clean ?></textarea></label>
-                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $_pending_phone ? $_pending_phone : $wpsl_phone ?>"></label>
-                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $_pending_email ? $_pending_email : $wpsl_email ?>"></label>
-                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $_pending_website ? $_pending_website : $wpsl_url ?>"></label>
+                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $_pending_title ? $_pending_title : ($new_title ? $new_title : $title) ?>"></label>
+                <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $_pending_description ? $_pending_description : ($new_content ? $new_content : $content_clean) ?></textarea></label>
+                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $_pending_phone ? $_pending_phone : ($new_wpsl_phone ? $new_wpsl_phone : $wpsl_phone) ?>"></label>
+                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $_pending_email ? $_pending_email : ($new_wpsl_email ? $new_wpsl_email : $wpsl_email) ?>"></label>
+                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $_pending_website ? $_pending_website : ($new_wpsl_url ? $new_wpsl_url : $wpsl_url) ?>"></label>
             </div>
             <div class="button-box text-right">
                 <button type="submit" class="button-winona button-accent btn btn-sm">
