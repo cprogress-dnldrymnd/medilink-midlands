@@ -1676,6 +1676,7 @@ function user_directory()
 
                     $args['post_status'] = 'pending';
                     $args['post_type'] = 'wpsl_stores';
+                    $args['post_author'] = um_user('ID');
 
                     if ($new_title) {
                         $args['post_title'] = $new_title;
