@@ -102,3 +102,14 @@ Container::make('term_meta', __('Category Properties'))
 	->add_fields(array(
 		Field::make('text', 'place', __('Title Color')),
 	));
+
+
+Container::make('post_meta', __('Pending Update'))
+	->where('post_type', '=', 'wpsl_stores')
+	->add_fields(array(
+		Field::make('text', 'pending_title', __('Title')),
+		Field::make('textarea', 'pending_description', __('Description')),
+		Field::make('text', 'pending_phone', __('Pending Phone')),
+		Field::make('text', 'pending_email', __('Pending Email')),
+		Field::make('text', 'pending_website', __('Pending Website')),
+	));
