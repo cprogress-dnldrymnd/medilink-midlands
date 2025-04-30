@@ -1666,22 +1666,22 @@ function user_directory()
         if (is_user_logged_in() && get_current_user_id() == um_user('ID')) {
 
             if (isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') {
-                $title_val = $_pending_title ? $_pending_title : ($new_title ? $new_title : $title);
-                $description_val = $_pending_description ? $_pending_description : ($new_content ? $new_content : $content_clean);
-                $phone_val = $_pending_phone ? $_pending_phone : ($new_wpsl_phone ? $new_wpsl_phone : $wpsl_phone);
-                $email_val = $_pending_email ? $_pending_email : ($new_wpsl_email ? $new_wpsl_email : $wpsl_email);
-                $website_val = $_pending_website ? $_pending_website : ($new_wpsl_url ? $new_wpsl_url : $wpsl_url);
+                $organisation = get_user_meta(um_user('ID'), 'organisation', true);
+                $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
+                $website_url = get_user_meta(um_user('ID'), 'website_url', true);
+                $email = get_user_meta(um_user('ID'), 'user_email', true);
+                $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
         ?>
                 <form method="GET" class="form-style-new">
                     <input type="hidden" name="profiletab" value="directory">
                     <input type="hidden" name="submitted" value="true">
                     <input type="hidden" name="new_entry" value="true">
                     <div class="form-group">
-                        <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $title_val ?>"></label>
-                        <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $description_val ?></textarea></label>
-                        <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $phone_val ?>"></label>
-                        <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $email_val ?>"></label>
-                        <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $website_val ?>"></label>
+                        <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $organisation ?>"></label>
+                        <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $organisation_description ?></textarea></label>
+                        <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $phone_number ?>"></label>
+                        <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $email ?>"></label>
+                        <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $website_url ?>"></label>
                     </div>
                     <div class="button-box text-right">
                         <button type="submit" class="button-winona button-accent btn btn-sm">
