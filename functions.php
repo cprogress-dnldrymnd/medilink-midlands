@@ -145,7 +145,7 @@ function membership_listing($id = false, $allow_edit = false)
     $content_clean = strip_tags($content);
 ?>
 
-    <?php if ($allow_edit == true && (isset($_GET['edit']) && $_GET['edit'] == $post_id) || isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') { ?>
+    <?php if ($allow_edit == true && (isset($_GET['edit']) && $_GET['edit'] == $post_id || isset($_GET['new_entry']) && $_GET['new_entry'] == 'true')) { ?>
 
         <?php if ($_GET['submitted'] == 'true') { ?>
             <?php
