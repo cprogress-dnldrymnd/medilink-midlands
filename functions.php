@@ -184,6 +184,7 @@ function membership_listing($id = false, $allow_edit = false)
             } else {
                 update_post_meta($edit_id, '_pending_website', '');
             }
+            notify_admin_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
         <?php } ?>
