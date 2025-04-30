@@ -997,8 +997,48 @@ function remove_private_protected_prefix($title)
 add_filter('the_title', 'remove_private_protected_prefix');
 
 
-function my_admin_edit_post_function() {
-    echo '<div style="color: red;">Custom Function Running!</div>';
+function my_admin_edit_post_function()
+{
+    if (isset($_GET['approve_changes']) && $_GET['approve_changes'] == 'true') {
+        $post_id = $_GET['post_id'];
+        $args['ID'] = $post_id;
 
+        $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
+        $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
+        $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
+
+
+        $_pending_title = get_post_meta($post_id, '_pending_title', true);
+        $_pending_description = get_post_meta($post_id, '_pending_description', true);
+        $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
+        $_pending_email = get_post_meta($post_id, '_pending_email', true);
+        $_pending_website = get_post_meta($post_id, '_pending_website', true);
+        $meta_inputs = [];
+        if ($_pending_title) {
+            $args['post_title'] = $_pending_title;
+        }
+        if ($_pending_title) {
+            $args['post_content'] = $_pending_description;
+        }
+
+        if ($_pending_phone) {
+            $meta_inputs['wpsl_phone'] = $_pending_phone;
+        }
+
+        if ($_pending_email) {
+            $meta_inputs['wpsl_email'] = $_pending_email;
+        }
+
+        if ($_pending_website) {
+            $meta_inputs['wpsl_url'] = $_pending_website;
+        }
+
+        if ($meta_inputs) {
+            $args['meta_input'] = $meta_inputs;
+        }
+
+        echo ';dsdsdsds';
+        var_dump($args);
+    }
 }
-add_action( 'load-post.php', 'my_admin_edit_post_function' );
+add_action('load-post.php', 'my_admin_edit_post_function');
