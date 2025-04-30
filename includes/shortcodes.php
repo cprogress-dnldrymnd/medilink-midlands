@@ -1666,6 +1666,8 @@ function user_directory()
         if (is_user_logged_in() && get_current_user_id() == um_user('ID')) {
 
             if (isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') {
+                if (isset($_GET['submitted']) && $_GET['submitted'] == 'true') {
+                }
                 $organisation = get_user_meta(um_user('ID'), 'organisation', true);
                 $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);
                 $website_url = get_user_meta(um_user('ID'), 'website_url', true);
