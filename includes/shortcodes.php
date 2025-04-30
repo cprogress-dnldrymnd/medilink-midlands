@@ -427,6 +427,12 @@ function claim_offer_form()
                 jQuery('body').addClass('modal-window-active');
             }
         }, false);
+
+        jQuery('.modal-window__close').click(function (e) {
+            jQuery('body').removeClass('modal-window-active');
+            console.log('xsds');
+            e.preventDefault();
+        });
     </script>
     <?php
 
