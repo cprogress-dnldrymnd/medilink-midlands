@@ -2175,4 +2175,9 @@ div.bbp-topic-tags,
   .mobile-only {
     display: none; } }
 
+@media (max-width: 1024px) {
+  .navbar-header .mobile-only {
+    display: flex;
+    gap: 15px; } }
+
 /*# sourceMappingURL=style.css.map */

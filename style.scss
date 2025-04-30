@@ -2914,7 +2914,16 @@ div.bbp-topic-tags,
     flex: 100% !important;
 }
 .mobile-only {
-    @media(min-width: 1025px) {
+    @media (min-width: 1025px) {
         display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar-header {
+        .mobile-only {
+            display: flex;
+            gap: 15px;
+        }
     }
 }

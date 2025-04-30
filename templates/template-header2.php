@@ -9,14 +9,6 @@
         <div class="navbar-header col-md-3">
           <!-- NAVIGATION BURGER MENU -->
           <div class="mobile-only">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
             <?php if (is_user_logged_in()) { ?>
               <div class="mobile-buttons">
                 <a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>" class="profile">
@@ -25,6 +17,14 @@
                 <div id="join-us-button"><a href="/join-us/"><?= $button ?></a> </div>
               </div>
             <?php } ?>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+
           </div>
 
 
