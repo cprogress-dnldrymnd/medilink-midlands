@@ -205,7 +205,7 @@ function membership_listing($id = false, $allow_edit = false)
                             </a>
 
                             <?php if ($allow_edit == true) { ?>
-                                <a href="/?edit=<?= $id ?>" class="button-winona button-accent btn btn-sm">
+                                <a href="?edit=<?= $id ?>" class="button-winona button-accent btn btn-sm">
                                     Edit
                                 </a>
                             <?php } ?>
