@@ -995,3 +995,10 @@ function remove_private_protected_prefix($title)
     return $title;
 }
 add_filter('the_title', 'remove_private_protected_prefix');
+
+
+function my_admin_edit_post_function() {
+    // Your code to run on the edit post screen goes here
+    error_log('You are on the edit post screen!'); // Example action: write to the debug log
+}
+add_action( 'load-post.php', 'my_admin_edit_post_function' );
