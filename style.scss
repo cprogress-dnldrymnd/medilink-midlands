@@ -1569,7 +1569,6 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
         transform: translateX(0);
     }
 
-
     .collapse.collapse:not([aria-expanded="true"]) {
         display: none !important;
         visibility: hidden !important;
@@ -2841,14 +2840,7 @@ div.bbp-topic-tags,
         }
     }
 }
-
 .marketplace-active-tab.marketplace-active-tab {
-    .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
-        background-color: var(--accent-color);
-        color: var(--white-color) !important;
-        border-color: var(--accent-color) !important;
-    }
-
     .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a {
         color: #747474 !important;
         background-color: transparent;
@@ -2856,6 +2848,21 @@ div.bbp-topic-tags,
     }
     .wpcf7-submit {
         display: none !important;
+    }
+}
+.marketplace-active-tab.marketplace-active-tab {
+    .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
+        background-color: var(--accent-color);
+        color: var(--white-color) !important;
+        border-color: var(--accent-color) !important;
+    }
+}
+
+.directory-active-tab.directory-active-tab {
+    .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a {
+        background-color: var(--accent-color);
+        color: var(--white-color) !important;
+        border-color: var(--accent-color) !important;
     }
 }
 .marketplace-posts {

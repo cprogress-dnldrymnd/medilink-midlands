@@ -2123,16 +2123,22 @@ div.bbp-topic-tags,
   .um-profile-nav-item-custom svg * {
     fill: none !important; }
 
-.marketplace-active-tab.marketplace-active-tab .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
-  background-color: var(--accent-color);
-  color: var(--white-color) !important;
-  border-color: var(--accent-color) !important; }
 .marketplace-active-tab.marketplace-active-tab .um-profile.um-profile.um-profile .um-form .um-profile-nav .um-profile-nav-item.active a {
   color: #747474 !important;
   background-color: transparent;
   border: 1px solid #747474 !important; }
 .marketplace-active-tab.marketplace-active-tab .wpcf7-submit {
   display: none !important; }
+
+.marketplace-active-tab.marketplace-active-tab .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
+  background-color: var(--accent-color);
+  color: var(--white-color) !important;
+  border-color: var(--accent-color) !important; }
+
+.directory-active-tab.directory-active-tab .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a {
+  background-color: var(--accent-color);
+  color: var(--white-color) !important;
+  border-color: var(--accent-color) !important; }
 
 .marketplace-posts .bottom {
   margin-top: 30px; }

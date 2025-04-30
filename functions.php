@@ -642,8 +642,12 @@ function custom_class($classes)
         $classes[] = 'header-title-' . $header_title_style;
     }
 
-    if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {
-        $classes[] = 'marketplace-active-tab';
+    if (isset($_GET['profiletab'])) {
+        if ($_GET['profiletab'] == 'marketplace') {
+            $classes[] = 'custom-tab-active marketplace-active-tab';
+        } else if ($_GET['profiletab'] == 'directory') {
+            $classes[] = 'custom-tab-active directory-active-tab';
+        }
     }
 
     $user = wp_get_current_user();
@@ -1194,19 +1198,20 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
     }
 }
 
-function update_first_letter_meta( $post_id ) {
+function update_first_letter_meta($post_id)
+{
     // Check if it's a 'wpsl_stores' post type.  Important to prevent errors.
-    if ( get_post_type( $post_id ) === 'wpsl_stores' ) {
+    if (get_post_type($post_id) === 'wpsl_stores') {
         // Get the post title.
-        $post_title = get_the_title( $post_id );
+        $post_title = get_the_title($post_id);
 
         // Extract the first letter.
-        $first_letter = strtoupper( substr( $post_title, 0, 1 ) ); // Make it uppercase
+        $first_letter = strtoupper(substr($post_title, 0, 1)); // Make it uppercase
 
         // Update the post meta.
-        update_post_meta( $post_id, 'first_letter', $first_letter );
+        update_post_meta($post_id, 'first_letter', $first_letter);
     }
 }
 
 // Hook the function to 'save_post' to catch both new and updated posts.
-add_action( 'post_updated', 'update_first_letter_meta' );
+add_action('post_updated', 'update_first_letter_meta');
