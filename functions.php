@@ -178,6 +178,7 @@ function membership_listing($id = false, $allow_edit = false)
             } else {
                 update_post_meta($edit_id, '_pending_website', '');
             }
+            update_post_meta($edit_id, '_send_email', 'no');
             notify_admin_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
@@ -1052,85 +1053,88 @@ add_action('load-post.php', 'my_admin_edit_post_function');
 
 function notify_admin_on_member_directory_update($post_id)
 {
-    $ultimate_member_options = get_option('um_options');
-    if (isset($ultimate_member_options['admin_email'])) {
-        $admin_email = $ultimate_member_options['admin_email'];
-    }
-    $admin_email = 'donald@cprogress.co.uk';
-
-    $user_info = get_userdata(get_current_user_id());
-    $username = $user_info->user_login;
-    $user_email = $user_info->user_email;
-
-    $changes_html = '';
-
-
-    $_pending_title = get_post_meta($post_id, '_pending_title', true);
-    $_pending_description = get_post_meta($post_id, '_pending_description', true);
-    $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
-    $_pending_email = get_post_meta($post_id, '_pending_email', true);
-    $_pending_website = get_post_meta($post_id, '_pending_website', true);
-
-
-    $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
-    $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
-    $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
-    $message .= "Changes:\r\n";
-
-    $approve_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
-
-    if ($_pending_title) {
-        $current_title = get_the_title($post_id);
-        $changes_html .= "<tr>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
-        $changes_html .= "</tr>";
-    }
-    if ($_pending_description) {
-        $current_content = get_the_content(NULL, false, $post_id);
-        $changes_html .= "<tr>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
-        $changes_html .= "</tr>";
-    }
-
-    if ($_pending_phone) {
-        $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
-        $changes_html .= "<tr>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
-        $changes_html .= "</tr>";
-    }
-    if ($_pending_email) {
-        $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
-        $changes_html .= "<tr>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
-        $changes_html .= "</tr>";
-    }
-    if ($_pending_website) {
-        $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
-        $changes_html .= "<tr>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
-        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
-        $changes_html .= "</tr>";
-    }
-
-    if ($changes_html != '') {
-        $email_html = "<table style='width: 100%'>";
-        $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
-        $email_html .= $changes_html;
-        $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" href="' . $approve_url . '" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
-        $email_html .= "</table>";
-
-        $email_html .= $approve_url;
-    }
-
+    $send_email = get_post_meta($post_id, '_send_email', true);
     // Send the email
-    wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'));
+    if ($send_email != 'yes') {
+        $ultimate_member_options = get_option('um_options');
+        if (isset($ultimate_member_options['admin_email'])) {
+            $admin_email = $ultimate_member_options['admin_email'];
+        }
+        $admin_email = 'donald@cprogress.co.uk';
+
+        $user_info = get_userdata(get_current_user_id());
+        $username = $user_info->user_login;
+        $user_email = $user_info->user_email;
+
+        $changes_html = '';
+
+        $_pending_title = get_post_meta($post_id, '_pending_title', true);
+        $_pending_description = get_post_meta($post_id, '_pending_description', true);
+        $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
+        $_pending_email = get_post_meta($post_id, '_pending_email', true);
+        $_pending_website = get_post_meta($post_id, '_pending_website', true);
+
+
+        $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
+        $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+        $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
+        $message .= "Changes:\r\n";
+
+        $approve_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
+
+        if ($_pending_title) {
+            $current_title = get_the_title($post_id);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_description) {
+            $current_content = get_the_content(NULL, false, $post_id);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
+            $changes_html .= "</tr>";
+        }
+
+        if ($_pending_phone) {
+            $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_email) {
+            $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_website) {
+            $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
+            $changes_html .= "</tr>";
+        }
+
+        if ($changes_html != '') {
+            $email_html = "<table style='width: 100%'>";
+            $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
+            $email_html .= $changes_html;
+            $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" href="' . $approve_url . '" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
+            $email_html .= "</table>";
+
+            $email_html .= $approve_url;
+        }
+
+        wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'));
+        update_post_meta($post_id, '_send_email', 'yes');
+    }
 }
