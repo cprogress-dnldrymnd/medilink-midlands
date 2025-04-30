@@ -1674,6 +1674,8 @@ function user_directory()
                     $new_wpsl_url = $_GET['wpsl_url'];
                     $meta_inputs = [];
 
+                    $args['post_status'] = 'pending';
+
                     if ($new_title) {
                         $args['post_title'] = $new_title;
                     }
