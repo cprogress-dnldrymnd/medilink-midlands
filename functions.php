@@ -1193,3 +1193,31 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
+
+add_filter('um_before_image_upload', 'um_allow_smaller_custom_image', 10, 2);
+
+function um_allow_smaller_custom_image($args, $field_id)
+{
+    // Replace 'your_custom_image_field_key' with the actual meta key of your image upload field
+    if ($field_id == 'organisation_logo') {
+        $min_width = 100; // Set your desired minimum width in pixels
+        $min_height = 100; // Set your desired minimum height in pixels
+
+        if (isset($_FILES[$field_id]) && $_FILES[$field_id]['tmp_name']) {
+            $image_data = getimagesize($_FILES[$field_id]['tmp_name']);
+            $width = $image_data[0];
+            $height = $image_data[1];
+
+            if ($width < $min_width || $height < $min_height) {
+                $error_message = sprintf(
+                    __('The uploaded image must be at least %1$d pixels wide and %2$d pixels high.', 'ultimate-member'),
+                    $min_width,
+                    $min_height
+                );
+                UM()->uploader()->add_error($field_id, $error_message);
+                return false; // Prevent the upload
+            }
+        }
+    }
+    return $args;
+}
