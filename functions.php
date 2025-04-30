@@ -1193,3 +1193,20 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
+
+function update_first_letter_meta( $post_id ) {
+    // Check if it's a 'wpsl_stores' post type.  Important to prevent errors.
+    if ( get_post_type( $post_id ) === 'wpsl_stores' ) {
+        // Get the post title.
+        $post_title = get_the_title( $post_id );
+
+        // Extract the first letter.
+        $first_letter = strtoupper( substr( $post_title, 0, 1 ) ); // Make it uppercase
+
+        // Update the post meta.
+        update_post_meta( $post_id, 'first_letter', $first_letter );
+    }
+}
+
+// Hook the function to 'save_post' to catch both new and updated posts.
+add_action( 'save_post', 'update_first_letter_meta' );
