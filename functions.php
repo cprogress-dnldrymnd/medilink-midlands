@@ -174,7 +174,7 @@ function membership_listing($id = false, $allow_edit = false)
                 update_post_meta($edit_id, '_pending_email', '');
             }
             if ($new_wpsl_url != $wpsl_url) {
-                update_post_meta($edit_id, '_pending_website', $new_title);
+                update_post_meta($edit_id, '_pending_website', $new_wpsl_url);
             } else {
                 update_post_meta($edit_id, '_pending_website', '');
             }
