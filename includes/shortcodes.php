@@ -424,15 +424,13 @@ function claim_offer_form()
     <script>
         jQuery(document).ready(function () {
             document.addEventListener('wpcf7submit', function (event) {
-            if ('50058' == event.detail.contactFormId) {
-                jQuery('body').addClass('modal-window-active');
-            }
-        }, false);
-
-            jQuery('.modal-window__close').click(function (e) {
+                if ('50058' == event.detail.contactFormId) {
+                    jQuery('body').addClass('modal-window-active');
+                }
+            }, false);
+            jQuery("body").on("click", ".modal-window__close", function () {
                 jQuery('body').removeClass('modal-window-active');
                 console.log('xsds');
-                e.preventDefault();
             });
         });
     </script>
