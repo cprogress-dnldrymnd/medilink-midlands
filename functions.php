@@ -144,14 +144,13 @@ function membership_listing($id = false, $allow_edit = false)
         <form method="GET">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
-            <input type="text" name="title" id="title" value=" <?= $title ?>">
-            <textarea name="content" id="content"><?= $content ?></textarea>
-
-            <input type="text" name="title" id="title" value=" <?= $title ?>">
-            <input type="tel" name="wpsl_phone" id="wpsl_phone" value=" <?= $wpsl_phone ?>">
-            <input type="email" name="wpsl_email" id="wpsl_email" value=" <?= $wpsl_email ?>">
-            <input type="url" name="wpsl_url" id="wpsl_url" value=" <?= $wpsl_url ?>">
-
+            <div class="form-group">
+                <label class="form-control"><span>Title: </span><input type="text" name="title" id="title" value=" <?= $title ?>"></label>
+                <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $content ?></textarea></label>
+                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value=" <?= $wpsl_phone ?>"></label>
+                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value=" <?= $wpsl_email ?>"></label>
+                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value=" <?= $wpsl_url ?>"></label>
+            </div>
         </form>
     <?php } ?>
     <div class="col-lg-12 post-item" id="post-<?= $id ?>">
