@@ -920,3 +920,11 @@ function my_custom_posts_per_page($query)
     }
 }
 add_action('pre_get_posts', 'my_custom_posts_per_page');
+
+
+function remove_private_protected_prefix($title) {
+    $title = str_replace('Private: ', '', $title);
+    $title = str_replace('Protected: ', '', $title);
+    return $title;
+}
+add_filter('the_title', 'remove_private_protected_prefix');
