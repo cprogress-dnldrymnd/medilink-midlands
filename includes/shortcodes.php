@@ -423,11 +423,7 @@ function claim_offer_form()
     </div>
     <script>
         jQuery(document).ready(function () {
-            document.addEventListener('wpcf7submit', function (event) {
-                if ('50058' == event.detail.contactFormId) {
-                    jQuery('body').addClass('modal-window-active');
-                }
-            }, false);
+   
             jQuery("body").on("click", ".modal-window__close", function () {
                 jQuery('body').removeClass('modal-window-active');
                 console.log('xsds');
