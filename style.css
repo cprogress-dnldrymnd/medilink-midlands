@@ -2156,4 +2156,15 @@ div.bbp-topic-tags,
   .form-style-new.form-style-new .form-group .button-box {
     text-align: right; }
 
+.message.message {
+  color: var(--green-color);
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 20px; }
+
 /*# sourceMappingURL=style.css.map */

@@ -2896,3 +2896,15 @@ div.bbp-topic-tags,
         }
     }
 }
+
+.message.message {
+    color: var(--green-color);
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 20px;
+}
