@@ -147,6 +147,13 @@ function membership_listing($id = false, $allow_edit = false)
 
     <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
         <?php if ($_GET['submitted'] == 'true') { ?>
+            <?php
+            $title = $_GET['title'];
+            $content = $_GET['content'];
+            $wpsl_phone = $_GET['wpsl_phone'];
+            $wpsl_email = $_GET['wpsl_email'];
+            $wpsl_url = $_GET['wpsl_url'];
+            ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
         <?php } ?>
         <form method="GET" class="form-style-new">
@@ -154,7 +161,7 @@ function membership_listing($id = false, $allow_edit = false)
             <input type="hidden" name="edit" value="<?= $id ?>">
             <input type="hidden" name="submitted" value="true">
             <div class="form-group">
-                <label class="form-control"><span>Title: </span><input type="text" name="title" id="title" value=" <?= $title ?>"></label>
+                <label class="form-control"><span>Company: </span><input type="text" name="title" id="title" value=" <?= $title ?>"></label>
                 <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $content_clean ?></textarea></label>
                 <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value=" <?= $wpsl_phone ?>"></label>
                 <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value=" <?= $wpsl_email ?>"></label>
