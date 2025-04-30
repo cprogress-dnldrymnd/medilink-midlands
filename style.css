@@ -2167,4 +2167,8 @@ div.bbp-topic-tags,
   border-bottom: 1px solid;
   padding: 20px; }
 
+.um-login.um-field-password {
+  width: 100% !important;
+  flex: 100% !important; }
+
 /*# sourceMappingURL=style.css.map */
