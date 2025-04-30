@@ -1085,6 +1085,7 @@ function notify_admin_on_member_directory_update($post_id)
     if ($_pending_title) {
         $current_title = get_the_title($post_id);
         $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>Organisation</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
         $changes_html .= "</tr>";
@@ -1092,6 +1093,7 @@ function notify_admin_on_member_directory_update($post_id)
     if ($_pending_description) {
         $current_content = get_the_content(NULL, false, $post_id);
         $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>Description</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
         $changes_html .= "</tr>";
@@ -1100,6 +1102,7 @@ function notify_admin_on_member_directory_update($post_id)
     if ($_pending_phone) {
         $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
         $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>Phone</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
         $changes_html .= "</tr>";
@@ -1107,6 +1110,7 @@ function notify_admin_on_member_directory_update($post_id)
     if ($_pending_email) {
         $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
         $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>Email</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
         $changes_html .= "</tr>";
@@ -1114,6 +1118,7 @@ function notify_admin_on_member_directory_update($post_id)
     if ($_pending_website) {
         $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
         $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>Website</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
         $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
         $changes_html .= "</tr>";
