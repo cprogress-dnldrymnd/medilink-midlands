@@ -273,7 +273,7 @@ function membership_listing($id = false, $allow_edit = false)
                                     Visit Website
                                 </a>
 
-                                <?php if ($allow_edit == true && !isset($_GET['edit'])) { ?>
+                                <?php if ($allow_edit == true && !isset($_GET['edit']) && is_user_logged_in()) { ?>
                                     <a href="?profiletab=directory&edit=<?= $id ?>" class="button-winona button-accent btn btn-sm">
                                         Edit
                                     </a>
