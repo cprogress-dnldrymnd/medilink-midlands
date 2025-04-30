@@ -30,10 +30,7 @@
                             <div class="desc">
                                 <?= wpautop(get_the_content()) ?>
                             </div>
-                            <div class="modeltheme_button">
-                                <a href="<?= get_the_permalink() ?>" class="button-winona button-green btn btn-sm">CLICK
-                                    HERE</a>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-lg-5">
