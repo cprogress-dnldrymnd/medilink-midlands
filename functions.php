@@ -146,6 +146,33 @@ function membership_listing($id = false, $allow_edit = false)
 ?>
 
     <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
+        <?php if ($_GET['submitted'] == 'true' && $_GET['edit'] == $post_id) { ?>
+            <?php
+            $edit_id = $_GET['edit'];
+            $new_title = $_GET['title'];
+            $new_content = $_GET['content'];
+            $new_wpsl_phone = $_GET['wpsl_phone'];
+            $new_wpsl_email = $_GET['wpsl_email'];
+            $new_wpsl_url = $_GET['wpsl_url'];
+
+            update_post_meta($edit_id, '_pending_description', $new_content);
+
+            if ($title != $new_title) {
+                update_post_meta($edit_id, '_pending_title', $new_title);
+            }
+            if ($new_wpsl_phone != $wpsl_phone) {
+                update_post_meta($edit_id, '_pending_phone', $new_wpsl_phone);
+            }
+
+            if ($new_wpsl_email != $wpsl_email) {
+                update_post_meta($edit_id, '_pending_email', $new_wpsl_email);
+            }
+            if ($new_wpsl_url != $wpsl_url) {
+                update_post_meta($edit_id, '_pending_website', $new_title);
+            }
+            ?>
+            <div class="message">Information succesfully submitted and needs to be review.</div>
+        <?php } ?>
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
