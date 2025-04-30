@@ -8,22 +8,22 @@
         <!-- LOGO -->
         <div class="navbar-header col-md-3">
           <!-- NAVIGATION BURGER MENU -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+          <div class="mobile-only">
 
-          <?php if (is_user_logged_in()) { ?>
-            <div class="mobile-only">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <?php if (is_user_logged_in()) { ?>
               <a class="profile">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
-            </div>
-          <?php } ?>
+            <?php } ?>
+          </div>
 
-         
 
 
           <?php if (class_exists('ReduxFrameworkPlugin')) {
