@@ -48,7 +48,7 @@
 <section class="claim-offer-single" style="margin-top: 50px">
     <div class="container">
         <h2 class="text-center">Claim Offer</h2>
-        <?= do_shortcode('[claim_offer_form is_single=1]') ?>
+        <?= do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]') ?>
     </div>
 </section>
 <?php get_footer() ?>
