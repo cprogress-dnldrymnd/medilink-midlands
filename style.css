@@ -2256,4 +2256,8 @@ body:not(.modal-window-active) #modal-window-1 .modal-window__content {
   .um-page-user .header-title-breadcrumb-overlay {
     padding-bottom: 120px !important; } }
 
+.vc_btn3.vc_btn3-color-juicy-pink,
+.vc_btn3.vc_btn3-color-juicy-pink.vc_btn3-style-flat {
+  background-color: var(--green-color) !important; }
+
 /*# sourceMappingURL=style.css.map */
