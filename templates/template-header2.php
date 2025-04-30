@@ -21,7 +21,7 @@ if (is_user_logged_in()) {
                 <a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>" class="profile">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </a>
-                <div id="join-us-button"><a href="/join-us/"><?= $button ?></a> </div>
+                <div id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </div>
               </div>
             <?php } ?>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -150,7 +150,7 @@ if (is_user_logged_in()) {
                     </li>
                   <?php } ?>
 
-                  <li id="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
+                  <li id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
                 <?php } ?> <!--  switch  -->
             <?php } /* function exist */
             } else {

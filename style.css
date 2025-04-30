@@ -616,7 +616,7 @@ section.cta .cta-content {
 body header #navbar .menu-item.menu-item > a {
   border-bottom: none !important; }
 
-nav #navbar #join-us-button a {
+#join-us-button.join-us-button.join-us-button.join-us-button a {
   background-color: rgba(255, 255, 255, 0.25);
   padding: 10px 30px;
   text-transform: uppercase;
@@ -629,14 +629,14 @@ nav #navbar #join-us-button a {
   -webkit-transition: all 250ms ease-in-out;
   transition: all 250ms ease-in-out 0s; }
   @media (max-width: 1024px) {
-    nav #navbar #join-us-button a {
+    #join-us-button.join-us-button.join-us-button.join-us-button a {
       text-align: center;
       padding-top: 10px !important;
       padding-bottom: 10px !important;
       width: 100%;
       margin: 10px 0 0 0; } }
 @media (max-width: 1024px) {
-  nav #navbar #join-us-button {
+  #join-us-button.join-us-button.join-us-button.join-us-button {
     width: 100%; } }
 
 #join-us-button a:hover {
