@@ -1086,7 +1086,7 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
         if ($new == true) {
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
-            $message = sprintf('A user has submitted their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+            $message = sprintf('A user has submitted their directory details - %s.', get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
