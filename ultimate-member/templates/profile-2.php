@@ -229,7 +229,7 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                     $address = get_user_meta(um_user('ID'), 'address', true);
                     $title = get_user_meta(um_user('ID'), 'ttle', true);
                     $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
-                  
+
         ?>
 
             <div class="um-profile-body <?php echo esc_attr($nav . ' ' . $nav . '-' . $subnav); ?>">
@@ -309,6 +309,8 @@ $description_key = UM()->profile()->get_show_bio_key($args);
                         <?= do_shortcode('[user_posts]') ?>
                     <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'marketplace') {  ?>
                         <?= do_shortcode('[user_marketplace]') ?>
+                    <?php } else if (isset($_GET['profiletab']) && $_GET['profiletab'] == 'directory') {  ?>
+                        <?= do_shortcode('[user_directory]') ?>
                     <?php } ?>
 
                 </div>
@@ -369,5 +371,3 @@ $description_key = UM()->profile()->get_show_bio_key($args);
 </div>
 
 <?= do_shortcode('[Modal-Window id="1"]') ?>
-
-
