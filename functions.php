@@ -142,7 +142,7 @@ function membership_listing($id = false, $allow_edit = false)
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
         <?php } ?>
-        <div class="col-lg-12 post-item">
+        <div class="col-lg-12 post-item" id="post-<?= $id ?>">
             <div class="listing">
                 <div class="top">
                     <div class="row row-flex logo-heading">
