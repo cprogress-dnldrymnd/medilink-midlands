@@ -2142,6 +2142,11 @@ div.bbp-topic-tags,
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a svg {
     width: 26px;
     height: 26px; } }
+@media (max-width: 530px) {
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg,
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a svg {
+    width: 20px;
+    height: 20px; } }
 @media (max-width: 991px) {
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a span.title,
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a span.title {
@@ -2151,6 +2156,11 @@ div.bbp-topic-tags,
   .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
     height: 48px !important;
     width: 49px !important; } }
+  @media (max-width: 991px) and (max-width: 530px) {
+    .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a,
+    .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
+      width: 44px;
+      height: 44px; } }
 
 .um-form.um-form.um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg * {
   fill: currentColor !important; }
