@@ -178,7 +178,6 @@ function membership_listing($id = false, $allow_edit = false)
             } else {
                 update_post_meta($edit_id, '_pending_website', '');
             }
-            update_post_meta($edit_id, '_send_email', 'no');
             notify_admin_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
@@ -1053,16 +1052,14 @@ add_action('load-post.php', 'my_admin_edit_post_function');
 
 function notify_admin_on_member_directory_update($post_id)
 {
-    $send_email = get_post_meta($post_id, '_send_email', true);
-    // Send the email
-    if ($send_email != 'yes') {
-        $ultimate_member_options = get_option('um_options');
-        if (isset($ultimate_member_options['admin_email'])) {
-            $admin_email = $ultimate_member_options['admin_email'];
-        }
-        $admin_email = 'donald@cprogress.co.uk';
+    $ultimate_member_options = get_option('um_options');
+    if (isset($ultimate_member_options['admin_email'])) {
+        $admin_email = $ultimate_member_options['admin_email'];
+    }
+    $admin_email = 'donald@cprogress.co.uk';
 
-        $user_info = get_userdata(get_current_user_id());
+    $user_info = get_userdata(get_current_user_id());
+    if ($username) {
         $username = $user_info->user_login;
         $user_email = $user_info->user_email;
 
@@ -1134,7 +1131,7 @@ function notify_admin_on_member_directory_update($post_id)
             $email_html .= $approve_url;
         }
 
+        // Send the email
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'));
-        update_post_meta($post_id, '_send_email', 'yes');
     }
 }
