@@ -198,6 +198,12 @@ function membership_listing($id = false, $allow_edit = false)
                             <a href="<?= $url ?>" target="_blank" class="button-winona button-green btn btn-sm">
                                 Visit Website
                             </a>
+
+                            <?php if ($allow_edit == true) { ?>
+                                <a href="<?= $url ?>" target="_blank" class="button-winona button-accent btn btn-sm">
+                                    Edit
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
