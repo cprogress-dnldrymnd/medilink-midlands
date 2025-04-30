@@ -1126,7 +1126,7 @@ function notify_admin_on_member_directory_update($post_id)
 
     if ($changes_html != '') {
         $email_html = "<table style='width: 100%'>";
-        $email_html .= "<tr><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
+        $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
         $email_html .= $changes_html;
         $email_html .= "</table>";
     }
