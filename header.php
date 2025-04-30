@@ -21,23 +21,7 @@ wp_body_open();
             echo '<div class="wikb_preloader_holder '.wp_kses_post(wikb('mt_preloader_animation')).'">'.wp_kses_post(wikb_loader_animation()).'</div>';
         } 
     ?>
-	<div class="top-bar">
-		<div class="container-fluid p-0">
-			<?php if(is_user_logged_in())  { ?>
-				<?php
-					$current_user = wp_get_current_user();
-					$display_name = $current_user->display_name;
-				?>
-				<span>
-					Welcome <?= $display_name ?>
-				</span>
-			<?php } else {?>
-				<a href="#">
-					Sign Up Today & Become Part of The Community
-				</a>
-			<?php } ?>
-		</div>
-	</div>
+	
     <?php 
     $below_slider_headers = array('header5', 'header6', 'header7', 'header8');
     $normal_headers = array('header1', 'header2', 'header3', 'header4');

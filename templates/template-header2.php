@@ -6,7 +6,23 @@ if (is_user_logged_in()) {
 }
 ?>
 <header class="header2">
-
+  <div class="top-bar">
+    <div class="container-fluid p-0">
+      <?php if (is_user_logged_in()) { ?>
+        <?php
+        $current_user = wp_get_current_user();
+        $display_name = $current_user->display_name;
+        ?>
+        <span>
+          Welcome <?= $display_name ?>
+        </span>
+      <?php } else { ?>
+        <a href="#">
+          Sign Up Today & Become Part of The Community
+        </a>
+      <?php } ?>
+    </div>
+  </div>
   <!-- BOTTOM BAR -->
   <nav class="navbar navbar-default logo-infos" id="modeltheme-main-head">
     <div class="container">
