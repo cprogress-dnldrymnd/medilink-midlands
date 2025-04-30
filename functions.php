@@ -803,7 +803,7 @@ function email_template($display_name, $changes)
     <div
         style='max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin: 40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666'>
         <div style='color: #444444;font-weight: normal'>
-            <div style='text-align: center'><img src='<?= $site_url ?>/wp-content/uploads/2025/01/medlink-logo-1.png'
+            <div style='text-align: center'><img src='https://portal.medilinkmidlands.com/wp-content/uploads/2025/01/medlink-logo-1.png'
                     alt='' /></div>
             <div
                 style='text-align: center;font-weight: 600;font-size: 26px;padding: 10px 0;border-bottom: solid 3px #eeeeee'>
