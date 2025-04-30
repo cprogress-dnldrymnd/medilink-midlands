@@ -1196,7 +1196,7 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
 function my_um_disable_min_image_size( $args, $key, $data ) {
 	// Replace 'your_image_field_key' with the actual meta key of your image upload field
-	if ( $key === 'your_image_field_key' && isset( $args['validate']['image']['min_width'] ) ) {
+	if ( $key === 'organisation_logo' && isset( $args['validate']['image']['min_width'] ) ) {
 		unset( $args['validate']['image']['min_width'] );
 		unset( $args['validate']['image']['min_height'] );
 	}
