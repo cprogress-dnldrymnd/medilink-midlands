@@ -112,5 +112,5 @@ Container::make('post_meta', __('Pending Update'))
 		Field::make('text', 'pending_phone', __('Pending Phone')),
 		Field::make('text', 'pending_email', __('Pending Email')),
 		Field::make('text', 'pending_website', __('Pending Website')),
-		Field::make('html', 'approve_changes')->set_html('<a href="' . get_edit_post_link($_GET['post']) . '?approve_change=true" aria-disabled="false" class="components-button is-primary is-compact">Approve Changes</a>'),
+		Field::make('html', 'approve_changes')->set_html('<a href="' . get_edit_post_link($_GET['post']) . '&approve_change=true" aria-disabled="false" class="components-button is-primary is-compact">Approve Changes</a>'),
 	));
