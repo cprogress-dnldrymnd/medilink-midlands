@@ -1667,6 +1667,39 @@ function user_directory()
 
             if (isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') {
                 if (isset($_GET['submitted']) && $_GET['submitted'] == 'true') {
+                    $new_title = $_GET['title'];
+                    $new_content = $_GET['content'];
+                    $new_wpsl_phone = $_GET['wpsl_phone'];
+                    $new_wpsl_email = $_GET['wpsl_email'];
+                    $new_wpsl_url = $_GET['wpsl_url'];
+                    $meta_inputs = [];
+
+                    if ($new_title) {
+                        $args['post_title'] = $new_title;
+                    }
+                    if ($new_content) {
+                        $args['post_content'] = $new_content;
+                    }
+
+                    if ($new_wpsl_phone) {
+                        $meta_inputs['wpsl_phone'] = $new_wpsl_phone;
+                    }
+
+                    if ($new_wpsl_email) {
+                        $meta_inputs['wpsl_email'] = $new_wpsl_email;
+                    }
+
+                    if ($new_wpsl_url) {
+                        $meta_inputs['wpsl_url'] = $new_wpsl_url;
+                    }
+
+                    if ($meta_inputs) {
+                        $args['meta_input'] = $meta_inputs;
+                    }
+                    wp_insert_post($args);
+                    wp_redirect('?profiletab=directory');
+                    exit;
+
                 }
                 $organisation = get_user_meta(um_user('ID'), 'organisation', true);
                 $phone_number = get_user_meta(um_user('ID'), 'phone_number', true);

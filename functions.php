@@ -1025,7 +1025,7 @@ function my_admin_edit_post_function()
         if ($_pending_title) {
             $args['post_title'] = $_pending_title;
         }
-        if ($_pending_title) {
+        if ($_pending_description) {
             $args['post_content'] = $_pending_description;
         }
 
