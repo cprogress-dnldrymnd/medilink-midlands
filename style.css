@@ -2178,16 +2178,19 @@ div.bbp-topic-tags,
 @media (max-width: 1024px) {
   .navbar-header .mobile-only {
     display: flex;
-    gap: 15px;
+    gap: 25px;
     align-items: center; }
     .navbar-header .mobile-only a.profile {
       color: var(--white-color);
       font-size: 30px; }
   .navbar-header .mobile-buttons {
     display: flex;
-    gap: 15px;
+    gap: 25px;
     align-items: center; }
     .navbar-header .mobile-buttons #join-us-button a {
       color: var(--white-color); } }
+  @media (max-width: 1024px) and (max-width: 460px) {
+    .navbar-header .mobile-buttons #join-us-button {
+      display: none !important; } }
 
 /*# sourceMappingURL=style.css.map */

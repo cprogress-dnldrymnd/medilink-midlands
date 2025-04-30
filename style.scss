@@ -2918,7 +2918,7 @@ div.bbp-topic-tags,
     .navbar-header {
         .mobile-only {
             display: flex;
-            gap: 15px;
+            gap: 25px;
             align-items: center;
             a.profile {
                 color: var(--white-color);
@@ -2928,11 +2928,14 @@ div.bbp-topic-tags,
         }
         .mobile-buttons {
             display: flex;
-            gap: 15px;
+            gap: 25px;
             align-items: center;
             #join-us-button {
                 a {
                     color: var(--white-color);
+                }
+                @media(max-width: 460px) {
+                    display: none !important;
                 }
             }
         }
