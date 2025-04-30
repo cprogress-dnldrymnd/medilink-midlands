@@ -147,7 +147,12 @@ function membership_listing($id = false, $allow_edit = false)
                     <?php } ?>
                     <div class="<?= $class ?> heading-description">
                         <div class="heading-box">
-                            <h3><?= get_the_title($post_id) ?></h3>
+                            <h3>
+                                <?= get_the_title($post_id) ?>
+                                <?php if ($allow_edit == true) { ?>
+                                    <input type="title" value=" <?= get_the_title($post_id) ?>">
+                                <?php } ?>
+                            </h3>
                         </div>
                         <div class="description-box">
                             <?= get_the_content(NULL, false, $post_id) ?>
@@ -200,7 +205,7 @@ function membership_listing($id = false, $allow_edit = false)
                             </a>
 
                             <?php if ($allow_edit == true) { ?>
-                                <a href="<?= $url ?>" target="_blank" class="button-winona button-accent btn btn-sm">
+                                <a href="#" class="button-winona button-accent btn btn-sm">
                                     Edit
                                 </a>
                             <?php } ?>
