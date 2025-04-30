@@ -1665,7 +1665,8 @@ function user_directory()
     } else {
         if (is_user_logged_in() && get_current_user_id() == um_user('ID')) {
 
-            if (isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') {
+            if (isset($_GET['new_entry']) && $_GET['new_entry'] == 'true' && check_if_user_has_directory_entry() == false) {
+
                 if (isset($_GET['submitted']) && $_GET['submitted'] == 'true') {
                     $new_title = $_GET['title'];
                     $new_content = $_GET['content'];
@@ -1751,3 +1752,19 @@ function user_directory()
     return ob_get_clean();
 }
 add_shortcode('user_directory', 'user_directory');
+
+function check_if_user_has_directory_entry()
+{
+    $posts = get_posts(array(
+        'post_type'   => 'wpsl_stores',
+        'numberposts' => -1,
+        'author'      => um_user('ID'),
+        'post_status' => array('publish', 'private', 'pending')
+    ));
+
+    if ($posts) {
+        return true;
+    } else {
+        return false;
+    }
+}
