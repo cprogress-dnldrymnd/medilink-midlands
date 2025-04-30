@@ -146,6 +146,9 @@ function membership_listing($id = false, $allow_edit = false)
 ?>
 
     <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
+        <?php if ($_GET['submitted'] == 'true') { ?>
+            <div class="message">Information succesfully submitted and needs to be review.</div>
+        <?php } ?>
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
