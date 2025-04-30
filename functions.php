@@ -145,7 +145,7 @@ function membership_listing($id = false, $allow_edit = false)
     $content_clean = strip_tags($content);
 ?>
 
-    <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $post_id) { ?>
+    <?php if ($allow_edit == true && (isset($_GET['edit']) && $_GET['edit'] == $post_id) || isset($_GET['new_entry']) && $_GET['new_entry'] == 'true') { ?>
 
         <?php if ($_GET['submitted'] == 'true') { ?>
             <?php
@@ -190,16 +190,24 @@ function membership_listing($id = false, $allow_edit = false)
             $_pending_website = get_post_meta($post_id, '_pending_website', true);
             ?>
         <?php } ?>
+
+        <?php
+        $title_val = $_pending_title ? $_pending_title : ($new_title ? $new_title : $title);
+        $description_val = $_pending_description ? $_pending_description : ($new_content ? $new_content : $content_clean);
+        $phone_val = $_pending_phone ? $_pending_phone : ($new_wpsl_phone ? $new_wpsl_phone : $wpsl_phone);
+        $email_val = $_pending_email ? $_pending_email : ($new_wpsl_email ? $new_wpsl_email : $wpsl_email);
+        $website_val = $_pending_website ? $_pending_website : ($new_wpsl_url ? $new_wpsl_url : $wpsl_url);
+        ?>
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
             <input type="hidden" name="submitted" value="true">
             <div class="form-group">
-                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $_pending_title ? $_pending_title : ($new_title ? $new_title : $title) ?>"></label>
-                <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $_pending_description ? $_pending_description : ($new_content ? $new_content : $content_clean) ?></textarea></label>
-                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $_pending_phone ? $_pending_phone : ($new_wpsl_phone ? $new_wpsl_phone : $wpsl_phone) ?>"></label>
-                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $_pending_email ? $_pending_email : ($new_wpsl_email ? $new_wpsl_email : $wpsl_email) ?>"></label>
-                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $_pending_website ? $_pending_website : ($new_wpsl_url ? $new_wpsl_url : $wpsl_url) ?>"></label>
+                <label class="form-control"><span>Organisation: </span><input type="text" name="title" id="title" value="<?= $title_val ?>"></label>
+                <label class="form-control"><span>Description: </span><textarea name="content" id="content"><?= $description_val ?></textarea></label>
+                <label class="form-control"><span>Phone: </span><input type="tel" name="wpsl_phone" id="wpsl_phone" value="<?= $phone_val ?>"></label>
+                <label class="form-control"><span>Email: </span><input type="email" name="wpsl_email" id="wpsl_email" value="<?= $email_val ?>"></label>
+                <label class="form-control"><span>Website: </span><input type="url" name="wpsl_url" id="wpsl_url" value="<?= $website_val ?>"></label>
             </div>
             <div class="button-box text-right">
                 <button type="submit" class="button-winona button-accent btn btn-sm">
@@ -1126,7 +1134,6 @@ function notify_admin_on_member_directory_update($post_id)
             $email_html .= $changes_html;
             $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $approve_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
             $email_html .= "</table>";
-
         }
         $headers = 'Content-Type: text/html; charset=UTF-8';
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px'), $headers);
