@@ -1649,7 +1649,7 @@ function user_directory()
         'post_type'   => 'wpsl_stores',
         'numberposts' => -1,
         'author'      => um_user('ID'),
-        'post_status' => array('publish', 'private')
+        'post_status' => array('publish', 'private', 'pending')
     ));
 
     echo '<div class="user-posts marketplace-posts">';
