@@ -1082,11 +1082,13 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         if ($new == true) {
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
             $message = sprintf('A user has submitted their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
             $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
-            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
+            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
         }
+
 
 
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
@@ -1098,7 +1100,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
+            if ($new == false) {
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
+            }
             $changes_html .= "</tr>";
         }
         if ($_pending_description) {
@@ -1106,7 +1110,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
+            if ($new == false) {
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
+            }
             $changes_html .= "</tr>";
         }
 
@@ -1115,7 +1121,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
+            if ($new == false) {
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
+            }
             $changes_html .= "</tr>";
         }
         if ($_pending_email) {
@@ -1123,7 +1131,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
+            if ($new == false) {
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
+            }
             $changes_html .= "</tr>";
         }
         if ($_pending_website) {
@@ -1131,7 +1141,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $changes_html .= "<tr>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
             $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
+            if ($new == false) {
+                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
+            }
             $changes_html .= "</tr>";
         }
 
