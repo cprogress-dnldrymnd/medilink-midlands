@@ -1000,7 +1000,7 @@ add_filter('the_title', 'remove_private_protected_prefix');
 function my_admin_edit_post_function()
 {
     if (isset($_GET['approve_changes']) && $_GET['approve_changes'] == 'true') {
-        $post_id = $_GET['post_id'];
+        $post_id = $_GET['post'];
         $args['ID'] = $post_id;
 
         $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
@@ -1014,6 +1014,7 @@ function my_admin_edit_post_function()
         $_pending_email = get_post_meta($post_id, '_pending_email', true);
         $_pending_website = get_post_meta($post_id, '_pending_website', true);
         $meta_inputs = [];
+
         if ($_pending_title) {
             $args['post_title'] = $_pending_title;
         }
