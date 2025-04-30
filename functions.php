@@ -155,13 +155,18 @@ function membership_listing($id = false, $allow_edit = false)
                             <div class="heading-box">
                                 <h3>
                                     <?= get_the_title($post_id) ?>
-                                    <?php if ($allow_edit == true) { ?>
-                                        <input type="text" name="title" value=" <?= get_the_title($post_id) ?>">
+                                    <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
+                                        <input type="text" name="title" id="title" value=" <?= get_the_title($post_id) ?>">
                                     <?php } ?>
                                 </h3>
                             </div>
                             <div class="description-box">
                                 <?= get_the_content(NULL, false, $post_id) ?>
+                                <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
+                                    <textarea name="content" id="content">
+                                <?= get_the_content(NULL, false, $post_id) ?>
+                                    </textarea>
+                                <?php } ?>
                             </div>
                             <div class="meta-details">
                                 <ul>
