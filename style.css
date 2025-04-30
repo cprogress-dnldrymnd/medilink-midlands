@@ -2130,15 +2130,27 @@ div.bbp-topic-tags,
   gap: 20px;
   justify-content: space-between; }
 
-.form-style-new .form-group {
+.form-style-new.form-style-new .form-group {
   gap: 15px;
   display: flex;
   flex-wrap: wrap; }
-  .form-style-new .form-group .form-control {
+  .form-style-new.form-style-new .form-group .form-control {
     border: none;
     padding: 0;
     display: flex;
     gap: 15px;
-    align-items: center; }
+    align-items: center;
+    font-style: normal;
+    box-shadow: none; }
+    .form-style-new.form-style-new .form-group .form-control input,
+    .form-style-new.form-style-new .form-group .form-control textarea {
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid #ddd !important;
+      padding: 10px; }
+    .form-style-new.form-style-new .form-group .form-control span {
+      font-weight: bold;
+      flex: 0 0 auto;
+      width: 15%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -2864,7 +2864,7 @@ div.bbp-topic-tags,
     }
 }
 
-.form-style-new {
+.form-style-new.form-style-new {
     .form-group {
         gap: 15px;
         display: flex;
@@ -2875,6 +2875,20 @@ div.bbp-topic-tags,
             display: flex;
             gap: 15px;
             align-items: center;
+            font-style: normal;
+            box-shadow: none;
+            input,
+            textarea {
+                width: 100%;
+                border-radius: 0;
+                border: 1px solid #ddd !important;
+                padding: 10px;
+            }
+            span {
+                font-weight: bold;
+                flex: 0 0 auto;
+                width: 15%;
+            }
         }
     }
 }
