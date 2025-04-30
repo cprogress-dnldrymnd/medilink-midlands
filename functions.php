@@ -1057,6 +1057,8 @@ function my_admin_edit_post_function()
         update_post_meta($post_id, '_pending_email', '');
         update_post_meta($post_id, '_pending_website', '');
     } else  if (isset($_GET['approve_listing']) && $_GET['approve_listing'] == 'true') {
+        $post_id = $_GET['post'];
+        $args['ID'] = $post_id;
         wp_update_post(array(
             'ID'=> $post_id,
             'post_status' => 'publish',
