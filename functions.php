@@ -1076,7 +1076,7 @@ function notify_admin_on_member_directory_update($post_id)
     $_pending_website = get_post_meta($post_id, '_pending_website', true);
 
 
-    $subject = sprintf('[%s] User Account Updated', get_bloginfo('name'));
+    $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
     $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
     $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
     $message .= "Changes:\r\n";
