@@ -1852,6 +1852,12 @@ body.header-title-style-2 #primary {
     width: 100%;
     text-align: center;
 }*/
+@media (max-width: 1024px) {
+  #medilink-html {
+    margin-top: 0 !important; }
+    #medilink-html #wpadminbar {
+      display: none !important; } }
+
 @media (max-width: 767px) {
   #modeltheme-main-head .container {
     background-color: var(--accent-color); }

@@ -2439,6 +2439,14 @@ body {
     width: 100%;
     text-align: center;
 }*/
+#medilink-html {
+    @media (max-width: 1024px) {
+        margin-top: 0 !important;
+        #wpadminbar {
+            display: none !important;
+        }
+    }
+}
 @media (max-width: 767px) {
     #modeltheme-main-head {
         .container {
