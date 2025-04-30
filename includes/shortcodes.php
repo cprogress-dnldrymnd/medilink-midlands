@@ -1701,7 +1701,8 @@ function user_directory()
                     if ($meta_inputs) {
                         $args['meta_input'] = $meta_inputs;
                     }
-                    wp_insert_post($args);
+                    $post_id = wp_insert_post($args);
+                    notify_admin_on_member_directory_update($post_id, true);
                     wp_redirect('?profiletab=directory');
                     exit;
                 }

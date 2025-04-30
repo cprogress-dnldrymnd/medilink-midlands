@@ -1058,7 +1058,7 @@ function my_admin_edit_post_function()
 add_action('load-post.php', 'my_admin_edit_post_function');
 
 
-function notify_admin_on_member_directory_update($post_id)
+function notify_admin_on_member_directory_update($post_id, $new = false)
 {
     $ultimate_member_options = get_option('um_options');
     if (isset($ultimate_member_options['admin_email'])) {
@@ -1079,12 +1079,19 @@ function notify_admin_on_member_directory_update($post_id)
         $_pending_website = get_post_meta($post_id, '_pending_website', true);
 
 
-        $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
-        $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+        if ($new == true) {
+            $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
+            $message = sprintf('A user has submitted their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+        } else {
+            $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
+            $message = sprintf('A user has updated their directory details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
+        }
+
+
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
         $message .= "Changes:\r\n";
 
-        $approve_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
 
         if ($_pending_title) {
             $current_title = get_the_title($post_id);
@@ -1132,7 +1139,13 @@ function notify_admin_on_member_directory_update($post_id)
             $email_html = "<table style='width: 100%'>";
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
-            $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $approve_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
+            if ($new == true) {
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Directory Listing</a></div></td></tr>';
+            } else {
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
+            }
+
+
             $email_html .= "</table>";
         }
         $headers = 'Content-Type: text/html; charset=UTF-8';
