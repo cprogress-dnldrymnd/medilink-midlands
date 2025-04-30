@@ -14,6 +14,11 @@
         </div>
     </div>
 </div>
+<?php
+global $post;
+$post_author = $post->post_author;
+$offer_image = get_the_post_thumbnail_url($post->ID, 'large');
+?>
 <section class="latest-offers">
     <div class="container">
         <div class="featured-offers">
@@ -22,22 +27,29 @@
                     <div class="col-lg-7">
                         <div class="col-content">
                             <div class="image-box">
-                                <?= get_the_post_thumbnail(get_the_ID(), 'medium') ?>
+                                <img src="<?= _author_logo($post->post_author) ?>">
                             </div>
                             <div class="post-title">
-                                <h3><?= get_the_title() ?></h3>
+                                <h3><?= do_shortcode("[user_field key='organisation' author_id=$post_author]") ?></h3>
                             </div>
                             <div class="desc">
-                                <?= wpautop(get_the_content()) ?>
+                                <p>
+                                    <?= $post->post_title ?>
+                                </p>
                             </div>
-                            <div class="modeltheme_button d-none">
-                                <?= _claim_offer_button(get_the_ID(), ) ?>
+                            <?php if ($post->post_content) { ?>
+                                <div class="offer-details">
+                                    <?= wpautop($post->post_content) ?>
+                                </div>
+                            <?php } ?>
+                            <div class="modeltheme_button">
+                                <?= _claim_offer_button($post->ID) ?>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="featured-image">
-                            <?= wp_get_attachment_image(49568, 'large') ?>
+                            <?= get_the_post_thumbnail($post->ID, 'large') ?>
                         </div>
                     </div>
                 </div>
