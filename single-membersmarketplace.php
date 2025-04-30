@@ -9,7 +9,6 @@
                         <li><a href="<?=  get_site_url() ?>">Home</a></li>
                         <li>MEMBERS MARKETPLACE</li>
                     </ol>
-                    
                 </div>
             </div>
         </div>
@@ -46,5 +45,5 @@
         </div>
     </div>
 </section>
-<?= do_shortcode('[contact-form-7 id="cffc1b6" title="Single Marketplace Form"]') ?>
+<?= do_shortcode('[claim_offer_form]') ?>
 <?php get_footer() ?>
