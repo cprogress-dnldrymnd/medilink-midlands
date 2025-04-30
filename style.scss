@@ -2905,10 +2905,12 @@ div.bbp-topic-tags,
     @media(max-width: 991px) {
         height: 48px !important;
         width: 49px !important;
-        @media(max-width: 530px) {
-                width: 44px;
-                height: 44px;
-            }
+
+    }
+
+    @media(max-width: 530px) {
+        width: 44px;
+        height: 44px;
     }
 }
 
