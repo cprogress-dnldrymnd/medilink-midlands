@@ -2885,24 +2885,22 @@ div.bbp-topic-tags,
 
 .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a,
 .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
-    a {
-        svg {
-            @media(max-width: 991px) {
-                width: 26px;
-                height: 26px;
-            }
-        }
-
-        span.title {
-            @media(max-width: 991px) {
-                display: none !important;
-            }
-        }
-
+    svg {
         @media(max-width: 991px) {
-            height: 48px !important;
-            width: 49px !important;
+            width: 26px;
+            height: 26px;
         }
+    }
+
+    span.title {
+        @media(max-width: 991px) {
+            display: none !important;
+        }
+    }
+
+    @media(max-width: 991px) {
+        height: 48px !important;
+        width: 49px !important;
     }
 }
 

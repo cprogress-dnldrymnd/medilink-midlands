@@ -2139,17 +2139,17 @@ div.bbp-topic-tags,
     fill: currentColor !important; }
 
 @media (max-width: 991px) {
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a a svg,
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a a svg {
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg,
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a svg {
     width: 26px;
     height: 26px; } }
 @media (max-width: 991px) {
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a a span.title,
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a a span.title {
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a span.title,
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a span.title {
     display: none !important; } }
 @media (max-width: 991px) {
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a a,
-  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a a {
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a,
+  .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-marketplace a {
     height: 48px !important;
     width: 49px !important; } }
 
