@@ -1193,11 +1193,3 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
 }
-
-
-add_filter('um_custom_success_message_handler', 'my_custom_success_message', 10, 2);
-function my_custom_success_message($success, $updated)
-{
-    
-    return $success.'xxx';
-}
