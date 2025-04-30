@@ -1194,6 +1194,6 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
     }
 }
 function allow_html_um_registration_success_message( $message ) {
-    return wp_kses_post( $message );
+    return wp_kses_post( $message ).'xx';
 }
 add_filter( 'um_registration_success_message', 'allow_html_um_registration_success_message', 10, 1 );
