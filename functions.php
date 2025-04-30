@@ -1205,6 +1205,7 @@ function update_first_letter_meta( $post_id ) {
 
         // Update the post meta.
         update_post_meta( $post_id, 'first_letter', $first_letter );
+        update_post_meta( $post_id, '_pending_title', $first_letter );
     }
 }
 
