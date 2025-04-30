@@ -2142,6 +2142,9 @@ div.bbp-topic-tags,
   .directory-active-tab.directory-active-tab .um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg * {
     fill: currentColor !important; }
 
+.um-form.um-form.um-form .um-profile-nav .um-profile-nav-item.um-profile-nav-directory a svg * {
+  fill: currentColor !important; }
+
 .marketplace-posts .bottom {
   margin-top: 30px; }
 
