@@ -2845,6 +2845,7 @@ div.bbp-topic-tags,
         color: #747474 !important;
         background-color: transparent;
         border: 1px solid #747474 !important;
+      
     }
     .wpcf7-submit {
         display: none !important;
@@ -2863,6 +2864,9 @@ div.bbp-topic-tags,
         background-color: var(--accent-color);
         color: var(--white-color) !important;
         border-color: var(--accent-color) !important;
+        svg {
+            fill: currentColor !important;
+        }
     }
 }
 .marketplace-posts {
