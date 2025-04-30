@@ -146,16 +146,6 @@ function membership_listing($id = false, $allow_edit = false)
 ?>
 
     <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
-        <?php if ($_GET['submitted'] == 'true') { ?>
-            <?php
-            $title = $_GET['title'];
-            $content = $_GET['content'];
-            $wpsl_phone = $_GET['wpsl_phone'];
-            $wpsl_email = $_GET['wpsl_email'];
-            $wpsl_url = $_GET['wpsl_url'];
-            ?>
-            <div class="message">Information succesfully submitted and needs to be review.</div>
-        <?php } ?>
         <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">

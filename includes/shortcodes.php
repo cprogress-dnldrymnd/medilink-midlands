@@ -1651,6 +1651,9 @@ function user_directory()
         'author'      => um_user('ID'),
         'post_status' => array('publish', 'private')
     ));
+    if ($_GET['submitted'] == 'true') {
+        echo '<div class="message">Information succesfully submitted and needs to be review.</div>';
+    }
 
     echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Membership Directory</h3>';
