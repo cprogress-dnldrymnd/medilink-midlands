@@ -141,7 +141,7 @@ function membership_listing($id = false, $allow_edit = false)
 ?>
 
     <?php if ($allow_edit == true && isset($_GET['edit']) && $_GET['edit'] == $id) { ?>
-        <form method="GET">
+        <form method="GET" class="form-style-new">
             <input type="hidden" name="profiletab" value="directory">
             <input type="hidden" name="edit" value="<?= $id ?>">
             <div class="form-group">

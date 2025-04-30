@@ -2130,4 +2130,15 @@ div.bbp-topic-tags,
   gap: 20px;
   justify-content: space-between; }
 
+.form-style-new .form-group {
+  gap: 15px;
+  display: flex;
+  flex-wrap: wrap; }
+  .form-style-new .form-group .form-control {
+    border: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    align-items: center; }
+
 /*# sourceMappingURL=style.css.map */

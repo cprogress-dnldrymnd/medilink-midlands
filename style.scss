@@ -2863,3 +2863,18 @@ div.bbp-topic-tags,
         justify-content: space-between;
     }
 }
+
+.form-style-new {
+    .form-group {
+        gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        .form-control {
+            border: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+    }
+}
