@@ -1664,9 +1664,9 @@ function user_directory()
         echo '</div></div>';
     } else {
         if (is_user_logged_in() && get_current_user_id() == um_user('ID')) {
-            echo '  <a href="?profiletab=directory&new_entry=true" class="button-winona button-accent btn btn-sm">
+            echo ' <div style="text-align: center; margin-top: 30px"> <a href="?profiletab=directory&new_entry=true" class="button-winona button-accent btn btn-sm">
                                         Submit Entry
-                            </a>';
+                            </a><div>';
         } else {
             echo '<div class="um-profile-note um-profile-note-real" style="display: block !important;">
 			<span>
