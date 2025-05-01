@@ -1591,7 +1591,7 @@ add_shortcode('user_marketplace', 'user_marketplace');
 function user_directory()
 {
     ob_start();
-    $user_info = get_userdata($user_id);
+    $user_info = get_userdata(get_current_user_id());
     $username = $user_info->user_login;
    echo $user_email = $user_info->user_email;
 
