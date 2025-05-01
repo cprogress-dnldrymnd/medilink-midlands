@@ -1133,18 +1133,17 @@ function member_directory_submission_email($post_id, $new = false)
     }
 
     if (get__current_user_username()) {
+        $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit';
 
         if ($new == true) {
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
             $message = sprintf('%s has submitted their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
-            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
 
             $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
             $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
             $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
-            $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
 
             $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
             $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';
@@ -1217,7 +1216,7 @@ function member_directory_email_fields($post_id, $new = false, $button_url = fal
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Value</th></tr>";
             $email_html .= $changes_html;
             if ($button_url) {
-                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Directory Listing</a></div></td></tr>';
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Review Listing</a></div></td></tr>';
             }
             $email_html .= "</table>";
         }
@@ -1269,7 +1268,7 @@ function member_directory_email_fields($post_id, $new = false, $button_url = fal
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
             if ($button_url) {
-                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background:rgb(0, 0, 0); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background:rgb(0, 0, 0); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Review Listing</a></div></td></tr>';
             }
             $email_html .= "</table>";
         }
