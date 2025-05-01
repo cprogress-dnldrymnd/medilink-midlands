@@ -1131,7 +1131,6 @@ function member_directory_submission_email($post_id, $new = false)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
-    $admin_email = 'donald@cprogress.co.uk';
 
     if (get__current_user_username()) {
 
