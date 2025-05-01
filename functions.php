@@ -1145,11 +1145,11 @@ function member_directory_submission_email($post_id, $new = false)
             $subject_user = sprintf('[%s] %s.', get_bloginfo('name'), carbon_get_theme_option('member_directory_submitted_client_email_subject'));
             $message_user = carbon_get_theme_option('member_directory_submitted_client_email_message');
         } else {
-            $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_submitted_client_email_subject'));
-            $message = do_shortcode(carbon_get_theme_option('member_directory_submitted_client_email_message')) . "\r\n\r\n";
+            $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_updated_client_email_subject'));
+            $message = do_shortcode(carbon_get_theme_option('member_directory_updated_client_email_message')) . "\r\n\r\n";
 
-            $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
-            $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';
+            $subject_user = sprintf('[%s] %s.', get_bloginfo('name'), carbon_get_theme_option('member_directory_updated_client_email_subject'));
+            $message_user = carbon_get_theme_option('member_directory_updated_client_email_message');
         }
 
         wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
