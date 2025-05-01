@@ -846,7 +846,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
 
         // Send the email
         wp_mail($admin_email, $subject_admin, email_template($username, $message_admin . $email_html));
-        wp_mail($admin_email, $subject_user, email_template($username, $message_user . $email_html));
+        wp_mail($user_email, $subject_user, email_template($username, $message_user . $email_html));
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
