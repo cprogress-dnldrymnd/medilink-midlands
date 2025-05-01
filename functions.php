@@ -837,7 +837,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         }
 
         if ($changes_html != '') {
-            $email_html .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
+            $email_html = sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
             $email_html .= "<table style='width: 100%'>";
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
