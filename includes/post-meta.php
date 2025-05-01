@@ -129,26 +129,28 @@ Container::make('theme_options', __('Settings'))
 Container::make('theme_options', __('Email Settings'))
 	->set_page_parent('edit.php?post_type=wpsl_stores')
 	->add_tab('Directory Submitted ', array(
-		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-success); color: #fff; font-weight: bold; text-transform: uppercase;"> Admin Email Notification</div>'),
+		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-success); color: #fff; font-weight: bold; text-transform: uppercase;"> Admin Email Notification : Entry Submitted</div>'),
 		Field::make('text', 'member_directory_submitted_admin_email_subject', __('Admin Email Subject')),
 		Field::make('rich_text', 'member_directory_submitted_admin_email_message', __('Admin Email Message')),
 		
-		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Submitted</div>'),
+		Field::make('html', 'html_2')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Submitted</div>'),
 		Field::make('text', 'member_directory_submitted_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_submitted_client_email_message', __('Client Email Message')),
-		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Approve</div>'),
+
+		Field::make('html', 'html_3')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Approve</div>'),
 		Field::make('text', 'member_directory_approve_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_approve_client_email_message', __('Client Email Message')),
 	))
 	->add_tab('Directory Updated', array(
+		Field::make('html', 'html_4')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-success); color: #fff; font-weight: bold; text-transform: uppercase;"> Admin Email Notification : Entry Submitted</div>'),
 		Field::make('text', 'member_directory_updated_admin_email_subject', __('Admin Email Subject')),
 		Field::make('rich_text', 'member_directory_updated_admin_email_message', __('Admin Email Message')),
+
+		Field::make('html', 'html_5')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Updated</div>'),
 		Field::make('text', 'member_directory_updated_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_updated_client_email_message', __('Client Email Message')),
-	))
 
-	->add_tab('Directory Update Approve', array(
+		Field::make('html', 'html_6')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-info); color: #fff; font-weight: bold; text-transform: uppercase;"> Client Email Notification : Entry Update Approve</div>'),
 		Field::make('text', 'member_directory_approve_update_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_approve_update_client_email_message', __('Client Email Message')),
-
 	));
