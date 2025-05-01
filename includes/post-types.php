@@ -185,6 +185,18 @@ $Templates->publicly_queryable = true;
 $Templates->show_in_admin_bar = true;
 $Templates->has_archive = false;
 
+$Email_Templates = new newPostType();
+$Email_Templates->key = 'email_templates';
+$Email_Templates->name = 'Email Templates';
+$Email_Templates->singular_name = 'Email Template';
+$Email_Templates->icon = 'dashicons-email';
+$Email_Templates->supports = array('title', 'editor', 'revisions');
+$Email_Templates->exclude_from_search = true;
+$Email_Templates->publicly_queryable = true;
+$Email_Templates->show_in_admin_bar = true;
+$Email_Templates->has_archive = false;
+
+
 $Training_Materials = new newPostType();
 $Training_Materials->key = 'training-materials';
 $Training_Materials->name = 'Training Materials';
@@ -323,13 +335,3 @@ function modify_wpsl_stores_admin_label($args, $post_type)
 add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2);
 
 
-$Templates = new newPostType();
-$Templates->key = 'email_templates';
-$Templates->name = 'Email Templates';
-$Templates->singular_name = 'Email Template';
-$Templates->icon = 'dashicons-email';
-$Templates->supports = array('title', 'editor', 'revisions');
-$Templates->exclude_from_search = true;
-$Templates->publicly_queryable = true;
-$Templates->show_in_admin_bar = true;
-$Templates->has_archive = false;
