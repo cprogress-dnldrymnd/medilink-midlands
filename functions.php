@@ -817,7 +817,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $user_email = $user_info->user_email;
 
         $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_admin_email_subject'));
-        $message = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_admin_email_subject')) . "\r\n\r\n";
+        $message = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_admin_email_message')) . "\r\n\r\n";
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
         $message .= "Changes:\r\n";
         foreach ($user_meta_previous as $key_previous => $previous) {
