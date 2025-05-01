@@ -1129,11 +1129,8 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         $admin_email = $ultimate_member_options['admin_email'];
     }
 
-    $user_info = get_userdata(get_current_user_id());
-    $username = $user_info->user_login;
-    if ($username) {
+    if (get__current_user_username()) {
         $changes_html = '';
-
         $_pending_title = get_post_meta($post_id, '_pending_title', true);
         $_pending_description = get_post_meta($post_id, '_pending_description', true);
         $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
@@ -1246,6 +1243,37 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         $headers = 'Content-Type: text/html; charset=UTF-8';
         wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
     }
+}
+
+
+function notify_user_on_member_directory_update($post_id, $new = false)
+{
+
+    $email = get__current_user_email();
+    if (get__current_user_username()) {
+        if ($new == false) {
+            $subject = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
+            $message = 'Your directory entry update has been submitted. The team have received your update and will review.';
+        } else {
+            $subject = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
+            $message = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
+        }
+        $email_html = "<table style='width: 100%'>";
+        $email_html .= "<tr><td>$message</td></tr>";
+        $email_html .= "</table>";
+    }
+}
+
+function get__current_user_username()
+{
+    $user_info = get_userdata(get_current_user_id());
+    return $user_info->user_login;
+}
+
+function get__current_user_email()
+{
+    $user_info = get_userdata(get_current_user_id());
+    return $user_info->user_emal;
 }
 
 function update_first_letter_meta($post_id)
