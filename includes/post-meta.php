@@ -157,7 +157,7 @@ Container::make('theme_options', __('Email Settings'))
 
 Container::make('theme_options', __('Email Settings'))
 	->set_page_parent('users.php')
-	->add_tab('Directory Submitted ', array(
+	->add_fields(array(
 		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-success); color: #fff; font-weight: bold; text-transform: uppercase;"> Admin Email Notification : User Details Updated</div>'),
 		Field::make('text', 'user_details_updated_admin_email_subject', __('Admin Email Subject')),
 		Field::make('rich_text', 'user_details_updated_admin_email_message', __('Admin Email Message')),
