@@ -178,7 +178,7 @@ $Templates = new newPostType();
 $Templates->key = 'templates';
 $Templates->name = 'Templates';
 $Templates->singular_name = 'Template';
-$Templates->icon = 'dashicons-format-aside';
+$Templates->icon = 'dashicons-layout';
 $Templates->supports = array('title', 'editor', 'revisions');
 $Templates->exclude_from_search = true;
 $Templates->publicly_queryable = true;
@@ -189,7 +189,7 @@ $Training_Materials = new newPostType();
 $Training_Materials->key = 'training-materials';
 $Training_Materials->name = 'Training Materials';
 $Training_Materials->singular_name = 'Training Material';
-$Training_Materials->icon = 'dashicons-format-aside';
+$Training_Materials->icon = 'dashicons-media-document';
 $Training_Materials->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
 $Training_Materials->exclude_from_search = false;
 $Training_Materials->publicly_queryable = true;
@@ -204,7 +204,7 @@ $membersmarketplace = new newPostType();
 $membersmarketplace->key = 'membersmarketplace';
 $membersmarketplace->name = 'Member Marketplace';
 $membersmarketplace->singular_name = 'Member Marketplace';
-$membersmarketplace->icon = 'dashicons-format-aside';
+$membersmarketplace->icon = 'dashicons-groups';
 $membersmarketplace->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
 $membersmarketplace->exclude_from_search = false;
 $membersmarketplace->publicly_queryable = true;
@@ -243,7 +243,7 @@ $Packages = new newPostType();
 $Packages->key = 'packages';
 $Packages->name = 'Packages';
 $Packages->singular_name = 'Package';
-$Packages->icon = 'dashicons-format-aside';
+$Packages->icon = 'dashicons-screenoptions';
 $Packages->supports = array('title', 'editor', 'revisions', 'excerpt');
 $Packages->exclude_from_search = true;
 $Packages->publicly_queryable = true;
@@ -321,3 +321,15 @@ function modify_wpsl_stores_admin_label($args, $post_type)
 
 // Hook into the register_post_type_args filter.
 add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2);
+
+
+$Templates = new newPostType();
+$Templates->key = 'email_templates';
+$Templates->name = 'Email Templates';
+$Templates->singular_name = 'Email Template';
+$Templates->icon = 'dashicons-email';
+$Templates->supports = array('title', 'editor', 'revisions');
+$Templates->exclude_from_search = true;
+$Templates->publicly_queryable = true;
+$Templates->show_in_admin_bar = true;
+$Templates->has_archive = false;

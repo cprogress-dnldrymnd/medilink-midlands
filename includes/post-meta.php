@@ -123,3 +123,10 @@ Container::make('theme_options', __('Settings'))
 		Field::make('text', 'member_marketplace_form_heading', __('Form Heading')),
 		Field::make('textarea', 'member_marketplace_form_description', __('Form Description')),
 	));
+
+
+
+Container::make('theme_options', __('Email Templates'))
+	->add_tab('Member Directory', array(
+		Field::make('rich_text', 'member_directory_admin_email', __('Directory Entry Submitted')),
+	));
