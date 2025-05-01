@@ -1166,7 +1166,7 @@ function member_directory_submission_approve($post_id)
     if (get__current_user_username()) {
         $subject_user = sprintf('[%s] Member Directory listing.', get_bloginfo('name'));
         $message_user = '<p>Hurray, your new listing is now live!</p>';
-        $message_user .= '<p>View here https://portal.medilinkmidlands.com/member-directory/</p>';
+        $message_user .= '<div style="padding:10px 0 50px 0;text-align:center"><a href="https://portal.medilinkmidlands.com/member-directory/" style="background:#555555;color:#fff;padding:12px 30px;text-decoration:none;border-radius:3px;letter-spacing:0.3px" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://portal.medilinkmidlands.com/wp-admin/post.php?post%3D51283%26action%3Dedit%26approve_listing%3Dtrue&amp;source=gmail&amp;ust=1746185054504000&amp;usg=AOvVaw1oyXe1tUXqXfh-Y4OcjVWv">View Here</a></div>';
         wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, true, false), '700px', $message_user), $headers);
     }
 }
