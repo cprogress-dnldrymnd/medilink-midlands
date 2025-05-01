@@ -1159,6 +1159,18 @@ function member_directory_submission_email($post_id, $new = false)
 
 
 
+function member_directory_submission_approve($post_id)
+{
+    $headers = 'Content-Type: text/html; charset=UTF-8';
+
+    if (get__current_user_username()) {
+        $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
+        $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
+        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, true, false), '700px', $message_user), $headers);
+    }
+}
+
+
 
 function member_directory_email_fields($post_id, $new = false, $button_url = false)
 {
@@ -1293,3 +1305,26 @@ function update_first_letter_meta($post_id)
 
 // Hook the function to 'save_post' to catch both new and updated posts.
 add_action('post_updated', 'update_first_letter_meta');
+
+
+/**
+ * Sends an email to the author when a post's status changes from 'pending' to 'publish'.
+ *
+ * This function is hooked to the 'transition_post_status' action, which fires
+ * whenever a post's status changes.  It checks for the specific status transition
+ * and sends an email using wp_mail().
+ *
+ * @param string   $new_status The new post status.
+ * @param string   $old_status The old post status.
+ * @param WP_Post  $post       The post object.
+ */
+function notify_author_on_publish($new_status, $old_status, $post)
+{
+    // Check if the status is changing from pending to publish.
+    if ($old_status === 'pending' && $new_status === 'publish' && get_post_type($post->ID)=='wpsl_stores')  {
+        member_directory_submission_approve($post->ID);
+    }
+}
+
+// Hook the function to the 'transition_post_status' action.
+add_action('transition_post_status', 'notify_author_on_publish', 10, 3);
