@@ -1164,8 +1164,9 @@ function member_directory_submission_approve($post_id)
     $headers = 'Content-Type: text/html; charset=UTF-8';
 
     if (get__current_user_username()) {
-        $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
-        $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
+        $subject_user = sprintf('[%s] Member Directory listing.', get_bloginfo('name'));
+        $message_user = '<p>Hurray, your new listing is now live!</p>';
+        $message_user .= '<p>View here https://portal.medilinkmidlands.com/member-directory/</p>';
         wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, true, false), '700px', $message_user), $headers);
     }
 }
@@ -1321,7 +1322,7 @@ add_action('post_updated', 'update_first_letter_meta');
 function notify_author_on_publish($new_status, $old_status, $post)
 {
     // Check if the status is changing from pending to publish.
-    if ($old_status === 'pending' && $new_status === 'publish' && get_post_type($post->ID)=='wpsl_stores')  {
+    if ($old_status === 'pending' && $new_status === 'publish' && get_post_type($post->ID) == 'wpsl_stores') {
         member_directory_submission_approve($post->ID);
     }
 }
