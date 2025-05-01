@@ -1138,15 +1138,16 @@ function member_directory_submission_email($post_id, $new = false)
             $message = sprintf('%s has submitted their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
 
-            $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
-            $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';
+            $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
+            $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
+            
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
             $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
 
-            $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
-            $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
+            $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
+            $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';
         }
 
         wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
