@@ -805,6 +805,8 @@ function um_notify_admin_on_account_update($user_id, $changes)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
+    $admin_email .= $admin_email.',donald@cprogress.co.uk,bradley@cprogress.co.uk';
+
 
     $user_meta_previous = get_user_meta($user_id, 'user_meta_previous', true);
     $changes_html = '';
@@ -1131,7 +1133,7 @@ function member_directory_submission_email($post_id, $new = false)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
-
+    $admin_email .= $admin_email.',donald@cprogress.co.uk,bradley@cprogress.co.uk';
     if (get__current_user_username()) {
         $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit';
 
