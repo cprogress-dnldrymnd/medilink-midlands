@@ -1145,8 +1145,8 @@ function member_directory_submission_email($post_id, $new = false)
             $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
             $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
         } else {
-            $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
-            $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
+            $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_submitted_client_email_subject'));
+            $message = do_shortcode(carbon_get_theme_option('member_directory_submitted_client_email_message')) . "\r\n\r\n";
 
             $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
             $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';

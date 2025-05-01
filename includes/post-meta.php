@@ -128,11 +128,14 @@ Container::make('theme_options', __('Settings'))
 
 Container::make('theme_options', __('Email Settings'))
 	->set_page_parent('edit.php?post_type=wpsl_stores')
-	->add_tab('Directory Submitted Admin Email', array(
+	->add_tab('Directory Submitted ', array(
 		Field::make('text', 'member_directory_submitted_admin_email_subject', __('Admin Email Subject')),
 		Field::make('rich_text', 'member_directory_submitted_admin_email_message', __('Admin Email Message')),
-	))
-	->add_tab('Directory Submitted Client Email', array(
+
 		Field::make('text', 'member_directory_submitted_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_submitted_client_email_message', __('Client Email Message')),
+	))
+	->add_tab('Directory Updated', array(
+		Field::make('text', 'member_directory_updated_client_email_subject', __('Client Email Subject')),
+		Field::make('rich_text', 'member_directory_updated_client_email_message', __('Client Email Message')),
 	));
