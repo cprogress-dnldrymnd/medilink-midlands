@@ -1153,7 +1153,7 @@ function member_directory_submission_email($post_id, $new = false)
 
         wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
 
-        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message_user), $headers);
+        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, false), '700px', $message_user), $headers);
     }
 }
 
