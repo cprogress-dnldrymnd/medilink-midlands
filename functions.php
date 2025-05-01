@@ -1265,8 +1265,8 @@ function member_directory_email_fields($post_id, $new = false, $button_url = fal
 }
 function get__current_user_username()
 {
-    $$current_user = wp_get_current_user();
-    return $current_user->user_login;
+    $user_info = get_userdata(get_current_user_id());
+    return $user_info->user_login;
 }
 
 function get__current_user_email()
