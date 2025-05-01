@@ -821,7 +821,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $subject_admin = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_admin_email_subject'));
         $message_admin = sprintf('%s', carbon_get_theme_option('user_details_updated_admin_email_message')) . "\r\n\r\n";
         $subject_user = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_client_email_subject'));
-        $message_user = sprintf('%s',carbon_get_theme_option('user_details_updated_client_email_message')) . "\r\n\r\n";
+        $message_user = sprintf('%s', carbon_get_theme_option('user_details_updated_client_email_message')) . "\r\n\r\n";
 
 
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
@@ -845,8 +845,8 @@ function um_notify_admin_on_account_update($user_id, $changes)
         }
 
         // Send the email
-        wp_mail($admin_email, $subject_admin, email_template($username, $message_admin . $email_html));
-        wp_mail($user_email, $subject_user, email_template($username, $message_user . $email_html));
+        wp_mail($admin_email, $subject_admin, email_template($username, $email_html, '560px', $message_admin));
+        wp_mail($user_email, $subject_user, email_template($username, $message_user . $email_html, '560px', $message_user));
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
