@@ -144,5 +144,9 @@ Container::make('theme_options', __('Email Settings'))
 	->add_tab('Directory Entry Approve', array(
 		Field::make('text', 'member_directory_approve_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_approve_client_email_message', __('Client Email Message')),
+	))
+	->add_tab('Directory Update Approve', array(
+		Field::make('text', 'member_directory_approve_update_client_email_subject', __('Client Email Subject')),
+		Field::make('rich_text', 'member_directory_approve_update_client_email_message', __('Client Email Message')),
 
 	));

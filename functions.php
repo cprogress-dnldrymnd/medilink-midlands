@@ -1113,6 +1113,9 @@ function my_admin_edit_post_function()
 
         update_post_meta($post_id, '_pending_email', '');
         update_post_meta($post_id, '_pending_website', '');
+
+
+        member_directory_update_approve($post_id);
     } else  if (isset($_GET['approve_listing']) && $_GET['approve_listing'] == 'true') {
         $post_id = $_GET['post'];
         $args['ID'] = $post_id;
@@ -1167,6 +1170,19 @@ function member_directory_submission_approve($post_id)
     if (get__current_user_username()) {
         $subject_user = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_approve_client_email_subject'));
         $message_user = wpautop(carbon_get_theme_option('member_directory_approve_client_email_message'));
+        $message_user .= '<div style="padding:10px 0 50px 0;text-align:center"><a href="https://portal.medilinkmidlands.com/member-directory/" style="background:#555555;color:#fff;padding:12px 30px;text-decoration:none;border-radius:3px;letter-spacing:0.3px" target="_blank" >View Here</a></div>';
+        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, true, false), '700px', $message_user), $headers);
+    }
+}
+
+
+function member_directory_update_approve($post_id)
+{
+    $headers = 'Content-Type: text/html; charset=UTF-8';
+
+    if (get__current_user_username()) {
+        $subject_user = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_approve_update_client_email_subject'));
+        $message_user = wpautop(carbon_get_theme_option('member_directory_approve_update_client_email_message'));
         $message_user .= '<div style="padding:10px 0 50px 0;text-align:center"><a href="https://portal.medilinkmidlands.com/member-directory/" style="background:#555555;color:#fff;padding:12px 30px;text-decoration:none;border-radius:3px;letter-spacing:0.3px" target="_blank" >View Here</a></div>';
         wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), member_directory_email_fields($post_id, true, false), '700px', $message_user), $headers);
     }
