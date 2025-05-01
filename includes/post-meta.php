@@ -126,7 +126,7 @@ Container::make('theme_options', __('Settings'))
 
 
 
-Container::make('theme_options', __('Settings'))
+Container::make('theme_options', __('Email Settings'))
 	->set_page_parent('edit.php?post_type=wpsl_stores')
 	->add_tab('Member Directory', array(
 		Field::make('text', 'member_directory_admin_email_subject', __('Admin Email Subject')),
