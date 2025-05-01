@@ -824,8 +824,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
         $message_user = sprintf('%s', carbon_get_theme_option('user_details_updated_client_email_message')) . "\r\n\r\n";
 
 
-        $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
-        $message .= "Changes:\r\n";
+
         foreach ($user_meta_previous as $key_previous => $previous) {
             $prev_val = $previous;
             $new_val = $changes[$key_previous];
@@ -838,6 +837,9 @@ function um_notify_admin_on_account_update($user_id, $changes)
         }
 
         if ($changes_html != '') {
+            $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
+            $message .= "Changes:\r\n";
+            
             $email_html = "<table style='width: 100%'>";
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Previous Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
             $email_html .= $changes_html;
@@ -846,7 +848,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
 
         // Send the email
         wp_mail($admin_email, $subject_admin, email_template($username, $email_html, '560px', $message_admin));
-        wp_mail($user_email, $subject_user, email_template($username, $message_user . $email_html, '560px', $message_user));
+        wp_mail($user_email, $subject_user, email_template($username, $email_html, '560px', $message_user));
     }
 }
 add_action('um_after_user_updated', 'um_notify_admin_on_account_update', 10, 2);
