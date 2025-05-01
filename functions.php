@@ -1132,14 +1132,13 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
     if (get__current_user_username()) {
 
-
         if ($new == true) {
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
-            $message = sprintf('%s has submitted their directory details - %s.', $username, get_the_title($post_id)) . "\r\n\r\n";
+            $message = sprintf('%s has submitted their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
-            $message = sprintf('%s updated their directory details - %s.', $username, get_the_title($post_id)) . "\r\n\r\n";
+            $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
         }
 
