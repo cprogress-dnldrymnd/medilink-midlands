@@ -1591,10 +1591,6 @@ add_shortcode('user_marketplace', 'user_marketplace');
 function user_directory()
 {
     ob_start();
-    $user_info = get_userdata(get_current_user_id());
-    $username = $user_info->user_login;
-   echo $user_email = $user_info->user_email;
-
     $membersmarketplace = get_posts(array(
         'post_type'   => 'wpsl_stores',
         'numberposts' => -1,
@@ -1602,7 +1598,7 @@ function user_directory()
         'post_status' => array('publish', 'private', 'pending')
     ));
 
-
+   
     echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Membership Directory</h3>';
     echo '<div class="membership-directory">';
