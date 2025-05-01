@@ -134,7 +134,7 @@ Container::make('theme_options', __('Email Templates'))
 Container::make('post_meta', __('Email Settings'))
 	->where('post_type', '=', 'email_templates')
 	->add_fields(array(
-		Field::make('text', 'email_recipient', __('Email Recipient'))->set_help_text('Comma Seperated Emails'),
+		Field::make('text', 'email_recipient', __('Email Recipient'))->set_help_text('Comma Seperated Email'),
 		Field::make('text', 'subject', __('Subject')),
 		Field::make('textarea', 'message', __('Message')),
 	));
