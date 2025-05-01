@@ -810,14 +810,14 @@ function um_notify_admin_on_account_update($user_id, $changes)
 
     $user_meta_previous = get_user_meta($user_id, 'user_meta_previous', true);
     $changes_html = '';
-
+    $admin_email = 'donald@cprogress.co.uk';
     if ($admin_email) {
         $user_info = get_userdata($user_id);
         $username = $user_info->user_login;
         $user_email = $user_info->user_email;
 
-        $subject = sprintf('[%s] User Account Updated', get_bloginfo('name'));
-        $message = sprintf('A user has updated their account details on %s.', get_bloginfo('name')) . "\r\n\r\n";
+        $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('user_details_updated_admin_email_subject'));
+        $message = sprintf('[%s] %s', get_bloginfo('name'), ) . "\r\n\r\n";
         $message .= sprintf('Username: %s (%s)', $username, $user_email) . "\r\n\r\n";
         $message .= "Changes:\r\n";
         foreach ($user_meta_previous as $key_previous => $previous) {
