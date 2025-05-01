@@ -1600,6 +1600,7 @@ function user_directory()
 
     echo get__current_user_email();
     echo 'xx';
+    echo get__current_user_username();
     echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Membership Directory</h3>';
     echo '<div class="membership-directory">';

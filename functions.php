@@ -1265,14 +1265,14 @@ function member_directory_email_fields($post_id, $new = false, $button_url = fal
 }
 function get__current_user_username()
 {
-    $user_info = get_userdata(get_current_user_id());
-    return $user_info->user_login;
+    $$current_user = wp_get_current_user();
+    return $current_user->user_email;
 }
 
 function get__current_user_email()
 {
-    $user_info = get_userdata(get_current_user_id());
-    return $user_info->user_emal;
+    $current_user = wp_get_current_user();
+    return $current_user->user_email;
 }
 
 function update_first_letter_meta($post_id)
