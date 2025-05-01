@@ -1132,12 +1132,6 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
     $admin_email = 'donald@cprogress.co.uk';
 
     if (get__current_user_username()) {
-        $changes_html = '';
-        $_pending_title = get_post_meta($post_id, '_pending_title', true);
-        $_pending_description = get_post_meta($post_id, '_pending_description', true);
-        $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
-        $_pending_email = get_post_meta($post_id, '_pending_email', true);
-        $_pending_website = get_post_meta($post_id, '_pending_website', true);
 
 
         if ($new == true) {
@@ -1151,99 +1145,9 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
         }
 
 
-        if ($new == true) {
-            $current_title = get_the_title($post_id);
-            $changes_html .= "<tr>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
-            $changes_html .= "</tr>";
-
-            $current_content = get_the_content(NULL, false, $post_id);
-            $changes_html .= "<tr>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
-            $changes_html .= "</tr>";
-
-            $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
-            $changes_html .= "<tr>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
-            $changes_html .= "</tr>";
-
-            $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
-            $changes_html .= "<tr>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
-            $changes_html .= "</tr>";
-
-            $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
-            $changes_html .= "<tr>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
-            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
-            $changes_html .= "</tr>";
-
-            if ($changes_html != '') {
-                $email_html = "<table style='width: 100%'>";
-                $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Value</th></tr>";
-                $email_html .= $changes_html;
-                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Directory Listing</a></div></td></tr>';
-                $email_html .= "</table>";
-            }
-        } else {
-            if ($_pending_title) {
-                $current_title = get_the_title($post_id);
-                $changes_html .= "<tr>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
-                $changes_html .= "</tr>";
-            }
-            if ($_pending_description) {
-                $current_content = get_the_content(NULL, false, $post_id);
-                $changes_html .= "<tr>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
-                $changes_html .= "</tr>";
-            }
-
-            if ($_pending_phone) {
-                $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
-                $changes_html .= "<tr>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
-                $changes_html .= "</tr>";
-            }
-            if ($_pending_email) {
-                $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
-                $changes_html .= "<tr>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
-                $changes_html .= "</tr>";
-            }
-            if ($_pending_website) {
-                $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
-                $changes_html .= "<tr>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
-                $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
-                $changes_html .= "</tr>";
-            }
-
-            if ($changes_html != '') {
-                $email_html = "<table style='width: 100%'>";
-                $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
-                $email_html .= $changes_html;
-                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
-                $email_html .= "</table>";
-            }
-        }
-
 
         $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($admin_email, $subject, email_template(get__current_user_username(), $email_html, '700px', $message), $headers);
+        wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
     }
 }
 
@@ -1270,6 +1174,110 @@ function notify_user_on_member_directory_update($post_id, $new = false)
     }
 }
 
+function member_directory_email_fields($post_id, $new = false, $button_url = false)
+{
+    $changes_html = '';
+    $_pending_title = get_post_meta($post_id, '_pending_title', true);
+    $_pending_description = get_post_meta($post_id, '_pending_description', true);
+    $_pending_phone = get_post_meta($post_id, '_pending_phone', true);
+    $_pending_email = get_post_meta($post_id, '_pending_email', true);
+    $_pending_website = get_post_meta($post_id, '_pending_website', true);
+
+    if ($new == true) {
+        $current_title = get_the_title($post_id);
+        $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
+        $changes_html .= "</tr>";
+
+        $current_content = get_the_content(NULL, false, $post_id);
+        $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
+        $changes_html .= "</tr>";
+
+        $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
+        $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
+        $changes_html .= "</tr>";
+
+        $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
+        $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
+        $changes_html .= "</tr>";
+
+        $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
+        $changes_html .= "<tr>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
+        $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
+        $changes_html .= "</tr>";
+
+        if ($changes_html != '') {
+            $email_html = "<table style='width: 100%'>";
+            $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Value</th></tr>";
+            $email_html .= $changes_html;
+            if ($button_url) {
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Directory Listing</a></div></td></tr>';
+            }
+            $email_html .= "</table>";
+        }
+    } else {
+        if ($_pending_title) {
+            $current_title = get_the_title($post_id);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Organisation</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_title</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_title</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_description) {
+            $current_content = get_the_content(NULL, false, $post_id);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Description</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$current_content</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_description</td>";
+            $changes_html .= "</tr>";
+        }
+
+        if ($_pending_phone) {
+            $wpsl_phone = get_post_meta($post_id, 'wpsl_phone', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Phone</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_phone</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_phone</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_email) {
+            $wpsl_email = get_post_meta($post_id, 'wpsl_email', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Email</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_email</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_email</td>";
+            $changes_html .= "</tr>";
+        }
+        if ($_pending_website) {
+            $wpsl_url = get_post_meta($post_id, 'wpsl_url', true);
+            $changes_html .= "<tr>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'><b>Website</b></td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$wpsl_url</td>";
+            $changes_html .= "<td style='padding: 10px; text-align: left; font-weight: 400'>$_pending_website</td>";
+            $changes_html .= "</tr>";
+        }
+
+        if ($changes_html != '') {
+            $email_html = "<table style='width: 100%'>";
+            $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Current Value</th><th style='padding: 10px; text-align: left'>New Value</th></tr>";
+            $email_html .= $changes_html;
+            if ($button_url) {
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background:rgb(0, 0, 0); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Approve Changes</a></div></td></tr>';
+            }
+            $email_html .= "</table>";
+        }
+    }
+    return $email_html;
+}
 function get__current_user_username()
 {
     $user_info = get_userdata(get_current_user_id());
