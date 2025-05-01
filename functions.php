@@ -805,7 +805,7 @@ function um_notify_admin_on_account_update($user_id, $changes)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
-    $admin_email .= $admin_email.',donald@cprogress.co.uk,bradley@cprogress.co.uk';
+    $admin_email .= $admin_email . ',donald@cprogress.co.uk,bradley@cprogress.co.uk';
 
 
     $user_meta_previous = get_user_meta($user_id, 'user_meta_previous', true);
@@ -1133,13 +1133,13 @@ function member_directory_submission_email($post_id, $new = false)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
-    $admin_email .= $admin_email.',donald@cprogress.co.uk,bradley@cprogress.co.uk';
+    $admin_email .= $admin_email . ',donald@cprogress.co.uk,bradley@cprogress.co.uk';
     if (get__current_user_username()) {
         $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit';
 
         if ($new == true) {
-            $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
-            $message = sprintf('%s has submitted their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
+            $subject = sprintf('[%s] %s', get_bloginfo('name'), carbon_get_theme_option('member_directory_submitted_admin_email_subject'));
+            $message = do_shortcode(carbon_get_theme_option('member_directory_submitted_admin_email_message')) . "\r\n\r\n";
 
             $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
             $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
