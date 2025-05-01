@@ -1129,6 +1129,7 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
     }
+    $admin_email = 'donald@cprogress.co.uk';
 
     if (get__current_user_username()) {
         $changes_html = '';
