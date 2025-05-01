@@ -136,8 +136,9 @@ Container::make('theme_options', __('Email Settings'))
 		Field::make('rich_text', 'member_directory_submitted_client_email_message', __('Client Email Message')),
 	))
 	->add_tab('Directory Updated', array(
+		Field::make('text', 'member_directory_updated_admin_email_subject', __('Admin Email Subject')),
+		Field::make('rich_text', 'member_directory_updated_admin_email_message', __('Admin Email Message')),
 		Field::make('text', 'member_directory_updated_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'member_directory_updated_client_email_message', __('Client Email Message')),
-		Field::make('text', 'member_directory_updated_client_email_subject', __('Client Email Subject')),
-		Field::make('rich_text', 'member_directory_updated_client_email_message', __('Client Email Message')),
+
 	));
