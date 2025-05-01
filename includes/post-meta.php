@@ -130,3 +130,11 @@ Container::make('theme_options', __('Email Templates'))
 	->add_tab('Member Directory', array(
 		Field::make('rich_text', 'member_directory_admin_email', __('Directory Entry Submitted')),
 	));
+
+Container::make('post_meta', __('Email Settings'))
+	->where('post_type', '=', 'email_templates')
+	->add_fields(array(
+		Field::make('text', 'email_recipient', __('Email Recipient'))->set_help_text('Comma Seperated Emails'),
+		Field::make('text', 'subject', __('Subject')),
+		Field::make('textarea', 'message', __('Message')),
+	));
