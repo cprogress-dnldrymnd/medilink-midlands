@@ -303,14 +303,14 @@ function getDomain($url)
 {
     $pieces = parse_url($url);
     $domain = isset($pieces['host']) ? $pieces['host'] : '';
-    if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+    if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z]{2,}\.[a-z]{2,})$/i', $domain, $regs)) {
+        return $regs['domain'];
+    } elseif (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z]{2,})$/i', $domain, $regs)) {
         return $regs['domain'];
     } else {
         return $url;
     }
 }
-
-
 
 function addHttpsToUrl($url)
 {
@@ -346,6 +346,7 @@ function addHttpsToUrl($url)
     // 4. Return an error message or throw an exception:
     // return "Invalid URL format.";  // Or throw new Exception("Invalid URL format.");
 }
+
 
 function post__grid($posts): bool|string
 {
