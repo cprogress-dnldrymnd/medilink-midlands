@@ -129,7 +129,7 @@ Container::make('theme_options', __('Settings'))
 Container::make('theme_options', __('Email Settings'))
 	->set_page_parent('edit.php?post_type=wpsl_stores')
 	->add_tab('Directory Submitted ', array(
-		Field::make('html', 'html_1')->set_html('<div> Admin Email Notification</div>'),
+		Field::make('html', 'html_1')->set_html('<div style="margin: -12px; padding: 12px; background-color: var(--color-success); color: #fff; font-weight: bold; text-transform: uppercase;"> Admin Email Notification</div>'),
 		Field::make('text', 'member_directory_submitted_admin_email_subject', __('Admin Email Subject')),
 		Field::make('rich_text', 'member_directory_submitted_admin_email_message', __('Admin Email Message')),
 
