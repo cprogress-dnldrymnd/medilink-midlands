@@ -185,6 +185,7 @@ $Templates->publicly_queryable = true;
 $Templates->show_in_admin_bar = true;
 $Templates->has_archive = false;
 
+/*
 $Email_Templates = new newPostType();
 $Email_Templates->key = 'email_templates';
 $Email_Templates->name = 'Email Templates';
@@ -194,7 +195,7 @@ $Email_Templates->supports = array('title', 'editor', 'revisions');
 $Email_Templates->exclude_from_search = true;
 $Email_Templates->publicly_queryable = true;
 $Email_Templates->show_in_admin_bar = true;
-$Email_Templates->has_archive = false;
+$Email_Templates->has_archive = false;*/
 
 
 $Training_Materials = new newPostType();
