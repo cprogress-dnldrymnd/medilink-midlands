@@ -298,6 +298,55 @@ function membership_listing($id = false, $allow_edit = false)
     return ob_get_clean();
 }
 
+
+function getDomain($url)
+{
+    $pieces = parse_url($url);
+    $domain = isset($pieces['host']) ? $pieces['host'] : '';
+    if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+        return $regs['domain'];
+    } else {
+        return $url;
+    }
+}
+
+
+
+function addHttpsToUrl($url)
+{
+    // Trim whitespace from the beginning and end of the URL
+    $url = trim($url);
+
+    // Check if the URL is empty or null
+    if (empty($url)) {
+        return ""; // Or handle it differently, like returning null or throwing an exception
+    }
+
+    // Check if the URL already starts with "https://" or "http://" (case-insensitive)
+    if (stripos($url, "https://") === 0 || stripos($url, "http://") === 0) {
+        return $url; // URL already has a protocol, return it as is
+    }
+
+    // Check if the URL starts with "www." (case-insensitive)
+    if (stripos($url, "www.") === 0) {
+        return "https://" . $url; // Add "https://"
+    }
+
+    // If none of the above conditions are met, it might be a local path or something else.
+    // You can choose how to handle this:
+    // 1. Return the original URL (no change):
+    return $url;
+
+    // 2. Add "http://" (less secure, but might be what you want in some cases):
+    // return "http://" . $url;
+
+    // 3. Return "https://" anyway (might lead to errors if it's not a web address):
+    // return "https://" . $url;
+
+    // 4. Return an error message or throw an exception:
+    // return "Invalid URL format.";  // Or throw new Exception("Invalid URL format.");
+}
+
 function post__grid($posts): bool|string
 {
     ob_start(); ?>
