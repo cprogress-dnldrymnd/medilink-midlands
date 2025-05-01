@@ -1162,6 +1162,8 @@ function notify_user_on_member_directory_update($post_id, $new = false)
             $subject = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
             $message = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
         }
+
+        
         $email_html = "<table style='width: 100%'>";
         $email_html .= "<tr><td>$message</td></tr>";
         $email_html .= "</table>";
