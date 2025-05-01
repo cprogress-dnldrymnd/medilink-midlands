@@ -881,12 +881,14 @@ function email_template($display_name, $changes, $max_width = '560px', $message 
         <div style='padding: 0 30px 30px 30px;border-bottom: 3px solid #eeeeee'>
             <div style='padding: 30px 0;font-size: 24px;text-align: center;line-height: 40px'><?= $message_val ?></div>
 
-            <div style='padding: 0 0 15px 0'>
-                <div
-                    style='background: #eee;color: #444;padding: 12px 15px;border-radius: 3px;font-weight: bold;font-size: 16px'>
-                    <?= $changes ?>
+            <?php if ($changes) { ?>
+                <div style='padding: 0 0 15px 0'>
+                    <div
+                        style='background: #eee;color: #444;padding: 12px 15px;border-radius: 3px;font-weight: bold;font-size: 16px'>
+                        <?= $changes ?>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
         <div style='color: #999;padding: 20px 30px'>
             <div>Thank you!</div>
@@ -1140,7 +1142,6 @@ function member_directory_submission_email($post_id, $new = false)
 
             $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
             $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
-            
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
             $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
@@ -1152,7 +1153,7 @@ function member_directory_submission_email($post_id, $new = false)
 
         wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
 
-        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), $message_user, '700px', $message), $headers);
+        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), false, '700px', $message_user), $headers);
     }
 }
 
