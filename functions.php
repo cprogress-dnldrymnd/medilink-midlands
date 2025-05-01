@@ -178,7 +178,7 @@ function membership_listing($id = false, $allow_edit = false)
             } else {
                 update_post_meta($edit_id, '_pending_website', '');
             }
-            notify_admin_on_member_directory_update($post_id);
+            member_directory_submission_email($post_id);
             notify_user_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
@@ -1122,8 +1122,10 @@ function my_admin_edit_post_function()
 add_action('load-post.php', 'my_admin_edit_post_function');
 
 
-function notify_admin_on_member_directory_update($post_id, $new = false)
+function member_directory_submission_email($post_id, $new = false)
 {
+    $headers = 'Content-Type: text/html; charset=UTF-8';
+
     $ultimate_member_options = get_option('um_options');
     if (isset($ultimate_member_options['admin_email'])) {
         $admin_email = $ultimate_member_options['admin_email'];
@@ -1136,43 +1138,26 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
             $subject = sprintf('[%s] A user has submitted a member directory entry.', get_bloginfo('name'));
             $message = sprintf('%s has submitted their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_listing=true';
+
+            $subject_user = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
+            $message_user = 'Your directory entry update has been submitted. The team have received your update and will review.';
         } else {
             $subject = sprintf('[%s] User Member Directory Updated', get_bloginfo('name'));
             $message = sprintf('%s updated their directory details - %s.', get__current_user_username(), get_the_title($post_id)) . "\r\n\r\n";
             $button_url = 'https://portal.medilinkmidlands.com/wp-admin/post.php?post=' . $post_id . '&action=edit&approve_changes=true';
+
+            $subject_user = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
+            $message_user = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
         }
 
-
-
-        $headers = 'Content-Type: text/html; charset=UTF-8';
         wp_mail($admin_email, $subject, email_template(get__current_user_username(), member_directory_email_fields($post_id, $new, $button_url), '700px', $message), $headers);
+
+        wp_mail(get__current_user_email(), $subject_user, email_template(get__current_user_username(), $message_user, '700px', $message), $headers);
     }
 }
 
 
-function notify_user_on_member_directory_update($post_id, $new = false)
-{
 
-    $email = get__current_user_email();
-    if (get__current_user_username()) {
-        if ($new == false) {
-            $subject = sprintf('[%s] Directory Entry Updated.', get_bloginfo('name'));
-            $message = 'Your directory entry update has been submitted. The team have received your update and will review.';
-        } else {
-            $subject = sprintf('[%s] Directory Entry Submitted.', get_bloginfo('name'));
-            $message = 'Thank you for submitting your Directory entry. The team have received your update and will review.';
-        }
-
-        
-        $email_html = "<table style='width: 100%'>";
-        $email_html .= "<tr><td>$message</td></tr>";
-        $email_html .= "</table>";
-
-
-        $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($email, $subject, email_template(get__current_user_username(), $email_html, '700px', $message), $headers);
-    }
-}
 
 function member_directory_email_fields($post_id, $new = false, $button_url = false)
 {
