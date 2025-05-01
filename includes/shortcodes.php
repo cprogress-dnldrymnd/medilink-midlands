@@ -1650,7 +1650,6 @@ function user_directory()
                     }
                     $post_id = wp_insert_post($args);
                     member_directory_submission_email($post_id, true);
-                    notify_user_on_member_directory_update($post_id, true);
                     wp_redirect('?profiletab=directory');
                     exit;
                 }
