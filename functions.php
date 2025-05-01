@@ -179,6 +179,7 @@ function membership_listing($id = false, $allow_edit = false)
                 update_post_meta($edit_id, '_pending_website', '');
             }
             notify_admin_on_member_directory_update($post_id);
+            notify_user_on_member_directory_update($post_id);
             ?>
             <div class="message">Information succesfully submitted and needs to be review.</div>
         <?php } else { ?>
@@ -1241,7 +1242,7 @@ function notify_admin_on_member_directory_update($post_id, $new = false)
 
 
         $headers = 'Content-Type: text/html; charset=UTF-8';
-        wp_mail($admin_email, $subject, email_template($username, $email_html, '700px', $message), $headers);
+        wp_mail($admin_email, $subject, email_template(get__current_user_username(), $email_html, '700px', $message), $headers);
     }
 }
 
@@ -1261,6 +1262,10 @@ function notify_user_on_member_directory_update($post_id, $new = false)
         $email_html = "<table style='width: 100%'>";
         $email_html .= "<tr><td>$message</td></tr>";
         $email_html .= "</table>";
+
+
+        $headers = 'Content-Type: text/html; charset=UTF-8';
+        wp_mail($email, $subject, email_template(get__current_user_username(), $email_html, '700px', $message), $headers);
     }
 }
 
