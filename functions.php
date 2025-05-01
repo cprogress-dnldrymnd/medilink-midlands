@@ -885,7 +885,6 @@ function email_template($display_name, $changes, $max_width = '560px', $message 
             <div style='padding: 0 0 15px 0'>
                 <div
                     style='background: #eee;color: #444;padding: 12px 15px;border-radius: 3px;font-weight: bold;font-size: 16px'>
-                    Here are the changes on the account:<br /><br />
                     <?= $changes ?>
                 </div>
             </div>
