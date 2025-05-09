@@ -2267,8 +2267,16 @@ body:not(.modal-window-active) #modal-window-1 .modal-window__content {
   background-color: var(--green-color) !important; }
 
 #um_upload_single .um-modal-header.um-modal-header {
-  height: auto; }
+  height: auto;
+  padding-bottom: 20px; }
   #um_upload_single .um-modal-header.um-modal-header:after {
-    content: 'Images must be uploaded in the following formats: PNG, JPG, JPEG. Images are recommended to be uploaded at 500x500px to avoid any errors'; }
+    content: 'Images must be uploaded in the following formats: PNG, JPG, JPEG. Images are recommended to be uploaded at 500x500px to avoid any errors';
+    display: block;
+    line-height: 1.2;
+    font-size: 13px;
+    background-color: #4CAF50;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px; }
 
 /*# sourceMappingURL=style.css.map */
