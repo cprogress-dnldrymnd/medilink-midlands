@@ -1118,11 +1118,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
   border: none;
   box-shadow: none; }
 
-.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts
-.list-view
-.post-details
-.post-name
-a {
+.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts .list-view .post-details .post-name a {
   color: var(--black-color) !important; }
 
 #navbar .btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu a {
@@ -2269,5 +2265,10 @@ body:not(.modal-window-active) #modal-window-1 .modal-window__content {
 .vc_btn3.vc_btn3-color-juicy-pink,
 .vc_btn3.vc_btn3-color-juicy-pink.vc_btn3-style-flat {
   background-color: var(--green-color) !important; }
+
+#um_upload_single .um-modal-header.um-modal-header {
+  height: auto; }
+  #um_upload_single .um-modal-header.um-modal-header:after {
+    content: 'Images must be uploaded in the following formats: PNG, JPG, JPEG. Images are recommended to be uploaded at 500x500px to avoid any errors'; }
 
 /*# sourceMappingURL=style.css.map */
