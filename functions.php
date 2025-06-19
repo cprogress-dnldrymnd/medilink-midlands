@@ -1241,7 +1241,9 @@ function member_directory_email_fields($post_id, $new = false, $button_url = fal
             $email_html .= "<tr><th style='padding: 10px; text-align: left'>Label</th><th style='padding: 10px; text-align: left'>Value</th></tr>";
             $email_html .= $changes_html;
             if ($button_url) {
-                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><a href="' . $button_url . '"  style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-style="background: #555555; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 3px; letter-spacing: 0.3px;" data-mce-selected="inline-boundary">Review Listing</a></div></td></tr>';
+                $email_html .= '<tr><td colspan="3" style="padding-top: 30px"><div style="padding: 10px 0 50px 0; text-align: center;" data-mce-style="padding: 10px 0 50px 0; text-align: center;"><table>
+<tr><td style="background: #34bfa3; color: #fff; padding: 12px 30px; border-radius: 5px;"><div><a href="' . $button_url . '"  style="text-decoration: none; border-radius: 3px; letter-spacing: 0.3px; color: #fff !important" >Review Listing</a></div></td></tr>
+</table></div></td></tr>';
             }
             $email_html .= "</table>";
         }
