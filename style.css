@@ -2251,13 +2251,29 @@ div.bbp-topic-tags,
 
   .home #primary {
     padding-top: 40px !important; } }
-body.modal-window-active #modal-window-1 .modal-window__wrapper,
-body.modal-window-active #modal-window-1 .modal-window__content {
-  display: block !important; }
-body:not(.modal-window-active) #modal-window-1 .modal-window__wrapper,
-body:not(.modal-window-active) #modal-window-1 .modal-window__content {
-  display: none !important; }
+/*
+body {
+    &.modal-window-active {
+        #modal-window-1 {
 
+            .modal-window__wrapper,
+            .modal-window__content {
+                display: block !important;
+            }
+        }
+    }
+
+    &:not(.modal-window-active) {
+        #modal-window-1 {
+
+            .modal-window__wrapper,
+            .modal-window__content {
+                display: none !important;
+            }
+        }
+    }
+}
+*/
 @media (max-width: 1199px) {
   .um-page-user .header-title-breadcrumb-overlay {
     padding-bottom: 120px !important; } }
