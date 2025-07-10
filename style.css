@@ -225,6 +225,15 @@ footer .container {
 
 .blog-posts-v2.blog-posts-v2.blog-posts-v2 .single-post .blog_custom {
   height: 100%; }
+.blog-posts-v2.blog-posts-v2.blog-posts-v2 .featured_image_blog {
+  position: relative;
+  padding: 35% 0; }
+  .blog-posts-v2.blog-posts-v2.blog-posts-v2 .featured_image_blog img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
 
 .post-date {
   font-size: 15px;
@@ -1118,7 +1127,11 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
   border: none;
   box-shadow: none; }
 
-.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts .list-view .post-details .post-name a {
+.blog-posts-shortcode.blog-posts-shortcode.blog-posts-shortcode.blog-posts.blog-posts-shortcode.blog-posts
+.list-view
+.post-details
+.post-name
+a {
   color: var(--black-color) !important; }
 
 #navbar .btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu.btn-menu a {
@@ -2286,11 +2299,11 @@ body {
   height: auto;
   padding-bottom: 20px; }
   #um_upload_single .um-modal-header.um-modal-header:after {
-    content: 'Images must be uploaded in the following formats: PNG, JPG, JPEG. Images are recommended to be uploaded at 500x500px to avoid any errors';
+    content: "Images must be uploaded in the following formats: PNG, JPG, JPEG. Images are recommended to be uploaded at 500x500px to avoid any errors";
     display: block;
     line-height: 1.2;
     font-size: 12px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     padding: 15px;
     text-align: center;
     border-radius: 10px; }
