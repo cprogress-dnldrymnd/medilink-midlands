@@ -88,6 +88,8 @@ $featureds = get_posts(array(
                             </div>
                         <?php } ?>
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                     <div class="swiper-pagination"></div>
 
                 </div>
@@ -157,6 +159,10 @@ $featureds = get_posts(array(
         autoheight: true,
         pagination: {
             el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
     });
 </script>
