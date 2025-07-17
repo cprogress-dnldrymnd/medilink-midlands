@@ -9,7 +9,13 @@ jQuery(document).ready(function () {
     profile_marketplace_nav();
     claim_offer();
 });
-
+function readmore() {
+    jQuery('.read-more-link').click(function (e) { 
+        jQuery(this).prev().show();
+        e.preventDefault();
+        
+    });
+}
 function remove_topic_form() {
     jQuery('.bbp-role-bbp_participant  .bbp-topic-form').remove();
 }
