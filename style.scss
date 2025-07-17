@@ -648,6 +648,12 @@ footer .container {
         padding-left: 30px;
         padding-right: 30px;
     }
+    &:hover {
+        .swiper-button {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
 }
 .featured-offers.featured-offers {
     overflow: visible;
@@ -656,6 +662,8 @@ footer .container {
         overflow: hidden;
     }
     .swiper-button {
+        opacity: 0;
+        visibility: hidden;
         --swiper-navigation-sides-offset: -50px;
         width: 30px;
         height: 30px;

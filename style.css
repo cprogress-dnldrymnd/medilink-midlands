@@ -527,12 +527,17 @@ footer .container {
     .latest-offers {
       padding-left: 30px;
       padding-right: 30px; } }
+  .latest-offers:hover .swiper-button {
+    opacity: 0;
+    visibility: hidden; }
 
 .featured-offers.featured-offers {
   overflow: visible; }
   .featured-offers.featured-offers .swiper {
     overflow: hidden; }
   .featured-offers.featured-offers .swiper-button {
+    opacity: 0;
+    visibility: hidden;
     --swiper-navigation-sides-offset: -50px;
     width: 30px;
     height: 30px;
