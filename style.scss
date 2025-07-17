@@ -635,10 +635,14 @@ footer .container {
         font-size: 15px;
         outline: none !important;
     }
-    
+}
+.latest-offers {
+    padding-left: 50px;
+    padding-right: 50px;
 }
 .featured-offers.featured-offers {
     overflow: hidden;
+
     .swiper {
         overflow: visible;
     }
