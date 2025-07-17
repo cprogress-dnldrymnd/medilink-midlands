@@ -506,6 +506,14 @@ footer .container {
   margin-bottom: 20px; }
   .featured-offers .offer-details ul br {
     display: none !important; }
+  .featured-offers .offer-details .button-winona.button-winona.button-winona.button-winona {
+    background-color: transparent;
+    color: var(--green-color);
+    padding: 0;
+    text-transform: unset;
+    font-weight: 600;
+    font-size: 15px;
+    outline: none !important; }
 
 .read-more-link {
   color: var(--green-color) !important; }
