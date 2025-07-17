@@ -1364,16 +1364,13 @@ function addReadMore($text, $ID, $limit = 250)
         $lastSpace = strrpos(substr($text, 0, $limit), ' ');
         $truncatedText = substr($text, 0, $lastSpace);
 
-        // Get the hidden part of the text
-        $hiddenText = substr($text, $lastSpace);
-
         // Construct the output HTML
         // The hidden text is wrapped in a span with a class 'hidden-text' and display: none;
         // A 'read-more-link' is added to toggle the visibility of the hidden text.
         $output = '<p>' . $truncatedText . '... ';
         $output = _claim_offer_button($ID);
         $output .= '</p>';
-        return nl2br($output);
+        return $output;
     } else {
         // If the text is within the limit, return it as is
         return nl2br($text);
