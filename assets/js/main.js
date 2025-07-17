@@ -8,6 +8,7 @@ jQuery(document).ready(function () {
     textarea_counter();
     profile_marketplace_nav();
     claim_offer();
+    readmore();
 });
 function readmore() {
     jQuery('.read-more-link').click(function (e) { 
