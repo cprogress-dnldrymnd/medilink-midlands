@@ -521,7 +521,7 @@ footer .container {
   padding-right: 50px; }
 
 .featured-offers.featured-offers {
-  overflow: hidden; }
+  overflow: visible; }
   .featured-offers.featured-offers .swiper {
     overflow: visible; }
   .featured-offers.featured-offers .swiper-wrapper {
