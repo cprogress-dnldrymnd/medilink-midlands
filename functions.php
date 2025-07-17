@@ -1356,7 +1356,7 @@ function notify_author_on_publish($new_status, $old_status, $post)
 add_action('transition_post_status', 'notify_author_on_publish', 10, 3);
 
 
-function addReadMore($text, $limit = 150, $readMoreText = 'Read More')
+function addReadMore($text, $limit = 250, $readMoreText = 'Read More')
 {
     // Check if the text length is greater than the specified limit
     if (strlen($text) > $limit) {
