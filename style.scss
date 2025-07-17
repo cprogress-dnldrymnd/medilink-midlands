@@ -635,6 +635,22 @@ footer .container {
         font-size: 15px;
         outline: none !important;
     }
+    
+}
+.featured-offers.featured-offers {
+    overflow: visible;
+    .swiper, .swiper-wrapper {
+        overflow: visible;
+    }
+    .swiper-button {
+        --swiper-navigation-sides-offset: -50px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        --swiper-navigation-size: 20px;
+        --swiper-navigation-color: var(--white-color);
+    }
 }
 .read-more-link {
     color: var(--green-color) !important;
