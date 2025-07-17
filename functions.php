@@ -1379,9 +1379,9 @@ function addReadMore($text, $limit = 250, $readMoreText = 'Read More')
         } else {
             $output = $truncatedText;
         }
-        return $output;
+        return wpautop($output);
     } else {
         // If the text is within the limit, return it as is
-        return $text;
+        return wpautop($text);
     }
 }
