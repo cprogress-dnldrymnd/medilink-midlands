@@ -678,7 +678,7 @@ footer .container {
         height: 30px;
         background-color: var(--white-color);
         border-radius: 50%;
-        --swiper-navigation-size: 18px;
+        --swiper-navigation-size: 15px;
         --swiper-navigation-color: var(--black-color);
         box-shadow: 0px 1px 4px #00000069;
         transition: 400ms;
@@ -687,7 +687,7 @@ footer .container {
             --swiper-navigation-sides-offset: -30px;
             width: 25px;
             height: 25px;
-            --swiper-navigation-size: 15px;
+            --swiper-navigation-size: 12px;
         }
     }
 }
