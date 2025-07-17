@@ -574,6 +574,9 @@ footer .container {
   width: 50%;
   text-align: left;
   bottom: 30px; }
+  @media (max-width: 575px) {
+    .featured-offers .swiper-pagination {
+      width: 100%; } }
 
 .featured-offers .featured-image,
 .featured-offers .featured-image img {

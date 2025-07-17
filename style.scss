@@ -703,6 +703,9 @@ footer .container {
     width: 50%;
     text-align: left;
     bottom: 30px;
+    @media(max-width: 575px) {
+        width: 100%;
+    }
 }
 
 .featured-offers .featured-image,
