@@ -1371,7 +1371,7 @@ function addReadMore($text, $limit = 250, $readMoreText = 'Read More')
         // The hidden text is wrapped in a span with a class 'hidden-text' and display: none;
         // A 'read-more-link' is added to toggle the visibility of the hidden text.
         $output = '<p>'.$truncatedText . '... </p><a href="#" class="read-more-link">' . $readMoreText . '</a>';
-        return nl2br($output);
+        return $output;
     } else {
         // If the text is within the limit, return it as is
         return nl2br($text);
