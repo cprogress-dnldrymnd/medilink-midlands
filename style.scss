@@ -620,6 +620,11 @@ footer .container {
 
 .featured-offers .offer-details {
     margin-bottom: 20px;
+    ul {
+        br {
+            display: none !important;
+        }
+    }
 }
 
 .current-offers.current-offers .desc {
