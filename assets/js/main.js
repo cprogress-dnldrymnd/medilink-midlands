@@ -12,8 +12,7 @@ jQuery(document).ready(function () {
 });
 function readmore() {
     jQuery('.read-more-link').click(function (e) { 
-        jQuery(this).parent().find('.hidden-text').show();
-        jQuery(this).hide();
+        jQuery(this).parents('.offer-details').find('.claim-offer-button').click();
         e.preventDefault();
         
     });
