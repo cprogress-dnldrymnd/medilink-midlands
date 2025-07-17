@@ -1356,7 +1356,7 @@ function notify_author_on_publish($new_status, $old_status, $post)
 add_action('transition_post_status', 'notify_author_on_publish', 10, 3);
 
 
-function addReadMore($text, $ID, $limit = 250)
+function addReadMore($text, $limit = 250, $readMoreText = 'Read More')
 {
     // Check if the text length is greater than the specified limit
     if (strlen($text) > $limit) {
@@ -1364,14 +1364,18 @@ function addReadMore($text, $ID, $limit = 250)
         $lastSpace = strrpos(substr($text, 0, $limit), ' ');
         $truncatedText = substr($text, 0, $lastSpace);
 
+        // Get the hidden part of the text
+        $hiddenText = substr($text, $lastSpace);
+
         // Construct the output HTML
         // The hidden text is wrapped in a span with a class 'hidden-text' and display: none;
         // A 'read-more-link' is added to toggle the visibility of the hidden text.
-        $output = '<p>' . $truncatedText . '... ';
-        $output .= '</p>';
-        return $output;
+        $output = '<p>'.$truncatedText . '... ' .
+          
+            '<a href="#" class="read-more-link">' . $readMoreText . '</a></p>';
+        return nl2br($output);
     } else {
         // If the text is within the limit, return it as is
-        return $text;
+        return nl2br($text);
     }
 }
