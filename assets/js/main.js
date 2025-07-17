@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
 });
 function readmore() {
     jQuery('.read-more-link').click(function (e) { 
-        jQuery(this).parents('.offer-details').find('.claim-offer-button').click();
+        jQuery(this).parent().find('.claim-offer-button').click();
         e.preventDefault();
         
     });
