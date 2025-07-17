@@ -1367,9 +1367,8 @@ function addReadMore($text, $ID, $limit = 250)
         // Construct the output HTML
         // The hidden text is wrapped in a span with a class 'hidden-text' and display: none;
         // A 'read-more-link' is added to toggle the visibility of the hidden text.
-        $output = '<p>' . $truncatedText . '... ';
+        $output = $truncatedText . '... ';
         $output .= _claim_offer_button($ID, 'Read More');
-        $output .= '</p>';
         return $output;
     } else {
         // If the text is within the limit, return it as is
