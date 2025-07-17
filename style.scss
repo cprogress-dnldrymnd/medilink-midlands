@@ -628,12 +628,17 @@ footer .container {
     }
     .button-winona.button-winona.button-winona.button-winona {
         background-color: transparent;
-        color: var(--green-color);
-        padding: 0;
+        color: var(--gray-color);
+        padding: 0 !important;
         text-transform: unset;
         font-weight: 600;
         font-size: 15px;
         outline: none !important;
+        text-decoration: underline;
+        border-radius: 0;
+        &:after {
+            display: none;
+        }
     }
 }
 .latest-offers {
@@ -703,7 +708,7 @@ footer .container {
     width: 50%;
     text-align: left;
     bottom: 30px;
-    @media(max-width: 575px) {
+    @media (max-width: 575px) {
         width: 100%;
     }
 }

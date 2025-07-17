@@ -509,12 +509,16 @@ footer .container {
     display: none !important; }
   .featured-offers .offer-details .button-winona.button-winona.button-winona.button-winona {
     background-color: transparent;
-    color: var(--green-color);
-    padding: 0;
+    color: var(--gray-color);
+    padding: 0 !important;
     text-transform: unset;
     font-weight: 600;
     font-size: 15px;
-    outline: none !important; }
+    outline: none !important;
+    text-decoration: underline;
+    border-radius: 0; }
+    .featured-offers .offer-details .button-winona.button-winona.button-winona.button-winona:after {
+      display: none; }
 
 .latest-offers {
   padding-left: 50px;
