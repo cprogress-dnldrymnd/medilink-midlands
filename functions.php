@@ -1373,6 +1373,6 @@ function addReadMore($text, $ID, $limit = 250)
         return $output;
     } else {
         // If the text is within the limit, return it as is
-        return nl2br($text);
+        return $text;
     }
 }
