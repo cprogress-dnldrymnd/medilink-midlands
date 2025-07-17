@@ -69,7 +69,7 @@ $featureds = get_posts(array(
                                                 </div>
                                                 <?php if ($featured->post_content) { ?>
                                                     <div class="offer-details">
-                                                        <?= addReadMore($featured->post_content, $ID) ?>
+                                                        <?= addReadMore($featured->post_content) ?>
                                                     </div>
                                                 <?php } ?>
                                                 <div class="modeltheme_button">
