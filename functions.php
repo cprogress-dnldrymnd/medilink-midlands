@@ -1373,7 +1373,7 @@ function addReadMore($text, $ID, $limit = 250)
         $output = '<p>' . $truncatedText . '... ' .
             '<span class="hidden-text" style="display:none;">' . $hiddenText . '</span>' .
             _claim_offer_button($ID, 'Read More').'</p>';
-        return nl2br($output);
+        return $output;
     } else {
         // If the text is within the limit, return it as is
         return nl2br($text);
