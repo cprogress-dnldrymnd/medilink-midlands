@@ -651,8 +651,15 @@ footer .container {
     &:hover {
         .featured-offers.featured-offers {
             .swiper-button {
-                opacity: 1;
                 visibility: visible;
+                transform: translateY(0);
+
+                &:not(.swiper-button-disabled) {
+                    opacity: 1;
+                }
+                &.swiper-button-disabled {
+                    opacity: 0.5;
+                }
             }
         }
     }
@@ -674,6 +681,8 @@ footer .container {
         --swiper-navigation-size: 18px;
         --swiper-navigation-color: var(--black-color);
         box-shadow: 0px 1px 4px #00000069;
+        transition: 400ms;
+        transform: translateY(-10px);
         @media (max-width: 575px) {
             --swiper-navigation-sides-offset: -30px;
             width: 25px;
