@@ -158,6 +158,7 @@ $featureds = get_posts(array(
 <script>
     var swiper = new Swiper(".swiper-featured-offers", {
         autoheight: true,
+        loop: true,
         pagination: {
             el: ".swiper-pagination",
         },
