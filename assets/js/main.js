@@ -12,6 +12,7 @@ jQuery(document).ready(function () {
 });
 function readmore() {
     jQuery('.read-more-link').click(function (e) { 
+        console.log('xxx');
         jQuery(this).parent().find('.claim-offer-button').click();
         e.preventDefault();
         
