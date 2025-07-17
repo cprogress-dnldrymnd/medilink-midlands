@@ -507,6 +507,9 @@ footer .container {
   .featured-offers .offer-details ul br {
     display: none !important; }
 
+.read-more-link {
+  color: var(--green-color) !important; }
+
 .current-offers.current-offers .desc {
   margin-bottom: 20px; }
 
