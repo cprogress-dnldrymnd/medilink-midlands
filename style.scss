@@ -657,16 +657,17 @@ footer .container {
     }
     .swiper-button {
         --swiper-navigation-sides-offset: -50px;
-        width: 40px;
-        height: 40px;
-        background-color: var(--accent-color);
+        width: 30px;
+        height: 30px;
+        background-color: var(--white-color);
         border-radius: 50%;
-        --swiper-navigation-size: 20px;
-        --swiper-navigation-color: var(--white-color);
+        --swiper-navigation-size: 18px;
+        --swiper-navigation-color: var(--black-color);
+        box-shadow: 0px 1px 4px #00000069;
         @media (max-width: 575px) {
-            --swiper-navigation-sides-offset: -40px;
-            width: 30px;
-            height: 30px;
+            --swiper-navigation-sides-offset: -30px;
+            width: 25px;
+            height: 25px;
             --swiper-navigation-size: 15px;
         }
     }
