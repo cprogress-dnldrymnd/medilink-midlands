@@ -13,6 +13,7 @@ jQuery(document).ready(function () {
 function readmore() {
     jQuery('.read-more-link').click(function (e) { 
         jQuery(this).prev().show();
+        jQuery(this).hide();
         e.preventDefault();
         
     });
