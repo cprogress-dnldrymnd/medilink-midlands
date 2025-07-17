@@ -503,7 +503,8 @@ footer .container {
   margin-bottom: 20px; }
 
 .featured-offers .offer-details {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  color: var(--gray-color); }
   .featured-offers .offer-details ul br {
     display: none !important; }
   .featured-offers .offer-details .button-winona.button-winona.button-winona.button-winona {
