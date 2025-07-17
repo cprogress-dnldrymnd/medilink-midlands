@@ -1372,7 +1372,7 @@ function addReadMore($text, $limit = 150, $readMoreText = 'Read More') {
         $output = $truncatedText . '... ' .
                   '<span class="hidden-text" style="display:none;">' . $hiddenText . '</span>' .
                   '<a href="#" class="read-more-link">' . $readMoreText . '</a>';
-        return wpautop($output, true);
+        return $output;
     } else {
         // If the text is within the limit, return it as is
         return $text;
