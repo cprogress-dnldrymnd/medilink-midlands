@@ -649,9 +649,11 @@ footer .container {
         padding-right: 30px;
     }
     &:hover {
-        .swiper-button {
-            opacity: 1;
-            visibility: visible;
+        .featured-offers.featured-offers {
+            .swiper-button {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
 }

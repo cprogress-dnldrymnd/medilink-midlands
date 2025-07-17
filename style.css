@@ -527,7 +527,7 @@ footer .container {
     .latest-offers {
       padding-left: 30px;
       padding-right: 30px; } }
-  .latest-offers:hover .swiper-button {
+  .latest-offers:hover .featured-offers.featured-offers .swiper-button {
     opacity: 1;
     visibility: visible; }
 
