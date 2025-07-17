@@ -88,11 +88,12 @@ $featureds = get_posts(array(
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="swiper-button swiper-button-prev"></div>
-                    <div class="swiper-button swiper-button-next"></div>
+
                     <div class="swiper-pagination"></div>
 
                 </div>
+                <div class="swiper-button swiper-button-prev swiper-button-prev-offers"></div>
+                <div class="swiper-button swiper-button-next swiper-button-next-offers"></div>
             </div>
         </div>
     </section>
@@ -161,8 +162,8 @@ $featureds = get_posts(array(
             el: ".swiper-pagination",
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next-offers",
+            prevEl: ".swiper-button-prev-offers",
         },
     });
 </script>

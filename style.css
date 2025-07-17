@@ -523,8 +523,6 @@ footer .container {
 .featured-offers.featured-offers {
   overflow: visible; }
   .featured-offers.featured-offers .swiper {
-    overflow: visible; }
-  .featured-offers.featured-offers .swiper-wrapper {
     overflow: hidden; }
   .featured-offers.featured-offers .swiper-button {
     --swiper-navigation-sides-offset: -50px;
