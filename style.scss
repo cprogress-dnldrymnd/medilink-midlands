@@ -650,8 +650,8 @@ footer .container {
     }
     &:hover {
         .swiper-button {
-            opacity: 0;
-            visibility: hidden;
+            opacity: 1;
+            visibility: visible;
         }
     }
 }
