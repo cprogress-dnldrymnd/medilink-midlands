@@ -166,3 +166,10 @@ Container::make('theme_options', __('Email Settings'))
 		Field::make('text', 'user_details_updated_client_email_subject', __('Client Email Subject')),
 		Field::make('rich_text', 'user_details_updated_client_email_message', __('Client Email Message')),
 	));
+
+
+Container::make('theme_options', __('Theme Settings'))
+	->add_fields(array(
+		Field::make('media_gallery', 'patron_logos', __('Patron'))
+			->set_type(array('image'))
+	));
