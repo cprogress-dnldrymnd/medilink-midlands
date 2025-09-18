@@ -2369,4 +2369,9 @@ body {
     text-align: center;
     border-radius: 10px; }
 
+.event-custom-text.event-custom-text {
+  line-height: 1.2;
+  font-size: 12px;
+  margin-top: 10px; }
+
 /*# sourceMappingURL=style.css.map */

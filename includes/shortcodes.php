@@ -1912,7 +1912,7 @@ function event_grid()
         <div class="bottom">
             <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> Visit Event </a> </div>
             <?php if ($custom_text) { ?>
-                <div class="custom-text">
+                <div class="event-custom-text">
                     <?= $custom_text ?>
                 </div>
             <?php } ?>
