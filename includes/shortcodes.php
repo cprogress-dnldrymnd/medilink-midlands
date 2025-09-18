@@ -1928,6 +1928,7 @@ function events_listing_search()
 ?>
     <div class="event-listing-search">
         <form action="<?= get_the_permalink() ?>">
+            <input type="date" name="event_date"  value="<?= isset($_GET['event_date']) && $_GET['event_date'] != '' ? $_GET['event_date'] : '' ?>" required>
             <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" required>
             <input type="hidden" name="type" value="<?= isset($_GET['type']) && $_GET['type'] != '' ? $_GET['type'] : '' ?>" required>
             <button type="submit">
