@@ -1827,14 +1827,31 @@ function events_listing()
         $event_type = 'upcoming';
         $compare = '>=';
     }
-    $args['meta_query'] = array(
-        array(
-            'key'     => '_event_date',
-            'value'   => $today,
-            'compare' => $compare,
-            'type'    => 'DATE',
-        ),
-    );
+
+    if (isset($_GET['event_date']) && $_GET['event_date'] != '') {
+        $args['meta_query'] = array(
+            array(
+                'key'     => '_event_date',
+                'value'   => $_GET['event_date'],
+                'compare' => '=',
+                'type'    => 'DATE',
+            ),
+        );
+    } else {
+        $args['meta_query'] = array(
+            array(
+                'key'     => '_event_date',
+                'value'   => $today,
+                'compare' => $compare,
+                'type'    => 'DATE',
+            ),
+        );
+    }
+
+
+
+
+
     $args['meta_key'] = '_event_date';
     $args['orderby'] = 'meta_value_num';
     $args['order'] = 'ASC';
@@ -1928,7 +1945,7 @@ function events_listing_search()
 ?>
     <div class="event-listing-search">
         <form action="<?= get_the_permalink() ?>">
-            <input type="date" name="event_date"  value="<?= isset($_GET['event_date']) && $_GET['event_date'] != '' ? $_GET['event_date'] : '' ?>" >
+            <input type="date" name="event_date" value="<?= isset($_GET['event_date']) && $_GET['event_date'] != '' ? $_GET['event_date'] : '' ?>">
             <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" required>
             <input type="hidden" name="type" value="<?= isset($_GET['type']) && $_GET['type'] != '' ? $_GET['type'] : '' ?>" required>
             <button type="submit">
