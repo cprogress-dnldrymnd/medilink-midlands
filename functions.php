@@ -731,6 +731,9 @@ function action_wp_footer()
     $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
     $title_area_button_text = get_post_meta(get_the_ID(), 'title_area_button_text', true);
     $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
+
+    $title_area_button_text_2 = get_post_meta(get_the_ID(), 'title_area_button_text_2', true);
+    $title_area_button_link_2 = get_post_meta(get_the_ID(), 'title_area_button_link_2', true);
     if ($title_area_description || $title_area_button_text) { ?>
         <script>
             jQuery(document).ready(function() {
@@ -738,7 +741,15 @@ function action_wp_footer()
                     jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
                 <?php } ?>
                 <?php if ($title_area_button_text) { ?>
-                    jQuery('<div class="modeltheme_button "> <a href="<?= $title_area_button_link ?>" class="button-winona button-green btn btn-sm"> <?= $title_area_button_text ?> </a> </div>').insertAfter('.breadcrumb');
+                    jQuery('<div class="title-area-buttons modeltheme_button"> <div class="modeltheme_button "> <a href="<?= $title_area_button_link ?>" class="button-winona button-green btn btn-sm"> <?= $title_area_button_text ?> </a> </div></div>').insertAfter('.breadcrumb');
+                <?php } ?>
+                <?php if ($title_area_button_text_2) { ?>
+                    if (jQuery('.title-area-buttons').length > 0) {
+                        jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').appendTo('.title-area-buttons');
+                    } else {
+                        jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').insertAfter('.breadcrumb');
+                    }
+
                 <?php } ?>
             });
         </script>
@@ -1372,7 +1383,7 @@ function addReadMore($text, $ID, $limit = 250)
         // A 'read-more-link' is added to toggle the visibility of the hidden text.
         $output = '<p>' . $truncatedText . '... ' .
             '<span class="hidden-text" style="display:none;">' . $hiddenText . '</span>' .
-            _claim_offer_button($ID, 'Read More').'</p>';
+            _claim_offer_button($ID, 'Read More') . '</p>';
         return $output;
     } else {
         // If the text is within the limit, return it as is

@@ -168,8 +168,15 @@ Container::make('theme_options', __('Email Settings'))
 	));
 
 
-Container::make('theme_options', __('Theme Settings'))
-	->add_fields(array(
-		Field::make('media_gallery', 'patron_logos', __('Patron'))
-			->set_type(array('image'))
-	));
+/**/
+
+
+
+Container::make('post_meta', 'Events Details')
+	->where('post_type', '=', 'events')
+	->add_fields(
+	array(
+		Field::make('date', 'event_date', __('Event Date')),
+		Field::make('text', 'event_link', __('Event Link')),
+	)
+);

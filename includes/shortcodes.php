@@ -1734,3 +1734,204 @@ function display_name()
 }
 
 add_shortcode('display_name', 'display_name');
+
+
+
+function patron_logos()
+{
+    ob_start();
+    $patron_logos = get_posts(array(
+        'post_type' => 'wpsl_stores',
+        'numberposts' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'wpsl_store_category',
+                'field' => 'slug',
+                'terms' => 'patron-member',
+            ),
+        ),
+    ));
+    ?>
+    <div class="patron-logos">
+        <div class="swiper swiper-patron-logos">
+            <div class="swiper-wrapper">
+                <?php foreach ($patron_logos as $patron_logo) { ?>
+                    <?php
+                    $wpsl_url = get_post_meta($patron_logo->ID, 'wpsl_url', true);
+                    if (get_the_post_thumbnail($patron_logo->ID)) {
+                    ?>
+                        <div class="swiper-slide">
+                            <div class="patron-logo">
+                                <?php if ($wpsl_url) { ?>
+                                    <a href="<?= addHttpsToUrl($wpsl_url); ?>" target="_blank" rel="noopener noreferrer">
+                                    <?php } ?>
+                                    <?= get_the_post_thumbnail($patron_logo->ID) ?>
+                                    <?php if ($wpsl_url) { ?>
+                                    </a>
+                                <?php } ?>
+
+                            </div>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('.patron-logos .patron-logo').each(function(index, element) {
+                $width = jQuery(this).outerWidth();
+                jQuery(this).parent().css('--width', $width + 'px');
+            });
+
+            var swiper_logos = new Swiper(".swiper-patron-logos", {
+                slidesPerView: "auto",
+                spaceBetween: 0,
+                speed: 5000,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
+                },
+            });
+        });
+    </script>
+<?php
+    return ob_get_clean();
+}
+add_shortcode('patron_logos', 'patron_logos');
+
+
+function events_listing()
+{
+    ob_start();
+    $args = array(
+        'post_status' => 'publish',
+        'post_type'   => 'events',
+        'posts_per_page' => -1,
+    );
+    $today = date('Y-m-d');
+    if (isset($_GET['type']) && $_GET['type'] == 'upcoming') {
+        $event_type = 'upcoming';
+        $upcoming_class = 'active';
+        $historic_class = '';
+        $compare = '>=';
+    } else if (isset($_GET['type']) && $_GET['type'] == 'historic') {
+        $upcoming_class = '';
+        $historic_class = 'active';
+        $event_type = 'historic';
+        $compare = '<=';
+    } else {
+        $upcoming_class = 'active';
+        $historic_class = '';
+        $event_type = 'upcoming';
+        $compare = '>=';
+    }
+    $args['meta_query'] = array(
+        array(
+            'key'     => '_event_date',
+            'value'   => $today,
+            'compare' => $compare,
+            'type'    => 'DATE',
+        ),
+    );
+    $args['meta_key'] = '_event_date';
+    $args['orderby'] = 'meta_value_num';
+    $args['order'] = 'ASC';
+    if (isset($_GET['event_search']) && $_GET['event_search'] != '') {
+        $args['s'] = $_GET['event_search'];
+    }
+
+    $the_query = new WP_Query($args);
+
+
+
+?>
+    <div class="events-tabs">
+        <ul>
+            <li class="<?= $upcoming_class ?>"><a href="<?php the_permalink() ?>?type=upcoming">Upcoming</a></li>
+            <li class="<?= $historic_class ?>"><a href="<?php the_permalink() ?>?type=historic">Historic</a></li>
+            <li class="results">Showing <?= $the_query->found_posts; ?> results</li>
+        </ul>
+    </div>
+    <div class="events-grid-holder">
+        <input type="hidden" value="<?= $event_type ?>">
+        <div class="events-row row row-flex">
+            <?php if ($the_query->have_posts()) { ?>
+                <?php while ($the_query->have_posts()) { ?>
+                    <?php $the_query->the_post(); ?>
+                    <div class="col-lg-3">
+                        <?= event_grid() ?>
+                    </div>
+                <?php } ?>
+                <?php wp_reset_postdata() ?>
+            <?php } else { ?>
+                <div class="no-results">
+                    No events found.
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
+add_shortcode('events_listing', 'events_listing');
+
+
+function event_grid()
+{
+    ob_start();
+    $event_date = carbon_get_the_post_meta('event_date');
+    $event_link = carbon_get_the_post_meta('event_link');
+    $events_category = get_the_terms($post->ID, 'events_category');
+    $dateObject = new DateTime($event_date);
+    $date = $dateObject->format('d F Y');
+?>
+    <div class="event-grid">
+        <div class="top">
+            <div class="image-box">
+                <?php the_post_thumbnail('large') ?>
+            </div>
+            <div class="details-box">
+                <div class="date">
+                    <?= $date ?>
+                </div>
+                <div class="cat">
+                    <?php foreach ($events_category as $cat) { ?>
+                        <span> <?= $cat->name ?></span>
+                    <?php } ?>
+                </div>
+                <div class="event-title">
+                    <h3>
+                        <?php the_title() ?>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> Visit Event </a> </div>
+        </div>
+    </div>
+<?php
+    return ob_get_clean();
+}
+
+function events_listing_search()
+{
+    ob_start();
+?>
+    <div class="event-listing-search">
+        <form action="<?= get_the_permalink() ?>">
+            <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" required>
+            <input type="hidden" name="type" value="<?= isset($_GET['type']) && $_GET['type'] != '' ? $_GET['type'] : '' ?>" required>
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </button>
+        </form>
+    </div>
+<?php
+    return ob_get_clean();
+}
+add_shortcode('events_listing_search', 'events_listing_search');
