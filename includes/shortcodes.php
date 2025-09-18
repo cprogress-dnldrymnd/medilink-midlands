@@ -1598,7 +1598,7 @@ function user_directory()
         'post_status' => array('publish', 'private', 'pending')
     ));
 
-   
+
     echo '<div class="user-posts marketplace-posts">';
     echo '<h3 class="main-heading">Membership Directory</h3>';
     echo '<div class="membership-directory">';
@@ -1681,7 +1681,7 @@ function user_directory()
                         </button>
                     </div>
                 </form>
-<?php
+    <?php
             } else {
                 echo ' <div style="text-align: center; margin-top: 30px"> <a href="?profiletab=directory&new_entry=true" class="button-winona button-accent btn btn-sm">
                 Submit Entry
@@ -1883,6 +1883,7 @@ function event_grid()
     ob_start();
     $event_date = carbon_get_the_post_meta('event_date');
     $event_link = carbon_get_the_post_meta('event_link');
+    $custom_text = carbon_get_the_post_meta('custom_text');
     $events_category = get_the_terms($post->ID, 'events_category');
     $dateObject = new DateTime($event_date);
     $date = $dateObject->format('d F Y');
@@ -1910,6 +1911,11 @@ function event_grid()
         </div>
         <div class="bottom">
             <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> Visit Event </a> </div>
+            <?php if ($custom_text) { ?>
+                <div class="custom-text">
+                    <?= $custom_text ?>
+                </div>
+            <?php } ?>
         </div>
     </div>
 <?php
