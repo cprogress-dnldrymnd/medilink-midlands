@@ -299,12 +299,12 @@ class Temporary_Login_Plugin
         ob_start();
         ?>
         <style>
-            .temp-login-container { max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+            .temp-login-container { max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
             .temp-login-container h3 { text-align: center; margin-bottom: 25px; color: #333; }
             .temp-login-container .form-row { margin-bottom: 15px; }
             .temp-login-container label { display: block; margin-bottom: 5px; font-weight: bold; color: #555;}
             .temp-login-container input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-            .temp-login-container .submit-button { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: #0073aa; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
+            .temp-login-container .submit-button { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: #34BFA3; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
             .temp-login-container .submit-button:hover { background-color: #005f8a; }
             .temp-login-error { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1; text-align: center; }
         </style>
