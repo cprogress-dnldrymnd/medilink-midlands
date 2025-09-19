@@ -33,6 +33,7 @@ require_once('includes/shortcodes.php');
 require_once('includes/post-types.php');
 require_once('includes/ajax.php');
 require_once('redux-framework/redux-framework.php');
+require_once('includes/temporary-login.php');
 
 
 function change_mt_listing_slug($args, $post_type)
