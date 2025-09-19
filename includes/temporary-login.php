@@ -305,7 +305,7 @@ class Temporary_Login_Plugin
             .temp-login-container label { display: block; margin-bottom: 5px; font-weight: bold; color: #555;}
             .temp-login-container input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
             .temp-login-container .submit-button { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: #34BFA3; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
-            .temp-login-container .submit-button:hover { background-color: #005f8a; }
+            .temp-login-container .submit-button:hover { background-color: #FF8335; }
             .temp-login-error { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1; text-align: center; }
         </style>
 
