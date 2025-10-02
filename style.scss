@@ -1115,7 +1115,7 @@ p:last-child {
     color: var(--accent-color);
 }
 
-.text-left.text-left.text-left * {
+.text-left.text-left.text-left *:not(.text-right) {
     text-align: left;
 }
 

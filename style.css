@@ -907,7 +907,7 @@ p:last-child {
 .contact-tikidocs.contact-tikidocs label i {
   color: var(--accent-color); }
 
-.text-left.text-left.text-left * {
+.text-left.text-left.text-left *:not(.text-right) {
   text-align: left; }
 
 .btn-bordered.btn-bordered.btn-bordered.btn-bordered.btn-bordered.btn-bordered a {
