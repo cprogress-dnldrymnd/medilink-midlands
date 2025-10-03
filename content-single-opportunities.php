@@ -48,6 +48,7 @@ if (!is_active_sidebar($sidebar)) {
                     <h1>Opportunities</h1>
                     <ol class="breadcrumb text-left">
                         <li><a href="https://portal.medilinkmidlands.com/">Home</a></li>
+                        <li><a href="https://portal.medilinkmidlands.com/">Opportunities</a></li>
                         <li class="active">Test</li>
                     </ol>
 
