@@ -1974,7 +1974,7 @@ body.header-title-style-2 #primary {
     gap: 10px;
     padding: 0; }
 
-  .single.single-post .article-header .article-details .post-title {
+  .single.single-post .article-header .article-details .post-title, .single.single-opportunities .article-header .article-details .post-title {
     padding: 0; }
 
   .box-shadow-inner.box-shadow-inner.box-shadow-inner img {
