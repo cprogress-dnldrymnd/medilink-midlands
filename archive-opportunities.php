@@ -29,7 +29,9 @@ $theme_init = new wikb_init_class;
                         <li><a href="<?= get_site_url() ?>">Home</a></li>
                         <li>OPPORTUNITIES</li>
                     </ol>
-
+                    <div class="desc">
+                        <p>Connect with the rest of the community and find latest deals inside our member marketplace.</p>
+                    </div>
                 </div>
             </div>
         </div>
