@@ -1959,6 +1959,10 @@ body.header-title-style-2 #primary {
   text-transform: uppercase;
   margin-top: 8px; }
 
+.single.single-post .header-title-breadcrumb-overlay,
+.single.single-opportunities .header-title-breadcrumb-overlay {
+  padding-bottom: 50px !important; }
+
 @media (max-width: 575px) {
   .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
     flex-direction: column; }
