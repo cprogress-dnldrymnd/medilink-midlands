@@ -399,5 +399,5 @@ $Opportunities->show_in_admin_bar = true;
 $Opportunities->has_archive = true;
 $Opportunities->rewrite = array(
     'with_front' => false,
-    'slug'       => 'member-marketplace',
+    'slug'       => 'opportunities',
 );
