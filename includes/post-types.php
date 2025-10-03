@@ -398,6 +398,6 @@ $Opportunities->publicly_queryable = true;
 $Opportunities->show_in_admin_bar = true;
 $Opportunities->has_archive = true;
 $Opportunities->rewrite = array(
-    'with_front' => false,
+    'with_front' => true,
     'slug'       => 'opportunities',
 );
