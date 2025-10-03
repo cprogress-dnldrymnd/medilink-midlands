@@ -1432,3 +1432,14 @@ function custom_remove_archive_title_prefix( $title ) {
 }
 
 add_filter( 'get_the_archive_title', 'custom_remove_archive_title_prefix' );
+
+/**
+ * Replaces the default "[...]" with "..." for excerpts.
+ *
+ * @param string $more The default excerpt more string.
+ * @return string The custom excerpt more string.
+ */
+function custom_excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
