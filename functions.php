@@ -1391,6 +1391,14 @@ function addReadMore($text, $ID, $limit = 250)
         return nl2br($text);
     }
 }
+// On bbPress screens, request a bigger avatar (UM will generate profile_photo-160x160.png)
+add_filter( 'pre_get_avatar_data', function( $args ) {
+    if ( function_exists('is_bbpress') && is_bbpress() ) {
+        $args['size'] = 160; // or 192/256 if you prefer
+    }
+    return $args;
+}, 10 );
+
 
 /**
  * Removes the contextual prefix from archive titles.
