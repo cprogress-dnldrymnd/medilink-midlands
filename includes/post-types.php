@@ -336,3 +336,19 @@ function modify_wpsl_stores_admin_label($args, $post_type)
 add_filter('register_post_type_args', 'modify_wpsl_stores_admin_label', 10, 2);
 
 
+
+
+$Opportunities = new newPostType();
+$Opportunities->key = 'opportunities';
+$Opportunities->name = 'Opportunities';
+$Opportunities->singular_name = 'Opportunity';
+$Opportunities->icon = 'dashicons-groups';
+$Opportunities->supports = array('title', 'editor', 'revisions', 'thumbnail', 'author');
+$Opportunities->exclude_from_search = false;
+$Opportunities->publicly_queryable = true;
+$Opportunities->show_in_admin_bar = true;
+$Opportunities->has_archive = true;
+$Opportunities->rewrite = array(
+    'with_front' => false,
+    'slug'       => 'member-marketplace',
+);
