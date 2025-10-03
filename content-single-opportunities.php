@@ -82,7 +82,7 @@ if ( function_exists('modeltheme_framework')) {
                     <div class="article-header">
                         <div class="article-details">
                             <h1 class="post-title col-md-6">
-                                <strong>Opportunities</strong>
+                                <strong><?php echo wp_kses_post(get_the_title()); ?></strong>
                             </h1>
                             
                             <div class="post-category-comment-date row col-md-6">
