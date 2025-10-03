@@ -1442,4 +1442,4 @@ add_filter( 'get_the_archive_title', 'custom_remove_archive_title_prefix' );
 function custom_excerpt_more( $more ) {
     return '...';
 }
-add_filter( 'excerpt_more', 'custom_excerpt_more' );
+add_filter( 'excerpt_more', 'custom_excerpt_more', 99 );
