@@ -27,7 +27,7 @@ $theme_init = new wikb_init_class;
                     <h1>Opportunities</span></h1>
                     <ol class="breadcrumb text-left">
                         <li><a href="<?= get_site_url() ?>">Home</a></li>
-                        <li>Opportunities</li>
+                        <li>OPPORTUNITIES</li>
                     </ol>
 
                 </div>
