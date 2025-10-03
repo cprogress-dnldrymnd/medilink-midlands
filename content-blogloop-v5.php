@@ -121,7 +121,7 @@ $content = strip_tags($content);
                 <div class="post-excerpt row">
                     <?php
                     if (get_the_excerpt() || get_the_excerpt() != '') {
-                        echo wp_kses_post(wikb_excerpt_limit(get_the_excerpt(), 20));
+                        echo wp_kses_post(wikb_excerpt_limit(get_the_excerpt(), 20)) . '...';
                     }
                     ?>
                     <div class="text-element content-element">
