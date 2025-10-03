@@ -45,9 +45,9 @@ if (!is_active_sidebar($sidebar)) {
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 text-left">
-                    <h1>Blog</h1>
+                    <h1>Opportunities</h1>
                     <ol class="breadcrumb text-left">
-                        <li><a href="https://portal.medilinkmidlands.com/">Opportunities</a></li>
+                        <li><a href="https://portal.medilinkmidlands.com/">Home</a></li>
                         <li class="active">Test</li>
                     </ol>
 
