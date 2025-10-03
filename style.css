@@ -1954,6 +1954,11 @@ body.header-title-style-2 #primary {
 
   .header-title-breadcrumb-overlay.header-title-breadcrumb-overlay:before {
     display: none; } }
+.single.single-opportunities .article-header .article-details .post-title {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-top: 8px; }
+
 @media (max-width: 575px) {
   .blogloop-v2.blogloop-no-flex.list-view .blog_custom {
     flex-direction: column; }
@@ -1974,7 +1979,8 @@ body.header-title-style-2 #primary {
     gap: 10px;
     padding: 0; }
 
-  .single.single-post .article-header .article-details .post-title, .single.single-opportunities .article-header .article-details .post-title {
+  .single.single-post .article-header .article-details .post-title,
+  .single.single-opportunities .article-header .article-details .post-title {
     padding: 0; }
 
   .box-shadow-inner.box-shadow-inner.box-shadow-inner img {
