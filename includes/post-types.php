@@ -397,6 +397,7 @@ $Opportunities->exclude_from_search = false;
 $Opportunities->publicly_queryable = true;
 $Opportunities->show_in_admin_bar = true;
 $Opportunities->has_archive = true;
+$Opportunities->show_in_rest = true;
 $Opportunities->rewrite = array(
     'with_front' => true,
     'slug'       => 'opportunity',
