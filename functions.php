@@ -1391,3 +1391,36 @@ function addReadMore($text, $ID, $limit = 250)
         return nl2br($text);
     }
 }
+
+/**
+ * Removes the contextual prefix from archive titles.
+ *
+ * This function hooks into the 'get_the_archive_title' filter and checks
+ * the type of archive page being displayed. It then returns only the
+ * title of the term, post type, or author, without the default prefix.
+ *
+ * @param string $title The original archive title.
+ * @return string The modified archive title without a prefix.
+ */
+function custom_remove_archive_title_prefix( $title ) {
+    if ( is_category() ) {
+        // For category archives, return only the category name.
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        // For tag archives, return only the tag name.
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        // For author archives, return the author's display name.
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif ( is_post_type_archive() ) {
+        // For post type archives, return the post type's name.
+        $title = post_type_archive_title( '', false );
+    } elseif ( is_tax() ) {
+        // For custom taxonomy archives, return the term name.
+        $title = single_term_title( '', false );
+    }
+
+    return $title;
+}
+
+add_filter( 'get_the_archive_title', 'custom_remove_archive_title_prefix' );
