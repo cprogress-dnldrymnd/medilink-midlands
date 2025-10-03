@@ -400,5 +400,5 @@ $Opportunities->has_archive = true;
 $Opportunities->show_in_rest = true;
 $Opportunities->rewrite = array(
     'with_front' => true,
-    'slug'       => 'opportunity',
+    'slug'       => 'opportunities',
 );
