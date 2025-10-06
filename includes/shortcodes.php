@@ -1918,7 +1918,7 @@ function event_grid()
     ob_start();
     $event_date = carbon_get_the_post_meta('event_date');
     $event_link = carbon_get_the_post_meta('event_link');
-    $custom_text = carbon_get_the_post_meta('custom_text');
+    $custom_text = get_the_content();
     $event_link_text = carbon_get_the_post_meta('event_link_text');
     $events_category = get_the_terms($post->ID, 'events_category');
 
