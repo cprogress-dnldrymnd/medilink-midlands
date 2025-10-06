@@ -196,5 +196,5 @@ Container::make('theme_options', __('Settings'))
 Container::make('theme_options', __('Settings'))
 	->set_page_parent('edit.php?post_type=events')
 	->add_fields(array(
-		Field::make('text', 'events_description', __('Events Link Text')),
+		Field::make('text', 'events_link_text', __('Events Link Text')),
 	));

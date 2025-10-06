@@ -1916,6 +1916,8 @@ function event_grid()
     $events_category = get_the_terms($post->ID, 'events_category');
     $dateObject = new DateTime($event_date);
     $date = $dateObject->format('d F Y');
+
+    
 ?>
     <div class="event-grid">
         <div class="top">
