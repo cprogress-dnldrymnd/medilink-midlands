@@ -1856,8 +1856,8 @@ function events_listing($atts)
         );
     }
 
-    if($show_all == 'false'){
-        $args['posts_per_page'] = 4;{
+    if ($show_all == 'false') {
+        $args['posts_per_page'] = 4;
     }
 
 
