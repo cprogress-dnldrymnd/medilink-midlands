@@ -1917,7 +1917,7 @@ function event_grid()
     $dateObject = new DateTime($event_date);
     $date = $dateObject->format('d F Y');
 
-    
+    $events_link_text = carbon_get_theme_option('events_link_text') ? carbon_get_theme_option('events_link_text') : '';
 ?>
     <div class="event-grid">
         <div class="top">
@@ -1941,7 +1941,7 @@ function event_grid()
             </div>
         </div>
         <div class="bottom">
-            <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> Visit Event </a> </div>
+            <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> <?= $events_link_text ?> </a> </div>
             <?php if ($custom_text) { ?>
                 <div class="event-custom-text">
                     <?= $custom_text ?>
