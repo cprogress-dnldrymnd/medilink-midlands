@@ -17,6 +17,7 @@ $sidebar = wikb('mt_blog_layout_sidebar');
 
 // theme_ini
 $theme_init = new wikb_init_class;
+$opportunities_description = carbon_get_theme_option('opportunities_description');
 ?>
 
 <div class="header-title-breadcrumb header-title-breadcrumb-custom relative">
@@ -30,7 +31,7 @@ $theme_init = new wikb_init_class;
                         <li>OPPORTUNITIES</li>
                     </ol>
                     <div class="desc">
-                        <p>Connect with the rest of the community and find latest deals inside our member marketplace.</p>
+                        <?= wpautop($opportunities_description) ?>
                     </div>
                 </div>
             </div>
