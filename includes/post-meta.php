@@ -178,6 +178,7 @@ Container::make('post_meta', 'Events Details')
 		array(
 			Field::make('date', 'event_date', __('Event Date')),
 			Field::make('text', 'event_link', __('Event Link')),
+			Field::make('text', 'event_link_text', __('Event Link Text')),
 			Field::make('text', 'custom_text', __('Custom Text')),
 		)
 	);
