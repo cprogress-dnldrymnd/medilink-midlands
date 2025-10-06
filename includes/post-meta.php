@@ -181,3 +181,12 @@ Container::make('post_meta', 'Events Details')
 		Field::make('text', 'custom_text', __('Custom Text')),
 	)
 );
+
+
+
+
+Container::make('theme_options', __('Settings'))
+	->set_page_parent('edit.php?post_type=opportunities')
+	->add_fields(array(
+		Field::make('textarea', 'opportunities_description', __('Hero Description')),
+	));
