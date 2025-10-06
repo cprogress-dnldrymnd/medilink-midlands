@@ -1948,15 +1948,16 @@ function event_grid()
                         <?php the_title() ?>
                     </h3>
                 </div>
+                <?php if ($custom_text) { ?>
+                    <div class="event-custom-text">
+                        <?= $custom_text ?>
+                    </div>
+                <?php } ?>
             </div>
         </div>
         <div class="bottom">
             <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> <?= $event_link_text ?> </a> </div>
-            <?php if ($custom_text) { ?>
-                <div class="event-custom-text">
-                    <?= $custom_text ?>
-                </div>
-            <?php } ?>
+
         </div>
     </div>
 <?php
