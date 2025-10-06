@@ -1919,11 +1919,15 @@ function event_grid()
     $event_date = carbon_get_the_post_meta('event_date');
     $event_link = carbon_get_the_post_meta('event_link');
     $custom_text = carbon_get_the_post_meta('custom_text');
+    $event_link_text = carbon_get_the_post_meta('event_link_text');
     $events_category = get_the_terms($post->ID, 'events_category');
+
     $dateObject = new DateTime($event_date);
     $date = $dateObject->format('d F Y');
 
     $events_link_text = carbon_get_theme_option('events_link_text') ? carbon_get_theme_option('events_link_text') : '';
+
+    $event_link_text = $event_link_text ? $event_link_text : $events_link_text;
 ?>
     <div class="event-grid">
         <div class="top">
@@ -1947,7 +1951,7 @@ function event_grid()
             </div>
         </div>
         <div class="bottom">
-            <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> <?= $events_link_text ?> </a> </div>
+            <div class="modeltheme_button "> <a href="<?= $event_link ?>" target="_blank" class="button-winona button-green btn btn-sm"> <?= $event_link_text ?> </a> </div>
             <?php if ($custom_text) { ?>
                 <div class="event-custom-text">
                     <?= $custom_text ?>
