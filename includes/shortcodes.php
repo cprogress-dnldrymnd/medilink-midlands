@@ -1802,8 +1802,16 @@ function patron_logos()
 add_shortcode('patron_logos', 'patron_logos');
 
 
-function events_listing()
+function events_listing($atts)
 {
+    extract(
+        shortcode_atts(
+            array(
+                'show_all'       => 'true',
+            ),
+            $atts
+        )
+    );
     ob_start();
     $args = array(
         'post_status' => 'publish',
@@ -1846,6 +1854,10 @@ function events_listing()
                 'type'    => 'DATE',
             ),
         );
+    }
+
+    if($show_all == 'false'){
+        $args['posts_per_page'] = 4;{
     }
 
 
