@@ -1443,3 +1443,42 @@ function custom_excerpt_more( $more ) {
     return '...';
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more', 99 );
+
+
+/**
+ * Updates the permalink for a custom post type to use a URL from a custom field.
+ *
+ * This function hooks into the 'post_type_link' filter. When the permalink for a post
+ * of the specified custom post type is requested, it checks for a URL in a
+ * specified meta field and returns that URL instead of the default one.
+ *
+ * @param string  $post_link The original permalink URL.
+ * @param WP_Post $post      The post object.
+ * @return string The modified or original permalink URL.
+ */
+function wpb_custom_post_type_link( $post_link, $post ) {
+    // === CONFIGURATION ===
+    // Replace 'your_cpt' with the slug of your custom post type.
+    $custom_post_type = 'events';
+    // Replace 'custom_url_field' with the meta key of your custom field.
+    $meta_key = '_event_link';
+    // === END CONFIGURATION ===
+
+    // Check if it's the correct post type and not a preview.
+    if ( $post->post_type === $custom_post_type && ! is_preview() ) {
+        // Get the value from the custom field.
+        $custom_url = get_post_meta( $post->ID, $meta_key, true );
+
+        // If the custom field has a value and it's a valid URL, use it.
+        if ( ! empty( $custom_url ) && filter_var( $custom_url, FILTER_VALIDATE_URL ) ) {
+            return esc_url( $custom_url );
+        }
+    }
+
+    // Otherwise, return the original permalink.
+    return $post_link;
+}
+
+// Hook the function into the 'post_type_link' filter.
+// The priority is set to 99 to ensure it runs after other potential modifications.
+add_filter( 'post_type_link', 'wpb_custom_post_type_link', 99, 2 );
