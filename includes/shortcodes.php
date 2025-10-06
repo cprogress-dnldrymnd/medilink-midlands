@@ -1858,9 +1858,13 @@ function events_listing($atts)
 
     if ($show_all == 'false') {
         $args['posts_per_page'] = 4;
+        $result = $the_query->found_posts;
+        if ($result > 4) {
+            $result = 4;
+        }
+    } else {
+        $result = $the_query->found_posts;
     }
-
-
 
 
 
@@ -1875,12 +1879,13 @@ function events_listing($atts)
 
 
 
+
 ?>
     <div class="events-tabs">
         <ul>
             <li class="<?= $upcoming_class ?>"><a href="<?php the_permalink() ?>?type=upcoming">Upcoming</a></li>
             <li class="<?= $historic_class ?>"><a href="<?php the_permalink() ?>?type=historic">Historic</a></li>
-            <li class="results">Showing <?= $the_query->found_posts; ?> results</li>
+            <li class="results">Showing <?= $result; ?> results</li>
         </ul>
     </div>
     <div class="events-grid-holder">
