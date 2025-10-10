@@ -392,7 +392,7 @@ class Temporary_Login_Plugin
             update_post_meta($post_id, '_temp_login_session_history', $session_history);
         }
 
-      
+
 
         // Log the user in.
         wp_set_current_user($user_id, $user->user_login);
@@ -570,13 +570,7 @@ class Temporary_Login_Plugin
                         // The session has expired. Log the user out.
                         $this->clear_user_session_on_logout($user_id); // Clean up the user meta.
                         wp_logout();
-
-                        // Find the login page URL to redirect to.
-                        $login_page_url = $this->find_shortcode_page('temporary_login_form');
-                        if (!$login_page_url) {
-                            $login_page_url = home_url(); // Fallback to homepage.
-                        }
-
+                        $login_page_url = 'https://portal.medilinkmidlands.com/non-member-login/';
                         wp_redirect(add_query_arg('login_error', 'session_expired', $login_page_url));
                         exit;
                     }
@@ -626,28 +620,6 @@ class Temporary_Login_Plugin
             $ip = $_SERVER['REMOTE_ADDR'];
         }
         return apply_filters('tlg_get_ip', $ip);
-    }
-
-    /**
-     * Helper function to find the URL of the page containing our shortcode.
-     * @param string $shortcode The shortcode string to search for.
-     * @return string|null The page permalink or null if not found.
-     */
-    private function find_shortcode_page($shortcode)
-    {
-        $query = new WP_Query([
-            'post_type'   => 'page',
-            'post_status'  => 'publish',
-            'posts_per_page' => -1,
-            's'       => '[' . $shortcode . ']',
-        ]);
-
-        if ($query->have_posts()) {
-            $query->the_post();
-            return get_permalink(get_the_ID());
-        }
-
-        return null;
     }
 }
 
