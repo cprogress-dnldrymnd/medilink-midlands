@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Temporary Login Generator
  * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
- * Version:           1.2.0
+ * Version:           1.3.0
  * Author:            Gemini
  * Author URI:        https://gemini.google.com
  */
@@ -199,7 +199,58 @@ class Temporary_Login_Plugin
             }
         </script>
     <?php
-    }
+        // $session_history = get_post_meta($post->ID, '_temp_login_session_history', true);
+    ?>
+        <hr>
+        <h3>Session History</h3>
+        <p class="description">A record of every time this key was used to start a new 24-hour session.</p>
+    <?php
+        if (!empty($session_history) && is_array($session_history)) :
+            // Reverse the array to show the most recent login first
+            $session_history = array_reverse($session_history);
+    ?>
+            <table class="wp-list-table widefat striped fixed" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 25%;"><strong>IP Address</strong></th>
+                        <th scope="col" style="width: 40%;"><strong>Login Time</strong></th>
+                        <th scope="col" style="width: 35%;"><strong>Session Expires</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($session_history as $session) : ?>
+                        <tr>
+                            <td><?php echo esc_html($session['ip_address']); ?></td>
+                            <td><?php echo esc_html(date_i18n(
+                                    get_option('date_format') . ' ' . get_option('time_format'),
+                                    $session['login_time']
+                                )); ?></td>
+                            <td>
+                                <?php
+                                $expiry_time = $session['expiry_time'];
+                                // Check if the session is still active
+                                if (time() < $expiry_time) {
+                                    echo '<strong>' . esc_html(date_i18n(
+                                        get_option('date_format') . ' ' . get_option('time_format'),
+                                        $expiry_time
+                                    )) . '</strong>';
+                                } else {
+                                    echo esc_html(date_i18n(
+                                        get_option('date_format') . ' ' . get_option('time_format'),
+                                        $expiry_time
+                                    )) . ' (Expired)';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+    <?php else : ?>
+            <p>This login key has not been used yet.</p>
+    <?php endif;
+        // }
+
 
     /**
      * Saves the custom meta data.
@@ -275,7 +326,7 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **UPDATED LOGIC** ---
+        // --- **IP-BASED SESSION LOGIC** ---
         // First, check if the user has an active session from their current IP.
         $ip_address = $this->get_user_ip_address();
         $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
@@ -298,7 +349,7 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **ORIGINAL LOGIC CONTINUES FOR NEW SESSIONS** ---
+        // --- **NEW SESSION LOGIC** ---
         // If there's no active session, check if they have exceeded the key usage limit.
         if ($count >= $limit) {
             wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
@@ -308,6 +359,21 @@ class Temporary_Login_Plugin
         // Success! This is a new session. Increment the usage count.
         $new_count = $count + 1;
         update_post_meta($post_id, '_temp_login_count', $new_count);
+
+        // --- NEW: RECORD THIS LOGIN SESSION IN THE POST META HISTORY ---
+        $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
+        if (!is_array($session_history)) {
+            $session_history = [];
+        }
+        $current_time = time();
+
+        $session_history[] = [
+            'ip_address'  => $ip_address,
+            'login_time'  => $current_time,
+            'expiry_time' => $current_time + DAY_IN_SECONDS,
+        ];
+        update_post_meta($post_id, '_temp_login_session_history', $session_history);
+        // --- END NEW CODE ---
 
         // Start a new 24-hour timer.
         $this->start_user_session_timer($user_id);
@@ -319,6 +385,7 @@ class Temporary_Login_Plugin
         wp_redirect(admin_url());
         exit;
     }
+
 
     /**
      * Renders the HTML for the login form shortcode.
