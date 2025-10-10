@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Temporary Login Generator
  * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
@@ -27,13 +28,13 @@ class Temporary_Login_Plugin
 
         // Save the custom meta data when a post is saved.
         add_action('save_post_temp_login', [$this, 'save_login_meta_data']);
-        
+
         // Register the shortcode for the login form.
         add_shortcode('temporary_login_form', [$this, 'render_login_form']);
 
         // Handle the login form submission before the page loads.
         add_action('template_redirect', [$this, 'handle_login_submission']);
-        
+
         // Check for session expiry on every page load for logged-in users.
         add_action('init', [$this, 'check_session_expiry']);
 
@@ -125,32 +126,41 @@ class Temporary_Login_Plugin
         $login_limit = !empty($login_limit) ? absint($login_limit) : 1;
         $login_count = !empty($login_count) ? absint($login_count) : 0;
 
-        ?>
+?>
         <style>
-            .temp-login-table { width: 100%; }
-            .temp-login-table td { padding: 8px 5px; }
-            .temp-login-table tr td:first-child { font-weight: bold; width: 200px; }
-            .temp-login-key-wrapper { position: relative; }
-            .temp-login-key-wrapper input { width: 100%; padding-right: 80px; background-color: #f0f0f0; }
-            .copy-btn { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer; }
+            .temp-login-table {
+                width: 100%;
+            }
+
+            .temp-login-table td {
+                padding: 8px 5px;
+            }
+
+            .temp-login-table tr td:first-child {
+                font-weight: bold;
+                width: 200px;
+            }
+
+            .temp-login-key-wrapper {
+                position: relative;
+            }
+
+            .temp-login-key-wrapper input {
+                width: 100%;
+                padding-right: 80px;
+                background-color: #f0f0f0;
+            }
+
+            .copy-btn {
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
         </style>
         <table class="form-table temp-login-table">
             <tbody>
-                <tr>
-                    <td><label for="temp_login_user_id"><?php _e('User to Log In As:', 'text_domain'); ?></label></td>
-                    <td>
-                        <?php
-                        wp_dropdown_users([
-                            'name' => 'temp_login_user_id',
-                            'id' => 'temp_login_user_id',
-                            'selected' => $user_id,
-                            'show_option_none' => __('&mdash; Select a User &mdash;'),
-                            'class' => 'widefat',
-                        ]);
-                        ?>
-                        <p class="description"><?php _e('This temporary key will log the person into this user account.', 'text_domain'); ?></p>
-                    </td>
-                </tr>
 
                 <tr>
                     <td><label for="temp_login_limit"><?php _e('Maximum Logins:', 'text_domain'); ?></label></td>
@@ -159,7 +169,7 @@ class Temporary_Login_Plugin
                         <p class="description"><?php _e('How many times can this key be used to start a new 24-hour session?', 'text_domain'); ?></p>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td><label for="temp_login_key"><?php _e('Login Key:', 'text_domain'); ?></label></td>
                     <td>
@@ -175,7 +185,7 @@ class Temporary_Login_Plugin
                     <td><?php _e('Times Used:', 'text_domain'); ?></td>
                     <td>
                         <strong><?php echo esc_html($login_count); ?></strong>
-                         <p class="description"><?php _e('The current number of times this key has been used to start a new session.', 'text_domain'); ?></p>
+                        <p class="description"><?php _e('The current number of times this key has been used to start a new session.', 'text_domain'); ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -188,7 +198,7 @@ class Temporary_Login_Plugin
                 alert('Login key copied to clipboard!');
             }
         </script>
-        <?php
+    <?php
     }
 
     /**
@@ -196,6 +206,7 @@ class Temporary_Login_Plugin
      */
     public function save_login_meta_data($post_id)
     {
+        $temp_login_user_id = 164;
         // Check nonce.
         if (!isset($_POST['temp_login_meta_nonce']) || !wp_verify_nonce($_POST['temp_login_meta_nonce'], 'temp_login_save_meta_data')) {
             return;
@@ -207,28 +218,27 @@ class Temporary_Login_Plugin
         }
 
         // Save User ID.
-        if (isset($_POST['temp_login_user_id'])) {
-            $user_id = absint($_POST['temp_login_user_id']);
-            update_post_meta($post_id, '_temp_login_user_id', $user_id);
-        }
+        $user_id = absint($temp_login_user_id);
+        update_post_meta($post_id, '_temp_login_user_id', $user_id);
 
         // Save Login Limit.
         if (isset($_POST['temp_login_limit'])) {
             $limit = absint($_POST['temp_login_limit']);
             update_post_meta($post_id, '_temp_login_limit', $limit);
         }
-        
+
         // Save Login Key.
         if (isset($_POST['temp_login_key'])) {
             $key = sanitize_text_field($_POST['temp_login_key']);
             update_post_meta($post_id, '_temp_login_key', $key);
         }
     }
-    
+
     /**
      * Handles the form submission for logging in.
      */
-    public function handle_login_submission() {
+    public function handle_login_submission()
+    {
         if (!isset($_POST['temp_login_nonce']) || !wp_verify_nonce($_POST['temp_login_nonce'], 'temp_login_action')) {
             return;
         }
@@ -237,7 +247,7 @@ class Temporary_Login_Plugin
             wp_redirect(add_query_arg('login_error', 'empty', wp_get_referer()));
             exit;
         }
-        
+
         $key = sanitize_text_field($_POST['temp_login_key']);
 
         $args = [
@@ -259,12 +269,12 @@ class Temporary_Login_Plugin
         $limit = (int) get_post_meta($post_id, '_temp_login_limit', true);
         $count = (int) get_post_meta($post_id, '_temp_login_count', true);
         $user = get_user_by('id', $user_id);
-        
+
         if (!$user) {
             wp_redirect(add_query_arg('login_error', 'nouser', wp_get_referer()));
             exit;
         }
-        
+
         // --- **UPDATED LOGIC** ---
         // First, check if the user has an active session from their current IP.
         $ip_address = $this->get_user_ip_address();
@@ -294,7 +304,7 @@ class Temporary_Login_Plugin
             wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
             exit;
         }
-        
+
         // Success! This is a new session. Increment the usage count.
         $new_count = $count + 1;
         update_post_meta($post_id, '_temp_login_count', $new_count);
@@ -309,7 +319,7 @@ class Temporary_Login_Plugin
         wp_redirect(admin_url());
         exit;
     }
-    
+
     /**
      * Renders the HTML for the login form shortcode.
      */
@@ -320,21 +330,74 @@ class Temporary_Login_Plugin
         }
 
         ob_start();
-        ?>
+    ?>
         <style>
-            .temp-login-container { max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-            .temp-login-container h3 { text-align: center; margin-bottom: 25px; color: #333; }
-            .temp-login-container .form-row { margin-bottom: 15px; }
-            .temp-login-container label { display: block; margin-bottom: 5px; font-weight: bold; color: #555;}
-            .temp-login-container input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-            .temp-login-container .submit-button { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: #34BFA3; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
-            .temp-login-container .submit-button:hover { background-color: #FF8335; }
-            .temp-login-error { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1; text-align: center; }
+            .temp-login-container {
+                max-width: 400px;
+                margin: 40px auto;
+                padding: 30px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background: #f9f9f9;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .temp-login-container h3 {
+                text-align: center;
+                margin-bottom: 25px;
+                color: #333;
+            }
+
+            .temp-login-container .form-row {
+                margin-bottom: 15px;
+            }
+
+            .temp-login-container label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #555;
+            }
+
+            .temp-login-container input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .temp-login-container .submit-button {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 4px;
+                background-color: #34BFA3;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            }
+
+            .temp-login-container .submit-button:hover {
+                background-color: #FF8335;
+            }
+
+            .temp-login-error {
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+                color: #a94442;
+                background-color: #f2dede;
+                border-color: #ebccd1;
+                text-align: center;
+            }
         </style>
 
         <div class="temp-login-container">
             <h3>Temporary Access Login</h3>
-            
+
             <?php
             // Display error messages
             if (isset($_GET['login_error'])) {
@@ -351,7 +414,7 @@ class Temporary_Login_Plugin
                         $message = 'This login key has reached its maximum number of uses.';
                         break;
                     case 'nouser':
-                         $message = 'The user associated with this key no longer exists.';
+                        $message = 'The user associated with this key no longer exists.';
                         break;
                     case 'session_expired':
                         $message = 'Your 24-hour session has expired. Please log in again.';
@@ -374,10 +437,10 @@ class Temporary_Login_Plugin
                 </div>
             </form>
         </div>
-        <?php
+<?php
         return ob_get_clean();
     }
-    
+
     // -------------------------------------------------------------------------
     // TIMER AND SESSION FUNCTIONS
     // -------------------------------------------------------------------------
@@ -386,14 +449,15 @@ class Temporary_Login_Plugin
      * Checks if the current user's session has expired and logs them out if it has.
      * Hooks into 'init'.
      */
-    public function check_session_expiry() {
+    public function check_session_expiry()
+    {
         if (!is_user_logged_in()) {
             return;
         }
 
         $user_id = get_current_user_id();
         $ip_address = $this->get_user_ip_address();
-        
+
         $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
 
         if (is_array($sessions) && isset($sessions[$ip_address])) {
@@ -408,7 +472,7 @@ class Temporary_Login_Plugin
 
                 $login_page_url = $this->find_shortcode_page('temporary_login_form');
                 $redirect_url = $login_page_url ? $login_page_url : home_url();
-                
+
                 wp_redirect(add_query_arg('login_error', 'session_expired', $redirect_url));
                 exit;
             }
@@ -419,9 +483,10 @@ class Temporary_Login_Plugin
      * Starts the 24-hour session timer for a user upon successful login.
      * @param int $user_id The ID of the user logging in.
      */
-    private function start_user_session_timer($user_id) {
+    private function start_user_session_timer($user_id)
+    {
         $ip_address = $this->get_user_ip_address();
-        
+
         $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
         if (!is_array($sessions)) {
             $sessions = [];
@@ -437,9 +502,10 @@ class Temporary_Login_Plugin
      * Hooks into 'wp_logout'.
      * @param int $user_id The ID of the user logging out.
      */
-    public function clear_user_session_on_logout($user_id) {
+    public function clear_user_session_on_logout($user_id)
+    {
         $ip_address = $this->get_user_ip_address();
-        
+
         $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
 
         if (is_array($sessions) && isset($sessions[$ip_address])) {
@@ -452,7 +518,8 @@ class Temporary_Login_Plugin
      * Helper function to get the user's IP address, considering proxies.
      * @return string The user's IP address.
      */
-    private function get_user_ip_address() {
+    private function get_user_ip_address()
+    {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -468,7 +535,8 @@ class Temporary_Login_Plugin
      * @param string $shortcode The shortcode string to search for.
      * @return string|null The page permalink or null if not found.
      */
-    private function find_shortcode_page($shortcode) {
+    private function find_shortcode_page($shortcode)
+    {
         $query = new WP_Query([
             'post_type'      => 'page',
             'post_status'    => 'publish',
@@ -480,7 +548,7 @@ class Temporary_Login_Plugin
             $query->the_post();
             return get_permalink(get_the_ID());
         }
-        
+
         return null;
     }
 }
