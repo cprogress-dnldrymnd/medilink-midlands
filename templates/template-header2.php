@@ -8,7 +8,7 @@ if (is_user_logged_in()) {
 <header class="header2">
   <div class="top-bar">
     <div class="container-fluid p-0">
-      <?php if (is_user_logged_in()) { ?>
+      <?php if (is_user_logged_in() && get_current_user_id() != 164) { ?>
         <?php
         $current_user = wp_get_current_user();
         $display_name = $current_user->display_name;
@@ -123,7 +123,7 @@ if (is_user_logged_in()) {
                 <?php $switch = wikb('mt_header_is_account');
                 if ($switch == 1) { ?>
 
-                  <?php if (is_user_logged_in()) { ?> <!-- logged in -->
+                  <?php if (is_user_logged_in() && get_current_user_id() != 164) { ?> <!-- logged in -->
 
                     <li class="menu-item mt-header-account">
 
