@@ -47,9 +47,24 @@ class Temporary_Login_Plugin
 
     function temporary_login_top_bar()
     {
+        $ip_address = $this->get_user_ip_address();
+        $temp_login_post_id = $_SESSION['temp_login_post_id'];
+        $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
+
+        if (!empty($session_history) && is_array($session_history)) {
+            // Find the specific session record for the current IP address.
+            foreach ($session_history as $session) {
+                if (isset($session['ip_address']) && $session['ip_address'] === $ip_address) {
+                    $expiry_time = esc_html(date_i18n(
+                        get_option('date_format') . ' ' . get_option('time_format'),
+                        $session['expiry_time']
+                    ));
+                }
+            }
+        }
         ob_start();
 ?>
-        <span>Welcome Guest! </span>
+        <span>Welcome Guest! You login code is valid until: <?= $expiry_time ?></span>
     <?php
         return ob_get_clean();
     }
