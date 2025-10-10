@@ -285,10 +285,9 @@ class Temporary_Login_Plugin
         }
     }
 
-
     /**
- * Handles the form submission for logging in.
- */
+     * Handles the form submission for logging in.
+     */
     public function handle_login_submission()
     {
         if (!isset($_POST['temp_login_nonce']) || !wp_verify_nonce($_POST['temp_login_nonce'], 'temp_login_action')) {
@@ -350,44 +349,35 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **NEW SESSION LOGIC (MODIFIED)** ---
-        // This part runs only if there's no active 24-hour session from the current IP.
+        // --- **NEW SESSION LOGIC** ---
+        // If there's no active session, check if they have exceeded the key usage limit.
+        if ($count >= $limit) {
+            wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
+            exit;
+        }
 
-        // Get the full history of all past sessions for this key.
+        // Success! This is a new session. Increment the usage count.
+        $new_count = $count + 1;
+        update_post_meta($post_id, '_temp_login_count', $new_count);
+
+        // --- NEW: RECORD THIS LOGIN SESSION IN THE POST META HISTORY ---
         $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
         if (!is_array($session_history)) {
             $session_history = [];
         }
-
-        // Check if the current IP has ever used this key before.
-        $existing_ips = array_column($session_history, 'ip_address');
-        $is_new_ip = !in_array($ip_address, $existing_ips);
-
-        // If this is a completely new IP address, we must enforce the usage limit.
-        if ($is_new_ip) {
-            // Check if the number of unique IPs has reached the limit.
-            if ($count >= $limit) {
-                wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
-                exit;
-            }
-            // Since it's a new IP, increment the usage count.
-            $new_count = $count + 1;
-            update_post_meta($post_id, '_temp_login_count', $new_count);
-        }
-
-        // Record this new login session in the history, regardless of IP novelty.
         $current_time = time();
+
         $session_history[] = [
-            'ip_address' => $ip_address,
-            'login_time' => $current_time,
+            'ip_address'  => $ip_address,
+            'login_time'  => $current_time,
             'expiry_time' => $current_time + DAY_IN_SECONDS,
         ];
         update_post_meta($post_id, '_temp_login_session_history', $session_history);
+        // --- END NEW CODE ---
 
-        // Start a new 24-hour session timer for this user/IP combo.
+        // Start a new 24-hour timer.
         $this->start_user_session_timer($user_id);
 
-        // Log the user in.
         wp_set_current_user($user_id, $user->user_login);
         wp_set_auth_cookie($user_id);
         do_action('wp_login', $user->user_login, $user);
