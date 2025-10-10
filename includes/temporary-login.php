@@ -41,8 +41,6 @@ class Temporary_Login_Plugin
         // Check for session expiry on every page load for logged-in users.
         add_action('init', [$this, 'check_session_expiry']);
 
-        // Clear session data on manual logout.
-        add_action('wp_logout', [$this, 'clear_user_session_on_logout'], 10, 1);
     }
 
     /**
@@ -555,7 +553,7 @@ class Temporary_Login_Plugin
             return;
         }
 
-        $ip_address = $this->get_user_ip_address();
+          $ip_address = $this->get_user_ip_address();
         $temp_login_post_id = $_SESSION['temp_login_post_id'];
 
         $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
