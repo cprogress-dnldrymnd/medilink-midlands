@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name:    Temporary Login Generator
- * Description:    Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
- * Version:      1.5.0
- * Author:      Gemini
- * Author URI:    https://gemini.google.com
+ * Plugin Name:      Temporary Login Generator
+ * Description:      Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
+ * Version:          1.6.0
+ * Author:           Gemini
+ * Author URI:       https://gemini.google.com
  */
 
 // Prevent direct access to the file.
@@ -37,9 +37,6 @@ class Temporary_Login_Plugin
 
         // Check for session expiry on every page load for logged-in users.
         add_action('init', [$this, 'check_session_expiry']);
-
-        // Clear session data on manual logout.
-        add_action('wp_logout', [$this, 'clear_user_session_on_logout'], 10, 1);
     }
 
     /**
@@ -48,42 +45,42 @@ class Temporary_Login_Plugin
     public function register_cpt_temporary_login()
     {
         $labels = [
-            'name'         => _x('Temporary Logins', 'Post Type General Name', 'text_domain'),
-            'singular_name'     => _x('Temporary Login', 'Post Type Singular Name', 'text_domain'),
-            'menu_name'       => __('Temporary Logins', 'text_domain'),
-            'name_admin_bar'    => __('Temporary Login', 'text_domain'),
-            'archives'       => __('Login Archives', 'text_domain'),
-            'attributes'      => __('Login Attributes', 'text_domain'),
+            'name'                => _x('Temporary Logins', 'Post Type General Name', 'text_domain'),
+            'singular_name'       => _x('Temporary Login', 'Post Type Singular Name', 'text_domain'),
+            'menu_name'           => __('Temporary Logins', 'text_domain'),
+            'name_admin_bar'      => __('Temporary Login', 'text_domain'),
+            'archives'            => __('Login Archives', 'text_domain'),
+            'attributes'          => __('Login Attributes', 'text_domain'),
             'parent_item_colon'   => __('Parent Login:', 'text_domain'),
-            'all_items'       => __('All Logins', 'text_domain'),
-            'add_new_item'     => __('Add New Temporary Login', 'text_domain'),
-            'add_new'        => __('Add New', 'text_domain'),
-            'new_item'       => __('New Login', 'text_domain'),
-            'edit_item'       => __('Edit Login', 'text_domain'),
-            'update_item'      => __('Update Login', 'text_domain'),
-            'view_item'       => __('View Login', 'text_domain'),
-            'view_items'      => __('View Logins', 'text_domain'),
-            'search_items'     => __('Search Login', 'text_domain'),
+            'all_items'           => __('All Logins', 'text_domain'),
+            'add_new_item'        => __('Add New Temporary Login', 'text_domain'),
+            'add_new'             => __('Add New', 'text_domain'),
+            'new_item'            => __('New Login', 'text_domain'),
+            'edit_item'           => __('Edit Login', 'text_domain'),
+            'update_item'         => __('Update Login', 'text_domain'),
+            'view_item'           => __('View Login', 'text_domain'),
+            'view_items'          => __('View Logins', 'text_domain'),
+            'search_items'        => __('Search Login', 'text_domain'),
         ];
         $args = [
-            'label'         => __('Temporary Login', 'text_domain'),
-            'description'      => __('Create and manage temporary access keys.', 'text_domain'),
-            'labels'        => $labels,
-            'supports'       => ['title'],
-            'hierarchical'     => false,
-            'public'        => false,
-            'show_ui'        => true,
-            'show_in_menu'     => true,
-            'menu_position'     => 20,
-            'menu_icon'       => 'dashicons-lock-duplicate',
+            'label'               => __('Temporary Login', 'text_domain'),
+            'description'         => __('Create and manage temporary access keys.', 'text_domain'),
+            'labels'              => $labels,
+            'supports'            => ['title'],
+            'hierarchical'        => false,
+            'public'              => false,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'menu_position'       => 20,
+            'menu_icon'           => 'dashicons-lock-duplicate',
             'show_in_admin_bar'   => true,
             'show_in_nav_menus'   => false,
-            'can_export'      => true,
-            'has_archive'      => false,
-            'exclude_from_search'  => true,
+            'can_export'          => true,
+            'has_archive'         => false,
+            'exclude_from_search' => true,
             'publicly_queryable'  => false,
-            'capability_type'    => 'post',
-            'rewrite'        => false,
+            'capability_type'     => 'post',
+            'rewrite'             => false,
         ];
         register_post_type('temp_login', $args);
     }
@@ -317,66 +314,69 @@ class Temporary_Login_Plugin
 
         $post_id = $login_posts->posts[0]->ID;
         $user_id = get_post_meta($post_id, '_temp_login_user_id', true);
-        $limit = (int) get_post_meta($post_id, '_temp_login_limit', true);
-        $count = (int) get_post_meta($post_id, '_temp_login_count', true);
-        $user = get_user_by('id', $user_id);
+        $limit   = (int) get_post_meta($post_id, '_temp_login_limit', true);
+        $count   = (int) get_post_meta($post_id, '_temp_login_count', true);
+        $user    = get_user_by('id', $user_id);
 
         if (!$user) {
             wp_redirect(add_query_arg('login_error', 'nouser', wp_get_referer()));
             exit;
         }
 
-        // --- IP-BASED SESSION LOGIC ---
-        $ip_address = $this->get_user_ip_address();
-        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
-        $is_session_active = false;
+        $ip_address      = $this->get_user_ip_address();
+        $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
+        $session_history = is_array($session_history) ? $session_history : [];
 
-        if (is_array($sessions) && isset($sessions[$ip_address])) {
-            $login_timestamp = $sessions[$ip_address];
-            //DAY_IN_SECONDS
-            if (time() <= ($login_timestamp + 60)) {
-                $is_session_active = true;
+        // --- IP-BASED SESSION LOGIC (CHECKS SESSION HISTORY) ---
+
+        $session_key_for_ip = null;
+        $is_new_ip = true;
+
+        // Check for an existing session record for this IP
+        foreach ($session_history as $key => $session) {
+            if (isset($session['ip_address']) && $session['ip_address'] === $ip_address) {
+                $is_new_ip = false;
+                $session_key_for_ip = $key;
+
+                // If the session is still active, log the user in directly.
+                if (isset($session['expiry_time']) && time() < $session['expiry_time']) {
+                    wp_set_current_user($user_id, $user->user_login);
+                    wp_set_auth_cookie($user_id);
+                    do_action('wp_login', $user->user_login, $user);
+                    wp_redirect(admin_url());
+                    exit;
+                }
+                // If session is expired, we'll just update it later. Break the loop.
+                break;
             }
         }
 
-        if ($is_session_active) {
-            wp_set_current_user($user_id, $user->user_login);
-            wp_set_auth_cookie($user_id);
-            do_action('wp_login', $user->user_login, $user);
-            wp_redirect(admin_url());
-            exit;
-        }
+        // --- HANDLE NEW SESSIONS (FOR NEW IPs OR EXPIRED SESSIONS) ---
 
-        // --- UPDATED: NEW IP ADDRESS LOGIC ---
-        $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
-        if (!is_array($session_history)) {
-            $session_history = [];
-        }
-
-        $used_ips = !empty($session_history) ? array_unique(wp_list_pluck($session_history, 'ip_address')) : [];
-        $is_new_ip = !in_array($ip_address, $used_ips);
-
+        // If it's a brand new IP, we must check the usage limit.
         if ($is_new_ip) {
             if ($count >= $limit) {
                 wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
                 exit;
             }
+            // Increment the unique IP count and update post meta.
+            update_post_meta($post_id, '_temp_login_count', $count + 1);
 
-            $new_count = $count + 1;
-            update_post_meta($post_id, '_temp_login_count', $new_count);
-
-            // **MODIFIED:** Only record the session in history if it's a new IP.
-            $current_time = time();
+            // Add a new record to the session history.
             $session_history[] = [
-                'ip_address' => $ip_address,
-                'login_time' => $current_time,
-                'expiry_time' => $current_time + 60, // <-- CORRECTED: Use 24 hours
+                'ip_address'  => $ip_address,
+                'login_time'  => time(),
+                'expiry_time' => time() + DAY_IN_SECONDS, // Set 24-hour expiry
             ];
-            update_post_meta($post_id, '_temp_login_session_history', $session_history);
+        } else {
+            // It's an existing IP with an expired session, so we just update the expiry time.
+            if ($session_key_for_ip !== null) {
+                $session_history[$session_key_for_ip]['expiry_time'] = time() + DAY_IN_SECONDS; // Reset 24-hour expiry
+            }
         }
 
-        // A 24-hour timer should start for EVERY successful login, regardless of IP.
-        $this->start_user_session_timer($user_id);
+        // Save the updated session history.
+        update_post_meta($post_id, '_temp_login_session_history', $session_history);
 
         // Log the user in.
         wp_set_current_user($user_id, $user->user_login);
@@ -530,12 +530,12 @@ class Temporary_Login_Plugin
         // Query for any temp_login posts associated with this user ID.
         $args = [
             'post_type'   => 'temp_login',
-            'post_status'  => 'publish',
+            'post_status'    => 'publish',
             'posts_per_page' => -1, // Check all possible keys for this user.
-            'meta_query'   => [
+            'meta_query'     => [
                 [
-                    'key'   => '_temp_login_user_id',
-                    'value'  => $user_id,
+                    'key'     => '_temp_login_user_id',
+                    'value'   => $user_id,
                     'compare' => '=',
                 ],
             ],
@@ -557,7 +557,6 @@ class Temporary_Login_Plugin
                             // We found the session record. Now check if it's expired.
                             if (isset($session['expiry_time']) && time() > $session['expiry_time']) {
                                 // The session has expired. Log the user out.
-                                $this->clear_user_session_on_logout($user_id); // Clean up the user meta.
                                 wp_logout();
 
                                 // Find the login page URL to redirect to.
@@ -577,42 +576,6 @@ class Temporary_Login_Plugin
                 }
             }
             wp_reset_postdata();
-        }
-    }
-
-
-    /**
-     * Starts the 24-hour session timer for a user upon successful login.
-     * @param int $user_id The ID of the user logging in.
-     */
-    private function start_user_session_timer($user_id)
-    {
-        $ip_address = $this->get_user_ip_address();
-
-        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
-        if (!is_array($sessions)) {
-            $sessions = [];
-        }
-
-        $sessions[$ip_address] = time();
-
-        update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
-    }
-
-    /**
-     * Removes session data when a user logs out manually.
-     * Hooks into 'wp_logout'.
-     * @param int $user_id The ID of the user logging out.
-     */
-    public function clear_user_session_on_logout($user_id)
-    {
-        $ip_address = $this->get_user_ip_address();
-
-        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
-
-        if (is_array($sessions) && isset($sessions[$ip_address])) {
-            unset($sessions[$ip_address]);
-            update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
         }
     }
 
@@ -641,9 +604,9 @@ class Temporary_Login_Plugin
     {
         $query = new WP_Query([
             'post_type'   => 'page',
-            'post_status'  => 'publish',
+            'post_status'    => 'publish',
             'posts_per_page' => -1,
-            's'       => '[' . $shortcode . ']',
+            's'           => '[' . $shortcode . ']',
         ]);
 
         if ($query->have_posts()) {
