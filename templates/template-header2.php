@@ -8,14 +8,22 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
 <header class="header2">
   <div class="top-bar">
     <div class="container-fluid p-0">
-      <?php if (is_user_logged_in() && get_current_user_id() != 164) { ?>
+      <?php if (is_user_logged_in()) { ?>
         <?php
-        $current_user = wp_get_current_user();
-        $display_name = $current_user->display_name;
+        if (get_current_user_id() != 164) {
+          $current_user = wp_get_current_user();
+          $display_name = $current_user->display_name;
         ?>
-        <span>
-          Welcome <?= $display_name ?>
-        </span>
+          <span>
+            Welcome <?= $display_name ?>
+          </span>
+        <?php
+        } else {
+        ?>
+          Welcome Guest! 
+        <?php
+        }
+        ?>
       <?php } else { ?>
         <a href="#">
           Sign Up Today & Become Part of The Community
