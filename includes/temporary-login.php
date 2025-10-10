@@ -555,7 +555,6 @@ class Temporary_Login_Plugin
             return;
         }
 
-        $user_id = get_current_user_id();
         $ip_address = $this->get_user_ip_address();
         $temp_login_post_id = $_SESSION['temp_login_post_id'];
 
