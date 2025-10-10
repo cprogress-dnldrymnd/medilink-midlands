@@ -369,7 +369,7 @@ class Temporary_Login_Plugin
             $session_history[] = [
                 'ip_address'  => $ip_address,
                 'login_time'  => $current_time,
-                'expiry_time' => $current_time + DAY_IN_SECONDS,
+                'expiry_time' => $current_time + 60,
             ];
             update_post_meta($post_id, '_temp_login_session_history', $session_history);
         }
