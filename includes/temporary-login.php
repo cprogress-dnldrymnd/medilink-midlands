@@ -371,7 +371,7 @@ class Temporary_Login_Plugin
         } else {
             // It's an existing IP with an expired session, so we just update the expiry time.
             if ($session_key_for_ip !== null) {
-                $session_history[$session_key_for_ip]['expiry_time'] = time() + 60; // Reset 24-hour expiry
+                $session_history[$session_key_for_ip]['expiry_time'] = time() + 120; // Reset 24-hour expiry
             }
         }
 
