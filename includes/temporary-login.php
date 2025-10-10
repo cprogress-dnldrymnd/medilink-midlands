@@ -41,8 +41,18 @@ class Temporary_Login_Plugin
         // Check for session expiry on every page load for logged-in users.
         add_action('init', [$this, 'check_session_expiry']);
 
+        add_shortcode('temporary_login_top_bar', [$this, 'temporary_login_top_bar']);
     }
 
+
+    function temporary_login_top_bar()
+    {
+        ob_start();
+?>
+        <span>Welcome Guest! </span>
+    <?php
+        return ob_get_clean();
+    }
     /**
      * Registers the 'temp_login' Custom Post Type.
      */
@@ -127,7 +137,7 @@ class Temporary_Login_Plugin
         $login_limit = !empty($login_limit) ? absint($login_limit) : 1;
         $login_count = !empty($login_count) ? absint($login_count) : 0;
 
-?>
+    ?>
         <style>
             .temp-login-table {
                 width: 100%;
@@ -553,9 +563,8 @@ class Temporary_Login_Plugin
             return;
         }
 
-          $ip_address = $this->get_user_ip_address();
+        $ip_address = $this->get_user_ip_address();
         $temp_login_post_id = $_SESSION['temp_login_post_id'];
-
         $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
 
         if (!empty($session_history) && is_array($session_history)) {

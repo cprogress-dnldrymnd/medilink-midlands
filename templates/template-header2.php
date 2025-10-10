@@ -19,31 +19,7 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
           </span>
         <?php
         } else {
-          $temp_login_post_id = $_SESSION['temp_login_post_id'];
-
-          $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
-
-          if (!empty($session_history) && is_array($session_history)) {
-            // Find the specific session record for the current IP address.
-            foreach ($session_history as $session) {
-              if (isset($session['ip_address']) && $session['ip_address'] === $ip_address) {
-                // We found the session record. Now check if it's expired.
-                if (isset($session['expiry_time']) && time() > $session['expiry_time']) {
-                  // The session has expired. Log the user out.
-                  wp_logout();
-                  $login_page_url = 'https://portal.medilinkmidlands.com/non-member-login/';
-                  wp_redirect(add_query_arg('login_error', 'session_expired', $login_page_url));
-                  exit;
-                }
-                // If we found the session and it's not expired, we can stop checking.
-                wp_reset_postdata();
-                return;
-              }
-            }
-          }
-        ?>
-          <span>Welcome Guest! </span>
-        <?php
+          echo do_shortcode('[temporary_login_top_bar]');
         }
         ?>
       <?php } else { ?>
