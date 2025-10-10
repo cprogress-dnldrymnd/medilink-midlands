@@ -545,7 +545,6 @@ class Temporary_Login_Plugin
         $user_id = get_current_user_id();
         $ip_address = $this->get_user_ip_address();
         $temp_login_post_id =  $_SESSION['temp_login_post_id'];
-        echo $temp_login_post_id;
 
         $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
 
