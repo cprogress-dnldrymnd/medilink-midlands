@@ -213,8 +213,8 @@ class Temporary_Login_Plugin
                 <thead>
                     <tr>
                         <th scope="col" style="width: 25%;"><strong>IP Address</strong></th>
-                        <th scope="col" style="width: 40%;"><strong>First Login Time</strong></th>
-                        <th scope="col" style="width: 35%;"><strong>First Session Expires</strong></th>
+                        <th scope="col" style="width: 40%;"><strong>Login Time</strong></th>
+                        <th scope="col" style="width: 35%;"><strong>Session Expires</strong></th>
                     </tr>
                 </thead>
                 <tbody>
