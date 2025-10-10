@@ -568,7 +568,6 @@ class Temporary_Login_Plugin
                     // We found the session record. Now check if it's expired.
                     if (isset($session['expiry_time']) && time() > $session['expiry_time']) {
                         // The session has expired. Log the user out.
-                        $this->clear_user_session_on_logout($user_id); // Clean up the user meta.
                         wp_logout();
                         $login_page_url = 'https://portal.medilinkmidlands.com/non-member-login/';
                         wp_redirect(add_query_arg('login_error', 'session_expired', $login_page_url));
@@ -582,29 +581,6 @@ class Temporary_Login_Plugin
         }
     }
 
-
-
-    /**
-     * Removes session data when a user logs out manually.
-     * Hooks into 'wp_logout'.
-     * @param int $user_id The ID of the user logging out.
-     */
-    public function clear_user_session_on_logout($user_id)
-    {
-        $ip_address = $this->get_user_ip_address();
-
-        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
-
-        if (is_array($sessions) && isset($sessions[$ip_address])) {
-            unset($sessions[$ip_address]);
-            update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
-        }
-
-        // UPDATED: Clear the post ID from the session as well.
-        if (isset($_SESSION['temp_login_post_id'])) {
-            unset($_SESSION['temp_login_post_id']);
-        }
-    }
 
     /**
      * Helper function to get the user's IP address, considering proxies.
