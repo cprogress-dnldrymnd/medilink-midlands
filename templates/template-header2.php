@@ -130,37 +130,36 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                 if ($switch == 1) { ?>
 
                   <?php if (is_user_logged_in()) { ?> <!-- logged in -->
-                    <?php if (get_current_user_id() != 164) { ?>
-                      <li class="menu-item mt-header-account">
 
-                        <div id="dropdown-user-profile" class="ddmenu">
-                          <a class="profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                          </a>
-                          <ul>
-                            <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
-                            <?php $mt_tickets_link_page = wikb('mt_tickets_link_page'); ?>
-                            <?php if (!empty($mt_purchases_link_page)) { ?>
-                              <li><a href="<?php echo esc_url($mt_purchases_link_page); ?>">
-                                  <i class="icon-bag icons"></i> <?php echo esc_html__('My Purchases', 'wikb'); ?></a>
-                              </li>
-                            <?php } ?>
-                            <?php if (!empty($mt_tickets_link_page)) { ?>
-                              <li><a href="<?php echo esc_url($mt_tickets_link_page); ?>">
-                                  <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
-                              </li>
-                            <?php } ?>
-                            <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>">
-                                <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
+                    <li class="menu-item mt-header-account">
+
+                      <div id="dropdown-user-profile" class="ddmenu">
+                        <a class="profile">
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                        <ul>
+                          <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
+                          <?php $mt_tickets_link_page = wikb('mt_tickets_link_page'); ?>
+                          <?php if (!empty($mt_purchases_link_page)) { ?>
+                            <li><a href="<?php echo esc_url($mt_purchases_link_page); ?>">
+                                <i class="icon-bag icons"></i> <?php echo esc_html__('My Purchases', 'wikb'); ?></a>
                             </li>
-                            <div class="dropdown-divider"></div>
-                            <li><a href="<?php echo esc_url(wp_logout_url(home_url())); ?>">
-                                <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out', 'wikb'); ?></a>
+                          <?php } ?>
+                          <?php if (!empty($mt_tickets_link_page)) { ?>
+                            <li><a href="<?php echo esc_url($mt_tickets_link_page); ?>">
+                                <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
                             </li>
-                          </ul>
-                        </div>
-                      </li>
-                    <?php } ?>
+                          <?php } ?>
+                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>">
+                              <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
+                          </li>
+                          <div class="dropdown-divider"></div>
+                          <li><a href="<?php echo esc_url(wp_logout_url(home_url())); ?>">
+                              <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out', 'wikb'); ?></a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
 
                   <?php } else { ?> <!-- logged out -->
                     <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
