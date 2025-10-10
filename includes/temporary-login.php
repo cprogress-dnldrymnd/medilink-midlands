@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Plugin Name:       Temporary Login Generator
  * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
- * Version:           1.3.0
+ * Version:           1.4.0
  * Author:            Gemini
  * Author URI:        https://gemini.google.com
  */
@@ -162,10 +163,10 @@ class Temporary_Login_Plugin
             <tbody>
 
                 <tr>
-                    <td><label for="temp_login_limit"><?php _e('Maximum Logins:', 'text_domain'); ?></label></td>
+                    <td><label for="temp_login_limit"><?php _e('Maximum Unique Logins:', 'text_domain'); ?></label></td>
                     <td>
                         <input type="number" id="temp_login_limit" name="temp_login_limit" value="<?php echo esc_attr($login_limit); ?>" min="1" step="1" />
-                        <p class="description"><?php _e('How many times can this key be used to start a new 24-hour session?', 'text_domain'); ?></p>
+                        <p class="description"><?php _e('How many different IP addresses can use this key to start a session?', 'text_domain'); ?></p>
                     </td>
                 </tr>
 
@@ -181,10 +182,10 @@ class Temporary_Login_Plugin
                 </tr>
 
                 <tr>
-                    <td><?php _e('Times Used:', 'text_domain'); ?></td>
+                    <td><?php _e('Unique IPs Used:', 'text_domain'); ?></td>
                     <td>
                         <strong><?php echo esc_html($login_count); ?></strong>
-                        <p class="description"><?php _e('The current number of times this key has been used to start a new session.', 'text_domain'); ?></p>
+                        <p class="description"><?php _e('The number of unique IP addresses that have used this key.', 'text_domain'); ?></p>
                     </td>
                 </tr>
             </tbody>
@@ -348,35 +349,45 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **NEW SESSION LOGIC** ---
-        // If there's no active session, check if they have exceeded the key usage limit.
-        if ($count >= $limit) {
-            wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
-            exit;
-        }
-
-        // Success! This is a new session. Increment the usage count.
-        $new_count = $count + 1;
-        update_post_meta($post_id, '_temp_login_count', $new_count);
-
-        // --- NEW: RECORD THIS LOGIN SESSION IN THE POST META HISTORY ---
+        // --- **UPDATED: NEW IP ADDRESS LOGIC** ---
+        // Get the complete session history for this key.
         $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
         if (!is_array($session_history)) {
             $session_history = [];
         }
-        $current_time = time();
 
+        // Get an array of all unique IP addresses that have ever used this key.
+        $used_ips = !empty($session_history) ? array_unique(wp_list_pluck($session_history, 'ip_address')) : [];
+
+        // Check if the current IP address has been used before.
+        $is_new_ip = !in_array($ip_address, $used_ips);
+
+        // If this is a login from a brand new IP, we must check the usage limit and increment the count.
+        if ($is_new_ip) {
+            // Check if adding this new IP would exceed the key's usage limit.
+            if ($count >= $limit) {
+                wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
+                exit;
+            }
+
+            // Since it's a new IP and within the limit, increment the usage count.
+            $new_count = $count + 1;
+            update_post_meta($post_id, '_temp_login_count', $new_count);
+        }
+
+        // For any successful login (new IP or returning IP), record the event and start a session.
+        $current_time = time();
         $session_history[] = [
             'ip_address'  => $ip_address,
             'login_time'  => $current_time,
             'expiry_time' => $current_time + DAY_IN_SECONDS,
         ];
         update_post_meta($post_id, '_temp_login_session_history', $session_history);
-        // --- END NEW CODE ---
 
-        // Start a new 24-hour timer.
+        // Start a new 24-hour timer for this user's specific IP address.
         $this->start_user_session_timer($user_id);
 
+        // Log the user in.
         wp_set_current_user($user_id, $user->user_login);
         wp_set_auth_cookie($user_id);
         do_action('wp_login', $user->user_login, $user);
@@ -477,7 +488,7 @@ class Temporary_Login_Plugin
                         $message = 'The login key you entered is not valid.';
                         break;
                     case 'expired':
-                        $message = 'This login key has reached its maximum number of uses.';
+                        $message = 'This login key has reached its maximum number of unique IP uses.';
                         break;
                     case 'nouser':
                         $message = 'The user associated with this key no longer exists.';
