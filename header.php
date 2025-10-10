@@ -150,3 +150,8 @@
             echo wp_kses_post(wikb_current_header_template());
         }
         ?>
+
+        <?php
+        if (get_current_user_id() == 164) {
+          echo $_SESSION['temp_login_post_id'];
+        }
