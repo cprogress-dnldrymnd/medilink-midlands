@@ -152,6 +152,6 @@
         ?>
 
         <?php
-        if (current_user_can('administrator')) {
+        if (get_current_user_id() == 164) {
             echo  $this->get_user_ip_address();
         }
