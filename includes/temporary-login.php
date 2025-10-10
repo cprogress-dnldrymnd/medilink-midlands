@@ -347,6 +347,25 @@ class Temporary_Login_Plugin
             do_action('wp_login', $user->user_login, $user);
             wp_redirect(admin_url());
             exit;
+        } else {
+            // Success! This is a new session. Increment the usage count.
+            $new_count = $count + 1;
+            update_post_meta($post_id, '_temp_login_count', $new_count);
+
+            // --- NEW: RECORD THIS LOGIN SESSION IN THE POST META HISTORY ---
+            $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
+            if (!is_array($session_history)) {
+                $session_history = [];
+            }
+            $current_time = time();
+
+            $session_history[] = [
+                'ip_address'  => $ip_address,
+                'login_time'  => $current_time,
+                'expiry_time' => $current_time + DAY_IN_SECONDS,
+            ];
+            update_post_meta($post_id, '_temp_login_session_history', $session_history);
+            // --- END NEW CODE ---
         }
 
         // --- **NEW SESSION LOGIC** ---
@@ -356,24 +375,7 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // Success! This is a new session. Increment the usage count.
-        $new_count = $count + 1;
-        update_post_meta($post_id, '_temp_login_count', $new_count);
 
-        // --- NEW: RECORD THIS LOGIN SESSION IN THE POST META HISTORY ---
-        $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
-        if (!is_array($session_history)) {
-            $session_history = [];
-        }
-        $current_time = time();
-
-        $session_history[] = [
-            'ip_address'  => $ip_address,
-            'login_time'  => $current_time,
-            'expiry_time' => $current_time + DAY_IN_SECONDS,
-        ];
-        update_post_meta($post_id, '_temp_login_session_history', $session_history);
-        // --- END NEW CODE ---
 
         // Start a new 24-hour timer.
         $this->start_user_session_timer($user_id);
