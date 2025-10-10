@@ -32,7 +32,7 @@ if (is_user_logged_in()) {
         <div class="navbar-header col-md-3">
           <!-- NAVIGATION BURGER MENU -->
           <div class="mobile-only">
-            <?php if (is_user_logged_in()) { ?>
+            <?php if (is_user_logged_in() && get_current_user_id() != 164) { ?>
               <div class="mobile-buttons">
                 <div id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </div>
                 <a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>" class="profile">
