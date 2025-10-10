@@ -134,11 +134,9 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                     <li class="menu-item mt-header-account">
 
                       <div id="dropdown-user-profile" class="ddmenu">
-                        <?php if (get_current_user_id() != 164) { ?>
-                          <a class="profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                          </a>
-                        <?php } ?>
+                        <a class="profile">
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
                         <ul>
                           <?php if (get_current_user_id() != 164) { ?>
                             <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
