@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name:    Temporary Login Generator
- * Description:    Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
- * Version:      1.5.0
- * Author:      Gemini
- * Author URI:    https://gemini.google.com
+ * Plugin Name:      Temporary Login Generator
+ * Description:      Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
+ * Version:          1.6.0
+ * Author:           Gemini
+ * Author URI:       https://gemini.google.com
  */
 
 // Prevent direct access to the file.
@@ -20,6 +20,9 @@ class Temporary_Login_Plugin
      */
     public function __construct()
     {
+        // UPDATED: Start a PHP session early.
+        add_action('init', [$this, 'start_php_session'], 1);
+
         // Register the custom post type for temporary logins.
         add_action('init', [$this, 'register_cpt_temporary_login']);
 
@@ -48,42 +51,42 @@ class Temporary_Login_Plugin
     public function register_cpt_temporary_login()
     {
         $labels = [
-            'name'         => _x('Temporary Logins', 'Post Type General Name', 'text_domain'),
-            'singular_name'     => _x('Temporary Login', 'Post Type Singular Name', 'text_domain'),
-            'menu_name'       => __('Temporary Logins', 'text_domain'),
-            'name_admin_bar'    => __('Temporary Login', 'text_domain'),
-            'archives'       => __('Login Archives', 'text_domain'),
-            'attributes'      => __('Login Attributes', 'text_domain'),
-            'parent_item_colon'   => __('Parent Login:', 'text_domain'),
-            'all_items'       => __('All Logins', 'text_domain'),
-            'add_new_item'     => __('Add New Temporary Login', 'text_domain'),
-            'add_new'        => __('Add New', 'text_domain'),
-            'new_item'       => __('New Login', 'text_domain'),
-            'edit_item'       => __('Edit Login', 'text_domain'),
-            'update_item'      => __('Update Login', 'text_domain'),
-            'view_item'       => __('View Login', 'text_domain'),
-            'view_items'      => __('View Logins', 'text_domain'),
-            'search_items'     => __('Search Login', 'text_domain'),
+            'name'                  => _x('Temporary Logins', 'Post Type General Name', 'text_domain'),
+            'singular_name'         => _x('Temporary Login', 'Post Type Singular Name', 'text_domain'),
+            'menu_name'             => __('Temporary Logins', 'text_domain'),
+            'name_admin_bar'        => __('Temporary Login', 'text_domain'),
+            'archives'              => __('Login Archives', 'text_domain'),
+            'attributes'            => __('Login Attributes', 'text_domain'),
+            'parent_item_colon'     => __('Parent Login:', 'text_domain'),
+            'all_items'             => __('All Logins', 'text_domain'),
+            'add_new_item'          => __('Add New Temporary Login', 'text_domain'),
+            'add_new'               => __('Add New', 'text_domain'),
+            'new_item'              => __('New Login', 'text_domain'),
+            'edit_item'             => __('Edit Login', 'text_domain'),
+            'update_item'           => __('Update Login', 'text_domain'),
+            'view_item'             => __('View Login', 'text_domain'),
+            'view_items'            => __('View Logins', 'text_domain'),
+            'search_items'          => __('Search Login', 'text_domain'),
         ];
         $args = [
-            'label'         => __('Temporary Login', 'text_domain'),
-            'description'      => __('Create and manage temporary access keys.', 'text_domain'),
-            'labels'        => $labels,
-            'supports'       => ['title'],
-            'hierarchical'     => false,
-            'public'        => false,
-            'show_ui'        => true,
-            'show_in_menu'     => true,
-            'menu_position'     => 20,
-            'menu_icon'       => 'dashicons-lock-duplicate',
-            'show_in_admin_bar'   => true,
-            'show_in_nav_menus'   => false,
-            'can_export'      => true,
-            'has_archive'      => false,
-            'exclude_from_search'  => true,
-            'publicly_queryable'  => false,
-            'capability_type'    => 'post',
-            'rewrite'        => false,
+            'label'                 => __('Temporary Login', 'text_domain'),
+            'description'           => __('Create and manage temporary access keys.', 'text_domain'),
+            'labels'                => $labels,
+            'supports'              => ['title'],
+            'hierarchical'          => false,
+            'public'                => false,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'menu_position'         => 20,
+            'menu_icon'             => 'dashicons-lock-duplicate',
+            'show_in_admin_bar'     => true,
+            'show_in_nav_menus'     => false,
+            'can_export'            => true,
+            'has_archive'           => false,
+            'exclude_from_search'   => true,
+            'publicly_queryable'    => false,
+            'capability_type'       => 'post',
+            'rewrite'               => false,
         ];
         register_post_type('temp_login', $args);
     }
@@ -383,6 +386,9 @@ class Temporary_Login_Plugin
         wp_set_auth_cookie($user_id);
         do_action('wp_login', $user->user_login, $user);
 
+        // UPDATED: Store the temp_login post ID in the session.
+        $_SESSION['temp_login_post_id'] = $post_id;
+
         wp_redirect(admin_url());
         exit;
     }
@@ -514,6 +520,18 @@ class Temporary_Login_Plugin
     // -------------------------------------------------------------------------
 
     /**
+     * UPDATED: Starts a PHP session if one is not already active.
+     * Hooks into 'init'.
+     */
+    public function start_php_session()
+    {
+        if (!session_id()) {
+            session_start();
+        }
+    }
+
+
+    /**
      * Checks if the current user's session has expired and logs them out if it has.
      * Hooks into 'init'.
      */
@@ -529,13 +547,13 @@ class Temporary_Login_Plugin
 
         // Query for any temp_login posts associated with this user ID.
         $args = [
-            'post_type'   => 'temp_login',
-            'post_status'  => 'publish',
+            'post_type'      => 'temp_login',
+            'post_status'    => 'publish',
             'posts_per_page' => -1, // Check all possible keys for this user.
-            'meta_query'   => [
+            'meta_query'     => [
                 [
-                    'key'   => '_temp_login_user_id',
-                    'value'  => $user_id,
+                    'key'     => '_temp_login_user_id',
+                    'value'   => $user_id,
                     'compare' => '=',
                 ],
             ],
@@ -614,6 +632,11 @@ class Temporary_Login_Plugin
             unset($sessions[$ip_address]);
             update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
         }
+
+        // UPDATED: Clear the post ID from the session as well.
+        if (isset($_SESSION['temp_login_post_id'])) {
+            unset($_SESSION['temp_login_post_id']);
+        }
     }
 
     /**
@@ -640,10 +663,10 @@ class Temporary_Login_Plugin
     private function find_shortcode_page($shortcode)
     {
         $query = new WP_Query([
-            'post_type'   => 'page',
-            'post_status'  => 'publish',
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
             'posts_per_page' => -1,
-            's'       => '[' . $shortcode . ']',
+            's'              => '[' . $shortcode . ']',
         ]);
 
         if ($query->have_posts()) {
