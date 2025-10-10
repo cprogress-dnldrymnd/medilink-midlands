@@ -153,5 +153,12 @@
 
         <?php
         if (get_current_user_id() == 164) {
-            echo  $this->get_user_ip_address();
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
+            echo apply_filters('tlg_get_ip', $ip);
         }
