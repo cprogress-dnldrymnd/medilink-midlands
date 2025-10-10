@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       Temporary Login Generator
  * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
- * Version:           1.4.0
+ * Version:           1.5.0
  * Author:            Gemini
  * Author URI:        https://gemini.google.com
  */
@@ -202,8 +202,8 @@ class Temporary_Login_Plugin
         $session_history = get_post_meta($post->ID, '_temp_login_session_history', true);
         ?>
         <hr>
-        <h3>Session History</h3>
-        <p class="description">A record of every time this key was used to start a new 24-hour session.</p>
+        <h3>Unique Login History</h3>
+        <p class="description">A record of the first time each unique IP address used this key to start a session.</p>
         <?php
         if (!empty($session_history) && is_array($session_history)) :
             // Reverse the array to show the most recent login first
@@ -213,8 +213,8 @@ class Temporary_Login_Plugin
                 <thead>
                     <tr>
                         <th scope="col" style="width: 25%;"><strong>IP Address</strong></th>
-                        <th scope="col" style="width: 40%;"><strong>Login Time</strong></th>
-                        <th scope="col" style="width: 35%;"><strong>Session Expires</strong></th>
+                        <th scope="col" style="width: 40%;"><strong>First Login Time</strong></th>
+                        <th scope="col" style="width: 35%;"><strong>First Session Expires</strong></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -326,21 +326,18 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **IP-BASED SESSION LOGIC** ---
-        // First, check if the user has an active session from their current IP.
+        // --- IP-BASED SESSION LOGIC ---
         $ip_address = $this->get_user_ip_address();
         $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
         $is_session_active = false;
 
         if (is_array($sessions) && isset($sessions[$ip_address])) {
             $login_timestamp = $sessions[$ip_address];
-            // Check if the session is still within the 24-hour window.
             if (time() <= ($login_timestamp + DAY_IN_SECONDS)) {
                 $is_session_active = true;
             }
         }
 
-        // If their session is still active, log them in directly, bypassing the usage limit.
         if ($is_session_active) {
             wp_set_current_user($user_id, $user->user_login);
             wp_set_auth_cookie($user_id);
@@ -349,42 +346,35 @@ class Temporary_Login_Plugin
             exit;
         }
 
-        // --- **UPDATED: NEW IP ADDRESS LOGIC** ---
-        // Get the complete session history for this key.
+        // --- UPDATED: NEW IP ADDRESS LOGIC ---
         $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
         if (!is_array($session_history)) {
             $session_history = [];
         }
 
-        // Get an array of all unique IP addresses that have ever used this key.
         $used_ips = !empty($session_history) ? array_unique(wp_list_pluck($session_history, 'ip_address')) : [];
-
-        // Check if the current IP address has been used before.
         $is_new_ip = !in_array($ip_address, $used_ips);
 
-        // If this is a login from a brand new IP, we must check the usage limit and increment the count.
         if ($is_new_ip) {
-            // Check if adding this new IP would exceed the key's usage limit.
             if ($count >= $limit) {
                 wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
                 exit;
             }
 
-            // Since it's a new IP and within the limit, increment the usage count.
             $new_count = $count + 1;
             update_post_meta($post_id, '_temp_login_count', $new_count);
+
+            // **MODIFIED:** Only record the session in history if it's a new IP.
+            $current_time = time();
+            $session_history[] = [
+                'ip_address'  => $ip_address,
+                'login_time'  => $current_time,
+                'expiry_time' => $current_time + DAY_IN_SECONDS,
+            ];
+            update_post_meta($post_id, '_temp_login_session_history', $session_history);
         }
 
-        // For any successful login (new IP or returning IP), record the event and start a session.
-        $current_time = time();
-        $session_history[] = [
-            'ip_address'  => $ip_address,
-            'login_time'  => $current_time,
-            'expiry_time' => $current_time + DAY_IN_SECONDS,
-        ];
-        update_post_meta($post_id, '_temp_login_session_history', $session_history);
-
-        // Start a new 24-hour timer for this user's specific IP address.
+        // A 24-hour timer should start for EVERY successful login, regardless of IP.
         $this->start_user_session_timer($user_id);
 
         // Log the user in.
