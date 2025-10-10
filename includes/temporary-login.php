@@ -333,7 +333,8 @@ class Temporary_Login_Plugin
 
         if (is_array($sessions) && isset($sessions[$ip_address])) {
             $login_timestamp = $sessions[$ip_address];
-            if (time() <= ($login_timestamp + DAY_IN_SECONDS)) {
+            //DAY_IN_SECONDS
+            if (time() <= ($login_timestamp + 60)) {
                 $is_session_active = true;
             }
         }
@@ -369,7 +370,7 @@ class Temporary_Login_Plugin
             $session_history[] = [
                 'ip_address' => $ip_address,
                 'login_time' => $current_time,
-                'expiry_time' => $current_time + DAY_IN_SECONDS, // <-- CORRECTED: Use 24 hours
+                'expiry_time' => $current_time + 60, // <-- CORRECTED: Use 24 hours
             ];
             update_post_meta($post_id, '_temp_login_session_history', $session_history);
         }
