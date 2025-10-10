@@ -1,157 +1,489 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> id="medilink-html">
+<?php
+/**
+ * Plugin Name:       Temporary Login Generator
+ * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
+ * Version:           1.2.0
+ * Author:            Gemini
+ * Author URI:        https://gemini.google.com
+ */
 
-<head>
-    <meta charset="<?php esc_attr(bloginfo('charset')); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+// Prevent direct access to the file.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-    <?php if (! function_exists('has_site_icon') || ! has_site_icon()) { ?>
-        <link rel="shortcut icon" href="<?php echo esc_url(wikb('mt_favicon', 'url')); ?>">
-    <?php } ?>
-    <?php wp_head(); ?>
-</head>
+class Temporary_Login_Plugin
+{
+    /**
+     * Constructor to hook everything up.
+     */
+    public function __construct()
+    {
+        // Register the custom post type for temporary logins.
+        add_action('init', [$this, 'register_cpt_temporary_login']);
 
-<body <?php body_class(); ?>>
-    <?php if (function_exists('wp_body_open')) {
-        wp_body_open();
-    } ?>
-    <?php /* PAGE PRELOADER */ ?>
-    <?php
-    if (wikb('mt_preloader_status')) {
-        echo '<div class="wikb_preloader_holder ' . wp_kses_post(wikb('mt_preloader_animation')) . '">' . wp_kses_post(wikb_loader_animation()) . '</div>';
+        // Add custom meta boxes to the post type editor screen.
+        add_action('add_meta_boxes', [$this, 'add_login_meta_boxes']);
+
+        // Save the custom meta data when a post is saved.
+        add_action('save_post_temp_login', [$this, 'save_login_meta_data']);
+        
+        // Register the shortcode for the login form.
+        add_shortcode('temporary_login_form', [$this, 'render_login_form']);
+
+        // Handle the login form submission before the page loads.
+        add_action('template_redirect', [$this, 'handle_login_submission']);
+        
+        // Check for session expiry on every page load for logged-in users.
+        add_action('init', [$this, 'check_session_expiry']);
+
+        // Clear session data on manual logout.
+        add_action('wp_logout', [$this, 'clear_user_session_on_logout'], 10, 1);
     }
-    ?>
 
-    <?php
-    $below_slider_headers = array('header5', 'header6', 'header7', 'header8');
-    $normal_headers = array('header1', 'header2', 'header3', 'header4');
-    $custom_header_options_status = get_post_meta(get_the_ID(), 'smartowl_custom_header_options_status', true);
-    $header_custom_variant = get_post_meta(get_the_ID(), 'smartowl_header_custom_variant', true);
-    $header_layout = wikb('mt_header_layout');
-    if (isset($custom_header_options_status) && $custom_header_options_status == 'yes') {
-        $header_layout = $header_custom_variant;
+    /**
+     * Registers the 'temp_login' Custom Post Type.
+     */
+    public function register_cpt_temporary_login()
+    {
+        $labels = [
+            'name'                  => _x('Temporary Logins', 'Post Type General Name', 'text_domain'),
+            'singular_name'         => _x('Temporary Login', 'Post Type Singular Name', 'text_domain'),
+            'menu_name'             => __('Temporary Logins', 'text_domain'),
+            'name_admin_bar'        => __('Temporary Login', 'text_domain'),
+            'archives'              => __('Login Archives', 'text_domain'),
+            'attributes'            => __('Login Attributes', 'text_domain'),
+            'parent_item_colon'     => __('Parent Login:', 'text_domain'),
+            'all_items'             => __('All Logins', 'text_domain'),
+            'add_new_item'          => __('Add New Temporary Login', 'text_domain'),
+            'add_new'               => __('Add New', 'text_domain'),
+            'new_item'              => __('New Login', 'text_domain'),
+            'edit_item'             => __('Edit Login', 'text_domain'),
+            'update_item'           => __('Update Login', 'text_domain'),
+            'view_item'             => __('View Login', 'text_domain'),
+            'view_items'            => __('View Logins', 'text_domain'),
+            'search_items'          => __('Search Login', 'text_domain'),
+        ];
+        $args = [
+            'label'                 => __('Temporary Login', 'text_domain'),
+            'description'           => __('Create and manage temporary access keys.', 'text_domain'),
+            'labels'                => $labels,
+            'supports'              => ['title'],
+            'hierarchical'          => false,
+            'public'                => false,
+            'show_ui'               => true,
+            'show_in_menu'          => true,
+            'menu_position'         => 20,
+            'menu_icon'             => 'dashicons-lock-duplicate',
+            'show_in_admin_bar'     => true,
+            'show_in_nav_menus'     => false,
+            'can_export'            => true,
+            'has_archive'           => false,
+            'exclude_from_search'   => true,
+            'publicly_queryable'    => false,
+            'capability_type'       => 'post',
+            'rewrite'               => false,
+        ];
+        register_post_type('temp_login', $args);
     }
-    ?>
 
-    <?php
-    $below_slider_headers = array('header5', 'header6', 'header7', 'header8');
-    $normal_headers = array('header1', 'header2', 'header3', 'header4');
-    $custom_header_options_status = get_post_meta(get_the_ID(), 'smartowl_custom_header_options_status', true);
-    $header_custom_variant = get_post_meta(get_the_ID(), 'smartowl_header_custom_variant', true);
-    $header_layout = wikb('mt_header_layout');
-    if (isset($custom_header_options_status) && $custom_header_options_status == 'yes') {
-        $header_layout = $header_custom_variant;
+    /**
+     * Adds the meta box container.
+     */
+    public function add_login_meta_boxes()
+    {
+        add_meta_box(
+            'temp_login_details_metabox',
+            __('Temporary Login Settings', 'text_domain'),
+            [$this, 'render_login_meta_box_content'],
+            'temp_login', // The CPT slug
+            'normal',
+            'high'
+        );
     }
-    ?>
-    <?php
-    if (!in_array('login-register-page', get_body_class())) { ?>
-        <div class="modeltheme-modal" id="modal-log-in">
-            <div class="modeltheme-content" id="login-modal-content">
-                <h3 class="relative">
-                    <?php echo esc_html__('Login to Your Account', 'wikb'); ?>
-                </h3>
-                <div class="modal-content row">
-                    <div class="col-md-12">
 
-                        <form name="loginform" id="loginform" action="<?php echo wp_login_url(); ?>" method="post">
+    /**
+     * Renders the content of the meta box.
+     */
+    public function render_login_meta_box_content($post)
+    {
+        // Add a nonce field for security.
+        wp_nonce_field('temp_login_save_meta_data', 'temp_login_meta_nonce');
 
-                            <p class="login-username">
-                                <label for="user_login"><?php echo esc_html__('Username or Email Address', 'wikb'); ?></label>
-                                <i class="fa fa-user-o" aria-hidden="true"></i><input type="text" name="log" id="user_login" class="input" value="" size="20" placeholder="<?php echo esc_attr__('Username', 'wikb'); ?>">
-                            </p>
-                            <p class="login-password">
-                                <label for="user_pass"><?php echo esc_html__('Password', 'wikb'); ?></label>
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i><input type="password" name="pwd" id="user_pass" class="input" value="" size="20" placeholder="<?php echo esc_attr__('Password', 'wikb'); ?>">
-                            </p>
+        // Get existing values.
+        $user_id = get_post_meta($post->ID, '_temp_login_user_id', true);
+        $login_limit = get_post_meta($post->ID, '_temp_login_limit', true);
+        $login_count = get_post_meta($post->ID, '_temp_login_count', true);
+        $login_key = get_post_meta($post->ID, '_temp_login_key', true);
 
-                            <p class="login-remember">
-                                <label>
-                                    <input name="rememberme" type="checkbox" id="rememberme" value="forever">
-                                    <?php echo esc_html__('Remember Me', 'wikb'); ?>
-                                </label>
-                            </p>
-                            <div class="row-buttons">
-                                <p class="login-submit">
-                                    <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="<?php echo esc_attr__('Log In', 'wikb'); ?>">
-                                    <input type="hidden" name="redirect_to" value="<?php echo get_site_url(); ?>">
-                                </p>
-                                <?php if (get_option('users_can_register')) { ?>
-                                    <p class="btn-register-p">
-                                        <a class="btn btn-register" href="<?= get_the_permalink(49499) ?>"><?php echo esc_html__('Register', 'wikb'); ?></a>
-                                    </p>
-                                <?php } else { ?>
-                                    <p class="um-notice err text-center"><?php echo esc_html__('Registration is currently disabled', 'wikb'); ?></p>
-                                <?php } ?>
-                                <p class="woocommerce-LostPassword lost_password">
-                                    <a href="<?= get_the_permalink(50003) ?>"><?php echo esc_html__('Lost your password?', 'wikb'); ?></a>
-                                </p>
-                            </div>
-
-                        </form>
-
-
-                        <?php if (function_exists('yith_ywsl_constructor')) { ?>
-                            <div class="separator-modal"><?php echo esc_html__('OR', 'wikb'); ?></div>
-                            <?php echo do_shortcode("[yith_wc_social_login]"); ?>
-                        <?php } ?>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    <?php } ?>
-    <div class="modeltheme-overlay"></div>
-
-    <?php /* SEARCH BLOCK */ ?>
-    <?php if (wikb('mt_header_is_search') == true) { ?>
-        <!-- Fixed Search Form -->
-        <div class="fixed-search-overlay">
-            <!-- Close Sidebar Menu + Close Overlay -->
-            <i class="icon-close icons"></i>
-            <!-- INSIDE SEARCH OVERLAY -->
-            <div class="fixed-search-inside">
-                <div class="modeltheme-search">
-                    <form method="GET" action="<?php echo esc_url(home_url('/')); ?>">
-                        <input class="search-input" placeholder="<?php echo esc_attr__('Enter search term...', 'wikb'); ?>" type="search" value="" name="s" id="search" />
-                        <i class="fa fa-search"></i>
-                        <input type="hidden" name="post_type" value="post" />
-                    </form>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
-
-
-    <!-- PAGE #page -->
-    <div id="page" class="hfeed site">
-        <?php
-        $page_slider = get_post_meta(get_the_ID(), 'select_revslider_shortcode', true);
-        if (in_array($header_layout, $below_slider_headers)) {
-            // Revolution slider
-            if (!empty($page_slider)) {
-                echo '<div class="theme_header_slider">';
-                echo do_shortcode('[rev_slider ' . esc_attr($page_slider) . ']');
-                echo '</div>';
-            }
-
-            // Header template variant
-            echo wp_kses_post(wikb_current_header_template());
-        } elseif (in_array($header_layout, $normal_headers)) {
-            // Header template variant
-            echo wp_kses_post(wikb_current_header_template());
-            // Revolution slider
-            if (!empty($page_slider)) {
-                echo '<div class="theme_header_slider">';
-                echo do_shortcode('[rev_slider ' . esc_attr($page_slider) . ']');
-                echo '</div>';
-            }
-        } else {
-            echo wp_kses_post(wikb_current_header_template());
+        // Auto-generate a key if one doesn't exist.
+        if (empty($login_key)) {
+            $login_key = wp_generate_password(20, false);
         }
+
+        // Set defaults for new posts.
+        $login_limit = !empty($login_limit) ? absint($login_limit) : 1;
+        $login_count = !empty($login_count) ? absint($login_count) : 0;
+
         ?>
+        <style>
+            .temp-login-table { width: 100%; }
+            .temp-login-table td { padding: 8px 5px; }
+            .temp-login-table tr td:first-child { font-weight: bold; width: 200px; }
+            .temp-login-key-wrapper { position: relative; }
+            .temp-login-key-wrapper input { width: 100%; padding-right: 80px; background-color: #f0f0f0; }
+            .copy-btn { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); cursor: pointer; }
+        </style>
+        <table class="form-table temp-login-table">
+            <tbody>
+                <tr>
+                    <td><label for="temp_login_user_id"><?php _e('User to Log In As:', 'text_domain'); ?></label></td>
+                    <td>
+                        <?php
+                        wp_dropdown_users([
+                            'name' => 'temp_login_user_id',
+                            'id' => 'temp_login_user_id',
+                            'selected' => $user_id,
+                            'show_option_none' => __('&mdash; Select a User &mdash;'),
+                            'class' => 'widefat',
+                        ]);
+                        ?>
+                        <p class="description"><?php _e('This temporary key will log the person into this user account.', 'text_domain'); ?></p>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td><label for="temp_login_limit"><?php _e('Maximum Logins:', 'text_domain'); ?></label></td>
+                    <td>
+                        <input type="number" id="temp_login_limit" name="temp_login_limit" value="<?php echo esc_attr($login_limit); ?>" min="1" step="1" />
+                        <p class="description"><?php _e('How many times can this key be used to start a new 24-hour session?', 'text_domain'); ?></p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><label for="temp_login_key"><?php _e('Login Key:', 'text_domain'); ?></label></td>
+                    <td>
+                        <div class="temp-login-key-wrapper">
+                            <input type="text" id="temp_login_key" name="temp_login_key" value="<?php echo esc_attr($login_key); ?>" readonly />
+                            <button type="button" class="button button-secondary copy-btn" onclick="copyKey()">Copy</button>
+                        </div>
+                        <p class="description"><?php _e('Share this key and the login page URL with the user.', 'text_domain'); ?></p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?php _e('Times Used:', 'text_domain'); ?></td>
+                    <td>
+                        <strong><?php echo esc_html($login_count); ?></strong>
+                         <p class="description"><?php _e('The current number of times this key has been used to start a new session.', 'text_domain'); ?></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            function copyKey() {
+                const keyField = document.getElementById('temp_login_key');
+                keyField.select();
+                document.execCommand('copy');
+                alert('Login key copied to clipboard!');
+            }
+        </script>
         <?php
-        if (current_user_can('administrator')) {
-          
+    }
+
+    /**
+     * Saves the custom meta data.
+     */
+    public function save_login_meta_data($post_id)
+    {
+        // Check nonce.
+        if (!isset($_POST['temp_login_meta_nonce']) || !wp_verify_nonce($_POST['temp_login_meta_nonce'], 'temp_login_save_meta_data')) {
+            return;
         }
+
+        // Check if the current user has permission.
+        if (!current_user_can('edit_post', $post_id)) {
+            return;
+        }
+
+        // Save User ID.
+        if (isset($_POST['temp_login_user_id'])) {
+            $user_id = absint($_POST['temp_login_user_id']);
+            update_post_meta($post_id, '_temp_login_user_id', $user_id);
+        }
+
+        // Save Login Limit.
+        if (isset($_POST['temp_login_limit'])) {
+            $limit = absint($_POST['temp_login_limit']);
+            update_post_meta($post_id, '_temp_login_limit', $limit);
+        }
+        
+        // Save Login Key.
+        if (isset($_POST['temp_login_key'])) {
+            $key = sanitize_text_field($_POST['temp_login_key']);
+            update_post_meta($post_id, '_temp_login_key', $key);
+        }
+    }
+    
+    /**
+     * Handles the form submission for logging in.
+     */
+    public function handle_login_submission() {
+        if (!isset($_POST['temp_login_nonce']) || !wp_verify_nonce($_POST['temp_login_nonce'], 'temp_login_action')) {
+            return;
+        }
+
+        if (empty($_POST['temp_login_key'])) {
+            wp_redirect(add_query_arg('login_error', 'empty', wp_get_referer()));
+            exit;
+        }
+        
+        $key = sanitize_text_field($_POST['temp_login_key']);
+
+        $args = [
+            'post_type' => 'temp_login',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'meta_query' => [['key' => '_temp_login_key', 'value' => $key, 'compare' => '=',]],
+        ];
+
+        $login_posts = new WP_Query($args);
+
+        if (!$login_posts->have_posts()) {
+            wp_redirect(add_query_arg('login_error', 'invalid', wp_get_referer()));
+            exit;
+        }
+
+        $post_id = $login_posts->posts[0]->ID;
+        $user_id = get_post_meta($post_id, '_temp_login_user_id', true);
+        $limit = (int) get_post_meta($post_id, '_temp_login_limit', true);
+        $count = (int) get_post_meta($post_id, '_temp_login_count', true);
+        $user = get_user_by('id', $user_id);
+        
+        if (!$user) {
+            wp_redirect(add_query_arg('login_error', 'nouser', wp_get_referer()));
+            exit;
+        }
+        
+        // --- **UPDATED LOGIC** ---
+        // First, check if the user has an active session from their current IP.
+        $ip_address = $this->get_user_ip_address();
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+        $is_session_active = false;
+
+        if (is_array($sessions) && isset($sessions[$ip_address])) {
+            $login_timestamp = $sessions[$ip_address];
+            // Check if the session is still within the 24-hour window.
+            if (time() <= ($login_timestamp + DAY_IN_SECONDS)) {
+                $is_session_active = true;
+            }
+        }
+
+        // If their session is still active, log them in directly, bypassing the usage limit.
+        if ($is_session_active) {
+            wp_set_current_user($user_id, $user->user_login);
+            wp_set_auth_cookie($user_id);
+            do_action('wp_login', $user->user_login, $user);
+            wp_redirect(admin_url());
+            exit;
+        }
+
+        // --- **ORIGINAL LOGIC CONTINUES FOR NEW SESSIONS** ---
+        // If there's no active session, check if they have exceeded the key usage limit.
+        if ($count >= $limit) {
+            wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
+            exit;
+        }
+        
+        // Success! This is a new session. Increment the usage count.
+        $new_count = $count + 1;
+        update_post_meta($post_id, '_temp_login_count', $new_count);
+
+        // Start a new 24-hour timer.
+        $this->start_user_session_timer($user_id);
+
+        wp_set_current_user($user_id, $user->user_login);
+        wp_set_auth_cookie($user_id);
+        do_action('wp_login', $user->user_login, $user);
+
+        wp_redirect(admin_url());
+        exit;
+    }
+    
+    /**
+     * Renders the HTML for the login form shortcode.
+     */
+    public function render_login_form()
+    {
+        if (is_user_logged_in()) {
+            return '<div class="temp-login-container"><p>You are already logged in.</p> <a href="' . wp_logout_url(home_url()) . '">Log Out</a></div>';
+        }
+
+        ob_start();
+        ?>
+        <style>
+            .temp-login-container { max-width: 400px; margin: 40px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+            .temp-login-container h3 { text-align: center; margin-bottom: 25px; color: #333; }
+            .temp-login-container .form-row { margin-bottom: 15px; }
+            .temp-login-container label { display: block; margin-bottom: 5px; font-weight: bold; color: #555;}
+            .temp-login-container input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+            .temp-login-container .submit-button { width: 100%; padding: 12px; border: none; border-radius: 4px; background-color: #34BFA3; color: white; font-size: 16px; cursor: pointer; transition: background-color 0.2s; }
+            .temp-login-container .submit-button:hover { background-color: #FF8335; }
+            .temp-login-error { padding: 15px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 4px; color: #a94442; background-color: #f2dede; border-color: #ebccd1; text-align: center; }
+        </style>
+
+        <div class="temp-login-container">
+            <h3>Temporary Access Login</h3>
+            
+            <?php
+            // Display error messages
+            if (isset($_GET['login_error'])) {
+                $error_code = sanitize_key($_GET['login_error']);
+                $message = '';
+                switch ($error_code) {
+                    case 'empty':
+                        $message = 'Please enter your login key.';
+                        break;
+                    case 'invalid':
+                        $message = 'The login key you entered is not valid.';
+                        break;
+                    case 'expired':
+                        $message = 'This login key has reached its maximum number of uses.';
+                        break;
+                    case 'nouser':
+                         $message = 'The user associated with this key no longer exists.';
+                        break;
+                    case 'session_expired':
+                        $message = 'Your 24-hour session has expired. Please log in again.';
+                        break;
+                }
+                if ($message) {
+                    echo '<div class="temp-login-error">' . esc_html($message) . '</div>';
+                }
+            }
+            ?>
+
+            <form method="POST" action="">
+                <?php wp_nonce_field('temp_login_action', 'temp_login_nonce'); ?>
+                <div class="form-row">
+                    <label for="temp_login_key">Enter Your Login Key</label>
+                    <input type="text" id="temp_login_key" name="temp_login_key" required>
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="submit-button">Log In</button>
+                </div>
+            </form>
+        </div>
+        <?php
+        return ob_get_clean();
+    }
+    
+    // -------------------------------------------------------------------------
+    // TIMER AND SESSION FUNCTIONS
+    // -------------------------------------------------------------------------
+
+    /**
+     * Checks if the current user's session has expired and logs them out if it has.
+     * Hooks into 'init'.
+     */
+    public function check_session_expiry() {
+        if (!is_user_logged_in()) {
+            return;
+        }
+
+        $user_id = get_current_user_id();
+        $ip_address = $this->get_user_ip_address();
+        
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+
+        if (is_array($sessions) && isset($sessions[$ip_address])) {
+            $login_timestamp = $sessions[$ip_address];
+            $expiration_time = $login_timestamp + DAY_IN_SECONDS;
+
+            if (time() > $expiration_time) {
+                unset($sessions[$ip_address]);
+                update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+
+                wp_logout();
+
+                $login_page_url = $this->find_shortcode_page('temporary_login_form');
+                $redirect_url = $login_page_url ? $login_page_url : home_url();
+                
+                wp_redirect(add_query_arg('login_error', 'session_expired', $redirect_url));
+                exit;
+            }
+        }
+    }
+
+    /**
+     * Starts the 24-hour session timer for a user upon successful login.
+     * @param int $user_id The ID of the user logging in.
+     */
+    private function start_user_session_timer($user_id) {
+        $ip_address = $this->get_user_ip_address();
+        
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+        if (!is_array($sessions)) {
+            $sessions = [];
+        }
+
+        $sessions[$ip_address] = time();
+
+        update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+    }
+
+    /**
+     * Removes session data when a user logs out manually.
+     * Hooks into 'wp_logout'.
+     * @param int $user_id The ID of the user logging out.
+     */
+    public function clear_user_session_on_logout($user_id) {
+        $ip_address = $this->get_user_ip_address();
+        
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+
+        if (is_array($sessions) && isset($sessions[$ip_address])) {
+            unset($sessions[$ip_address]);
+            update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+        }
+    }
+
+    /**
+     * Helper function to get the user's IP address, considering proxies.
+     * @return string The user's IP address.
+     */
+    private function get_user_ip_address() {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return apply_filters('tlg_get_ip', $ip);
+    }
+
+    /**
+     * Helper function to find the URL of the page containing our shortcode.
+     * @param string $shortcode The shortcode string to search for.
+     * @return string|null The page permalink or null if not found.
+     */
+    private function find_shortcode_page($shortcode) {
+        $query = new WP_Query([
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            's'              => '[' . $shortcode . ']',
+        ]);
+
+        if ($query->have_posts()) {
+            $query->the_post();
+            return get_permalink(get_the_ID());
+        }
+        
+        return null;
+    }
+}
+
+// Instantiate the plugin class.
+new Temporary_Login_Plugin();
