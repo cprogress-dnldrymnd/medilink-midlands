@@ -130,11 +130,11 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                 if ($switch == 1) { ?>
 
                   <?php if (is_user_logged_in()) { ?> <!-- logged in -->
-                    <?php if (get_current_user_id() != 164) { ?>
-                      <li class="menu-item mt-header-account">
 
-                        <div id="dropdown-user-profile" class="ddmenu">
+                    <li class="menu-item mt-header-account">
 
+                      <div id="dropdown-user-profile" class="ddmenu">
+                        <?php if (get_current_user_id() != 164) { ?>
                           <a class="profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                           </a>
@@ -160,29 +160,29 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                               <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out', 'wikb'); ?></a>
                           </li>
                           </ul>
-                        </div>
-                      </li>
+                      </div>
+                    </li>
 
-                    <?php } else { ?> <!-- logged out -->
-                      <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
-                        <?php if (is_404()) { ?>
-                          <a href="/login" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
-                        <?php } else { ?>
-                          <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
-                        <?php } ?>
-                        <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
-                      </li>
-                    <?php } ?>
+                  <?php } else { ?> <!-- logged out -->
+                    <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
+                      <?php if (is_404()) { ?>
+                        <a href="/login" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                      <?php } else { ?>
+                        <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                      <?php } ?>
+                      <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
+                    </li>
+                  <?php } ?>
 
-                    <li id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
-                  <?php } ?> <!--  switch  -->
-              <?php } /* function exist */
+                  <li id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
+                <?php } ?> <!--  switch  -->
+            <?php } /* function exist */
             } else {
               echo '<p class="no-menu text-left">';
               echo esc_html__('Primary navigation menu is missing. ', 'wikb');
               echo '</p>';
             }
-              ?>
+            ?>
           </ul>
         </div>
       </div>
