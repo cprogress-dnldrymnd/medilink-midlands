@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       Temporary Login Generator
  * Description:       Create limited-use login keys that grant temporary access to an account with a 24-hour session timer.
