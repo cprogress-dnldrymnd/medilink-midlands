@@ -199,7 +199,7 @@ class Temporary_Login_Plugin
             }
         </script>
         <?php
-        // $session_history = get_post_meta($post->ID, '_temp_login_session_history', true);
+        $session_history = get_post_meta($post->ID, '_temp_login_session_history', true);
         ?>
         <hr>
         <h3>Session History</h3>
