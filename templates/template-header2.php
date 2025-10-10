@@ -20,7 +20,7 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
         <?php
         } else {
         ?>
-          Welcome Guest! 
+          <span>Welcome Guest! </span>
         <?php
         }
         ?>
