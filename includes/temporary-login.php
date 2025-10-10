@@ -346,7 +346,6 @@ class Temporary_Login_Plugin
             wp_set_auth_cookie($user_id);
             do_action('wp_login', $user->user_login, $user);
             wp_redirect(admin_url());
-            exit;
         } else {
             // Success! This is a new session. Increment the usage count.
             $new_count = $count + 1;
@@ -365,27 +364,22 @@ class Temporary_Login_Plugin
                 'expiry_time' => $current_time + DAY_IN_SECONDS,
             ];
             update_post_meta($post_id, '_temp_login_session_history', $session_history);
+            // Start a new 24-hour timer.
+            $this->start_user_session_timer($user_id);
+
+            wp_set_current_user($user_id, $user->user_login);
+            wp_set_auth_cookie($user_id);
+            do_action('wp_login', $user->user_login, $user);
             // --- END NEW CODE ---
         }
 
-        // --- **NEW SESSION LOGIC** ---
-        // If there's no active session, check if they have exceeded the key usage limit.
+   
         if ($count >= $limit) {
             wp_redirect(add_query_arg('login_error', 'expired', wp_get_referer()));
             exit;
         }
 
 
-
-        // Start a new 24-hour timer.
-        $this->start_user_session_timer($user_id);
-
-        wp_set_current_user($user_id, $user->user_login);
-        wp_set_auth_cookie($user_id);
-        do_action('wp_login', $user->user_login, $user);
-
-        wp_redirect(admin_url());
-        exit;
     }
 
 
