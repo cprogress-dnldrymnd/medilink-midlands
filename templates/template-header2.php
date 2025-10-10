@@ -138,7 +138,9 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                           <a class="profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                           </a>
-                          <ul>
+                        <?php } ?>
+                        <ul>
+                          <?php if (get_current_user_id() != 164) { ?>
                             <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
                             <?php $mt_tickets_link_page = wikb('mt_tickets_link_page'); ?>
                             <?php if (!empty($mt_purchases_link_page)) { ?>
@@ -159,7 +161,7 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                           <li><a href="<?php echo esc_url(wp_logout_url(home_url())); ?>">
                               <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out', 'wikb'); ?></a>
                           </li>
-                          </ul>
+                        </ul>
                       </div>
                     </li>
 
