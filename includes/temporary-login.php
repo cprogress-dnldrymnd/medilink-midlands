@@ -544,57 +544,34 @@ class Temporary_Login_Plugin
 
         $user_id = get_current_user_id();
         $ip_address = $this->get_user_ip_address();
+        $temp_login_post_id =  $_SESSION['temp_login_post_id'];
 
-        // Query for any temp_login posts associated with this user ID.
-        $args = [
-            'post_type'      => 'temp_login',
-            'post_status'    => 'publish',
-            'posts_per_page' => -1, // Check all possible keys for this user.
-            'meta_query'     => [
-                [
-                    'key'     => '_temp_login_user_id',
-                    'value'   => $user_id,
-                    'compare' => '=',
-                ],
-            ],
-        ];
+        $session_history = get_post_meta($temp_login_post_id, '_temp_login_session_history', true);
 
-        $login_posts = new WP_Query($args);
+        if (!empty($session_history) && is_array($session_history)) {
+            // Find the specific session record for the current IP address.
+            foreach ($session_history as $session) {
+                if (isset($session['ip_address']) && $session['ip_address'] === $ip_address) {
+                    // We found the session record. Now check if it's expired.
+                    if (isset($session['expiry_time']) && time() > $session['expiry_time']) {
+                        // The session has expired. Log the user out.
+                        $this->clear_user_session_on_logout($user_id); // Clean up the user meta.
+                        wp_logout();
 
-        if ($login_posts->have_posts()) {
-            while ($login_posts->have_posts()) {
-                $login_posts->the_post();
-                $post_id = get_the_ID();
-
-                $session_history = get_post_meta($post_id, '_temp_login_session_history', true);
-
-                if (!empty($session_history) && is_array($session_history)) {
-                    // Find the specific session record for the current IP address.
-                    foreach ($session_history as $session) {
-                        if (isset($session['ip_address']) && $session['ip_address'] === $ip_address) {
-                            // We found the session record. Now check if it's expired.
-                            if (isset($session['expiry_time']) && time() > $session['expiry_time']) {
-                                // The session has expired. Log the user out.
-                                $this->clear_user_session_on_logout($user_id); // Clean up the user meta.
-                                wp_logout();
-
-                                // Find the login page URL to redirect to.
-                                $login_page_url = $this->find_shortcode_page('temporary_login_form');
-                                if (!$login_page_url) {
-                                    $login_page_url = home_url(); // Fallback to homepage.
-                                }
-
-                                wp_redirect(add_query_arg('login_error', 'session_expired', $login_page_url));
-                                exit;
-                            }
-                            // If we found the session and it's not expired, we can stop checking.
-                            wp_reset_postdata();
-                            return;
+                        // Find the login page URL to redirect to.
+                        $login_page_url = $this->find_shortcode_page('temporary_login_form');
+                        if (!$login_page_url) {
+                            $login_page_url = home_url(); // Fallback to homepage.
                         }
+
+                        wp_redirect(add_query_arg('login_error', 'session_expired', $login_page_url));
+                        exit;
                     }
+                    // If we found the session and it's not expired, we can stop checking.
+                    wp_reset_postdata();
+                    return;
                 }
             }
-            wp_reset_postdata();
         }
     }
 
