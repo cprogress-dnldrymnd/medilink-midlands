@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       Temporary Login Generator
- * Description:       Create single-use or limited-use login keys that grant temporary access to a specified user account.
- * Version:           1.0.0
+ * Description:       Create single-use or limited-use login keys that grant temporary access to a specified user account with a 24-hour session timer.
+ * Version:           1.1.0
  * Author:            Gemini
  * Author URI:        https://gemini.google.com
  */
@@ -33,6 +33,12 @@ class Temporary_Login_Plugin
 
         // Handle the login form submission before the page loads.
         add_action('template_redirect', [$this, 'handle_login_submission']);
+        
+        // **NEW**: Check for session expiry on every page load for logged-in users.
+        add_action('init', [$this, 'check_session_expiry']);
+
+        // **NEW**: Clear session data on manual logout.
+        add_action('wp_logout', [$this, 'clear_user_session_on_logout'], 10, 1);
     }
 
     /**
@@ -130,7 +136,6 @@ class Temporary_Login_Plugin
         </style>
         <table class="form-table temp-login-table">
             <tbody>
-                <!-- User to log in as -->
                 <tr>
                     <td><label for="temp_login_user_id"><?php _e('User to Log In As:', 'text_domain'); ?></label></td>
                     <td>
@@ -147,17 +152,15 @@ class Temporary_Login_Plugin
                     </td>
                 </tr>
 
-                <!-- Login Limit -->
                 <tr>
                     <td><label for="temp_login_limit"><?php _e('Maximum Logins:', 'text_domain'); ?></label></td>
                     <td>
                         <input type="number" id="temp_login_limit" name="temp_login_limit" value="<?php echo esc_attr($login_limit); ?>" min="1" step="1" />
-                        <p class="description"><?php _e('How many times can this key be used to log in?', 'text_domain'); ?></p>
+                        <p class="description"><?php _e('How many times can this key be used to log in? Each login lasts 24 hours.', 'text_domain'); ?></p>
                     </td>
                 </tr>
                 
-                <!-- Login Key -->
-                 <tr>
+                <tr>
                     <td><label for="temp_login_key"><?php _e('Login Key:', 'text_domain'); ?></label></td>
                     <td>
                         <div class="temp-login-key-wrapper">
@@ -168,7 +171,6 @@ class Temporary_Login_Plugin
                     </td>
                 </tr>
 
-                <!-- Login Count -->
                 <tr>
                     <td><?php _e('Times Used:', 'text_domain'); ?></td>
                     <td>
@@ -279,6 +281,9 @@ class Temporary_Login_Plugin
         $new_count = $count + 1;
         update_post_meta($post_id, '_temp_login_count', $new_count);
 
+        // **NEW**: Start the 24-hour timer.
+        $this->start_user_session_timer($user_id);
+
         wp_set_current_user($user_id, $user->user_login);
         wp_set_auth_cookie($user_id);
         do_action('wp_login', $user->user_login, $user);
@@ -330,6 +335,10 @@ class Temporary_Login_Plugin
                     case 'nouser':
                          $message = 'The user associated with this key no longer exists.';
                         break;
+                    // **NEW**: New error case for expired session.
+                    case 'session_expired':
+                        $message = 'Your 24-hour session has expired. Please log in again.';
+                        break;
                 }
                 if ($message) {
                     echo '<div class="temp-login-error">' . esc_html($message) . '</div>';
@@ -350,6 +359,125 @@ class Temporary_Login_Plugin
         </div>
         <?php
         return ob_get_clean();
+    }
+    
+    // -------------------------------------------------------------------------
+    // **NEW TIMER AND SESSION FUNCTIONS**
+    // -------------------------------------------------------------------------
+
+    /**
+     * Checks if the current user's session has expired and logs them out if it has.
+     * Hooks into 'init'.
+     */
+    public function check_session_expiry() {
+        // Only run this check for logged-in users.
+        if (!is_user_logged_in()) {
+            return;
+        }
+
+        $user_id = get_current_user_id();
+        $ip_address = $this->get_user_ip_address();
+        
+        // Get all active sessions for this user.
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+
+        // If sessions exist and there's one for the current IP.
+        if (is_array($sessions) && isset($sessions[$ip_address])) {
+            $login_timestamp = $sessions[$ip_address];
+            $expiration_time = $login_timestamp + DAY_IN_SECONDS; // DAY_IN_SECONDS is a WordPress constant for 86400
+
+            // If the current time is past the expiration time.
+            if (time() > $expiration_time) {
+                // First, remove the expired session entry.
+                unset($sessions[$ip_address]);
+                update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+
+                // Log the user out.
+                wp_logout();
+
+                // Redirect to the login page with an error message.
+                // We find the page with the shortcode to redirect correctly.
+                $login_page_url = $this->find_shortcode_page('temporary_login_form');
+                $redirect_url = $login_page_url ? $login_page_url : home_url();
+                
+                wp_redirect(add_query_arg('login_error', 'session_expired', $redirect_url));
+                exit;
+            }
+        }
+    }
+
+    /**
+     * Starts the 24-hour session timer for a user upon successful login.
+     * @param int $user_id The ID of the user logging in.
+     */
+    private function start_user_session_timer($user_id) {
+        $ip_address = $this->get_user_ip_address();
+        
+        // Get existing sessions or create a new array.
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+        if (!is_array($sessions)) {
+            $sessions = [];
+        }
+
+        // Set the login timestamp for the current IP address.
+        $sessions[$ip_address] = time();
+
+        // Save the session data.
+        update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+    }
+
+    /**
+     * Removes session data when a user logs out manually.
+     * Hooks into 'wp_logout'.
+     * @param int $user_id The ID of the user logging out.
+     */
+    public function clear_user_session_on_logout($user_id) {
+        $ip_address = $this->get_user_ip_address();
+        
+        $sessions = get_user_meta($user_id, '_temp_login_active_sessions', true);
+
+        // If a session for this IP exists, remove it.
+        if (is_array($sessions) && isset($sessions[$ip_address])) {
+            unset($sessions[$ip_address]);
+            update_user_meta($user_id, '_temp_login_active_sessions', $sessions);
+        }
+    }
+
+    /**
+     * Helper function to get the user's IP address, considering proxies.
+     * @return string The user's IP address.
+     */
+    private function get_user_ip_address() {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return apply_filters('tlg_get_ip', $ip);
+    }
+
+    /**
+     * Helper function to find the URL of the page containing our shortcode.
+     * This makes redirects more accurate.
+     * @param string $shortcode The shortcode string to search for.
+     * @return string|null The page permalink or null if not found.
+     */
+    private function find_shortcode_page($shortcode) {
+        $query = new WP_Query([
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            's'              => '[' . $shortcode . ']',
+        ]);
+
+        if ($query->have_posts()) {
+            $query->the_post();
+            return get_permalink(get_the_ID());
+        }
+        
+        return null;
     }
 }
 
