@@ -130,57 +130,59 @@ if (is_user_logged_in() && get_current_user_id() != 164) {
                 if ($switch == 1) { ?>
 
                   <?php if (is_user_logged_in()) { ?> <!-- logged in -->
+                    <?php if (get_current_user_id() != 164) { ?>
+                      <li class="menu-item mt-header-account">
 
-                    <li class="menu-item mt-header-account">
+                        <div id="dropdown-user-profile" class="ddmenu">
 
-                      <div id="dropdown-user-profile" class="ddmenu">
-                        <a class="profile">
-                          <i class="fa fa-user" aria-hidden="true"></i>
-                        </a>
-                        <ul>
-                          <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
-                          <?php $mt_tickets_link_page = wikb('mt_tickets_link_page'); ?>
-                          <?php if (!empty($mt_purchases_link_page)) { ?>
-                            <li><a href="<?php echo esc_url($mt_purchases_link_page); ?>">
-                                <i class="icon-bag icons"></i> <?php echo esc_html__('My Purchases', 'wikb'); ?></a>
+                          <a class="profile">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                          </a>
+                          <ul>
+                            <?php $mt_purchases_link_page = wikb('mt_purchases_link_page'); ?>
+                            <?php $mt_tickets_link_page = wikb('mt_tickets_link_page'); ?>
+                            <?php if (!empty($mt_purchases_link_page)) { ?>
+                              <li><a href="<?php echo esc_url($mt_purchases_link_page); ?>">
+                                  <i class="icon-bag icons"></i> <?php echo esc_html__('My Purchases', 'wikb'); ?></a>
+                              </li>
+                            <?php } ?>
+                            <?php if (!empty($mt_tickets_link_page)) { ?>
+                              <li><a href="<?php echo esc_url($mt_tickets_link_page); ?>">
+                                  <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
+                              </li>
+                            <?php } ?>
+                            <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>">
+                                <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
                             </li>
+                            <div class="dropdown-divider"></div>
                           <?php } ?>
-                          <?php if (!empty($mt_tickets_link_page)) { ?>
-                            <li><a href="<?php echo esc_url($mt_tickets_link_page); ?>">
-                                <i class="icon-layers icons"></i> <?php echo esc_html__('Create ticket', 'wikb'); ?></a>
-                            </li>
-                          <?php } ?>
-                          <li><a href="<?php echo do_shortcode('[um_author_profile_link raw=1 user_id=' . get_current_user_id() . ']') ?>">
-                              <i class="icon-user icons"></i> <?php echo esc_html__('Profile', 'wikb'); ?></a>
-                          </li>
-                          <div class="dropdown-divider"></div>
                           <li><a href="<?php echo esc_url(wp_logout_url(home_url())); ?>">
                               <i class="icon-logout icons"></i> <?php echo esc_html__('Log Out', 'wikb'); ?></a>
                           </li>
-                        </ul>
-                      </div>
-                    </li>
+                          </ul>
+                        </div>
+                      </li>
 
-                  <?php } else { ?> <!-- logged out -->
-                    <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
-                      <?php if (is_404()) { ?>
-                        <a href="/login" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
-                      <?php } else { ?>
-                        <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
-                      <?php } ?>
-                      <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
-                    </li>
-                  <?php } ?>
+                    <?php } else { ?> <!-- logged out -->
+                      <li id="nav-menu-login" class="nav-menu-account meraki-logoin">
+                        <?php if (is_404()) { ?>
+                          <a href="/login" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                        <?php } else { ?>
+                          <a href="<?php echo esc_url('#'); ?>" data-modal="modal-log-in" class="modeltheme-trigger"><?php esc_html_e('Sign In', 'wikb'); ?></a>
+                        <?php } ?>
+                        <?php $mt_login_link_page = wikb('mt_login_link_page'); ?>
+                      </li>
+                    <?php } ?>
 
-                  <li id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
-                <?php } ?> <!--  switch  -->
-            <?php } /* function exist */
+                    <li id="join-us-button" class="join-us-button"><a href="/join-us/"><?= $button ?></a> </li>
+                  <?php } ?> <!--  switch  -->
+              <?php } /* function exist */
             } else {
               echo '<p class="no-menu text-left">';
               echo esc_html__('Primary navigation menu is missing. ', 'wikb');
               echo '</p>';
             }
-            ?>
+              ?>
           </ul>
         </div>
       </div>
