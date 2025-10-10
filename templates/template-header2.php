@@ -1,5 +1,5 @@
 <?php
-if (is_user_logged_in()) {
+if (is_user_logged_in() && get_current_user_id() != 164) {
   $button = 'Upgrade';
 } else {
   $button = 'Join Us';
