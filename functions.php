@@ -1392,12 +1392,12 @@ function addReadMore($text, $ID, $limit = 250)
     }
 }
 // On bbPress screens, request a bigger avatar (UM will generate profile_photo-160x160.png)
-add_filter( 'pre_get_avatar_data', function( $args ) {
-    if ( function_exists('is_bbpress') && is_bbpress() ) {
+add_filter('pre_get_avatar_data', function ($args) {
+    if (function_exists('is_bbpress') && is_bbpress()) {
         $args['size'] = 160; // or 192/256 if you prefer
     }
     return $args;
-}, 10 );
+}, 10);
 
 
 /**
@@ -1410,28 +1410,29 @@ add_filter( 'pre_get_avatar_data', function( $args ) {
  * @param string $title The original archive title.
  * @return string The modified archive title without a prefix.
  */
-function custom_remove_archive_title_prefix( $title ) {
-    if ( is_category() ) {
+function custom_remove_archive_title_prefix($title)
+{
+    if (is_category()) {
         // For category archives, return only the category name.
-        $title = single_cat_title( '', false );
-    } elseif ( is_tag() ) {
+        $title = single_cat_title('', false);
+    } elseif (is_tag()) {
         // For tag archives, return only the tag name.
-        $title = single_tag_title( '', false );
-    } elseif ( is_author() ) {
+        $title = single_tag_title('', false);
+    } elseif (is_author()) {
         // For author archives, return the author's display name.
         $title = '<span class="vcard">' . get_the_author() . '</span>';
-    } elseif ( is_post_type_archive() ) {
+    } elseif (is_post_type_archive()) {
         // For post type archives, return the post type's name.
-        $title = post_type_archive_title( '', false );
-    } elseif ( is_tax() ) {
+        $title = post_type_archive_title('', false);
+    } elseif (is_tax()) {
         // For custom taxonomy archives, return the term name.
-        $title = single_term_title( '', false );
+        $title = single_term_title('', false);
     }
 
     return $title;
 }
 
-add_filter( 'get_the_archive_title', 'custom_remove_archive_title_prefix' );
+add_filter('get_the_archive_title', 'custom_remove_archive_title_prefix');
 
 /**
  * Replaces the default "[...]" with "..." for excerpts.
@@ -1439,10 +1440,11 @@ add_filter( 'get_the_archive_title', 'custom_remove_archive_title_prefix' );
  * @param string $more The default excerpt more string.
  * @return string The custom excerpt more string.
  */
-function custom_excerpt_more( $more ) {
+function custom_excerpt_more($more)
+{
     return '...';
 }
-add_filter( 'excerpt_more', 'custom_excerpt_more', 99 );
+add_filter('excerpt_more', 'custom_excerpt_more', 99);
 
 
 /**
@@ -1456,22 +1458,21 @@ add_filter( 'excerpt_more', 'custom_excerpt_more', 99 );
  * @param WP_Post $post      The post object.
  * @return string The modified or original permalink URL.
  */
-function wpb_custom_post_type_link( $post_link, $post ) {
+function wpb_custom_post_type_link($post_link, $post)
+{
     // === CONFIGURATION ===
     // Replace 'your_cpt' with the slug of your custom post type.
     $custom_post_type = 'events';
-    // Replace 'custom_url_field' with the meta key of your custom field.
-    $meta_key = '_event_link';
-    // === END CONFIGURATION ===
+
 
     // Check if it's the correct post type and not a preview.
-    if ( $post->post_type === $custom_post_type && ! is_preview() ) {
+    if ($post->post_type === $custom_post_type) {
         // Get the value from the custom field.
-        $custom_url = get_post_meta( $post->ID, $meta_key, true );
+        $custom_url = 'https://portal.medilinkmidlands.com/events-webinars';
 
         // If the custom field has a value and it's a valid URL, use it.
-        if ( ! empty( $custom_url ) && filter_var( $custom_url, FILTER_VALIDATE_URL ) ) {
-            return esc_url( $custom_url );
+        if (! empty($custom_url) && filter_var($custom_url, FILTER_VALIDATE_URL)) {
+            return esc_url($custom_url);
         }
     }
 
@@ -1481,4 +1482,4 @@ function wpb_custom_post_type_link( $post_link, $post ) {
 
 // Hook the function into the 'post_type_link' filter.
 // The priority is set to 99 to ensure it runs after other potential modifications.
-add_filter( 'post_type_link', 'wpb_custom_post_type_link', 99, 2 );
+add_filter('post_type_link', 'wpb_custom_post_type_link', 99, 2);
