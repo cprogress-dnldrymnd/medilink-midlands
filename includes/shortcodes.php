@@ -1971,7 +1971,7 @@ function events_listing_search()
     <div class="event-listing-search">
         <form action="<?= get_the_permalink() ?>">
             <input type="date" name="event_date" value="<?= isset($_GET['event_date']) && $_GET['event_date'] != '' ? $_GET['event_date'] : '' ?>">
-            <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" required>
+            <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" >
             <input type="hidden" name="type" value="<?= isset($_GET['type']) && $_GET['type'] != '' ? $_GET['type'] : '' ?>" required>
             <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
