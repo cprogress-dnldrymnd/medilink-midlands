@@ -1483,3 +1483,43 @@ function wpb_custom_post_type_link($post_link, $post)
 // Hook the function into the 'post_type_link' filter.
 // The priority is set to 99 to ensure it runs after other potential modifications.
 add_filter('post_type_link', 'wpb_custom_post_type_link', 99, 2);
+
+
+
+/**
+ * Hooks into the WP Store Locator validation filter and removes
+ * errors related to empty address fields.
+ *
+ * @param array $errors An array of validation errors.
+ * @return array $errors The modified array of validation errors.
+ */
+function wpsl_remove_address_validation_errors($errors)
+{
+
+    // Define the list of address fields we want to make optional.
+    $address_fields = array(
+        'wpsl_address',
+        'wpsl_city',
+        'wpsl_zip',
+        'wpsl_country'
+    );
+
+    // Check if there are any errors.
+    if (! empty($errors)) {
+
+        // Loop through each error.
+        foreach ($errors as $key => $error) {
+
+            // If the error is for one of our address fields, remove it.
+            if (isset($error['field']) && in_array($error['field'], $address_fields, true)) {
+                unset($errors[$key]);
+            }
+        }
+    }
+
+    // Return the filtered (or unmodified) error array.
+    return $errors;
+}
+
+// Add the filter to modify the validation rules.
+add_filter('wpsl_validate_meta_box', 'wpsl_remove_address_validation_errors', 20, 1);
