@@ -2016,3 +2016,57 @@ function events_listing_search()
     return ob_get_clean();
 }
 add_shortcode('events_listing_search', 'events_listing_search');
+
+
+
+/**
+ * Get WordPress Product Options for DTX
+ *
+ * @return string HTML of WordPress plugin products
+ */
+function events_lists()
+{
+    // Define my HTML string
+    $html = '';
+
+    // Get default value e.g. https://example.com/?foo=123
+    $default_value = wpcf7dtx_get(array('key' => 'foo'));
+
+    $args = array(
+        'post_status' => 'publish',
+        'post_type'   => 'events',
+        'posts_per_page' => -1,
+    );
+    $today = date('Y-m-d');
+
+    $args['meta_query'] = array(
+        array(
+            'key'     => '_event_date',
+            'value'   => $today,
+            'compare' => '=>',
+            'type'    => 'DATE',
+        ),
+    );
+
+
+    $args['orderby'] = 'meta_value_num';
+    $args['order'] = 'ASC';
+
+    $the_query = new WP_Query($args);
+
+    // Add products to the $html string
+    if ($the_query->have_posts()) {
+        while ($the_query->have_posts()) {
+            $the_query->the_post();
+            $html .= sprintf(
+                '<option value="%s">%s</option>',
+                esc_html(get_the_title()), esc_html(get_the_title()) // Product's title is option's label
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    // Return options as HTML
+    return wp_kses($html, wpcf7dtx_get_allowed_field_properties('option'));
+}
+add_shortcode('events_lists', 'events_lists');
