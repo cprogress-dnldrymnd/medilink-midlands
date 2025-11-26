@@ -2051,6 +2051,7 @@ function events_lists()
     $args['order'] = 'ASC';
 
     $the_query = new WP_Query($args);
+    $html .= '<option value="">Select Event</option>';
 
     // Add products to the $html string
     if ($the_query->have_posts()) {
