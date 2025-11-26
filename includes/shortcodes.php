@@ -2029,15 +2029,13 @@ function events_lists()
     // Define my HTML string
     $html = '';
 
-    // Get default value e.g. https://example.com/?foo=123
-    $default_value = wpcf7dtx_get(array('key' => 'foo'));
+    $today = date('Y-m-d');
 
     $args = array(
         'post_status' => 'publish',
         'post_type'   => 'events',
         'posts_per_page' => -1,
     );
-    $today = date('Y-m-d');
 
     $args['meta_query'] = array(
         array(
