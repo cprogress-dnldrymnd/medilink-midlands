@@ -439,6 +439,71 @@ function claim_offer_form($atts)
 add_shortcode('claim_offer_form', 'claim_offer_form');
 
 
+function event_feedback_form($atts)
+{
+    ob_start();
+    extract(
+        shortcode_atts(
+            array(
+                'is_single' => 0,
+            ),
+            $atts
+        )
+    );
+    if ($is_single) {
+        $image_url = get_the_post_thumbnail_url(get_the_ID());
+    }
+?>
+    <div class="claim-offer-form">
+        <div class="row row-flex">
+            <div class="col-md-6">
+                <div class="post-box">
+                    <div class="top">
+                        <div class="image-box offer-image">
+                            <img src="<?= $image_url ?>" alt="">
+                        </div>
+                        <p class="offer-author"></p>
+                        <h3 class="offer-title"></h3>
+                        <div class="offer-details"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <?php
+                if (is_user_logged_in()) {
+                    echo do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]');
+                } else {
+                    echo '<div class="login-notice">
+                        <div class="inner">
+                            <p> Please login before you can claim an offer. </p>
+                        </div>
+                    </div>';
+                }
+                ?>
+            </div>
+            <div class="col-lg-12 supporting-documents">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function() {
+
+            jQuery("body").on("click", ".modal-window__close", function() {
+                jQuery('body').removeClass('modal-window-active');
+                console.log('xsds');
+            });
+        });
+    </script>
+<?php
+
+    return ob_get_clean();
+}
+
+add_shortcode('event_feedback_form', 'event_feedback_form');
+
+
 function member_directory()
 {
     ob_start();
