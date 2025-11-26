@@ -427,7 +427,6 @@ function claim_offer_form($atts)
 
             jQuery("body").on("click", ".modal-window__close", function() {
                 jQuery('body').removeClass('modal-window-active');
-                console.log('xsds');
             });
         });
     </script>
@@ -450,49 +449,16 @@ function event_feedback_form($atts)
             $atts
         )
     );
-    if ($is_single) {
-        $image_url = get_the_post_thumbnail_url(get_the_ID());
-    }
+
 ?>
-    <div class="claim-offer-form">
-        <div class="row row-flex">
-            <div class="col-md-6">
-                <div class="post-box">
-                    <div class="top">
-                        <div class="image-box offer-image">
-                            <img src="<?= $image_url ?>" alt="">
-                        </div>
-                        <p class="offer-author"></p>
-                        <h3 class="offer-title"></h3>
-                        <div class="offer-details"></div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-6">
-                <?php
-                if (is_user_logged_in()) {
-                    echo do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]');
-                } else {
-                    echo '<div class="login-notice">
-                        <div class="inner">
-                            <p> Please login before you can claim an offer. </p>
-                        </div>
-                    </div>';
-                }
-                ?>
-            </div>
-            <div class="col-lg-12 supporting-documents">
-
-            </div>
-        </div>
+    <div class="claim-offer-form event-feedback-form">
+        <?= do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]'); ?>
     </div>
     <script>
         jQuery(document).ready(function() {
 
             jQuery("body").on("click", ".modal-window__close", function() {
                 jQuery('body').removeClass('modal-window-active');
-                console.log('xsds');
             });
         });
     </script>
@@ -2036,7 +2002,7 @@ function events_listing_search()
     <div class="event-listing-search">
         <form action="<?= get_the_permalink() ?>">
             <input type="date" name="event_date" value="<?= isset($_GET['event_date']) && $_GET['event_date'] != '' ? $_GET['event_date'] : '' ?>">
-            <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>" >
+            <input type="text" name="event_search" placeholder="Search events and webinars" value="<?= isset($_GET['event_search']) && $_GET['event_search'] != '' ? $_GET['event_search'] : '' ?>">
             <input type="hidden" name="type" value="<?= isset($_GET['type']) && $_GET['type'] != '' ? $_GET['type'] : '' ?>" required>
             <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
