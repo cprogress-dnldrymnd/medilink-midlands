@@ -2056,11 +2056,9 @@ function events_lists()
     if ($the_query->have_posts()) {
         while ($the_query->have_posts()) {
             $the_query->the_post();
-            $html .= sprintf(
-                '<option value="%s">%s</option>',
-                esc_html(get_the_title()), esc_html(get_the_title()) // Product's title is option's label
-            );
-        }
+
+            $html .= '<option value="'. get_the_title() .'">' . get_the_title() . '</option>';
+         
         wp_reset_postdata();
     }
 
