@@ -2058,9 +2058,8 @@ function events_lists()
             $the_query->the_post();
 
             $html .= '<option value="' . get_the_title() . '">' . get_the_title() . '</option>';
-
-            wp_reset_postdata();
         }
+        wp_reset_postdata();
     }
 
     // Return options as HTML
