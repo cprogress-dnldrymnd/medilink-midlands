@@ -1952,7 +1952,7 @@ function event_grid()
     $event_link = carbon_get_the_post_meta('event_link');
     $custom_text = get_the_content();
     $event_link_text = carbon_get_the_post_meta('event_link_text');
-    $events_category = get_the_terms($post->ID, 'events_category');
+    $events_category = get_the_terms(get_the_ID(), 'events_category');
 
     $dateObject = new DateTime($event_date);
     $date = $dateObject->format('d F Y');
@@ -2041,7 +2041,7 @@ function events_lists()
         array(
             'key'     => '_event_date',
             'value'   => $today,
-            'compare' => '=>',
+            'compare' => '>=',
             'type'    => 'DATE',
         ),
     );
