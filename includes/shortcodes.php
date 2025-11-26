@@ -452,6 +452,7 @@ function event_feedback_form($atts)
 
 ?>
     <div class="claim-offer-form event-feedback-form">
+        <h3>Event Feedback Form</h3>
         <?= do_shortcode('[contact-form-7 id="6c2d6fd" title="Claim Offer Form"]'); ?>
     </div>
     <script>
