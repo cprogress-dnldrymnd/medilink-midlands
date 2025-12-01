@@ -701,7 +701,7 @@ function custom_class($classes)
         }
     }
 
-    if(UM()->access()->is_restricted(get_the_ID())) {
+    if (UM()->access()->is_restricted(get_the_ID())) {
         $classes[] = 'page-restricted';
     }
 
@@ -759,9 +759,19 @@ function action_wp_footer()
                     <?php } ?>
                 });
             </script>
-    <?php
+        <?php
         }
-    } 
+    } else {
+        ?>
+        <script>
+            jQuery(document).ready(function() {
+                $text = jQuery('.restricted-text').text();
+                jQuery('<div class="title-area-desc">' + $text + '</div>').insertAfter('.breadcrumb');
+                jQuery('.restricted-text').hide();
+            });
+        </script>
+    <?php
+    }
 }
 
 add_action('wp_footer', 'action_wp_footer');
