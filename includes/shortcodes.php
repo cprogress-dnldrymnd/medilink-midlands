@@ -1254,7 +1254,7 @@ function join_us_v2()
             drop_shadow_width();
         });
 
-        jQuery(window).resize(function() {
+        jQuery(document).resize(function() {
             drop_shadow_width()
         });
 
