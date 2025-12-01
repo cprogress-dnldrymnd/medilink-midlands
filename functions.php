@@ -729,7 +729,7 @@ function custom_class($classes)
 
 function action_wp_footer()
 {
-    if (UM()->access()->is_restricted(get_the_ID())) {
+    if (!UM()->access()->is_restricted(get_the_ID())) {
         $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
         $title_area_button_text = get_post_meta(get_the_ID(), 'title_area_button_text', true);
         $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
