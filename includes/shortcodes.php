@@ -716,7 +716,7 @@ function join_us_v2()
     $whtc_title = get_term_by('term_id', 199, 'packages_category')->name;
 
 ?>
-    <div class="join-us-v2" style="--count: <?= count($packages) + 1 ?>">
+    <div class="join-us-v2" style="--count: <?= count($packages)  ?>">
         <table>
             <thead>
                 <tr class="top-row">
