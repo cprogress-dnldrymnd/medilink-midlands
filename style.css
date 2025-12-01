@@ -1440,7 +1440,7 @@ a {
     padding: 25px 15px; }
   .join-us-v2 .package-title-th {
     padding: 0 !important;
-    width: 16%;
+    width: calc(80% / var(--count));
     vertical-align: top;
     background-color: #fcfcfc !important; }
     .join-us-v2 .package-title-th .package-title-holder,

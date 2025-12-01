@@ -1828,7 +1828,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
 
     .package-title-th {
         padding: 0 !important;
-        width: 16%;
+        width: calc(80% / var(--count));
         vertical-align: top;
         background-color: #fcfcfc !important;
 
