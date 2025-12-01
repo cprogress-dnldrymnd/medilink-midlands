@@ -701,6 +701,10 @@ function custom_class($classes)
         }
     }
 
+    if(UM()->access()->is_restricted(get_the_ID())) {
+        $classes[] = 'page-restricted';
+    }
+
     $user = wp_get_current_user();
 
     // Check if the user is logged in and has a role.
@@ -757,7 +761,7 @@ function action_wp_footer()
             </script>
     <?php
         }
-    }
+    } 
 }
 
 add_action('wp_footer', 'action_wp_footer');
