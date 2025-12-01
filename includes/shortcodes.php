@@ -1260,7 +1260,7 @@ function join_us_v2()
                 // Use $(this).outerWidth(true) to include margins.
                 totalWidth += jQuery(this).outerWidth();
             });
-            jQuery('.join-us-v2').css('--drop-shadow-width', $totalWidth + 'px');
+            jQuery('.join-us-v2').css('--drop-shadow-width', totalWidth + 'px');
         });
     </script>
     <?php
