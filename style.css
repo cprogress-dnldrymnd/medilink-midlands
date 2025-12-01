@@ -1404,7 +1404,7 @@ a {
   .join-us-v2:before {
     content: "";
     position: absolute;
-    width: calc(80% + 1px);
+    width: calc(86% + 1px);
     right: 0;
     top: 0;
     bottom: 0;
