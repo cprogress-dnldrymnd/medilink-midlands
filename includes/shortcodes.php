@@ -944,11 +944,11 @@ function join_us_v2()
                             }
 
 
-                            if (has_term($patron->slug, $taxonomy, $package->ID)) {
+                            if (has_term($wht->slug, $taxonomy, $package->ID)) {
                                 $class = 'tick-active';
                             }
-                            if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
-                                $text = $taxonomy_terms_custom_text_array[$patron->slug];
+                            if (isset($taxonomy_terms_custom_text_array[$wht->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$wht->slug];
                                 $class = '';
                             } else {
                                 $text = '<span></span>';
