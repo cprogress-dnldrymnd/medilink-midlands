@@ -700,7 +700,7 @@ function join_us_v2()
         'order'      => 'ASC',
     ));
 
-     $whtc = get_terms(array(
+    $whtc = get_terms(array(
         'taxonomy'   => $taxonomy,
         'hide_empty' => false,
         'parent'     => 199,
@@ -920,7 +920,7 @@ function join_us_v2()
                 <!-- end of patrons-->
 
 
- <!-- patrons -->
+                <!-- patrons -->
                 <tr>
                     <td class="title-data" colspan="<?= count($packages) + 1 ?>">
                         <?= $whtc_title ?>
@@ -1249,373 +1249,25 @@ function join_us_v2()
         </div>
 
     </div>
+    <script>
+        jQuery(document).ready(function() {
+            var totalWidth = 0;
+
+            // Iterate over each element with the class .package-title-th
+            jQuery('.package-title-th').each(function() {
+                // $(this).outerWidth() includes padding and borders. 
+                // Use $(this).width() if you only want the content width.
+                // Use $(this).outerWidth(true) to include margins.
+                totalWidth += jQuery(this).outerWidth();
+            });
+            jQuery('.join-us-v2').css('--drop-shadow-width', $totalWidth + 'px');
+        });
+    </script>
     <?php
     return ob_get_clean();
 }
 add_shortcode('join_us_v2', 'join_us_v2');
 
-function join_us_v3()
-{
-    if (current_user_can('administrator')) {
-        ob_start();
-
-        $taxonomy = 'packages_category';
-        $packages = get_posts(array(
-            'post_type'   => 'packages',
-            'numberposts' => -1,
-        ));
-        $packages_category = get_terms(array(
-            'taxonomy'   => $taxonomy,
-            'hide_empty' => false,
-            'parent'     => 0,
-            'order'      => 'ASC',
-        ));
-
-
-
-    ?>
-        <div class="join-us-v2">
-            <table>
-                <thead>
-                    <tr class="top-row">
-                        <th style="width: 20%" class="no-border no-bg">
-
-                        </th>
-                        <?php foreach ($packages as $package) { ?>
-                            <?php
-                            $price = carbon_get_post_meta($package->ID, 'price');
-                            ?>
-                            <th class="text-center package-title-th">
-                                <div class="package-title-holder">
-                                    <?= $package->post_title ?>
-                                </div>
-                                <div class="price">
-                                    <div class="price-text">
-                                        <?= $price ?>
-                                    </div>
-                                    <div class="per">
-                                        Annually
-                                    </div>
-                                    <div class="text-center modeltheme_button wow bounce">
-                                        <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET
-                                            STARTED</a>
-                                    </div>
-                                </div>
-                                <div class="excerpt">
-                                    <?= $package->post_excerpt ?>
-                                </div>
-                            </th>
-                        <?php } ?>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($packages_category as $package_category) { ?>
-                        <?php
-                        $package_category_subcategories = get_terms(array(
-                            'taxonomy'   => $taxonomy,
-                            'hide_empty' => false,
-                            'parent'     => $package_category->term_id,
-                            'order'      => 'ASC',
-
-                        ));
-                        ?>
-
-                        <!-- benefits-->
-                        <tr class="top-left-first">
-                            <td class="title-data"
-                                colspan="<?= $package_category->slug == 'marketing' ? '' : count($packages) + 1 ?>">
-                                <?= $package_category->name ?>
-                            </td>
-                            <?php if ($package_category->slug == 'marketing') { ?>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $marketing_level = cb_value($package->ID, 'marketing_level');
-                                    $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
-                                    if ($marketing_level_custom_text) {
-                                        $marketing_text = $marketing_level_custom_text;
-                                    } else {
-                                        $marketing_text = $marketing_level;
-                                    }
-                                    ?>
-                                    <td class="text-center bg-orange">
-                                        <span><?= $marketing_text ?></span>
-                                    </td>
-                                <?php } ?>
-                            <?php } ?>
-                        </tr>
-
-                        <?php foreach ($package_category_subcategories as $subcategory) { ?>
-                            <tr>
-                                <td>
-                                    <?= $subcategory->name ?>
-                                </td>
-                                <?php foreach ($packages as $package) { ?>
-                                    <?php
-                                    $class = '';
-                                    $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-                                    $taxonomy_terms_custom_text_array = [];
-                                    foreach ($taxonomy_terms_custom_text as $custom_text) {
-                                        $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
-                                    }
-
-                                    if (has_term($subcategory->slug, $taxonomy, $package->ID)) {
-                                        $class = 'tick-active';
-                                    }
-                                    if (isset($taxonomy_terms_custom_text_array[$subcategory->slug])) {
-                                        $text = $taxonomy_terms_custom_text_array[$subcategory->slug];
-                                        $class = '';
-                                    } else {
-                                        $text = '<span></span>';
-                                    }
-                                    ?>
-                                    <td class="tick <?= $class ?>">
-                                        <?= $text ?>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                        <?php } ?>
-
-                    <?php } ?>
-
-
-
-
-
-                </tbody>
-            </table>
-        </div>
-        <div class="join-us-mobile">
-            <div class="package-mobile-holder">
-                <?php foreach ($packages as $package) { ?>
-                    <?php
-                    $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
-                    $taxonomy_terms_custom_text_array = [];
-                    foreach ($taxonomy_terms_custom_text as $custom_text) {
-                        $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
-                    }
-                    $price = carbon_get_post_meta($package->ID, 'price');
-
-                    ?>
-                    <div class="package-mobile-item" id="package-mobile-<?= $package->ID ?>">
-                        <div class="package-title-price">
-                            <div class="package-title">
-                                <?= $package->post_title ?>
-                            </div>
-                            <div class="price">
-                                <div class="price-text">
-                                    <?= $price ?>
-                                </div>
-                                <div class="per">
-                                    Annually
-                                </div>
-                            </div>
-                            <div class="excerpt">
-                                <?= $package->post_excerpt ?>
-                            </div>
-                            <div class="text-center modeltheme_button wow bounce">
-                                <a href="/online-membership-form/" class="button-winona button-green btn btn-sm">GET STARTED</a>
-                            </div>
-                        </div>
-                        <?php $term_val = ''; ?>
-                        <div class="features-mobile-holder">
-                            <div class="feature feature-benefits">
-                                <div class="feature-title">
-                                    <?= $benefits_title ?>
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php foreach ($packages_benefits as $benefits) { ?>
-                                        <?php
-
-                                        if (isset($taxonomy_terms_custom_text_array[$benefits->slug])) {
-                                            $text = $taxonomy_terms_custom_text_array[$benefits->slug];
-                                        } else {
-                                            $text = false;
-                                        }
-
-                                        if ($text && $text != '&nbsp;') {
-                                            $name = $benefits->name;
-                                            echo "<li><span><strong>$name: </strong>$text</li>";
-                                            $term_val .= 'has_term';
-                                        } else {
-                                            if (has_term($benefits->slug, $taxonomy, $package->ID)) {
-                                                $text = $benefits->name;
-                                                $term_val .= 'has_term';
-                                                echo "<li>$text</li>";
-                                            }
-                                        }
-                                        if (!str_contains($term_val, 'has_term')) {
-                                            echo '<style> #package-mobile-' . $package->ID . ' .feature-benefits { display: none } </style>';
-                                        }
-                                        ?>
-                                    <?php } ?>
-                                </ul>
-                            </div>
-                            <?php $term_val = ''; ?>
-                            <div class="feature feature-member-only">
-                                <div class="feature-title">
-                                    <?= $members_only_title ?>
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php foreach ($packages_members_only as $members_only) { ?>
-                                        <?php
-
-                                        if (isset($taxonomy_terms_custom_text_array[$members_only->slug])) {
-                                            $text = $taxonomy_terms_custom_text_array[$members_only->slug];
-                                        } else {
-                                            $text = false;
-                                        }
-
-                                        if ($text && $text != '&nbsp;') {
-                                            $name = $members_only->name;
-                                            echo "<li><span><strong>$name: </strong>$text</li>";
-                                            $term_val .= 'has_term';
-                                        } else {
-                                            if (has_term($members_only->slug, $taxonomy, $package->ID)) {
-                                                $text = $members_only->name;
-                                                echo "<li>$text</li>";
-                                            }
-                                        }
-
-                                        ?>
-                                    <?php } ?>
-                                    <?php
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-member-only { display: none } </style>';
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                            <?php $term_val = ''; ?>
-                            <div class="feature feature-patrons">
-                                <div class="feature-title">
-                                    &nbsp;
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php foreach ($patrons as $patron) { ?>
-                                        <?php
-                                        if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
-                                            $text = $taxonomy_terms_custom_text_array[$patron->slug];
-                                        } else {
-                                            $text = false;
-                                        }
-
-                                        if ($text && $text != '&nbsp;') {
-                                            $name = $patron->name;
-                                            echo "<li><span><strong>$name: </strong>$text</li>";
-                                            $term_val .= 'has_term';
-                                        } else {
-                                            if (has_term($patron->slug, $taxonomy, $package->ID)) {
-                                                $text = $patron->name;
-                                                $term_val .= 'has_term';
-                                                echo "<li>$text</li>";
-                                            }
-                                        }
-                                        ?>
-                                    <?php } ?>
-                                    <?php
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-patrons { display: none } </style>';
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                            <?php $term_val = ''; ?>
-
-                            <div class="feature feature-discounts">
-
-                                <div class="feature-title">
-                                    <?= $discounts_title ?>
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php foreach ($discounts as $discount) { ?>
-                                        <?php
-                                        if (isset($taxonomy_terms_custom_text_array[$discount->slug])) {
-                                            $text = $taxonomy_terms_custom_text_array[$discount->slug];
-                                        } else {
-                                            $text = false;
-                                        }
-
-                                        if ($text && $text != '&nbsp;') {
-                                            $name = $discount->name;
-                                            echo "<li><span><strong>$name: </strong>$text</li>";
-                                            $term_val .= 'has_term';
-                                        } else {
-                                            if (has_term($discount->slug, $taxonomy, $package->ID)) {
-                                                $text = $discount->name;
-                                                $term_val .= 'has_term';
-                                                echo "<li>$text</li>";
-                                            }
-                                        }
-                                        ?>
-                                    <?php } ?>
-                                    <?php
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-discounts { display: none } </style>';
-                                    }
-                                    ?>
-                                    <!-- end of Discounts-->
-                                </ul>
-                            </div>
-
-                            <?php $term_val = ''; ?>
-
-                            <?php
-                            $marketing_level = cb_value($package->ID, 'marketing_level');
-                            $marketing_level = cb_value($package->ID, 'marketing_level');
-                            $marketing_level_custom_text = cb_value($package->ID, 'marketing_level_custom_text');
-                            if ($marketing_level_custom_text) {
-                                $marketing_text = $marketing_level_custom_text;
-                            } else {
-                                $marketing_text = $marketing_level;
-                            }
-                            ?>
-                            <div class="feature feature-marketing">
-                                <div class="feature-title">
-                                    <?= $marketing_title ?>: <?= $marketing_text ?>
-                                </div>
-                                <ul class="checklist-ul">
-                                    <?php foreach ($packages_marketing as $marketing) { ?>
-                                        <?php
-
-                                        if (isset($taxonomy_terms_custom_text_array[$marketing->slug])) {
-                                            $text = $taxonomy_terms_custom_text_array[$marketing->slug];
-                                        } else {
-                                            $text = false;
-                                        }
-
-                                        if ($text && $text != '&nbsp;') {
-                                            $name = $marketing->name;
-                                            echo "<li><span><strong>$name: </strong>$text</span></li>";
-                                            $term_val .= 'has_term';
-                                        } else {
-                                            if (has_term($marketing->slug, $taxonomy, $package->ID)) {
-                                                $text = $marketing->name;
-                                                $term_val .= 'has_term';
-                                                echo "<li>$text</li>";
-                                            }
-                                        }
-
-                                        ?>
-                                    <?php } ?>
-
-                                    <?php
-                                    if (!str_contains($term_val, 'has_term')) {
-                                        echo '<style> #package-mobile-' . $package->ID . ' .feature-marketing { display: none } </style>';
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-
-        </div>
-        <?php
-        return ob_get_clean();
-    }
-}
-add_shortcode('join_us_v3', 'join_us_v3');
 
 function user_posts()
 {
@@ -1740,7 +1392,7 @@ function user_directory()
                 $website_url = get_user_meta(um_user('ID'), 'website_url', true);
                 $email = um_user('user_email');
                 $organisation_description = get_user_meta(um_user('ID'), 'organisation_description', true);
-        ?>
+    ?>
                 <form method="GET" class="form-style-new">
                     <input type="hidden" name="profiletab" value="directory">
                     <input type="hidden" name="submitted" value="true">
