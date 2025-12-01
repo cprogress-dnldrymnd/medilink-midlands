@@ -729,32 +729,34 @@ function custom_class($classes)
 
 function action_wp_footer()
 {
-    $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
-    $title_area_button_text = get_post_meta(get_the_ID(), 'title_area_button_text', true);
-    $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
+    if (UM()->access()->is_restricted($post_id)) {
+        $title_area_description = get_post_meta(get_the_ID(), 'title_area_description', true);
+        $title_area_button_text = get_post_meta(get_the_ID(), 'title_area_button_text', true);
+        $title_area_button_link = get_post_meta(get_the_ID(), 'title_area_button_link', true);
 
-    $title_area_button_text_2 = get_post_meta(get_the_ID(), 'title_area_button_text_2', true);
-    $title_area_button_link_2 = get_post_meta(get_the_ID(), 'title_area_button_link_2', true);
-    if ($title_area_description || $title_area_button_text) { ?>
-        <script>
-            jQuery(document).ready(function() {
-                <?php if ($title_area_description) { ?>
-                    jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
-                <?php } ?>
-                <?php if ($title_area_button_text) { ?>
-                    jQuery('<div class="title-area-buttons modeltheme_button"> <div class="modeltheme_button "> <a href="<?= $title_area_button_link ?>" class="button-winona button-green btn btn-sm"> <?= $title_area_button_text ?> </a> </div></div>').insertAfter('.breadcrumb');
-                <?php } ?>
-                <?php if ($title_area_button_text_2) { ?>
-                    if (jQuery('.title-area-buttons').length > 0) {
-                        jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').appendTo('.title-area-buttons');
-                    } else {
-                        jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').insertAfter('.breadcrumb');
-                    }
+        $title_area_button_text_2 = get_post_meta(get_the_ID(), 'title_area_button_text_2', true);
+        $title_area_button_link_2 = get_post_meta(get_the_ID(), 'title_area_button_link_2', true);
+        if ($title_area_description || $title_area_button_text) { ?>
+            <script>
+                jQuery(document).ready(function() {
+                    <?php if ($title_area_description) { ?>
+                        jQuery('<div class="title-area-desc"><?= $title_area_description ?></div>').insertAfter('.breadcrumb');
+                    <?php } ?>
+                    <?php if ($title_area_button_text) { ?>
+                        jQuery('<div class="title-area-buttons modeltheme_button"> <div class="modeltheme_button "> <a href="<?= $title_area_button_link ?>" class="button-winona button-green btn btn-sm"> <?= $title_area_button_text ?> </a> </div></div>').insertAfter('.breadcrumb');
+                    <?php } ?>
+                    <?php if ($title_area_button_text_2) { ?>
+                        if (jQuery('.title-area-buttons').length > 0) {
+                            jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').appendTo('.title-area-buttons');
+                        } else {
+                            jQuery('<div class="modeltheme_button btn-bordered"> <a href="<?= $title_area_button_link_2 ?>" class="button-winona  btn btn-sm"> <?= $title_area_button_text_2 ?> </a> </div>').insertAfter('.breadcrumb');
+                        }
 
-                <?php } ?>
-            });
-        </script>
+                    <?php } ?>
+                });
+            </script>
     <?php
+        }
     }
 }
 
@@ -1483,5 +1485,3 @@ function wpb_custom_post_type_link($post_link, $post)
 // Hook the function into the 'post_type_link' filter.
 // The priority is set to 99 to ensure it runs after other potential modifications.
 add_filter('post_type_link', 'wpb_custom_post_type_link', 99, 2);
-
-
