@@ -700,11 +700,20 @@ function join_us_v2()
         'order'      => 'ASC',
     ));
 
+     $whtc = get_terms(array(
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false,
+        'parent'     => 199,
+        'order'      => 'ASC',
+    ));
+
+
     $benefits_title = get_term_by('term_id', 113, 'packages_category')->name;
     $members_only_title = get_term_by('term_id', 187, 'packages_category')->name;
     $discounts_title = get_term_by('term_id', 172, 'packages_category')->name;
     $marketing_title = get_term_by('term_id', 134, 'packages_category')->name;
     $patron_title = get_term_by('term_id', 164, 'packages_category')->name;
+    $whtc_title = get_term_by('term_id', 199, 'packages_category')->name;
 
 ?>
     <div class="join-us-v2">
@@ -911,7 +920,48 @@ function join_us_v2()
                 <!-- end of patrons-->
 
 
+ <!-- patrons -->
+                <tr>
+                    <td class="title-data" colspan="<?= count($packages) + 1 ?>">
+                        <?= $whtc_title ?>
+                    </td>
+                </tr>
 
+
+                <?php foreach ($whtc as $wht) { ?>
+                    <tr>
+                        <td>
+                            <?= $wht->name ?>
+                        </td>
+                        <?php foreach ($packages as $package) { ?>
+                            <?php
+                            $class = '';
+
+                            $taxonomy_terms_custom_text = carbon_get_post_meta($package->ID, 'taxonomy_terms_custom_text');
+                            $taxonomy_terms_custom_text_array = [];
+                            foreach ($taxonomy_terms_custom_text as $custom_text) {
+                                $taxonomy_terms_custom_text_array[$custom_text['term_slug']] = $custom_text['custom_text'];
+                            }
+
+
+                            if (has_term($patron->slug, $taxonomy, $package->ID)) {
+                                $class = 'tick-active';
+                            }
+                            if (isset($taxonomy_terms_custom_text_array[$patron->slug])) {
+                                $text = $taxonomy_terms_custom_text_array[$patron->slug];
+                                $class = '';
+                            } else {
+                                $text = '<span></span>';
+                            }
+                            ?>
+                            <td class="tick <?= $class ?>">
+                                <?= $text ?>
+                            </td>
+                        <?php } ?>
+                    </tr>
+                <?php } ?>
+
+                <!-- end of whtc -->
 
 
                 <!-- marketing-->
