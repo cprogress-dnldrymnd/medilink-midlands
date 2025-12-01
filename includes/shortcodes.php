@@ -1251,17 +1251,20 @@ function join_us_v2()
     </div>
     <script>
         jQuery(document).ready(function() {
-            var totalWidth = 0;
+            drop_shadow_width();
+        });
 
-            // Iterate over each element with the class .package-title-th
+        jQuery(window).resize(function() {
+            drop_shadow_width()
+        });
+
+        function drop_shadow_width() {
+            var totalWidth = 0;
             jQuery('.package-title-th').each(function() {
-                // $(this).outerWidth() includes padding and borders. 
-                // Use $(this).width() if you only want the content width.
-                // Use $(this).outerWidth(true) to include margins.
                 totalWidth += jQuery(this).outerWidth();
             });
             jQuery('.join-us-v2').css('--drop-shadow-width', totalWidth + 'px');
-        });
+        }
     </script>
     <?php
     return ob_get_clean();
