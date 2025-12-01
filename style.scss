@@ -1765,7 +1765,7 @@ p.woocommerce-LostPassword.lost_password.lost_password a {
     &:before {
         content: "";
         position: absolute;
-        width: var(--drop-shadow-width);
+        width: calc(var(--drop-shadow-width) + 1px);
         right: 0;
         top: 0;
         bottom: 0;
